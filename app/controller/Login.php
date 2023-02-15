@@ -15,7 +15,7 @@ class Login
             if ($row) {
                 if ($row->password == md5($_POST['password'])) {
                     $_SESSION['USER'] = $row;
-                    redirect('seller');
+                    redirect('selling');
                 }
             }
             $data['errors'] = $user->errors;
