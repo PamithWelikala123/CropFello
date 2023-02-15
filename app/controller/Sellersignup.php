@@ -15,7 +15,7 @@ class Sellersignup{
       $ran_id = rand(time(), 100000000);
        $status = "Active now";
        $_POST['password'] = md5($_POST['password']);
-        $_POST['seller'] = 1;
+       // $_POST['seller'] = 1;
         $user->insert($_POST);
 
         redirect('login');
