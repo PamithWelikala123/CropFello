@@ -1,0 +1,470 @@
+* {
+   
+  padding: 0%;
+  margin: 0%;
+  font-family: Poppins;
+  
+}
+
+hr{
+  margin: 10% 5%;
+}
+
+h1{
+  font-weight: Medium;
+}
+
+
+h4{
+  font-weight: 500;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 21% 79%;
+  grid-template-rows: 15% 40% 45% ;
+  grid-template-areas:
+  "logo topnav"
+  "menu main"
+  "message main"
+  ;
+  height: 100vh;
+  }
+
+.topnav{
+  grid-area: topnav;
+  background-color:#EBF3E9;
+}  
+
+.main{
+  grid-area: main;
+  /* background-color: rgb(240, 191, 191); */
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows:30% 30% 40% ;
+  grid-template-areas:
+  "dp account-details"
+  "about about"
+  "shop shop"
+  ;
+margin-top: 10px;
+  padding-top: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+  /* padding-right: 5%; */
+}  
+
+.dp{
+
+  grid-area: dp;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dp img{
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #4DEA25;
+  width: 50%;
+}
+
+.account-details{
+  /* background-color: rgb(222, 250, 215); */
+  grid-area: account-details;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows:40% 30% 30% ;
+  grid-template-areas: 
+  "name likes"
+  "empty strike"
+  "contact messages";
+}
+
+.name{
+  grid-area: name;
+  /* background-color: #EBF3E9; */
+  /* padding-top: 5%; */
+  display: flex;
+  align-items: center;
+}
+
+.likes{
+  grid-area: likes;
+  /* background-color: #f4cb8c; */
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.empty{
+  grid-area: empty;
+  /* background-color: #96e2f1; */
+}
+.strike{
+  grid-area: strike;
+  /* background-color: #cfa7f6; */
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.strike button{
+ 
+  color: #4DEA25;
+  border: 2px solid #4DEA25;
+  background-color: white;
+  border-radius: 10%;
+  padding: 5%;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+
+.strike img{
+  width: 30%;
+}
+
+
+.messages button{
+  background-color: #4DEA25;
+  border-radius: 10%;
+  padding: 5%;
+  font-weight: 600;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  transition-duration: 0.4s;
+
+}
+
+.messages button:hover {
+  background-color: #000000;
+  color: #4DEA25;
+
+
+}
+
+.contact{
+  grid-area: contact;
+  /* background-color: #f6a7e0; */
+}
+.messages{
+  grid-area: messages;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+
+.about{
+  grid-area: about;
+  padding: 5%;
+}
+
+.about p{
+  opacity: 70%;
+}
+
+.shop{
+  grid-area: shop;
+}
+
+
+
+
+.logo1{
+  max-width: 70%;
+  height: auto;
+  margin-top: 5%;
+  margin-left: 10%;
+  position:sticky;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.logo{
+  grid-area: logo;
+  background-color: #EBF3E9;
+}
+
+.menu{
+  grid-area: menu;
+  background-color: #EBF3E9;
+}
+
+.message{
+  grid-area: message;
+  background-color: #EBF3E9;
+}
+
+.Menu1{
+  position: absolute;
+  width: 40px;
+  height: 23px;
+  left: 1%;
+  top: 20%;
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 250;
+  font-size: 15px;
+  line-height: 22px;
+  /* identical to box height */
+  
+  
+  color: #000000;
+}
+
+.Feed{
+  position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 185px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+
+  border-style: solid;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: bottom;
+  
+  
+  color: #000000;
+}
+
+.Feed:hover{
+  background: rgba(235, 243, 233, 0.4);
+  
+}
+
+
+.Feed1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 55px;
+  top: 194px;
+
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+}
+
+
+.Bidding{
+  position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 240px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+
+  border-style: none;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: bottom;
+  
+  
+  color: #000000;
+}
+
+.Bidding:hover{
+  background: #E5F2DB;
+  
+}
+
+.Bidding1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 55px;
+  top: 250px;
+
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+}
+
+
+.Wishlist{
+  position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 296px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+
+  border-style: none;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: bottom;
+  
+  
+  color: #000000;
+}
+
+.Wishlist:hover{
+  background: #E5F2DB;
+  
+}
+
+.Wishlist1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 55px;
+  top: 306px;
+}
+
+
+.Requests{
+  position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 350px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+
+  border-style: none;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: bottom;
+  
+  
+  color: #000000;
+}
+
+.Requests:hover{
+  background: #E5F2DB;
+  
+}
+
+.Requests1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 55px;
+  top: 361px;
+}
+
+.Message1{
+  position: absolute;
+  width: 40px;
+  height: 23px;
+  left: 1%;
+  top: 60%;
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 250;
+  font-size: 15px;
+  line-height: 22px;
+  /* identical to box height */
+  
+  
+  color: #000000;
+}
+
+.message-bar{
+  position: absolute;
+  left: 3%;
+  top: 65%;
+  width: 180px;
+}
+  
+
+
+.Search{
+  border-style: none;
+  position: absolute;
+  width: 540px;
+  height: 52px;
+  left: 548px;
+  top: 25px;
+  border-radius: 10px;
+  border-color:rgba(235, 243, 233, 0.4);
+  padding-left: 38px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  
+  color: rgba(29, 87, 14, 0.4);
+  }
+  
+  .Search1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 36.5%;
+  top: 6%;
+  }  
+
+
+.bell{
+border-style: none;
+cursor: pointer;
+opacity: 0.8;
+position: absolute;
+width: 44px;
+height: 44px;
+left: 85%;
+top: 5%;
+}
+
+.bell:hover{
+  opacity: 0.5;
+}
+
+.active{
+  position: absolute;
+  left: 86.5%;
+  top:6%;
+  }
+
+  .profile{
+    border-style: none;
+   cursor: pointer;
+   opacity: 0.8;
+   position: absolute;
+   width: 44px;
+   height: 44px;
+   left: 93%;
+   top: 5%;
+     }

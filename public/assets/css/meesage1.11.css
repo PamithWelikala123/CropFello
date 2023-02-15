@@ -1,0 +1,61 @@
+.frame{
+  /* display: flex; */
+  height: 40%;
+  margin-top: 6%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  min-height: 500px;
+  position: relative;
+  border-radius: 10px;
+  /* height: 50%; */
+  border: 1px solid gray;
+}
+
+.divide{
+  display:grid;
+  grid-template-columns: 30% 70%;
+}
+
+.chat{
+  display: grid;
+  display:grid;
+  grid-template-rows: 20% 60% 20%;
+
+}
+
+.contact-1st-row{
+  display: block;
+}
+
+.contact-search{
+display: block;
+}
+
+.contact-contact{
+  display: inline-block;
+}
+
+.contact{
+  
+  background-color: pink;
+  display: grid;
+  grid-template-rows: 20% 20% 60%;
+  
+}
+
+.chat-info{
+  background-color: black;
+
+}
+
+.chat-chat{
+  background: rgba(235, 243, 233, 0.4);
+}
+
+.chat-message{
+  background-color: black;
+   position: relative;
+  bottom: 0;
+  left: 0;
+}

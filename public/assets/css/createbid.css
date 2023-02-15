@@ -1,0 +1,451 @@
+
+body{
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  
+  }
+  .logo{
+    
+    flex: 1;
+    height: 120px;
+    display: block;
+  }
+  
+  .img1{
+    height: 50%;
+    display:inline-block;
+    margin-left: 24px;
+   margin-top: 20px;
+  }
+  .close{
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 1280px;
+    cursor: pointer;
+  }
+  
+  .form1{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    flex: 1;
+  }
+  
+  
+  
+  .right{
+  
+  
+  
+  color: rgba(52, 149, 27, 0.4);
+  }
+  
+  
+  
+  .item_id1{
+    position: absolute;
+    margin-left: 42px;
+    margin-top:20px;
+    color: #000000;
+  }
+  
+  .item_id2{
+    position: absolute;
+    margin-left: 92px;
+    margin-top:20px;
+    color: #4DEA25;
+  
+  }
+  
+  .item_id{
+    display: inline-block;
+  width: 277px;
+  height: 40px;
+  margin-left: 42px;
+  margin-top:50px;
+  background-color:white;
+  border-color: black;
+  border-radius: 10px;
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height */
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #4DEA25
+  
+  }
+  
+  .crop_type{
+    display: inline-block;
+    width: 277px;
+    height: 40px;
+    margin-left: 30px;
+    margin-top:50px;
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+    padding-left: 5px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+  /* identical to box height */
+  
+  
+  color:#4DEA25;
+  }
+  
+  .exp1{
+    position: absolute;
+    margin-left: -600px;
+    margin-top:115px;
+    color: #000000;
+  }
+  .exp2{
+    position: absolute;
+    margin-left: -562px;
+    margin-top:115px;
+    color:#4DEA25;
+  }
+  
+  .exp{
+  
+    display: block;
+    width: 277px;
+    height: 40px;
+    margin-left: 42px;
+    margin-top:50px;
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+  /* identical to box height */
+  
+  
+  color:#4DEA25;
+  
+  }
+  .bid-end-date1{
+    position: absolute;
+    margin-left: 355px;
+    margin-top:-75px;
+    color: #000000;
+  }
+
+  .bid-end-date2{
+    position: absolute;
+    margin-left: 485px;
+    margin-top:-75px;
+    color:#4DEA25;
+  }
+
+  .bid-end-date{
+    display: block;
+    width: 277px;
+    height: 40px;
+    margin-left: 355px;
+    margin-top:-45px;
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+  /* identical to box height */
+  
+  
+  color:#4DEA25;
+  }
+  
+  .unit1{
+    position: absolute;
+    margin-left: 45px;
+    margin-top:17px;
+    color: #000000;
+  }
+  
+  
+  
+  .unit{
+    display: block;
+    width: 277px;
+    height: 40px;
+    margin-left: 42px;
+    margin-top:50px;
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+  /* identical to box height */
+  
+  
+  color:#4DEA25;
+  
+  } 
+
+  .unit2{
+    position: absolute;
+    margin-left: 160px;
+    margin-top:15px;
+    color:#4DEA25;
+  }
+  .stock1{
+    position: absolute;
+    margin-left: 45px;
+    margin-top:15px;
+    color: #000000;
+  }
+  
+  .stock2{
+    position: absolute;
+    margin-left: 130px;
+    margin-top:15px;
+    color:#4DEA25;
+  }
+  
+  .stock_size{
+    display: inline-block;
+    width: 184px;
+    height: 40px;
+    margin-left: 42px;
+    margin-top:35px;
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+  }
+  .stock_size1{
+    display: inline-block;
+    width: 92px;
+    height: 45px;
+    margin-top:50px;
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+  
+  
+    color:#4DEA25;
+  }
+  
+  .dis1{
+    position: absolute;
+    margin-left: 30px;
+    margin-top:10px;
+    color: #000000;
+  }
+  
+  .dis2{
+    position: absolute;
+    margin-left: 135px;
+    margin-top:10px;
+    color:#4DEA25;
+  }
+  
+  .discount{
+    display: inline-block;
+    width: 277px;
+    height: 40px;
+    margin-left: 20px;
+    margin-top:40px;
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+  /* identical to box height */
+  
+  
+  color:#4DEA25;
+  }
+
+  
+  .address1{
+    position: absolute;
+    margin-left: -590px;
+    margin-top:100px;
+    color: #000000;
+  }
+  
+  .address2{
+    position: absolute;
+    margin-left: -500px;
+    margin-top:100px;
+    color:#4DEA25;
+  }
+  
+  .address{
+  position: absolute;
+  width: 576px;
+  height: 40px;
+  left: 50px;
+  margin-top: 130px;
+  border-radius: 10px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height */
+  
+  
+  color:#4DEA25;
+  }
+  
+  .postal{
+    position: absolute;
+    width: 277px;
+    height: 40px;
+    left: 45px;
+    margin-top: 220px;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+  
+  
+    color:#4DEA25;
+  }
+  
+  
+  .postal1{
+    position: absolute;
+    margin-left: -590px;
+    margin-top:190px;
+    color: #000000;
+  }
+  
+  
+  .postal2{
+    position: absolute;
+    margin-left: -465px;
+    margin-top:190px;
+    color: #4DEA25;
+  }
+  
+  
+  .city1{
+    position: absolute;
+    margin-left: -280px;
+    margin-top:190px;
+    color: #000000;
+  
+  }
+  
+  .city2{
+    position: absolute;
+    margin-left: -230px;
+    margin-top:190px;
+    color: #4DEA25;
+  
+  }
+  
+  .city{
+    position: absolute;
+    width: 277px;
+    height: 40px;
+    left: 350px;
+    margin-top: 220px;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    /* identical to box height */
+  
+  
+    color:#4DEA25;
+  }
+  
+  .upload1{
+    position: absolute;
+    color: #000000;
+    margin-top: 20px;
+  }
+  .upload2{
+    position: absolute;
+    color: #4DEA25;
+    margin-top: 20px;
+    margin-left: 150px;
+  }
+  
+  .upload{
+  margin-top: 60px;
+  height: 330px;
+  }
+  
+  .browse1{
+  position: absolute;
+  color: rgba(0, 0, 0, 0.3);
+  left:860px;
+  top: 380px;
+  }
+  
+  .browse{
+    position: absolute;
+    color:#000000;
+    left:1113px;
+    top: 384px;
+    background-color:NONE;
+    }
+  
+  .create{
+    width: 226px;
+    height: 50px;
+    margin-left: 370px;
+    margin-top: 60px; 
+    background-color: #000000;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    cursor: pointer;
+    /* identical to box height */
+  
+  
+    color:#4DEA25;
+  }
+  
+  .create:hover{
+    background-color:#4DEA25;
+    
+  
+  
+    color:#000000;
+  }
+
+ 
