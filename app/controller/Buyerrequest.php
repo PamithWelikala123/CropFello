@@ -8,6 +8,19 @@ class Buyerrequest
   public function index()
   {
 
+   }
+
+  public function addRequestItem(){
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+      $_POST['seller_id'] = $_SESSION['USER']->user_id;
+      $request_item->insert($_POST);
+      redirect('buyerrequest/view1');
+   
+    }
+  }
+
+  public function view1(){
+
     if ($_SESSION['USER']) {
       
       
@@ -48,20 +61,20 @@ class Buyerrequest
         $row->item_name = $row1->name;
       }
     }
-     $this->view('buyerrequest',$rows);
+     
 
-    //  if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    //    $_POST['post_id'] = $_SESSION['USER']->user_id;
-    //   $request_item->insert($_POST);
-      
-    // }
-
-
-
-
-
-    } else {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+      $_POST['seller_id'] = $_SESSION['USER']->user_id;
+     $request_item->insert($_POST);
+   
+    }
+        $this->view('buyerrequest',$rows);
+    } 
+    else {
       redirect('login');
     }
+
   }
+
+
 }

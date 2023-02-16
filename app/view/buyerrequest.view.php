@@ -28,7 +28,7 @@
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/buyerrequest/Bidding1.png">
                       <button class="Wishlist" onclick="document.location='buyerwishlist'" >Wishlist</button>
                       <img class="Wishlist1"  src="<?=ROOT?>/assets/images/buyerrequest/heart1.png">
-                      <button class="Requests" onclick="document.location='buyerrequest'">Requests</button>
+                      <button class="Requests" onclick="document.location='buyerrequest/view1'">Requests</button>
                       <img class="Requests1"  src="<?=ROOT?>/assets/images/buyerrequest/flag.png">
                     </div>
 
@@ -163,17 +163,17 @@
       <input  class="date" type="date" name="date" >
       <label class="tag8">Address</label>
       <label class="tag9">*</label>
-      <input  class="Address" type="text" name="Address" >
+      <input  class="Address" type="text" name="address" >
       <label class="tag10">Postal Code</label>
       <label class="tag11">*</label>
-      <input class="postal-code" type="text" name="postal-code" >
+      <input class="postal-code" type="text" name="postal_code" >
       <label class="tag12">City</label>
       <label class="tag13">*</label>
       <input class="city" type="text" name="city" >
       <label class="tag14">Contact Number</label>
       <label class="tag15">*</label>
       <input class="contact" type="type" name="contact" >
-			<button class="button" type="sumbit" name="submit"  onclick="document.location='buyerrequest'">Send</button>
+			<button class="button" type="sumbit" name="submit"  onclick="document.location='buyerrequest/addRequestItem'">Send</button>
 		</form>
 
 	</div>
