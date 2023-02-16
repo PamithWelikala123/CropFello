@@ -34,20 +34,20 @@ class Buyerrequest
       
        $rows = $request_item->where($arr);
        
-
+     if($rows){
 
       
        $rows = (array) $rows;
 
       foreach ($rows as $row) {
 
-      $row->first_name = $buyer->first_name;
+        $row->first_name = $buyer->first_name;
         $row->last_name = $buyer->last_name;
         $arr1['item_id'] = $row->item_id;
         $row1 = $item->first($arr1);
         $row->item_name = $row1->name;
       }
-
+    }
      $this->view('buyerrequest',$rows);
 
     //  if ($_SERVER['REQUEST_METHOD'] == "POST") {

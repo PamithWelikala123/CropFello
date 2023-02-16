@@ -49,6 +49,7 @@
 
                   <div class="Scroll-bar">
                     <img class="plus"  id="plus" src="<?=ROOT?>/assets/images/buyerrequest/plus.png">
+                    <?php if($data) :    ?>
                             <?php foreach ($data as $row) :
                                ?>
 
@@ -105,7 +106,7 @@
                                    
                           <?php endforeach; ?>
                           
- 
+                        <?php endif;?>
                           
  
                   </div>
