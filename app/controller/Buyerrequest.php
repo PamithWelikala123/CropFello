@@ -34,7 +34,7 @@ class Buyerrequest
       
        $rows = $request_item->where($arr);
        
-
+     if($rows){
 
       
        $rows = (array) $rows;
@@ -47,7 +47,7 @@ class Buyerrequest
         $row1 = $item->first($arr1);
         $row->item_name = $row1->name;
       }
-
+    }
      $this->view('buyerrequest',$rows);
 
     //  if ($_SERVER['REQUEST_METHOD'] == "POST") {
