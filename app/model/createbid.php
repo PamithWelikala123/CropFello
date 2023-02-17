@@ -1,6 +1,6 @@
 <?php
 
-class item{
+class createbid{
 
 use Model;
 
