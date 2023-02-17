@@ -111,4 +111,20 @@ class bidding{
     }
 
 
+
+    public function addBiddingValue(){
+        $id=$_GET['id1'];
+        echo $id;
+        //$sellerbidding = new sellerbidding;
+
+        // if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        //                 $_POST['seller_id'] = $_SESSION['USER']->user_id;
+        //                 $sellerbidding->insert($_POST);
+
+                      //redirect('Bidding/BuyerBidding');
+        // }
+
+
+    }
+
 }
