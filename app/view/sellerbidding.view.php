@@ -22,7 +22,7 @@
                     <label class="Menu1">Menu</label>
 
                     <div> 
-                      <button class="Feed" onclick="document.location='selling'">Selling</button>
+                      <button class="Feed" onclick="document.location='../selling'">Selling</button>
                       <img class="Feed1"  src="<?=ROOT?>/assets/images/selling/feed1.png">
                       <button class="Bidding" onclick="document.location='sellerbidding'">Bidding</button>
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/selling/Bidding1.png">
@@ -46,34 +46,30 @@
                   
                   <div class="Scroll-bar">
                   <a href="createbid"><img class="plus"  src="<?=ROOT?>/assets/images/selling/plus.png"></a>
+
+
+          <?php if($data) :    ?>
+                    
+
+
+                    
+         
                  
             <div class="bid">      
-            <div class="bid1">
+              <div class="bid1">
+
+              <?php foreach ($data as $row) : ?>
                 <div class="bid2"><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div style="font-size:30px">carrot</div><div style="font-size:35px;color:#4DEA25">1KG</div><div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs.430</div>
                     <div>Nuwara Eliya</div><div></div><div style="font-size:35px">Rs.530</div>
                     <div style="color:#E43D3D">Exp: 16/10/2022</div><div></div><div style="color:#4DEA25">8 days remaining</div>
                     <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4)">Ends on: 15/10/2022</div>
                     <div></div><div></div><div><button class="btn2" id="btn2">Close Bid</button></div>
                 </div>
-                <div class="bid2"><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div style="font-size:30px">carrot</div><div style="font-size:35px;color:#4DEA25">1KG</div><div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs.430</div>
-                    <div>Nuwara Eliya</div><div></div><div style="font-size:35px">Rs.530</div>
-                    <div style="color:#E43D3D">Exp: 16/10/2022</div><div></div><div style="color:#4DEA25">8 days remaining</div>
-                    <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4)">Ends on: 15/10/2022</div>
-                    <div></div><div></div><div><button class="btn2" id="btn2">Close Bid</button></div>
-                </div>
-                <div class="bid2"><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div style="font-size:30px">carrot</div><div style="font-size:35px;color:#4DEA25">1KG</div><div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs.430</div>
-                    <div>Nuwara Eliya</div><div></div><div style="font-size:35px">Rs.530</div>
-                    <div style="color:#E43D3D">Exp: 16/10/2022</div><div></div><div style="color:#4DEA25">8 days remaining</div>
-                    <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4)">Ends on: 15/10/2022</div>
-                    <div></div><div></div><div><button class="btn2" id="btn2">Close Bid</button></div>
-                </div>
-                <div class="bid2"><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div style="font-size:30px">carrot</div><div style="font-size:35px;color:#4DEA25">1KG</div><div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs.430</div>
-                    <div>Nuwara Eliya</div><div></div><div style="font-size:35px">Rs.530</div>
-                    <div style="color:#E43D3D">Exp: 16/10/2022</div><div></div><div style="color:#4DEA25">8 days remaining</div>
-                    <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4)">Ends on: 15/10/2022</div>
-                    <div></div><div></div><div><button class="btn2" id="btn2">Close Bid</button></div>
-                </div>
+              <?php endforeach; ?>
+              </div>
             </div>
+
+            <?php endif; ?>
 </div>
 
 
