@@ -30,7 +30,10 @@ class bidding{
                         $rows = (array) $rows;
                         
                             foreach ($rows as $row) {
-                        
+                                $date1=date_create($row->bid_end_date);
+                                $date2=date_create(date("Y-m-d"));
+                                $diff=date_diff($date2,$date1);
+                                $row->remaning=$diff->format("%R%a");
                                 $arr1['item_id'] = $row->item_id;
                                 $row1 = $item->first($arr1);
                                 $row->item_name = $row1->name;
