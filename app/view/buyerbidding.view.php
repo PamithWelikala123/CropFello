@@ -54,13 +54,14 @@
 <?php foreach ($data as $row) : ?>
   <?php if(($row->seller_id)!=$_SESSION['USER']->user_id) :    ?>
 
-                        <div class="bid2"><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
+                        <div class="bid2" id="<?=$row->post_id?>" ><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
                       </div><div style="font-size:30px"><?=$row->item_name?></div><div style="font-size:35px;color:#4DEA25"><?=$row->amount?><?=$row->amount_type?></div>
                       <div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs. <?=$row->initial_price?></div>
                             <div style="margin-left:225px"><?=$row->city?></div><div></div><div style="font-size:35px">Rs. <?=$row->current_value?></div>
                             <div style="color:#E43D3D"><?=$row->exp?></div><div></div><div style="color:#4DEA25"><?=$row->remaning?> days remaining</div>
                             <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4);margin-left:225px"><?=$row->bid_end_date?></div>
-                            <div></div><div></div><div><button class="btn2" id="btn2">Bid Now</button></div>
+                            <div></div><div></div><div>
+                              <button class="btn2" id="<?=$row->post_id?>" onclick="openForm()">Bid Now</button></div>
 
                           </div>
 <?php endif; ?>
@@ -70,26 +71,53 @@
 
 <?php endif; ?>
 
+
+
+
+
+
+
+
  <div class="form-popup" id="myForm">
- <form class="" action="" method="post" enctype="multipart/form-data">
-    <h5 style="text-align: center;">Enter your bid value</h5>
+   <form class="" action="" method="post" enctype="multipart/form-data">
+            <h5 style="text-align: center;">Enter your bid value</h5>
 
-    <div class="ru">Rs.</div>
-    <div class="ru" style="left:285px">.00</div>
-    <input class="box5" type="text" placeholder="Bid value" name="email" required>
+            <div class="ru">Rs.</div>
+            <div class="ru" style="left:285px">.00</div>
+            <input class="box5" type="text" placeholder="Bid value" name="email" name="bidvalue" required >
 
-    <h5><div><button type="submit" class="btn3">Bid now</button></div></h5>
-    <button type="button" style="top:140px;width:90px;height:40px;left:420px;background:#E43D3D" class="btn3" onclick="closeForm()">Close</button>
-  </form>
+            
+            <div><button type="button" class="btn3" onclick="addvalue()">Bid now</button>
+            </div>
+            
+            <button type="button" style="top:140px;width:90px;height:40px;left:420px;background:#E43D3D" class="btn3" onclick="closeForm()">Close</button>
+      </form>
 </div>
 
-<script src="<?=ROOT?>/assets/js/bidnow.js"></script>
-<!-- <script>
-    function openForm() {
-  document.getElementById("myForm").style.display = "block";
+<!-- <script src="<?=ROOT?>/assets/js/bidnow.js"></script> -->
+<script>
+
+function addvalue(){
+const fill = document.querySelectorAll('.btn3');
+  fill.forEach(function(fill) {
+    fill.addEventListener('click', function() {
+      const id1 = this.id;
+      window.location.href = 'bidding/addBiddingValue?id1='+id1;
+    });
+  });
 }
+
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+
+}
+
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
-</script> -->
+
+
+
+</script>
