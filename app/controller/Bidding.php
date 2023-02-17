@@ -70,4 +70,45 @@ class bidding{
                     }
     }
 
+    public function BuyerBidding(){
+
+        $user = new user;
+        $postitems = new postitems;
+        $item = new item;
+        $createbid = new createbid;
+
+        $rows1=$createbid->findAll();
+
+
+        if($rows1){
+            
+                            
+            $rows1 = (array) $rows1;
+            
+                foreach ($rows1 as $row) {
+                    
+                                
+                                $date1=date_create($row->bid_end_date);
+                                $date2=date_create(date("Y-m-d"));
+                                $diff=date_diff($date2,$date1);
+                                $row->remaning=$diff->format("%R%a");
+                                $arr1['item_id'] = $row->item_id;
+                                $row1 = $item->first($arr1);
+                                $row->item_name = $row1->name;
+                    }
+                
+        }
+
+         $this->view('buyerbidding',$rows1);
+    
+    }
+
+
+    
+    public function BuyerBiddingmybid(){
+    
+            $this->view('buyerbiddingmybid');
+    }
+
+
 }
