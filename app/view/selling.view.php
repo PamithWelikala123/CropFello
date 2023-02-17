@@ -24,7 +24,7 @@
                     <div> 
                       <button class="Feed" onclick="document.location='selling'">Selling</button>
                       <img class="Feed1"  src="<?=ROOT?>/assets/images/selling/feed1.png">
-                      <button class="Bidding" onclick="document.location='sellerbidding'">Bidding</button>
+                      <button class="Bidding" onclick="document.location='Bidding/sellerbidding'">Bidding</button>
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/selling/Bidding1.png">
                       <button class="Requests" onclick="document.location='Seller_allrequest'">Requests</button>
                       <img class="Requests1"  src="<?=ROOT?>/assets/images/selling/flag.png">
