@@ -87,7 +87,7 @@
             <input class="box5" type="text" placeholder="Bid value" name="email" name="bidvalue" required >
 
             
-            <div><button type="button" class="btn3" onclick="addvalue()">Bid now</button>
+            <div><button type="button" class="btn3" onclick="changepage()">Bid now</button>
             </div>
             
             <button type="button" style="top:140px;width:90px;height:40px;left:420px;background:#E43D3D" class="btn3" onclick="closeForm()">Close</button>
@@ -95,27 +95,44 @@
 </div>
 
 <!-- <script src="<?=ROOT?>/assets/js/bidnow.js"></script> -->
+
+
 <script>
 
-function addvalue(){
-const fill = document.querySelectorAll('.btn3');
+const fill = document.querySelectorAll('.btn2');
   fill.forEach(function(fill) {
     fill.addEventListener('click', function() {
-      const id1 = this.id;
-      window.location.href = 'bidding/addBiddingValue?id1='+id1;
+       id = this.id;
+      //window.location.href = 'bidding/addBiddingValue?id1='+id1;
     });
   });
-}
+
+
+// function addvalue(){
+// const fill = document.querySelectorAll('.btn2');
+//   fill.forEach(function(fill) {
+//     fill.addEventListener('click', function() {
+//        id1 = this.id;
+//       //window.location.href = 'bidding/addBiddingValue?id1='+id1;
+//     });
+//   });
+// }
+
+
 
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
-
 }
 
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+}
+
+
+function changepage(){
+  window.location.href = 'bidding/addBiddingValue?id='+id;  
 }
 
 

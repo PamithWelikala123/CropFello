@@ -69,6 +69,7 @@ class bidding{
                 
                     }
     }
+    
 
     public function BuyerBidding(){
 
@@ -113,8 +114,11 @@ class bidding{
 
 
     public function addBiddingValue(){
-        $id=$_GET['id1'];
-        echo $id;
+        if (isset($_GET['id'])) {
+            $id1 = $_GET['id'];
+            // Use $id1 as needed
+            echo $id;
+        }
         //$sellerbidding = new sellerbidding;
 
         // if ($_SERVER['REQUEST_METHOD'] == "POST") {
