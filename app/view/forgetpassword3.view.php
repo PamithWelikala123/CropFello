@@ -35,7 +35,7 @@
                   <div>
                          <img class="logo"  src="<?=ROOT?>/assets/images/forgetpassword/logo.png">
                   </div>
-                  <img  class="img4" src="<?=ROOT?>/assets/images/editprofile/arrow-left-circle.svg" onclick="document.location='login'">
+                  <img  class="img4" src="<?=ROOT?>/assets/images/editprofile/arrow-left-circle.svg" onclick="document.location='../login'">
                   <div>
                   <form method="post">
 

@@ -114,30 +114,24 @@ class bidding{
 
 
     public function addBiddingValue(){
-        if (isset($_GET['id'])) {
-            $id1 = $_GET['id'];
-            // Use $id1 as needed
-           echo $id1;
-        }
-        
-        //  $buyerbidding = new buyerbidding;
+        $buyerbidding = new buyerbidding;
 
-        //  if ($_SERVER['REQUEST_METHOD'] == "POST") {
+         if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                        $_POST['user_id'] = $_SESSION['USER']->user_id;
+                        //echo  $_POST['user_id'];
+                        echo "<script>console.log('{$_POST['user_id']}' );</script>";
+                        //$arr['user_id']= $_POST['user_id'] ;
         //                 $_POST['user_id'] = $_SESSION['USER']->user_id;
-        //                // echo  $_POST['user_id'];
-        //                 $arr['user_id']= $_POST['user_id'] ;
-        // //                 $_POST['user_id'] = $_SESSION['USER']->user_id;
-        //                 $_POST['post_id'] = $id1;
-        //                 $arr['post_id']= $_POST['post_id'] ;
-        //                 $arr['bidvalue']= $_POST['bidvalue'] ;
-        //                $buyerbidding->insert($arr);
-        //               // $this->view('addBiddingValue');
-        //              // redirect('BuyerBidding');
+                       // echo $_POST['post_id']; 
+                        echo "<script>console.log('{$_POST['post_id']}' );</script>";
+                       //$buyerbidding->insert($arr);
+                      // $this->view('addBiddingValue');
+                      redirect('feed');
                         
-        //  }
-        //  else{
-        //     echo "Hira wela";
-        //  }
+         }
+         else{
+            echo "Hira wela";
+         }
 
 
     //}
