@@ -28,7 +28,7 @@
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/buyerrequest/Bidding1.png">
                       <button class="Wishlist" onclick="document.location='buyerwishlist'" >Wishlist</button>
                       <img class="Wishlist1"  src="<?=ROOT?>/assets/images/buyerrequest/heart1.png">
-                      <button class="Requests" onclick="document.location='buyerrequest/view1'">Requests</button>
+                      <button class="Requests" onclick="document.location='view1'">Requests</button>
                       <img class="Requests1"  src="<?=ROOT?>/assets/images/buyerrequest/flag.png">
                     </div>
 
