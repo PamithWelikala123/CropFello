@@ -22,11 +22,11 @@
                     <label class="Menu1">Menu</label>
 
                     <div> 
-                      <button class="Feed" onclick="document.location='selling'">Selling</button>
+                      <button class="Feed" onclick="document.location='../selling'">Selling</button>
                       <img class="Feed1"  src="<?=ROOT?>/assets/images/selling/feed1.png">
                       <button class="Bidding" onclick="document.location='sellerbidding'">Bidding</button>
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/selling/Bidding1.png">
-                      <button class="Requests" onclick="document.location='Seller_allrequest'">Requests</button>
+                      <button class="Requests" onclick="document.location='seller_allrequests'">Requests</button>
                       <img class="Requests1"  src="<?=ROOT?>/assets/images/selling/flag.png">
                     </div>
 
@@ -43,8 +43,8 @@
                   </div>
 
                   <div class="All-Approved">
-                      <button class="All-request" onclick="document.location='seller_allrequest'">All</button>    
-                      <button class="Approved" onclick="document.location='seller_approvedrequest'">Approved</button>
+                      <button class="All-request" onclick="document.location='seller_allrequests'">All</button>    
+                      <button class="Approved" onclick="document.location='seller_approvedrequests'">Approved</button>
                   </div>
 
                   
