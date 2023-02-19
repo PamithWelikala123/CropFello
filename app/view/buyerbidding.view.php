@@ -79,15 +79,16 @@
 
 
  <div class="form-popup" id="myForm">
-   <form class="" action="" method="post" enctype="multipart/form-data">
+   <form  method="post">
             <h5 style="text-align: center;">Enter your bid value</h5>
 
             <div class="ru">Rs.</div>
             <div class="ru" style="left:285px">.00</div>
-            <input class="box5" type="text" placeholder="Bid value" name="email" name="bidvalue" required >
-
+            <input class="box5" type="text" placeholder="Bid value"  name="bidvalue" required >
+            <!-- <input  style=" display:hidden" type="text"  name="id"  id="hidden" value=""> -->
             
-            <div><button type="button" class="btn3" onclick="changepage()">Bid now</button>
+            <div>
+              <input type="submit" class="btn3" onclick="changepage()" value="Bid now">
             </div>
             
             <button type="button" style="top:140px;width:90px;height:40px;left:420px;background:#E43D3D" class="btn3" onclick="closeForm()">Close</button>
@@ -98,31 +99,38 @@
 
 
 <script>
+//let id;
 
 const fill = document.querySelectorAll('.btn2');
   fill.forEach(function(fill) {
     fill.addEventListener('click', function() {
-       id = this.id;
+       const id = this.id;
       //window.location.href = 'bidding/addBiddingValue?id1='+id1;
     });
   });
 
 
-// function addvalue(){
-// const fill = document.querySelectorAll('.btn2');
-//   fill.forEach(function(fill) {
-//     fill.addEventListener('click', function() {
-//        id1 = this.id;
-//       //window.location.href = 'bidding/addBiddingValue?id1='+id1;
-//     });
-//   });
-// }
-
-
 
 
 function openForm() {
+
+  // const fill = document.querySelectorAll('.btn2');
+  // fill.forEach(function(fill) {
+  //   fill.addEventListener('click', function() {
+      
+  //      const id = this.id;
+  //      console.log(id);
+  //     //window.location.href = 'bidding/addBiddingValue?id1='+id1;
+  //   });
+  // });
+
+
+
   document.getElementById("myForm").style.display = "block";
+  // console.log(id);
+  // document.getElementById("hidden").value=id;
+
+
 }
 
 
@@ -132,7 +140,7 @@ function closeForm() {
 
 
 function changepage(){
-  window.location.href = 'bidding/addBiddingValue?id='+id;  
+  window.location.href = 'addBiddingValue?id='+id;  
 }
 
 
