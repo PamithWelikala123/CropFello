@@ -69,7 +69,7 @@ class bidding{
                 
                     }
     }
-    
+
 
     public function BuyerBidding(){
 
@@ -117,17 +117,30 @@ class bidding{
         if (isset($_GET['id'])) {
             $id1 = $_GET['id'];
             // Use $id1 as needed
-            echo $id;
+           echo $id1;
         }
-        //$sellerbidding = new sellerbidding;
+        
+        //  $buyerbidding = new buyerbidding;
 
-        // if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        //                 $_POST['seller_id'] = $_SESSION['USER']->user_id;
-        //                 $sellerbidding->insert($_POST);
+        //  if ($_SERVER['REQUEST_METHOD'] == "POST") {
+        //                 $_POST['user_id'] = $_SESSION['USER']->user_id;
+        //                // echo  $_POST['user_id'];
+        //                 $arr['user_id']= $_POST['user_id'] ;
+        // //                 $_POST['user_id'] = $_SESSION['USER']->user_id;
+        //                 $_POST['post_id'] = $id1;
+        //                 $arr['post_id']= $_POST['post_id'] ;
+        //                 $arr['bidvalue']= $_POST['bidvalue'] ;
+        //                $buyerbidding->insert($arr);
+        //               // $this->view('addBiddingValue');
+        //              // redirect('BuyerBidding');
+                        
+        //  }
+        //  else{
+        //     echo "Hira wela";
+        //  }
 
-                      //redirect('Bidding/BuyerBidding');
-        // }
 
+    //}
 
     }
 
