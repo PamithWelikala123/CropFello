@@ -81,9 +81,31 @@ class requests
   public function seller_allrequests(){
 
             $request_item = new request_item;
-            $row = $request_item->findAll();
-            $row = (array) $row;
-            $this->view('seller_allrequest',$row);
+            $user_requestitem = new user_requestitem;
+
+
+            $rows = $request_item->findAll();
+
+            $id=$_SESSION['USER']->user_id;
+
+
+
+            foreach ($rows as $row) {
+              $arr['user_id']=$id;
+              $arr['post_id']=$row->post_id;
+              $arr=(array)$arr;
+              $row_discard=$user_requestitem->where($arr);
+              if($row_discard){
+                $row->row_discard=1;
+              }
+              else{
+                $row->row_discard=0;
+              }
+              
+          }
+
+            $rows = (array) $rows;
+            $this->view('seller_allrequest',$rows);
 
   }
 
@@ -96,7 +118,39 @@ class requests
             $this->view('seller_approvedrequest',$row);
   }
 
-  
+
+public function approve(){
+            $id=$_GET['id'];
+            $request_item = new request_item;
+            $arr['post_id']=$id;
+            $arr=(array)$arr;
+            $row=$request_item->first($arr);
+
+            echo $row['seller_id'];
+
+}
+
+
+  public function discard(){
+          $id=$_GET['id'];
+          //echo $id;
+
+          $user_id=$_SESSION['USER']->user_id;
+          //echo $user_id;
+
+          $user_requestitem = new user_requestitem;
+
+          $arrx['user_id']=$user_id;
+          $arrx['post_id']=$id;
+          $arrx['disprove']=1;
+          $arrx=(array)$arrx;
+          $user_requestitem->insert($arrx);
+          redirect('requests/seller_allrequests');
+
+
+
+  }
+
 
 
 }

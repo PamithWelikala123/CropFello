@@ -51,9 +51,8 @@
                   <div class="Scroll-bar">
                   
                  
-                            <?php foreach ($data as $row) :
-                               ?>
-
+                            <?php foreach ($data as $row) :?>
+                            <?php if($row->row_discard==0):?>
                            <div class="posts">
 
                                 <div class="top-line1">
@@ -94,8 +93,8 @@
                                         </p>
 
 
-                                      <button class="update">Approve</button>
-                                      <button class="delete">Discard</button>
+                                      <button class="update" id="<?=$row->post_id?>" onclick="update()">Approve</button>
+                                      <button class="delete" id="<?=$row->post_id?>" onclick="discard()">Discard</button>
                                             
                                   
                                         
@@ -104,7 +103,7 @@
                                 </div>
 
                             </div> 
-                                   
+                          <?php endif; ?>         
                           <?php endforeach; ?>
                           
                   
@@ -120,5 +119,40 @@
 
 
   </body>
+
+  <script>
+
+
+
+function update(){
+  
+
+  const images = document.querySelectorAll('.update');
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      window.location.href = 'approve?id='+id;
+    });
+  });
+
+}
+
+
+function discard(){
+
+const images = document.querySelectorAll('.delete');
+images.forEach(function(image) {
+  image.addEventListener('click', function() {
+    const id = this.id;
+    window.location.href = 'discard?id='+id;
+  });
+});
+
+}
+
+
+
+</script>
+
 </html>
 
