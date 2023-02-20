@@ -62,15 +62,16 @@ class requests
                 $row1 = $item->first($arr1);
                 $row->item_name = $row1->name;
               }
-            }
-            
 
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-              $_POST['seller_id'] = $_SESSION['USER']->user_id;
-            $request_item->insert($_POST);
-          
+              $this->view('buyerrequest',$rows);
             }
-                $this->view('buyerrequest',$rows);
+            else{
+              $this->view('buyerrequest');
+            }
+
+          
+                
+
             } 
             else {
               redirect('login');
@@ -275,6 +276,21 @@ public function approve(){
 
           redirect('requests/seller_approvedrequests');
 
+
+  }
+
+
+  public function delete(){
+
+          $id=$_GET['id'];
+          //echo $id;
+          //$arr['post_id']=$id;
+
+
+          $request_item = new request_item;
+
+          $request_item->delete($id,'post_id');
+          redirect('requests/view1');
 
   }
 
