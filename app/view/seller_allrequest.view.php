@@ -52,7 +52,7 @@
                   
                  
                             <?php foreach ($data as $row) :?>
-                            <?php if($row->row_discard==0):?>
+                            <?php if($row->row_discard==0 && $row->approved==0):?>
                            <div class="posts">
 
                                 <div class="top-line1">
