@@ -82,6 +82,8 @@ class requests
 
             $request_item = new request_item;
             $user_requestitem = new user_requestitem;
+            $user= new user;
+            $item = new item;
 
 
             $rows = $request_item->findAll();
@@ -95,6 +97,22 @@ class requests
               $arr['post_id']=$row->post_id;
               $arr=(array)$arr;
               $row_discard=$user_requestitem->where($arr);
+
+             $arr2['user_id']=$row->seller_id;
+
+            $row_user=$user->first($arr2);
+            
+              $row->first_name=$row_user->first_name;
+              $row->last_name=$row_user->last_name;
+
+              $arr3['item_id']=$row->item_id;
+
+              $row_item=$item->first($arr3);
+
+              $row->item_name=$row_item->name;
+
+
+
               if($row_discard){
                 $row->row_discard=1;
               }
@@ -113,20 +131,51 @@ class requests
   public function seller_approvedrequests(){
 
             $request_item = new request_item;
+            $user_requestitem = new user_requestitem;
+            $user= new user;
+            $item = new item;
+
+
+
             $user_id=$_SESSION['USER']->user_id;
 
             $arr['approved_userid']=$user_id;
 
             $rows = $request_item->where($arr);
+            if($rows){
+              foreach ($rows as $row) {
+              $arr2['user_id']=$row->seller_id;
+
+              $row_user=$user->first($arr2);
+              
+                $row->first_name=$row_user->first_name;
+                $row->last_name=$row_user->last_name;
+  
+                $arr3['item_id']=$row->item_id;
+  
+                $row_item=$item->first($arr3);
+  
+                $row->item_name=$row_item->name;
+  
+              }
+
+
+
 
             $rows = (array) $rows;
             $this->view('seller_approvedrequest',$rows);
+            }
+
+            else{
+              $this->view('seller_approvedrequest');
+            }
   }
 
 
 public function approve(){
             $id=$_GET['id'];
             $request_item = new request_item;
+
             $arr['post_id']=$id;
             $arr=(array)$arr;
             $row=$request_item->first($arr);
@@ -189,6 +238,50 @@ public function approve(){
 
 
   }
+
+
+  public function notification_seller(){
+          $notifications = new notifications;
+          $user_id=$_SESSION['USER']->user_id;
+
+
+          $id=$_GET['id'];
+          $arr['post_id']=$id;
+
+          $request_item = new request_item;
+          $row=$request_item->first($arr);
+
+          $user = new user;
+
+          $arr2['user_id']=$row->seller_id;
+
+
+
+          $row1=$user->first($arr2);
+
+
+
+          $arr3['user_id']=$user_id;
+         
+
+          $arr3['description']="You have accepted $row1->first_name $row1->last_name Request";
+          $arr3=(array)$arr3;
+
+
+          $notifications->insert($arr3);
+
+          //redirect('requests/seller_approvedrequests');
+
+
+          
+
+
+
+
+
+
+  }
+
 
 
 
