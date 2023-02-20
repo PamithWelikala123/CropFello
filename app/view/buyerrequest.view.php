@@ -93,8 +93,8 @@
                                         </p>
 
 
-                                      <button class="update">Update</button>
-                                      <button class="delete">Delete</button>
+                                      <button class="update" id="<?=$row->post_id?>">Update</button>
+                                      <button class="delete" id="<?=$row->post_id?>" onclick="delete1()">Delete</button>
                                             
                                   
                                         
@@ -191,7 +191,21 @@
 
 document.querySelector('.close').addEventListener("click", function() {
 	document.querySelector('.bg-modal-4').style.display = "none";
+
 });
+
+
+function delete1(){
+
+const images = document.querySelectorAll('.delete');
+images.forEach(function(image) {
+  image.addEventListener('click', function() {
+    const id = this.id;
+    window.location.href = 'delete?id='+id;
+  });
+});
+
+}
 </script>
 </html>
 
