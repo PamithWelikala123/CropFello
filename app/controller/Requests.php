@@ -191,7 +191,8 @@ public function approve(){
               $request_item->update($id,$row1,'post_id');
 
             }
-            redirect('requests/seller_approvedrequests');
+            $this->notification_seller();
+            //redirect('requests/seller_approvedrequests');
             
 }
 
@@ -209,6 +210,8 @@ public function approve(){
           $arrx['disprove']=1;
           $arrx=(array)$arrx;
           $user_requestitem->insert($arrx);
+
+          //$this->notification_seller();
           redirect('requests/seller_allrequests');
 
 
@@ -270,14 +273,7 @@ public function approve(){
 
           $notifications->insert($arr3);
 
-          //redirect('requests/seller_approvedrequests');
-
-
-          
-
-
-
-
+          redirect('requests/seller_approvedrequests');
 
 
   }
