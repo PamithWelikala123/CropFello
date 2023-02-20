@@ -50,7 +50,7 @@
                   
                   <div class="Scroll-bar">
                   
-                 
+                            <?php if($data): ?>
                             <?php foreach ($data as $row) :?>
                             
 
@@ -59,17 +59,17 @@
                                 <div class="top-line1">
                                                <img class="profile2" src="<?=ROOT?>/assets/images/seller_allrequest/profilepic.png"> 
                                                <div class="profile-name">
-                                               <?php //echo $row->first_name ?>
-                                              <?php //echo $row->last_name ?>
+                                               <?php echo $row->first_name ?>
+                                              <?php echo $row->last_name ?>
                                                </div>
                                                 
                                 </div>
                                 <div class="bottom-line">
                                         <div class="infor">
-                                                    <?php //echo $row->first_name ?>
-                                                    <?php //echo $row->last_name  ?>
+                                                    <?php echo $row->first_name ?>
+                                                    <?php echo $row->last_name  ?>
                                                     wants
-                                                    <?php //echo $row->item_name ?>
+                                                    <?php echo $row->item_name ?>
                                                     in
                                                     <?php  echo $row->amount; ?>
                                                     <?php  echo $row->unit; ?>
@@ -86,7 +86,7 @@
                                         </p>
 
                                         <p class="content1">
-                                        <?php //echo $row->item_name ?><br>
+                                        <?php echo $row->item_name ?><br>
                                         <?php  echo $row->amount ?><?php  echo $row->unit; ?> <br>
                                         <?php  echo $row->date ?><br>
                                         <?php  echo $row->city; ?>
@@ -106,6 +106,7 @@
                             </div> 
                                    
                           <?php endforeach; ?>
+                          <?php endif;?>
                           
                   
     
