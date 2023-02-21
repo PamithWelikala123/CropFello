@@ -1,7 +1,7 @@
 <?php
 
 //deliverytodo class
-class deliverytodo{
+class Deliverytodo{
 
     use Controller;
     public function index(){
