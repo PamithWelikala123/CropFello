@@ -119,7 +119,7 @@ const images = document.querySelectorAll('.wish img');
   images.forEach(function(image) {
     image.addEventListener('click', function() {
       const id = this.id;
-      window.location.href = '../wishlist/wishlistbutton?id='+id;
+      window.location.href = '../wishlists/wishlistbutton?id='+id;
     });
   });
 
