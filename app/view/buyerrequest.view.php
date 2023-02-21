@@ -135,7 +135,7 @@
 
   <div class="bg-modal-4">
 	<div class="modal-contents1">
-  <form class="" action="" method="post" enctype="multipart/form-data">
+  <form class="" action='addRequestItem' method="post" enctype="multipart/form-data">
   <label class="tag1">Request a Crop</label>
 		<div class="close">+</div>
 		<img src="https://richardmiddleton.me/comic-100.png" alt="">
@@ -173,8 +173,8 @@
       <label class="tag14">Contact Number</label>
       <label class="tag15">*</label>
       <input class="contact" type="type" name="contact" >
-			<button class="button" type="sumbit" name="submit"  onclick="document.location='buyerrequest/addRequestItem'">Send</button>
-		</form>
+			<button class="button" type="sumbit" name="submit">Send</button>
+	</form>
 
 	</div>
 </div>
