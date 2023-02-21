@@ -82,7 +82,7 @@
                     
                 </div>
                 <div class="wish">
-                    <label for=""><sup> Add to wishlist &nbsp;</sup> <img src="<?=ROOT?>/assets/images/images/bookmark.svg" alt=""></label>
+                    <label for=""><sup> Add to wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist1()" src="<?=ROOT?>/assets/images/images/bookmark.svg" alt=""></label>
                 </div>
                 <div class="quantity buttons_added">
 
@@ -113,4 +113,15 @@
         </div>
     </div>
 </body>
+
+<script>
+const images = document.querySelectorAll('.wish img');
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      window.location.href = '../wishlist/wishlistbutton?id='+id;
+    });
+  });
+
+</script>
 </html>

@@ -8,8 +8,8 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     define('DBPASS','');
     define('DBDRIVER','');
 
-    define('ROOT', 'http://localhost/Cropfello/public');
-    define('ROOT1', 'http://localhost/Cropfello/app');
+    define('ROOT', 'http://localhost:8080/Cropfello/public');
+    define('ROOT1', 'http://localhost:8080/Cropfello/app');
     define('APPROOT',dirname(dirname(__FILE__)));
 
 }else{
