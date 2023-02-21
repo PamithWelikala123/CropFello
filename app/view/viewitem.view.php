@@ -30,7 +30,7 @@
         <div class="menu">
             <hr><label class="Menu1">Menu</label>
             <div> 
-            <button class="Feed" onclick="document.location='feed'">Feed</button>
+            <button class="Feed" onclick="document.location='../feed'">Feed</button>
                 <img class="Feed1"  src="<?=ROOT?>/assets/images/images/feed1.png">
                 <button class="Bidding" onclick="document.location='buyerbidding'">Bidding</button>
                 <img class="Bidding1"  src="<?=ROOT?>/assets/images/images/Bidding1.png">

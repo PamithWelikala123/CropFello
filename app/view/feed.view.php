@@ -113,7 +113,7 @@ const images = document.querySelectorAll('.img');
   images.forEach(function(image) {
     image.addEventListener('click', function() {
       const id = this.id;
-      window.location.href = 'viewitem?id='+id;
+      window.location.href = 'feed/viewitems?id='+id;
     });
   });
 
