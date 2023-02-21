@@ -20,7 +20,7 @@
                     <img class="img1" src="<?=ROOT?>/assets/images/postitem/logo.png">   
                     <a href="<?=ROOT?>/Bidding/sellerbidding"><img class="close" src="<?=ROOT?>/assets/images/postitem/close.png"> </a>
       </div>
-      <form method="post">
+      <form class="" action='addBiddingItem' method="post" enctype="multipart/form-data">
       <div class="form1">
               
 
@@ -106,7 +106,7 @@
                                           <input class="browse" type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br>
                                           
                                           
-                                          <button class="create" type="submit" name="submit" onclick="document.location='Bidding/addBiddingItem'">Create</button> 
+                                          <button class="create" type="submit" name="submit">Create</button> 
 
 
                 </div>
