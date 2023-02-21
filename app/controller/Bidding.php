@@ -64,7 +64,7 @@ class bidding{
                     if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         //echo $_SESSION['USER']->user_id;
                             $_POST['seller_id'] = $_SESSION['USER']->user_id;
-                            $postbid->insert($_POST);
+                            $createbid ->insert($_POST);
                             //redirect('biddig/sellerbidding');
                 
                     }
