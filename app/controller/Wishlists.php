@@ -1,7 +1,7 @@
 <?php
 
 //Chat class
-class wishlist
+class wishlists
 {
 
   use Controller;
@@ -20,17 +20,17 @@ class wishlist
   public function wishlistbutton(){
 
 
-          $wishlist = new Wishlist;
+          $wishlist1 = new Wishlist;
           $id=$_GET['id'];
           $userid=$_SESSION['USER']->user_id;
-     //echo $userid;
+     
       
           $arr['post_id']=$id;
           $arr['user_id']=$userid;
         
           $arr=(array)$arr;
 
-          $wishlist->insert($arr);
+          $wishlist1->insert($arr);
 
   }
 }
