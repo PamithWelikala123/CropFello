@@ -173,8 +173,8 @@
       <label class="tag14">Contact Number</label>
       <label class="tag15">*</label>
       <input class="contact" type="type" name="contact" >
-			<button class="button" type="sumbit" name="submit"  onclick="document.location='buyerrequest/addRequestItem'">Send</button>
-		</form>
+			<button class="button" type="sumbit" name="submit"  onclick="document.location='requests/addRequestItem'">Send</button>
+	</form>
 
 	</div>
 </div>
