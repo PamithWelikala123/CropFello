@@ -65,10 +65,13 @@ class bidding{
                         //echo $_SESSION['USER']->user_id;
                             $_POST['seller_id'] = $_SESSION['USER']->user_id;
                             $postbid->insert($_POST);
-                            redirect('biddig/sellerbidding');
+                            //redirect('biddig/sellerbidding');
                 
                     }
     }
+
+
+
 
 
     public function BuyerBidding(){

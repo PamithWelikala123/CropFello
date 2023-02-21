@@ -12,12 +12,12 @@ class requests
   
 
   public function addRequestItem(){
-              echo "awa";
-                //$request_item = new request_item;
+              
+                $request_item = new request_item;
               if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $_POST['seller_id'] = $_SESSION['USER']->user_id;
                 $request_item->insert($_POST);
-                //redirect('requests/view1');
+                redirect('requests/view1');
             
               }
   }

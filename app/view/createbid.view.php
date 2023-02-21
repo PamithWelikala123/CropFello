@@ -20,7 +20,7 @@
                     <img class="img1" src="<?=ROOT?>/assets/images/postitem/logo.png">   
                     <a href="<?=ROOT?>/Bidding/sellerbidding"><img class="close" src="<?=ROOT?>/assets/images/postitem/close.png"> </a>
       </div>
-      <form class="" action="" method="post" enctype="multipart/form-data">
+      <form method="post">
       <div class="form1">
               
 
@@ -114,7 +114,7 @@
                
                 
         
-                </form>
+      </form>
 
       </div>
                     
