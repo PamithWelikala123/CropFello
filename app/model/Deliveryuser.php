@@ -5,7 +5,7 @@ class deliveryuser{
     use Model;
 
     protected $table = 'user';
-    protected $allowedColumns = ['fname','lname','cnum','email','password_hash','id','vnumber'];
+    protected $allowedColumns = ['fname','lname','cnum','email','password','id','vnumber'];
     public $errors = [];
 
 

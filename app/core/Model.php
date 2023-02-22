@@ -13,7 +13,7 @@ trait Model{
     protected $order_column = "post_id";
     public $errors = [];
     
-    public function findAll(){
+     public function findAll(){
         
 
         $query = "select * from $this->table order by $this->order_column $this->order_type";

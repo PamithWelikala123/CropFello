@@ -30,7 +30,7 @@
 
             <div class="item section-2">
                 <img class="logo" src="<?=ROOT?>/assets/images/rushinpics/pics/logo.png">
-                <form action="indexinc.php" method="POST">
+                <form method="POST">
                     <div class="email">
                         <label for="email">Email <span style="color:red">&#9913 </span></label><br>
                         <input type="email" id="email" name="email" placeholder="Enter your email address" class="tb1">
