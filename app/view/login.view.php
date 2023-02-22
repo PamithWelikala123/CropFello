@@ -53,7 +53,7 @@
                         <label class="tag3">Remember me</label>
                         <button class="button">Login</button>
 
-                        <a class="link" href="<?=ROOT?>/forgetpassword1">Forgot password</a>
+                        <a class="link" href="login/forgetpassword1">Forgot password</a>
 
                   </form>
                         

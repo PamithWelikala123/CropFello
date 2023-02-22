@@ -1,0 +1,11 @@
+<?php
+
+class Deliverytodo{
+
+    use Model;
+
+    protected $table = 'info';
+    protected $allowedColumns = ['buyer','date','item','amount','fro','id','too','fee','vtype','quantity','status'];
+    public $errors = [];
+
+}

@@ -22,13 +22,13 @@
                     <label class="Menu1">Menu</label>
 
                     <div> 
-                      <button class="Feed" onclick="document.location='feed'">Feed</button>
+                      <button class="Feed" onclick="document.location='../feed'">Feed</button>
                       <img class="Feed1"  src="<?=ROOT?>/assets/images/buyerrequest/feed1.png">
                       <button class="Bidding" onclick="document.location='buyerbidding'">Bidding</button>
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/buyerrequest/Bidding1.png">
                       <button class="Wishlist" onclick="document.location='buyerwishlist'" >Wishlist</button>
                       <img class="Wishlist1"  src="<?=ROOT?>/assets/images/buyerrequest/heart1.png">
-                      <button class="Requests" onclick="document.location='buyerrequest'">Requests</button>
+                      <button class="Requests" onclick="document.location='view1'">Requests</button>
                       <img class="Requests1"  src="<?=ROOT?>/assets/images/buyerrequest/flag.png">
                     </div>
 
@@ -49,6 +49,7 @@
 
                   <div class="Scroll-bar">
                     <img class="plus"  id="plus" src="<?=ROOT?>/assets/images/buyerrequest/plus.png">
+                    <?php if($data) :    ?>
                             <?php foreach ($data as $row) :
                                ?>
 
@@ -92,8 +93,8 @@
                                         </p>
 
 
-                                      <button class="update">Update</button>
-                                      <button class="delete">Delete</button>
+                                      <button class="update" id="<?=$row->post_id?>">Update</button>
+                                      <button class="delete" id="<?=$row->post_id?>" onclick="delete1()">Delete</button>
                                             
                                   
                                         
@@ -105,7 +106,7 @@
                                    
                           <?php endforeach; ?>
                           
- 
+                        <?php endif;?>
                           
  
                   </div>
@@ -134,7 +135,7 @@
 
   <div class="bg-modal-4">
 	<div class="modal-contents1">
-  <form class="" action="" method="post" enctype="multipart/form-data">
+  <form class="" action='addRequestItem' method="post" enctype="multipart/form-data">
   <label class="tag1">Request a Crop</label>
 		<div class="close">+</div>
 		<img src="https://richardmiddleton.me/comic-100.png" alt="">
@@ -162,18 +163,18 @@
       <input  class="date" type="date" name="date" >
       <label class="tag8">Address</label>
       <label class="tag9">*</label>
-      <input  class="Address" type="text" name="Address" >
+      <input  class="Address" type="text" name="address" >
       <label class="tag10">Postal Code</label>
       <label class="tag11">*</label>
-      <input class="postal-code" type="text" name="postal-code" >
+      <input class="postal-code" type="text" name="postal_code" >
       <label class="tag12">City</label>
       <label class="tag13">*</label>
       <input class="city" type="text" name="city" >
       <label class="tag14">Contact Number</label>
       <label class="tag15">*</label>
       <input class="contact" type="type" name="contact" >
-			<button class="button" type="sumbit" name="submit"  onclick="document.location='buyerrequest'">Send</button>
-		</form>
+			<button class="button" type="sumbit" name="submit">Send</button>
+	</form>
 
 	</div>
 </div>
@@ -190,7 +191,21 @@
 
 document.querySelector('.close').addEventListener("click", function() {
 	document.querySelector('.bg-modal-4').style.display = "none";
+
 });
+
+
+function delete1(){
+
+const images = document.querySelectorAll('.delete');
+images.forEach(function(image) {
+  image.addEventListener('click', function() {
+    const id = this.id;
+    window.location.href = 'delete?id='+id;
+  });
+});
+
+}
 </script>
 </html>
 

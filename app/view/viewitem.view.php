@@ -30,7 +30,7 @@
         <div class="menu">
             <hr><label class="Menu1">Menu</label>
             <div> 
-            <button class="Feed" onclick="document.location='feed'">Feed</button>
+            <button class="Feed" onclick="document.location='../feed'">Feed</button>
                 <img class="Feed1"  src="<?=ROOT?>/assets/images/images/feed1.png">
                 <button class="Bidding" onclick="document.location='buyerbidding'">Bidding</button>
                 <img class="Bidding1"  src="<?=ROOT?>/assets/images/images/Bidding1.png">
@@ -82,8 +82,12 @@
                     
                 </div>
                 <div class="wish">
-                    <label for=""><sup> Add to wishlist &nbsp;</sup> <img src="<?=ROOT?>/assets/images/images/bookmark.svg" alt=""></label>
-                </div>
+                <?php if ($data['flag'] == 0): ?>
+                          <label for=""><sup> Add to wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist1()" src="<?=ROOT?>/assets/images/images/bookmark.svg" alt=""></label>
+                <?php else: ?>
+                         <label for=""><sup> Add to wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist2()"  src="<?=ROOT?>/assets/images/images/bookmark-active.svg" alt=""></label>
+                <?php endif; ?>
+                    </div>
                 <div class="quantity buttons_added">
 
                         <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
@@ -113,4 +117,27 @@
         </div>
     </div>
 </body>
+
+<script>
+function wishlist1(){
+const images = document.querySelectorAll('.wish img');
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      window.location.href = '../wishlists/wishlistbutton?id='+id;
+    });
+  });
+}
+
+function wishlist2(){
+const images = document.querySelectorAll('.wish img');
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      window.location.href = '../wishlists/wishlistdeleteitem?id='+id;
+    });
+  });
+}
+
+</script>
 </html>

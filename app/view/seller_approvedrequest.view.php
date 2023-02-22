@@ -22,11 +22,11 @@
                     <label class="Menu1">Menu</label>
 
                     <div> 
-                      <button class="Feed" onclick="document.location='selling'">Selling</button>
+                      <button class="Feed" onclick="document.location='../selling'">Selling</button>
                       <img class="Feed1"  src="<?=ROOT?>/assets/images/selling/feed1.png">
                       <button class="Bidding" onclick="document.location='sellerbidding'">Bidding</button>
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/selling/Bidding1.png">
-                      <button class="Requests" onclick="document.location='Seller_allrequest'">Requests</button>
+                      <button class="Requests" onclick="document.location='seller_allrequests'">Requests</button>
                       <img class="Requests1"  src="<?=ROOT?>/assets/images/selling/flag.png">
                     </div>
 
@@ -43,33 +43,33 @@
                   </div>
 
                   <div class="All-Approved">
-                      <button class="All-request" onclick="document.location='seller_allrequest'">All</button>    
-                      <button class="Approved" onclick="document.location='seller_approvedrequest'">Approved</button>
+                      <button class="All-request" onclick="document.location='seller_allrequests'">All</button>    
+                      <button class="Approved" onclick="document.location='seller_approvedrequests'">Approved</button>
                   </div>
 
                   
                   <div class="Scroll-bar">
                   
-                 
-                            <?php foreach ($data as $row) :
-                               ?>
+                            <?php if($data): ?>
+                            <?php foreach ($data as $row) :?>
+                            
 
                            <div class="posts">
 
                                 <div class="top-line1">
                                                <img class="profile2" src="<?=ROOT?>/assets/images/seller_allrequest/profilepic.png"> 
                                                <div class="profile-name">
-                                               <?php //echo $row->first_name ?>
-                                              <?php //echo $row->last_name ?>
+                                               <?php echo $row->first_name ?>
+                                              <?php echo $row->last_name ?>
                                                </div>
                                                 
                                 </div>
                                 <div class="bottom-line">
                                         <div class="infor">
-                                                    <?php //echo $row->first_name ?>
-                                                    <?php //echo $row->last_name  ?>
+                                                    <?php echo $row->first_name ?>
+                                                    <?php echo $row->last_name  ?>
                                                     wants
-                                                    <?php //echo $row->item_name ?>
+                                                    <?php echo $row->item_name ?>
                                                     in
                                                     <?php  echo $row->amount; ?>
                                                     <?php  echo $row->unit; ?>
@@ -86,7 +86,7 @@
                                         </p>
 
                                         <p class="content1">
-                                        <?php //echo $row->item_name ?><br>
+                                        <?php echo $row->item_name ?><br>
                                         <?php  echo $row->amount ?><?php  echo $row->unit; ?> <br>
                                         <?php  echo $row->date ?><br>
                                         <?php  echo $row->city; ?>
@@ -94,8 +94,8 @@
                                         </p>
 
 
-                                      <button class="update">Approve</button>
-                                      <button class="delete">Discard</button>
+                                      <button class="update" id="<?=$row->post_id?>">Approve</button>
+                                      <button class="delete" id="<?=$row->post_id?>" onclick="discard()">Discard</button>
                                             
                                   
                                         
@@ -106,6 +106,7 @@
                             </div> 
                                    
                           <?php endforeach; ?>
+                          <?php endif;?>
                           
                   
     
@@ -120,5 +121,27 @@
 
 
   </body>
+
+  <script>
+
+function discard(){
+
+const images = document.querySelectorAll('.delete');
+images.forEach(function(image) {
+  image.addEventListener('click', function() {
+    const id = this.id;
+    window.location.href = 'approve_discard?id='+id;
+  });
+});
+
+}
+
+
+
+</script>
+
+
+
+
 </html>
 

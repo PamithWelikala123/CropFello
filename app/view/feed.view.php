@@ -24,11 +24,11 @@
                     <div> 
                       <button class="Feed" onclick="document.location='feed'">Feed</button>
                       <img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png">
-                      <button class="Bidding" onclick="document.location='buyerbidding'">Bidding</button>
+                      <button class="Bidding" onclick="document.location='bidding/BuyerBidding'">Bidding</button>
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png">
-                      <button class="Wishlist" onclick="document.location='buyerwishlist'" >Wishlist</button>
+                      <button class="Wishlist" onclick="document.location='wishlists/buyerwishlist'" >Wishlist</button>
                       <img class="Wishlist1"  src="<?=ROOT?>/assets/images/feed/heart1.png">
-                      <button class="Requests" id="Requests" onclick="document.location='buyerrequest'">Requests</button>
+                      <button class="Requests" id="Requests" onclick="document.location='requests/view1'">Requests</button>
                       <img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png">
                     </div>
 
@@ -113,7 +113,7 @@ const images = document.querySelectorAll('.img');
   images.forEach(function(image) {
     image.addEventListener('click', function() {
       const id = this.id;
-      window.location.href = 'viewitem?id='+id;
+      window.location.href = 'feed/viewitems?id='+id;
     });
   });
 
