@@ -14,10 +14,11 @@ class Deliverylogin
 
 
             $arr['email'] = $_POST['email'];
+
             $row = $user->first($arr);
 
             if ($row) {
-                if ($row->password == md5($_POST['password'])) {
+                if ($row->password == ($_POST['password'])) {
                     $_SESSION['USER'] = $row;
                     redirect('deliverytodo');
                 }

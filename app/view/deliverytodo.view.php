@@ -22,11 +22,11 @@
 
             <a href="todo.php"><button class="Feed">To Do</button></a>
             <img class="Feed1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/todo.png">
-            <a href="doing.php"><button class="Bidding">Doing</button></a>
+            <a href="Deliverydoing"><button class="Bidding">Doing</button></a>
             <img class="Bidding1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/doing.png">
-            <a href="done.php"><button class="Wishlist">Done</button></a>
+            <a href="Deliverydone"><button class="Wishlist">Done</button></a>
             <img class="Wishlist1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/done.png">
-            <a href="fee.php"><button class="Requests">Fee</button></a>
+            <a href="Deliveryfee"><button class="Requests">Fee</button></a>
             <img class="Requests1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/fee.png">
 
             <img class="line1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed\line.png">
@@ -50,10 +50,6 @@
         <div class="item item3">
             <div class="scroll-div">
             <?php
-                    $sql = "SELECT * FROM info WHERE status=0";
-                    $result = $conn->query($sql);
-            if ($result->num_rows > 0) { ?>
-                    <?php while ($row = $result->fetch_assoc()) { ?>
                 <div class="containerx">
                     <div class="item item-1">
                       <img class="profile-pic" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
