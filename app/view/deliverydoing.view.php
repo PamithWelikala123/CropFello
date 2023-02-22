@@ -47,64 +47,60 @@
             <button type="button" class="Allmsg">All Messages</button>
         </div>
         <div class="item item3">
-            <div class="scroll-div">
-            <?php
-                    $sql = "SELECT * FROM info WHERE status=1";
-                    $result = $conn->query($sql);
-            if ($result->num_rows > 0) { ?>
-                    <?php while ($row = $result->fetch_assoc()) { ?>
-                <div class="containerx">
-                    <div class="item item-1">
-                      <img class="profile-pic" src="pics/man2.png">
-                      <p class="nam"><?php echo  $row['buyer'] ?></p><br>
-                      <p class="date"><?php echo date('d F y', strtotime($row['date'])) ?></p>
+        <div class="scroll-div">
+            
+            <div class="containerx">
+                <div class="item item-1">
+                  <img class="profile-pic" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
+                  <p class="nam">Pamith Welikala</p><br>
+                  <p class="date">3 September 2022</p>
 
-                    </div>
-                    <div class="item item-2">
-                      <h2 class="head">&nbsp<?php echo  $row['buyer'] ?>&nbsp wants to deliver&nbsp<?php echo  $row['item'] ?>&nbspin&nbsp<?php echo  $row['quantity'] ?>&nbspKgs&nbsp<br>from <?php echo  $row['fro'] ?>&nbsp to <?php echo  $row['too'] ?>&nbsp</h2>
+                </div>
+                <div class="item item-2">
+                <h2 class="head">Pamith Welikala&nbsp wants to deliver&nbsp Papaya &nbsp 2 &nbspKgs &nbsp<br>from Godagama &nbsp to Thalawathugoda &nbsp</h2>
 
-                      <table class="table" style="width:70%">
+                  <table class="table">
 
-                        <tr>
-                          <td>Item:</td>
-                          <td><font color="#0C7417"><?php echo  $row['item'] ?></td>
-                        </tr>
+                    <tr>
+                      <td>Item:</td>
+                      <td><font color="#0C7417">Papaya</td>
+                    </tr>
 
-                        <tr>
-                          <td>Amount:</td>
-                          <td><font color="#0C7417"><?php echo $row['amount']; ?></td> 
-                        </tr>
+                    <tr>
+                      <td>Amount:</td>
+                      <td><font color="#0C7417">2KG</td> 
+                    </tr>
 
-                        
-                        <tr>
-                          <td>From:</td>
-                          <td><font color="#0C7417"><?php echo $row['fro']; ?></td> 
-                        </tr>
+                    
+                    <tr>
+                      <td>From:</td>
+                      <td><font color="#0C7417">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td> 
+                    </tr>
 
-                        
-                        <tr>
-                          <td>To:</td>
-                          <td><font color="#0C7417"><?php echo $row['too']; ?></td> 
-                        </tr>                        
-                        <tr>
-                          <td>Fee:</td>
-                          <td><font color="#0C7417"><?php echo  $row['fee'] ?></td> 
-                        </tr>
+                    
+                    <tr>
+                      <td>To:</td>
+                      <td><font color="#0C7417">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td> 
+                    </tr>                        
+                    <tr>
+                      <td>Fee:</td>
+                      <td><font color="#0C7417">Rs.350.00</td> 
+                    </tr>
 
-                        
-                        <tr>
-                          <td>Vehicle Type:</td>
-                          <td><font color="#0C7417"><?php echo  $row['vtype'] ?></td> 
-                        </tr>
-                      </table>
+                    
+                    <tr>
+                      <td>Vehicle Type:</td>
+                      <td><font color="#0C7417">Motocycle</td> 
+                    </tr>
+                  </table>
 
-                      <a href='doing.php?id=<?php echo $row['id'] ?>'><button class="Approve btn1">Done &nbsp  &#10004</button></a>
-                      <!-- <a href='doing.php?eid=<?php echo $row['id'] ?>'><button class="Discard btn2">Discard &nbsp &#xf014 </button></a> -->
-                    </div>
-                  </div>                
-                 <?php }?>
-                 <?php }?>
-            </div>
+                  <button class="Approve btn1">Approve &nbsp  &#10004</button>
+                  <button class="Discard btn2">Discard &nbsp &#xf014 </button>
+                </div>
+          
+              </div>                
+             
+        </div>
         </div>
     </div>
 </body>

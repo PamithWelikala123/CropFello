@@ -6,16 +6,16 @@ class Deliverytodo{
     use Controller;
     public function index(){
 
-        $todo = new postitems;
-        $item = new item;
+        // $todo = new postitems;
+        // $item = new item;
     
-        $rows = $postitem->findAll();
+        // $rows = $postitem->findAll();
         
-        foreach ($rows as $row) {
-            $arr1['item_id'] = $row->item_id;
-            $row1 = $item->first($arr1);
-            $row->item_name = $row1->name;
-          }
+        // foreach ($rows as $row) {
+        //     $arr1['item_id'] = $row->item_id;
+        //     $row1 = $item->first($arr1);
+        //     $row->item_name = $row1->name;
+        //   }
 
         $this->view('deliverytodo');
     }

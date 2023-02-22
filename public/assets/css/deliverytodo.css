@@ -514,7 +514,7 @@ border-radius: 10px;
 
 .table {
   position: relative;
-  width: 70%;
+  width: 90%;
   /* height: 70px; */
   left: 30px;
   top: 5px;
@@ -524,7 +524,7 @@ border-radius: 10px;
   line-height: 18px;
   /* border: 1px solid blue; */
   font-size: 15px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   padding-right: 200px;
 
 }
