@@ -25,6 +25,10 @@ class Feed{
         $postitem = new postitems;
         $item = new item;
 
+        $wishlist= new Wishlist;
+    
+  
+
       $id=$_GET['id'];
     //  echo $id;
     $arr1['post_id'] = $id;
@@ -42,6 +46,23 @@ class Feed{
       $arr2['item_id'] = $row->item_id;
     $row1 = $item->first($arr2);
     $row->item_name=$row1->name;
+   
+    $arrx['user_id']=$_SESSION['USER']->user_id;
+    $arrx['post_id']=$id;
+
+    $rowx=$wishlist->where($arrx);
+
+    if($rowx){
+      $row->flag=1;
+    }
+    else{
+      $row->flag=0;
+    }
+
+
+
+
+
     $row=(array)$row;
         $this->view('viewitem',$row);
       
