@@ -54,19 +54,47 @@
 <?php foreach ($data as $row) : ?>
   <?php if(($row->seller_id)!=$_SESSION['USER']->user_id) :    ?>
 
-                        <div class="bid2" id="<?=$row->post_id?>" ><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
-                      </div><div style="font-size:30px"><?=$row->item_name?></div><div style="font-size:35px;color:#4DEA25"><?=$row->amount?><?=$row->amount_type?></div>
-                      <div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs. <?=$row->initial_price?></div>
-                            <div style="margin-left:225px"><?=$row->city?></div><div></div><div style="font-size:35px">Rs. <?=$row->current_value?></div>
-                            <div style="color:#E43D3D"><?=$row->exp?></div><div></div><div style="color:#4DEA25"><?=$row->remaning?> days remaining</div>
-                            <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4);margin-left:225px"><?=$row->bid_end_date?></div>
-                            <div></div><div></div><div>
-                              <button class="btn2" id="<?=$row->post_id?>" onclick="openForm()">Bid Now</button></div>
-
+                        <div class="bid2" id="<?=$row->post_id?>" >
+                          <div class="carr">
+                            <img class="img3"  src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
                           </div>
+                          <div style="font-size:30px">
+                            <?=$row->item_name?>
+                          </div>
+                          <div style="font-size:35px;">
+                            <?=$row->amount?><?=$row->amount_type?>
+                          </div>
+                          <div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">
+                            Rs. <?=$row->initial_price?>
+                          </div>
+                          <div style="margin-left:225px">
+                            <?=$row->city?>
+                          </div>
+                          <div></div>
+                          <div style="font-size:35px">
+                            Rs. <?=$row->current_value?>
+                          </div>
+                          <div style="color:#E43D3D">
+                            <?=$row->exp?>
+                          </div>
+                          <div></div>
+                          <div style="color:#4DEA25">
+                            <?=$row->remaning?> days remaining</div>
+                          <div></div>
+                          <div></div>
+                          <div style="color:rgba(0, 0, 0, 0.4);margin-left:225px"><?=$row->bid_end_date?></div>
+                          <div></div><div></div>
+                          <div>
+                            <button class="btn2" id="<?=$row->post_id?>" onclick="openForm()">Bid Now</button>
+                          </div>
+
+                        </div>
+
+                    
+                        
 <?php endif; ?>
 <?php endforeach; ?>
-              </div>
+              </>
             </div>
 
 <?php endif; ?>
