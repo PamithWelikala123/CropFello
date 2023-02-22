@@ -149,4 +149,13 @@ trait Model{
         $this->query($query, $data);
         return false;
     }
+    public function delete1($id1,$id2, $id_column1 = 'user_id',$id_column2='post_id'){
+
+        $data[$id_column1] = $id1;
+        $data[$id_column2] = $id2;
+        $query = "delete from $this->table where $id_column1 = :$id_column1 and $id_column2= :$id_column2";
+
+        $this->query($query, $data);
+        return false;
+    }
 }

@@ -26,7 +26,7 @@
                       <img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png">
                       <button class="Bidding" onclick="document.location='bidding/BuyerBidding'">Bidding</button>
                       <img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png">
-                      <button class="Wishlist" onclick="document.location='wishlist/buyerwishlist'" >Wishlist</button>
+                      <button class="Wishlist" onclick="document.location='wishlists/buyerwishlist'" >Wishlist</button>
                       <img class="Wishlist1"  src="<?=ROOT?>/assets/images/feed/heart1.png">
                       <button class="Requests" id="Requests" onclick="document.location='requests/view1'">Requests</button>
                       <img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png">
