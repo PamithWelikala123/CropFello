@@ -20,7 +20,16 @@
                     <img class="img1" src="<?=ROOT?>/assets/images/postitem/logo.png">   
                     <a href="<?=ROOT?>/selling"><img class="close" src="<?=ROOT?>/assets/images/postitem/close.png"> </a>
       </div>
-      <form class="" action="" method="post" enctype="multipart/form-data">
+      <?php
+    $crop_list='';
+    $item = new item;
+    $rows3 = $item->findAll();
+    foreach($rows3 as $result){
+      $crop_list .="<option value=\"{$result->item_id}\">{$result->name}</option>";
+
+    }
+    ?>
+      <form class="" action="selling/databasepost" method="post" enctype="multipart/form-data">
       <div class="form1">
               
 
@@ -32,9 +41,10 @@
                                                                       </select>
 
                                                                       <!-- <input  type="text" placeholder="  Select Item Name" name="crop_name"> -->
-                                                                      <input class="crop_type" type="text" id="crop_type" placeholder="  Select Item Type" name="crop_type">
+                                                                      <input class="crop_type" type="text" id="crop_type" placeholder="  Select Item Type" name="item_type">
                                                                       <label class="exp1">EXP</label>
                                                                       <label class="exp2">*</label>
+
                                                                       <input class="exp" type="date" placeholder="  dd / mm / yyyy" name="exp">
 
 
@@ -97,10 +107,10 @@
                                           <input class="browse" type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br>
                                           <label class="description1">Description</label>
                                           <label class="description2">*</label>
-                                          <input  class="description"type="text"  name="Description">
+                                          <input  class="description" type="text"  name="description">
                                           <input class="tick" type="checkbox">
                                           <label class="tick1">Negotiations allowed</label>
-                                          <button class="create" type="submit" name="submit" onclick="document.location='<?=ROOT?>/selling'">Create</button> 
+                                          <button class="create" type="submit" name="submit">Create</button> 
 
 
                 </div>
