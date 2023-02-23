@@ -10,5 +10,8 @@ class Postitem{
         $this->view('postitem');
     }
 
+
+    
+
 }
 
