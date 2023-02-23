@@ -89,7 +89,22 @@
                           </div>
 
                         </div>
-                        
+
+                        <!-- <div class="bidding-post"  id="<?=$row->post_id?>">
+                          <div class="image">
+                            <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
+                          </div>
+                          <div class="info">
+                            <div class="name-size">
+                              <h4><?=$row->item_name?><span><?=$row->amount?><?=$row->amount_type?></span></h4>
+                            </div>
+                            <div class="price"></div>
+                            <div class="exp"></div>
+                            <div class="days"></div>
+                            <div class="bid-now"></div>
+                          </div>
+                        </div>
+                         -->
 
                     
                         
