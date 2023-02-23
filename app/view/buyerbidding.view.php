@@ -54,7 +54,7 @@
 <?php foreach ($data as $row) : ?>
   <?php if(($row->seller_id)!=$_SESSION['USER']->user_id) :    ?>
 
-                        <div class="bid2" id="<?=$row->post_id?>" >
+                        <!-- <div class="bid2" id="<?=$row->post_id?>" >
                           <div class="carr">
                             <img class="img3"  src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
                           </div>
@@ -88,7 +88,7 @@
                             <button class="btn2" id="<?=$row->post_id?>" onclick="openForm()">Bid Now</button>
                           </div>
 
-                        </div>
+                        </div> -->
 
                         <!-- <div class="bidding-post"  id="<?=$row->post_id?>">
                           <div class="image">
