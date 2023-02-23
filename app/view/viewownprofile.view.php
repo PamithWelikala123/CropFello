@@ -58,7 +58,7 @@
                   <label for=""><img src="<?=ROOT?>/assets/images/images/call.svg" alt="">&nbsp;+94 776543789 &emsp;&emsp;</label><label for=""><img src="<?=ROOT?>/assets/images/images/mail.svg" alt="">&nbsp;susanthaperera01@gmail.com</label>
                 </div>
                 <div class="messages">
-                  <button onclick="document.location='editprofile'">Edit</button>
+                  <button onclick="document.location='Profile/Editprofile_details'">Edit</button>
                 </div>
               </div>
               <div class="about">

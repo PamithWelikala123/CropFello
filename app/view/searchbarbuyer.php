@@ -34,7 +34,7 @@
                 
     <img class="profile1" src="<?=ROOT?>/assets/images/selling/profilepic.png">     
     <button class="button1" type="sumbit" name="submit"  onclick="document.location='selling'">Seller</button>         
-    <button class="button2" type="sumbit" name="submit"  onclick="document.location='viewownprofile'">Profile</button>
+    <button class="button2" type="sumbit" name="submit"  onclick="document.location='Profile'">Profile</button>
     <button class="button3" type="sumbit" name="submit"  onclick="document.location='login'">Logout</button>            
        
 

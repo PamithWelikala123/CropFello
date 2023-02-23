@@ -12,7 +12,7 @@
 
         <div class="logo">
                <img class="img1"  src="<?=ROOT?>/assets/images/editprofile/logo.png">
-               <img  class="img4" onclick="document.location='viewownprofile'" src="<?=ROOT?>/assets/images/editprofile/arrow-left-circle.svg">
+               <img  class="img4" onclick="document.location='../Profile'" src="<?=ROOT?>/assets/images/editprofile/arrow-left-circle.svg">
         </div>
 
         <div class="Register">
@@ -27,19 +27,19 @@
                               <div>
                                 <label class="name">Name</label>
                                 <label class="name1">*</label>
-                                <input class="firstname" type="textbox" placeholder="  First Name"> 
+                                <input class="firstname" type="textbox" placeholder="  <?=$data['first_name']?>"> 
                               </div>
                               <div>
-                                <input class="lastname" type="textbox" placeholder="  Last Name"> 
+                                <input class="lastname" type="textbox" placeholder="  <?=$data['last_name']?>"> 
                               </div>
 
                      </div>
                     
                      <div>
-                        <label class="Address-name">Address</Address></label>
+                        <label class="Address-name" >Address</Address></label>
                         <label class="Address-name1">*</label>
                         <br>
-                           <input class="Address" type="textbox"> 
+                           <input class="Address" type="textbox" placeholder="  <?=$data['address']?>"> 
                      </div>
                      
                      <div style="display : grid; grid-template-columns: 50% 50%">
@@ -48,14 +48,14 @@
                               <label class="Postal-code-name">Postal code</Address></label>
                               <label class="Postal-code-name1">*</label>
                               <br>
-                              <input class="Postal-code" type="textbox"> 
+                              <input class="Postal-code" type="textbox" placeholder="  <?=$data['postal_code']?>"> 
                             </div>
 
                             <div>
                               <label class="City-name">City</Address></label>
                               <label class="City-name1">*</label>
                               <br>
-                              <input class="City" type="textbox">
+                              <input class="City" type="textbox" placeholder="  <?=$data['city']?>">
                             </div>
                      </div>
 
@@ -66,7 +66,7 @@
                              <img class="srilanka"  src="<?=ROOT?>/assets/images/buyersignup page/Sri Lanka.png">
                              <label class="ContactNo-name2">|</label>
                              <label class="ContactNo-name3">+94</label>
-                            <input class="ContactNo" type="textbox">
+                            <input class="ContactNo" type="textbox" placeholder="  <?=$data['contact_number']?>">
                      </div>
 
 
