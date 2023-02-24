@@ -94,18 +94,31 @@
                      </div>
 
                      <div>
-                          <button class="change_password" onclick="document.location='editprofile_changepassword'">Change Password</button>
+
+
+                     <a href="Editprofile_changepassword1">
+                      
+                          <button class="change_password">Change Password</button>
+                          </a>
                           <label class="change_password1">></label> 
+                      
+
                       </div>
+
+                     
 
                       <div>
                           <button class="Register-but" type="submit" name="submit">Update</button> 
                       </div>
+
+            </form>
+
+                      
                
 
             </div>
         </div>
-        </form>
+        
         <div>
           <img class="img2" src="<?=ROOT?>/assets/images/editprofile/register-corner2.png">
           <img class="img3" src="<?=ROOT?>/assets/images/editprofile/register-corner.png">

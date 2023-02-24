@@ -6,7 +6,13 @@ class profile{
     use Controller;
     public function index(){
 
-        $this->view('viewownprofile');
+        $arr['user_id']=$_SESSION['USER']->user_id;
+        $user= new User;
+        $row=$user->first($arr);
+
+        $row=(array)$row;
+
+        $this->view('viewownprofile',$row);
     }
 
     public function Editprofile_details(){
@@ -21,6 +27,7 @@ class profile{
 
         $this->view('Editprofile',$row);
     }
+
 
 
     public function editprofile(){
@@ -57,34 +64,82 @@ class profile{
             $row=$user->first($arr);
             $row=(array)$row;
 
-            if(($row['first_name'])!=$_POST['first_name']){
+            if (isset($_POST['first_name']) && !empty($_POST['first_name'])) {
               $arr['first_name']=$_POST['first_name'];
+              
             }
             
-            if(($row['last_name'])!=$_POST['last_name']){
+
+            if (isset($_POST['last_name']) && !empty($_POST['last_name'])) {
               $arr['last_name']=$_POST['last_name'];
             }
 
-            if(($row['address'])!=$_POST['address']){
+
+            if (isset($_POST['address']) && !empty($_POST['address'])) {
               $arr['address']=$_POST['address'];
             }
             
-            if(($row['city'])!=$_POST['city']){
+            if (isset($_POST['city']) && !empty($_POST['city'])) {
               $arr['city']=$_POST['city'];
             }
 
-            if(($row['description'])!=$_POST['description']){
+            if (isset($_POST['description']) && !empty($_POST['description'])) {
               $arr['description']=$_POST['description'];
+            }
+
+            if (isset($_POST['postal_code']) && !empty($_POST['postal_code'])) {
+              $arr['postal_code']=$_POST['postal_code'];
+            }
+            
+            if (isset($_POST['contact_number']) && !empty($_POST['contact_number'])) {
+              $arr['contact_number']=$_POST['contact_number'];
             }
 
 
             $user->update($_SESSION['USER']->user_id,$arr ,'user_id');
-
+            
+            redirect('Profile/Editprofile_details');
 
 
 
 
     }
+
+
+
+
+    public function Editprofile_changepassword1(){
+
+
+  
+          $this->view('Editprofile_changepassword');
+      
+  
+  }
+
+  public function changepassword(){
+
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+      $user = new User;
+      
+      if(($_SESSION['USER']->password)==($_POST['Current-Password'])){
+           if(($_POST['Confirm-Password'])==($_POST['Password'])){
+            $arr['password']=($_POST['Password']);
+            $arr=(array)$arr;
+            $user->update($_SESSION['USER']->user_id,$arr,'user_id');
+            redirect('profile/editprofile');
+        }
+      }
+    
+    
+  }
+  
+    //redirect('profile/Editprofile_changepassword1');
+
+  }
+
+
+
 
 }
 
