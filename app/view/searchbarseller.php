@@ -23,7 +23,7 @@
                           <label class="My-trans">My Transactions</label>
                           <img class="bell" src="<?=ROOT?>/assets/images/selling/bell.png">
                           <img class="active" src="<?=ROOT?>/assets/images/selling/active.png"> 
-                          <img class="profile" id="profile" src="<?=ROOT?>/assets/images/selling/profilepic.png"> 
+                          <img class="profile" id="profile" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"> 
 
     </div>
 
@@ -31,7 +31,7 @@
     <div class="modal-contents">
     <div class="view-profile1">
                 
-    <img class="profile1" src="<?=ROOT?>/assets/images/selling/profilepic.png">     
+    <img class="profile1" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>">     
     <button class="button1" type="sumbit" name="submit"  onclick="document.location='feed'">Buyer</button>         
     <button class="button2" type="sumbit" name="submit"  onclick="document.location='viewownprofile'">Profile</button>
     <button class="button3" type="sumbit" name="submit"  onclick="document.location='login'">Logout</button>            

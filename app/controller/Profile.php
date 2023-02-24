@@ -122,13 +122,15 @@ class profile{
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
       $user = new User;
       
-      if(($_SESSION['USER']->password)==($_POST['Current-Password'])){
+      if(($_SESSION['USER']->password)==md5($_POST['Current-Password'])){
+        if(($_POST['Password'])!=($_POST['Current-Password'])){
            if(($_POST['Confirm-Password'])==($_POST['Password'])){
-            $arr['password']=($_POST['Password']);
+            $arr['password']=md5($_POST['Password']);
             $arr=(array)$arr;
             $user->update($_SESSION['USER']->user_id,$arr,'user_id');
-            redirect('profile/editprofile');
+            redirect('profile');
         }
+      }
       }
     
     
