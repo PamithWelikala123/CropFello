@@ -45,25 +45,25 @@
         </div>
         <div class="main">
               <div class="dp">
-                <img src="<?=ROOT?>/assets/images/images/lasal.svg" alt="dp">
+                <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image']?>" alt="dp">
               </div>
               <div class="account-details">
                 <div class="name">
-                  <h2>Lasal Jayasinha</h2>
+                  <h2><?=$data['first_name']?> <?=$data['last_name']?></h2>
                 </div>
           
                 <div class="empty"></div>
                 
                 <div class="contact">
-                  <label for=""><img src="<?=ROOT?>/assets/images/images/call.svg" alt="">&nbsp;+94 776543789 &emsp;&emsp;</label><label for=""><img src="<?=ROOT?>/assets/images/images/mail.svg" alt="">&nbsp;susanthaperera01@gmail.com</label>
+                  <label for=""><img src="<?=ROOT?>/assets/images/images/call.svg" alt="">&nbsp;+94 <?=$data['contact_number']?> &emsp;&emsp;</label><label for=""><img src="<?=ROOT?>/assets/images/images/mail.svg" alt="">&nbsp;<?=$data['email']?></label>
                 </div>
                 <div class="messages">
-                  <button onclick="document.location='editprofile'">Edit</button>
+                  <button onclick="document.location='Profile/Editprofile_details'">Edit</button>
                 </div>
               </div>
               <div class="about">
                 <h1>About</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, ipsam! Fugiat, repellendus. Unde laudantium fuga assumenda molestias iure. Qui eaque dolores voluptate aut, fuga saepe sed vel tenetur ex aliquam?</p>
+                <p><?=$data['description']?></p>
               </div>
             </div>
         </div>

@@ -455,6 +455,14 @@ margin-left: 51px;
 margin-top: 30px;
 }
 
+.file1{
+  position:absolute;
+  left: 870px;
+  margin-top: 140px; 
+  width: 70px;
+  color: none;
+}
+
 .about{
   position: absolute;
   top: 240px;
