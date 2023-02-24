@@ -45,7 +45,7 @@
         </div>
         <div class="main">
               <div class="dp">
-                <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image']?>" alt="dp">
+                <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt="dp">
               </div>
               <div class="account-details">
                 <div class="name">

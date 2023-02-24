@@ -57,7 +57,7 @@
                            <div class="posts">
 
                                 <div class="top-line1">
-                                               <img class="profile2" src="<?=ROOT?>/assets/images/seller_allrequest/profilepic.png"> 
+                                               <img class="profile2" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"> 
                                                <div class="profile-name">
                                                <?php echo $row->first_name ?>
                                               <?php echo $row->last_name ?>
