@@ -5,6 +5,24 @@
 
 </head>
     <body>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="closeBtn">&times;</span>
+            <h2>Enter your bid value</h2>
+            <p>Minimum bid value: RS 630,00</p>
+          </div>
+          <div class="modal-body">
+              <label> RS: &nbsp;</label>
+            <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
+            <button>Bid Now</button>
+          </div>
+        </div>
+      </div>
+
+
+
     <div style="display : grid; grid-template-columns: 21% 79%;">
 
           <div class="left-line"> 
@@ -105,6 +123,31 @@
                           </div>
                         </div>
                          -->
+                <div class="bidding-post" id="<?=$row->post_id?>" >
+                <div class="image">
+                  <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
+                </div>
+                <div class="info">
+                  <div class="name-size-place">
+                    <label><span style="color: #000000;"><?=$row->item_name?>&nbsp; </span><?=$row->amount?> <?=$row->amount_type?></label><br>
+                    <p><img src="images/map-pin.svg" alt="">&nbsp; <?=$row->city?></p>
+                  </div>
+                  <div class="price">
+                    <h5 class="initial-price">RS <?=$row->initial_price?></h5>
+                    <h3 class="current-price"><img src="images/green-circle.svg" alt=""> RS <?=$row->current_value?></h3>
+                  </div>
+                  <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
+                  <div class="days">
+                    <p class="remain"><?=$row->remaning?> days remaining</p>
+                    <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
+                    </div>
+                  <div class="bid-now">
+                    <button id="openModalBtn">Bid Now</button>
+                  </div>
+                </div>
+              </div>
+
+
 
                     
                         
@@ -121,7 +164,7 @@
 
 
 
-<form  method="post">
+<!-- <form  method="post">
  <div class="form-popup" id="myForm">
             <h5 style="text-align: center;">Enter your bid value</h5>
 
@@ -137,7 +180,7 @@
             <button type="button" style="top:140px;width:90px;height:40px;left:420px;background:#E43D3D" class="btn3" onclick="closeForm()">Close</button>
 
 </div>
-</form>
+</form> -->
 
 
 
@@ -147,7 +190,7 @@
 
 
 
-<script>
+<!-- <script>
 
 const fills = document.querySelectorAll('.btn2');
   fills.forEach(function(fill) {
@@ -168,6 +211,39 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-</script>
+</script> -->
+
+<script>
+          // Get the modal
+      var modal = document.getElementById("modal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("closeBtn")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+      </script>
+
+
+
+
 
 </html>
