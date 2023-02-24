@@ -5,7 +5,7 @@ class User{
     use Model;
 
     protected $table = 'registerd_user';
-    protected $allowedColumns = ['first_name','last_name','address','postal_code','city','contact_number','email','password','token','seller','buyer','deliver','user_id'];
+    protected $allowedColumns = ['first_name','last_name','address','postal_code','city','contact_number','email','password','token','seller','buyer','deliver','user_id','image','description'];
     public $errors = [];
 
 
