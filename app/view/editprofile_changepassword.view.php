@@ -23,35 +23,37 @@
               <p class="letter">Change Password</p>
         </div>
 
-        
+        <form class="" action="changepassword" method="post" enctype="multipart/form-data">
         <div>
                       <div>
                         <label class="Current-Password-name">Current Password</label>
                         <label class="Current-Password-name1">*</label>
                         <br>
-                        <input class="Current-Password" type="password">
+                        <input class="Current-Password" type="password" name="Current-Password">
                       </div>
 
                       <div>
                         <label class="Password-name">New Passsword</label>
                         <label class="Password-name1">*</label>
                         <br>
-                        <input class="Password" type="password">
+                        <input class="Password" type="password" name="Password">
                       </div>
 
                       <div>
                         <label class="Confirm-Password-name">Confirm Passsword</label>
                         <label class="Confirm-Password-name1">*</label>
                         <br>
-                        <input class="Confirm-Password" type="password">
+                        <input class="Confirm-Password" type="password" name="Confirm-Password">
                       </div>
 
                       <div>
-                          <button class="Register-but">Change Password</button>
+                          <button class="Register-but" type="submit">Change Password</button>
                       </div>
 
 
-            </div>
+        </div>
+        </form>
+
         </div>
 
         <div>
