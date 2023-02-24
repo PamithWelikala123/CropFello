@@ -45,16 +45,10 @@
 
                   
                   <div class="Scroll-bar">
-                  <a href="createbid"><img class="plus"  src="<?=ROOT?>/assets/images/selling/plus.png"></a>
+                  <a href="<?=ROOT?>/Bidding/createbid"><img class="plus"  src="<?=ROOT?>/assets/images/selling/plus.png" onclick></a>
 
 
-          <?php if($data) :    ?>
-                    
-
-
-                    
-         
-                 
+          <?php if($data) :    ?>   
             <div class="bid">      
             <div class="bid1">
 

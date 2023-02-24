@@ -48,7 +48,8 @@
         
                   <div class="Scroll-bar">
                   <?php if ($data) : ?>      
-                       <?php foreach ($data as $row) : ?>        
+                       <?php foreach ($data as $row) : ?>   
+                        <?php if ($row->user_id!=$_SESSION['USER']->user_id) : ?>       
                            <div class="posts">
                                 <div class="post">
                                         <div class="post-preview">
@@ -87,7 +88,7 @@
                                 </div>
 
                            </div> 
-
+                           <?php endif; ?>
                           <?php endforeach; ?>
                           <?php endif; ?>
  

@@ -41,25 +41,37 @@
         <div class="pro" style="left:821px">Price</div>
         <div class="pro" style="left:1021px"></div>
         <div><img class="Line5" src="<?=ROOT?>/assets/images/pics/Line5.png"></div>
+        <?php if ($data) : ?>               
+        
         <div class="bid">
             <div class="bid1">
+            <?php foreach ($data as $row) : ?> 
                 <div class="bid2">
-                    <div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div>Carrot</div><div>2022/05/18</div><div>Rs.700</div><div style="color:#4DEA25">1</div><div style="color:#4DEA25">KG</div><div><img class="img1" src="<?=ROOT?>/assets/images/pics/delete.png"></div>
-                    <div style="color:#4DEA25">By Anura</div>
+                    <div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>"></div><div><?=$row->item_name?></div><div><?=$row->added_on?>
+                                </div><div><?=$row->price?></div><div style="color:#4DEA25"><?=$row->size?>
+                                </div><div style="color:#4DEA25"><?=$row->stock_size1?></div><div><img id=<?=$row->post_id?> class="img1" src="<?=ROOT?>/assets/images/pics/delete.png" onclick="wishlist1()"></div>
+                    <div style="color:#4DEA25">By <?=$row->first_name?></div>
                 </div>
-                <div class="bid2">
-                    <div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div>Carrot</div><div>2022/05/18</div><div>Rs.700</div><div style="color:#4DEA25">1</div><div style="color:#4DEA25">KG</div><div><img class="img1" src="<?=ROOT?>/assets/images/pics/delete.png"></div>
-                    <div style="color:#4DEA25">By Sajith</div>
-                </div>
-                <div class="bid2">
-                    <div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div>Carrot</div><div>2022/05/18</div><div>Rs.700</div><div style="color:#4DEA25">1</div><div style="color:#4DEA25">KG</div><div><img class="img1" src="<?=ROOT?>/assets/images/pics/delete.png"></div>
-                    <div style="color:#4DEA25">By Namal</div>
-                </div>
-                <div class="bid2">
-                    <div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div>Carrot</div><div>2022/05/18</div><div>Rs.700</div><div style="color:#4DEA25">1</div><div style="color:#4DEA25">KG</div><div><img class="img1" src="<?=ROOT?>/assets/images/pics/delete.png"></div>
-                    <div style="color:#4DEA25">By Anura</div>
-                </div>
+            <?php endforeach; ?>
             </div>
+            
         </div>
+        
+        <?php endif; ?> 
         <div><img class="Line5" style="top:670px" src="<?=ROOT?>/assets/images/pics/Line5.png"></div>
         
+</body>   
+ <script>
+
+function wishlist1(){
+const images = document.querySelectorAll('.img1');
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      window.location.href = '../wishlists/wishlistdeleteitem1?id='+id;
+    });
+  });
+}
+
+</script>
+</html>
