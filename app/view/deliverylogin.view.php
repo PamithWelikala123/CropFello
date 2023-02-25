@@ -17,7 +17,7 @@
                     <button class="seller bt1">Seller</button>
                 </div>
                 <div>
-                    <a href="register.php">
+                    <a href="Deliverysignup">
                     <button class="deliverer bt1">Deliverer</button>
                     </a>
                 </div>

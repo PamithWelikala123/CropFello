@@ -1,7 +1,7 @@
 <?php
 
 //Buyer class
-class Deliveryignup{
+class Deliverysignup{
 
     use Controller;
     public function index(){
