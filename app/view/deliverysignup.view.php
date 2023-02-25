@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverysignup.css">
     <title>Document</title>
     
 </head>
@@ -10,8 +10,8 @@
     <div class="container">
 
         <div class="item item-1">
-            <img class="logo" src="pics/logo.png">
-            <a href="index.php">
+            <img class="logo" src="<?=ROOT?>/assets/images/rushinpics/pics/logo.png">
+            <a href="Deliverylogin">
             <button class="botn">Login</button>
             </a>
         </div>
@@ -75,19 +75,7 @@
                     <label for="name">Vehicle Type <span style="color:red">&#9913 </span></label><br>
                     <!-- <input type="text" id="number" name="name" class="tb1"> -->
                     <select id="vehicle" class="vtype" >
-                        <option selected>Select Vehicle</option>
-                        <?php
-                            $conn = new mysqli('localhost', 'root','', 'logindb');
-                            if ($conn->connect_error) {
-                                die("Connection failed: " . $conn->connect_error);
-                            }
-                            $sql = "SELECT * FROM vehicle";
-                            $result = $conn->query($sql);
-                        if ($result->num_rows > 0) { ?>
-                        <?php while($row = $result->fetch_assoc()) { ?>
-                        <option class="clor"  value="motocycle"><?php echo $row['name'] ?></option>
-                        <?php } ?>
-                        <?php } ?>
+                        
                     </select>
                 </div>
                 <div class="com_password">
@@ -98,24 +86,12 @@
                     <label for="name">Vehicle Capacity <span style="color:red">&#9913 </span></label><br>
                     <!-- <input type="text" id="name" name="name" class="tb1"> -->
                     <select id="vehicle" class="vcap">
-                    <option selected>Select Capacity</option>
-                        <?php
-                        $conn = new mysqli('localhost', 'root','', 'logindb');
-                        if ($conn->connect_error) {
-                            die("Connection failed: " . $conn->connect_error);
-                        }
-                        $sql = "SELECT weight FROM capacity";
-                        $result = $conn->query($sql);
-                        if ($result->num_rows > 0) { ?>
-                            <?php while($row = $result->fetch_assoc()) { ?>
-                                <option class="clor" value="motocycle"><?php echo $row['weight'] ?></option>
-                            <?php } ?>
-                        <?php } ?>
+                    
                     </select>
                 </div>
                 <div class="Co_number">
                     <label for="name">Contact Number <span style="color:red">&#9913 </span></label><br>
-                    <img class="srilanka"  src="pics/Sri Lanka.png">
+                    <img class="srilanka"  src="<?=ROOT?>/assets/images/rushinpics/pics/Sri Lanka.png">
                     <!-- <label class="ContactNo-name2">|</label> -->
                     <label class="ContactNo-name3">+94</label>
                     <input type="text" id="number" name="cnum" class="tb4">
@@ -127,11 +103,11 @@
             </form>    
         </div>
         <div class="item item-3">
-            <img class="register-corner" src="pics/register-corner.png">
-            <img class="register-corner2" src="pics/register-corner2.png">
+            <img class="register-corner" src="<?=ROOT?>/assets/images/rushinpics/pics/register-corner.png">
+            <img class="register-corner2" src="<?=ROOT?>/assets/images/rushinpics/pics/register-corner2.png">
         </div>
 
-        <script>
+        <!-- <script>
             var show = true;
     
             function showCheckboxes() {
@@ -146,7 +122,7 @@
                     show = true;
                 }
             }
-        </script>
+        </script> -->
     
 </body>
 </html>
