@@ -20,20 +20,11 @@
     <div class="wrapper">
     <section class="chat-area">
       <header>
-        <?php 
-          $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
-          $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
-          if(mysqli_num_rows($sql) > 0){
-            $row = mysqli_fetch_assoc($sql);
-          }else{
-            header("location: users.php");
-          }
-        ?>
         <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-        <img src="php/images/<?php echo $row['img']; ?>" alt="">
+        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"alt="">
         <div class="details">
-          <span><?php echo $row['fname']. " " . $row['lname'] ?></span>
-          <p><?php echo $row['status']; ?></p>
+          <span><?php echo $data['first_name']. " " . $data['last_name'] ?></span>
+          <p><?php //echo $data['status']; ?></p>
         </div>
       </header>
       <div class="chat-box">
@@ -48,6 +39,6 @@
   </div>
 
 
-                <script src="<?=ROOT?>/assets/css/chat.js"></script> 
-    </body>
+  <!-- <script src="<?=ROOT?>/assets/js/chat_users.js"></script> 
+    </body> -->
 </html>
