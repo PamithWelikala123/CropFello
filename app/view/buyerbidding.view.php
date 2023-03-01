@@ -32,13 +32,13 @@
         <div class="menu">
             <hr><label class="Menu1">Menu</label>
             <div> 
-                <button class="Feed" onclick="document.location='feed.php'">Feed</button>
+                <button class="Feed" onclick="document.location='../feed'">Feed</button>
                 <img class="Feed1"  src="<?=ROOT?>/assets/images/vimukthibidding/feed1.png">
                 <button class="Bidding" onclick="document.location='bidding.php'">Bidding</button>
                 <img class="Bidding1"  src="<?=ROOT?>/assets/images/vimukthibidding//Bidding1.png">
-                <button class="Wishlist" >Wishlist</button>
+                <button class="Wishlist" id="Wishlist" onclick="document.location='../Wishlists/buyerwishlist'">Wishlist</button>
                 <img class="Wishlist1"  src="<?=ROOT?>/assets/images/vimukthibidding/heart1.png">
-                <button class="Requests" id="Requests" onclick="document.location='Wishlist.php'">Requests</button>
+                <button class="Requests" id="Requests" onclick="document.location='../Requests/view1'">Requests</button>
                 <img class="Requests1"  src="<?=ROOT?>/assets/images/vimukthibidding/flag.png">
               </div>
         </div>
@@ -51,6 +51,9 @@
           <button onclick="window.location.href = 'BuyerBiddingmybid'">My Bids</button>
       </div>
         <div class="main">
+          <?php if ($data) : ?>      
+          <?php foreach ($data as $row) : ?>   
+          <?php if ($row->seller_id!=$_SESSION['USER']->user_id) : ?> 
             <div class="bidding-post">
                 <div class="image">
                   <img src="<?=ROOT?>/assets/images/vimukthibidding/carrot1.jpg">
@@ -74,6 +77,9 @@
                   </div>
                 </div>
               </div>
+              <?php endif; ?>
+              <?php endforeach; ?>
+              <?php endif; ?>
         </div>
     </div>
     

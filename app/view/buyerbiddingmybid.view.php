@@ -44,24 +44,34 @@
         <div><button class="all1">My Bids</button></div>
         <div class="bid">
             <div class="bid1">
-                <div class="bid2"><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div style="font-size:30px">carrot</div><div style="font-size:35px;color:#4DEA25">1KG</div><div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs.430</div>
-                    <div>Nuwara Eliya</div><div></div><div style="font-size:35px">Rs.530</div>
-                    <div style="color:#E43D3D">Exp: 16/10/2022</div><div></div><div style="color:#4DEA25">8 days remaining</div>
-                    <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4)">Ends on: 15/10/2022</div>
-                    <div></div><div></div>
+            <div class="bidding-post">
+                <div class="image">
+                  <img src="<?=ROOT?>/assets/images/vimukthibidding/carrot1.jpg">
                 </div>
-                <div class="bid2"><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div style="font-size:30px">carrot</div><div style="font-size:35px;color:#4DEA25">1KG</div><div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs.430</div>
-                    <div>Nuwara Eliya</div><div></div><div style="font-size:35px">Rs.530</div>
-                    <div style="color:#E43D3D">Exp: 16/10/2022</div><div></div><div style="color:#4DEA25">8 days remaining</div>
-                    <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4)">Ends on: 15/10/2022</div>
-                    <div></div><div></div>
+                <div class="info">
+                  <div class="name-size-place">
+                    <label><span style="color: #000000;">Carrot&nbsp; </span>1 KG</label><br>
+                    <p><img src="<?=ROOT?>/assets/images/vimukthibidding/map-pin.svg" alt="">&nbsp; Nuwara Eliya</p>
+                  </div>
+                  <div class="price">
+                    <h5 class="initial-price">RS 430</h5>
+                    <h3 class="current-price"><img src="<?=ROOT?>/assets/images/vimukthibidding/green-circle.svg" alt=""> RS 530</h3>
+                  </div>
+                  <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;16 September 2022</p></div>
+                  <div class="days">
+                    <p class="remain">8 days remaining</p>
+                    <p class="ends-on">Ends on 15 September 2022</p>
+                    </div>
+                    <div class="your-bid">
+                        <p>Your Bid:&nbsp; <span>RS 530.00</span></p>
+                    </div>
+                  <div class="bid-now">
+                    <!-- <button class="cancel">cancel</button> -->
+                    <button  class="update" id="openModalBtn">Update</button>
+                    
+                  </div>
                 </div>
-                <div class="bid2"><div class="carr"><img class="img3"  src="<?=ROOT?>/assets/images/pics/carrot.jpg"></div><div style="font-size:30px">carrot</div><div style="font-size:35px;color:#4DEA25">1KG</div><div style="font-size:25px;color: rgba(0, 0, 0, 0.4)">Rs.430</div>
-                    <div>Nuwara Eliya</div><div></div><div style="font-size:35px">Rs.530</div>
-                    <div style="color:#E43D3D">Exp: 16/10/2022</div><div></div><div style="color:#4DEA25">8 days remaining</div>
-                    <div></div><div></div><div style="color:rgba(0, 0, 0, 0.4)">Ends on: 15/10/2022</div>
-                    <div></div><div></div>
-                </div>
+              </div>   
             </div>
         </div>
 
