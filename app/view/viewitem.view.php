@@ -49,7 +49,7 @@
         <?php if ($data) : ?> 
         <div class="main">
             <div class="user">
-                <img src="<?=ROOT?>/assets/images/images/user.jpg" alt="user">
+                <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image1']?>" alt="user">
                 <label for=""><sup><sup><?=$data['first_name']?><?=$data['last_name']?></sup></sup></label>
                 <a href="#"><img class="back" src="<?=ROOT?>/assets/images/images/back_btn.png" alt="back button"></a>
             </div>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="price">
                     <p style="float: right;"><span style="font-size: smaller; color: #FB7A7A; float: right;"><strong> <?=$data['discount']?><?=$data['discount1']?> OFF</strong></span><br>
-                        <span style="font-size:larger; color: #0EBC1F;"><strong>1 <?=$data['stock_size1']?></strong></span><span  style="font-size: 50%; color: #B3B3B3; ">/55KG &emsp;</span><span ><strong><?=$data['stock_size1']?> <?=$data['price']?></strong><br></span>
+                        <span style="font-size:larger; color: #0EBC1F;"><strong>1 <?=$data['stock_size1']?></strong></span><span  style="font-size: 50%; color: #B3B3B3; ">/<?=$data['size']?> KG &emsp;</span><span ><strong><?=$data['stock_size1']?> <?=$data['price']?></strong><br></span>
                         <span style="float: right; font-size: 85%; color: #0EBC1F;"><?=$data['city']?></span>
                     </p>
                 </div>

@@ -40,7 +40,9 @@ class Feed{
     $row3= $user->first($arr3);
     $row->first_name=$row3->first_name;
     $row->last_name=$row3->last_name;
-    
+    $row->image1=$row3->image;
+
+   // echo $row->image;
 
 
       $arr2['item_id'] = $row->item_id;
