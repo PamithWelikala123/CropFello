@@ -10,7 +10,7 @@ trait Model{
     protected $limit = 10;
     protected $offset = 0;
     protected $order_type = "desc";
-    protected $order_column = "post_id";
+    public $order_column = "post_id";
     public $errors = [];
     
      public function findAll(){
