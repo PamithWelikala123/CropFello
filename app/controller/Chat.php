@@ -1,5 +1,6 @@
-<?php
 
+<?php
+//require_once('../core/Controller.php');
 //Chat class
 class Chat{
 
@@ -42,7 +43,7 @@ class Chat{
         }
     }
 
-    public function search(){
+    public function search1(){
         error_log('This is a test message.');
             $user= new User;
             $searchTerm = $_POST['searchTerm'];  
@@ -76,6 +77,12 @@ class Chat{
 
 
     }
+    public function search(){
+        print_r("check the routing of chat");
+        exit();
+
+    }
+
 
     public function data(){
         
@@ -113,3 +120,8 @@ class Chat{
 
 
 }
+
+
+
+
+?>

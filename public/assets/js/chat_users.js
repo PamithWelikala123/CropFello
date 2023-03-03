@@ -32,7 +32,12 @@ searchBar.onkeyup = ()=>{
   }
 
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/Cropfello/app/controller/chat/search", true);
+  if(xhr.open('POST', 'http://localhost/Cropfello/Chat/search')){
+        console.log("gay monty");
+  }
+  else{
+    console.log("gay saneru");
+  }
   xhr.onload = ()=>{
     if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status === 200){
