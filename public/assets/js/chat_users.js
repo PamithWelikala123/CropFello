@@ -31,13 +31,9 @@ searchBar.onkeyup = ()=>{
     searchBar.classList.remove("active");
   }
 
-  let xhr = new XMLHttpRequest();
-  if(xhr.open('POST', 'http://localhost/Cropfello/Chat/search')){
-        console.log("gay monty");
-  }
-  else{
-    console.log("gay saneru");
-  }
+  let xhr = new XMLHttpRequest()
+  
+  xhr.open('POST', 'http://localhost/Cropfello/public/Chat/search',true);
   xhr.onload = ()=>{
     if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status === 200){
@@ -62,7 +58,7 @@ searchBar.onkeyup = ()=>{
 
 setInterval(() =>{
   let xhr = new XMLHttpRequest();
-  xhr.open("GET", "<?=ROOT1?>/chat/chat_search", true);
+  xhr.open("GET", "http://localhost/Cropfello/public/Chat/chat", true);
   xhr.onload = ()=>{
     if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status === 200){

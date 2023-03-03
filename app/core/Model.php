@@ -149,6 +149,7 @@ trait Model{
         $this->query($query, $data);
         return false;
     }
+
     public function delete1($id1,$id2, $id_column1 = 'user_id',$id_column2='post_id'){
 
         $data[$id_column1] = $id1;
@@ -158,4 +159,24 @@ trait Model{
         $this->query($query, $data);
         return false;
     }
+
+//sql = "SELECT * FROM users WHERE NOT unique_id = {$outgoing_id} AND (fname LIKE '%{$searchTerm}%' OR lname LIKE '%{$searchTerm}%') "
+
+
+public function chatfunction($outgoing_id,$searchTerm){
+    
+        $query = "select * from registerd_user WHERE NOT user_id = {$outgoing_id} AND (first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%')";
+        return  $this->query($query);
+    }
+
+    public function chatfunction1($outgoing_id,$other_id){
+
+        $query = "SELECT * FROM messages WHERE (incoming_msg_id = {$other_id}
+        OR outgoing_msg_id = {$other_id}) AND (outgoing_msg_id = {$outgoing_id} 
+        OR incoming_msg_id = {$outgoing_id}) ORDER BY msg_id DESC LIMIT 1";
+
+        return  $this->query($query);
+    }
+
+
 }
