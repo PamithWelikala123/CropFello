@@ -26,6 +26,19 @@ class Chat{
         }
     }
 
+    public function chat1(){
+        if ($_SESSION['USER']) {
+            $arr['user_id']=$_GET['user_id'];
+            $user= new User;
+            $row=$user->first($arr);
+    
+            $row=(array)$row;
+    
+            $this->view('chat',$row);
+
+        }
+    }
+
     public function chat_search(){
 
         if ($_SESSION['USER']) {
@@ -93,7 +106,7 @@ class Chat{
 
        ($id == $row->user_id) ? $hid_me = "hide" : $hid_me = "";
 
-        $output .= '<a href="chat.php?user_id='. $row->user_id .'">
+        $output .= '<a href="chat1?user_id='. $row->user_id .'">
                     <div class="content">
                     <img src="'.ROOT.'/assets/images/Profile_pic/'.$row->image.'"  alt="">
                     <div class="details">
@@ -107,6 +120,61 @@ class Chat{
             
     }
 
+
+
+
+
+
+    public function insert_chat(){
+        $message=new Message;
+
+        $outgoing_id=$_SESSION['USER']->user_id;
+        $incoming_id=$_POST['incoming_id'];
+        $message=$_POST['message'];
+
+        $arr['incoming_msg_id']=$incoming_id;
+        $arr['outgoing_msg_id']=$outgoing_msg_id;
+        $arr['msg']=$message;
+
+       
+        if(!empty($message)){
+            $message->insert($arr);
+        }
+
+    }
+
+    public function get_chat(){
+        $message=new Message;
+        $outgoing_id=$_SESSION['USER']->user_id;
+        $incoming_id=$_POST['incoming_id'];
+
+        $rows=$message->chatfunction2($outgoing_id,$incoming_id);
+        if($rows){
+        foreach($rows as $row){
+            if($row['outgoing_msg_id'] === $outgoing_id){
+                $output .= '<div class="chat outgoing">
+                            <div class="details">
+                                <p>'. $row['msg'] .'</p>
+                            </div>
+                            </div>';
+            }else{
+                $output .= '<div class="chat incoming">
+                            <img src="php/images/'.$row['img'].'" alt="">
+                            <div class="details">
+                                <p>'. $row['msg'] .'</p>
+                            </div>
+                            </div>';
+            }
+        }
+        }
+        else{
+            $output .= '<div class="text">No messages are available. Once you send message they will appear here.</div>';
+        }
+        echo $output;
+
+
+
+    }
 
 
 }

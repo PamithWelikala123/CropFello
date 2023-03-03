@@ -20,8 +20,8 @@
     <div class="wrapper">
     <section class="chat-area">
       <header>
-        <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"alt="">
+        <a href="../chat/chat_search" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image']?>" alt="">
         <div class="details">
           <span><?php echo $data['first_name']. " " . $data['last_name'] ?></span>
           <p><?php //echo $data['status']; ?></p>
