@@ -17,6 +17,9 @@ class Login
             if ($row) {
                 if ($row->password == md5($_POST['password'])) {
                     $_SESSION['USER'] = $row;
+                    $x="Active Now";
+                    $arr['status'] = "Active Now";
+                    $user->update($id,$arr);
                     redirect('feed');
                 }
             }
