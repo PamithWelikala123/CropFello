@@ -20,3 +20,5 @@ define('APP_NAME', "CropFello");
 define('APP_DESC', "It is all about crops");
 
 define('DEBUG',true);
+
+?>
