@@ -27,6 +27,7 @@ class Chat{
     }
 
     public function chat1(){
+
         if ($_SESSION['USER']) {
             $arr['user_id']=$_GET['user_id'];
             $user= new User;
@@ -68,6 +69,7 @@ class Chat{
             if ($rows) {
                 foreach($rows as $row){
                 $this->data($id,$row->user_id,$output);
+               // echo $row->user_id;
                 }
             }
             else{
@@ -81,16 +83,19 @@ class Chat{
     public function data($id,$other_id,$output){
         
         $user=new User;
-        $message=new Message;
+        $message1=new Message;
 
-        $rows2=$message->chatfunction($id,$other_id);
-        if($rows2){
-            $result = $rows2['msg'];
-        }
-        else{
+        $rows2=$message1->chatfunction1($id,$other_id);
+        
+        if ($rows2) {
+            foreach ($rows2 as $row) {
+                $result = $row->msg ;
+            }
+        } 
+        else {
             $result ="No message available";
         }
-
+        
         (strlen($result) > 28) ? $msg =  substr($result, 0, 28) . '...' : $msg = $result;
 
         if(isset($rows2['outgoing_msg_id'])){
@@ -126,42 +131,52 @@ class Chat{
 
 
     public function insert_chat(){
-        $message=new Message;
+        $message1=new Message;
 
         $outgoing_id=$_SESSION['USER']->user_id;
         $incoming_id=$_POST['incoming_id'];
-        $message=$_POST['message'];
+      $message=$_POST['message'];
 
         $arr['incoming_msg_id']=$incoming_id;
-        $arr['outgoing_msg_id']=$outgoing_msg_id;
+       $arr['outgoing_msg_id']=$outgoing_id;
         $arr['msg']=$message;
 
-       
+
         if(!empty($message)){
-            $message->insert($arr);
+          $message1->insert($arr);
         }
 
     }
 
+
+
+
     public function get_chat(){
+        $user=new User;
+        $output = "";
         $message=new Message;
         $outgoing_id=$_SESSION['USER']->user_id;
         $incoming_id=$_POST['incoming_id'];
 
+        $arr['user_id']=$incoming_id;
+
         $rows=$message->chatfunction2($outgoing_id,$incoming_id);
+        $row1=$user->first($arr);
+
         if($rows){
+
         foreach($rows as $row){
-            if($row['outgoing_msg_id'] === $outgoing_id){
+            if($row->outgoing_msg_id === $outgoing_id){
                 $output .= '<div class="chat outgoing">
                             <div class="details">
-                                <p>'. $row['msg'] .'</p>
+                                <p>'. $row->msg .'</p>
                             </div>
                             </div>';
             }else{
                 $output .= '<div class="chat incoming">
-                            <img src="php/images/'.$row['img'].'" alt="">
+                            <img src="'.ROOT.'/assets/images/Profile_pic/'.$row1->image.'" alt="">
                             <div class="details">
-                                <p>'. $row['msg'] .'</p>
+                                <p>'. $row->msg .'</p>
                             </div>
                             </div>';
             }
