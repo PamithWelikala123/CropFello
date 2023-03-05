@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 25, 2023 at 08:19 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: localhost
+-- Generation Time: Mar 05, 2023 at 04:10 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `buyerbidding` (
   `user_id` bigint(20) NOT NULL,
   `time` time NOT NULL DEFAULT current_timestamp(),
   `bidvalue` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -42,7 +42,7 @@ CREATE TABLE `buyerbidding` (
 
 CREATE TABLE `capacity` (
   `weight` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `capacity`
@@ -81,7 +81,7 @@ CREATE TABLE `createbid` (
   `image` varchar(255) NOT NULL,
   `buyer_id` int(11) DEFAULT NULL,
   `current_value` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `createbid`
@@ -90,7 +90,8 @@ CREATE TABLE `createbid` (
 INSERT INTO `createbid` (`post_id`, `seller_id`, `item_id`, `item_type`, `exp`, `bid_end_date`, `initial_price`, `amount`, `amount_type`, `bid_range`, `address`, `postal_code`, `city`, `image`, `buyer_id`, `current_value`) VALUES
 (1, 2, 2, 'vegitable', '2023-03-19', '2023-02-28', 200, 5, 'Kg', 50, '30/1/A High level Road Meegoda', 10504, 'Colombo', '6387fa702854c.jpeg', 2, 200),
 (2, 11, 3, 'fruit', '2023-03-17', '2023-02-27', 200, 5, 'Kg', 50, '30/1/A High level Road Meegoda', 10504, 'Nuwara Eliya', '6387fa702854c.jpeg', 3, 300),
-(3, 12, 1, 'Vegitable', '2023-03-17', '2023-02-28', 200, 5, 'Kg', 50, '30/1/A High level Road Meegoda', 10504, 'Colombo', '6387fa702854c.jpeg', 2, 400);
+(3, 12, 1, 'Vegitable', '2023-03-17', '2023-02-28', 200, 5, 'Kg', 50, '30/1/A High level Road Meegoda', 10504, 'Colombo', '6387fa702854c.jpeg', 2, 400),
+(4, 11, 3, 'fruit', '2023-03-31', '2023-03-23', 400, 50, 'Kg', 100, '30/4/5 Nuwara Rd Peradeniya', 10562, 'Peradeniya', '6387fa702854c.jpeg', 3, 500);
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ CREATE TABLE `info` (
   `vtype` varchar(128) NOT NULL,
   `quantity` int(10) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `info`
@@ -137,7 +138,7 @@ CREATE TABLE `item` (
   `maximum_rental_price` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `item`
@@ -157,6 +158,38 @@ INSERT INTO `item` (`post_id`, `item_id`, `maximum_rental_price`, `name`, `type`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `msg_id` int(11) NOT NULL,
+  `incoming_msg_id` int(255) NOT NULL,
+  `outgoing_msg_id` int(255) NOT NULL,
+  `msg` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) VALUES
+(1, 11, 2, 'hi'),
+(2, 2, 11, 'hi'),
+(3, 11, 2, 'Hello'),
+(4, 11, 2, 'Hello'),
+(5, 11, 2, 'innawada'),
+(6, 2, 12, 'adooo'),
+(7, 12, 2, 'kohomda'),
+(8, 12, 2, 'innawa suuda'),
+(9, 2, 12, 'thada thada'),
+(12, 2, 12, 'adooo'),
+(13, 2, 12, 'ada use birthday ne ?'),
+(14, 12, 2, 'set na mm asa na ubata'),
+(15, 12, 2, ':(');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notifications`
 --
 
@@ -166,7 +199,7 @@ CREATE TABLE `notifications` (
   `date` date NOT NULL DEFAULT current_timestamp(),
   `time` time NOT NULL DEFAULT current_timestamp(),
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `notifications`
@@ -201,7 +234,7 @@ CREATE TABLE `postitem` (
   `city` varchar(20) NOT NULL,
   `image` varchar(100) NOT NULL,
   `description` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `postitem`
@@ -244,25 +277,26 @@ CREATE TABLE `registerd_user` (
   `deliver` tinyint(1) NOT NULL DEFAULT 0,
   `token` varchar(50) DEFAULT NULL,
   `image` varchar(255) NOT NULL DEFAULT '63f8dac81529e.jpg 	',
-  `description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `description` varchar(255) DEFAULT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Not Online'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `registerd_user`
 --
 
-INSERT INTO `registerd_user` (`user_id`, `first_name`, `last_name`, `address`, `contact_number`, `email`, `password`, `postal_code`, `city`, `seller`, `buyer`, `deliver`, `token`, `image`, `description`) VALUES
-(2, 'Pamith', 'Welikala', '30/1/A High Level Rd Meegoda', 771674022, 'pamithwelikala@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 10504, 'Colombo', 1, 0, 0, '3899', '63f9af41e8e6d.jpeg', ''),
-(3, 'Praneeth', 'Jayarathna', '40/1/B rathnapura Road Rathnapura', 776098615, 'praneeth@gmail.com', 'Pranneth', 78936, 'Rathnapura', 0, 1, 0, '6416', '63f8dac81529e.jpg 	', ''),
-(4, 'sachin', 'umayangana', '50/2/A Kirulapana Road Nugegoda', 764138580, 'sachinumayangana@gmail.com', 'Sachin123', 69875, 'Nugegoda', 0, 0, 0, '4646', '63f8dac81529e.jpg 	', ''),
-(5, 'vimukthi', 'dulnath', '55/1 palanwaththa kirulapana', 763204215, 'vimukthi@gmail.com', 'Dulnath', 54765, 'Kottawa', 0, 0, 0, '2853', '63f8dac81529e.jpg 	', ''),
-(6, 'rushin', 'sandeepa', '80/5 Galle Road Hambanthota', 703329164, 'Rushin@gmail.com', 'rushin123', 25487, 'Hambanthota', 0, 0, 0, '0', '63f8dac81529e.jpg 	', ''),
-(7, 'saneru', 'akarawita', '60/1/C high level road homagama', 770338069, 'saneruakarawita@gmail.com', 'Saneru123', 98798, 'Homagama', 0, 0, 0, '', '63f8dac81529e.jpg 	', ''),
-(8, 'Dinuka', 'Ashan', '7/1/C highlevel Road Meegoda', 714872852, 'dinukaashan@gmail.com', 'Dinuka123', 14235, 'Godagama', 1, 0, 0, '', '63f8dac81529e.jpg 	', ''),
-(9, 'pamith', 'Minthaka', '40/5/5 highlevel road rathnapura', 772776406, 'pamithrox@gmail.com', 'pamith', 97845, 'Colombo', 1, 0, 0, '', '63f8dac81529e.jpg 	', ''),
-(10, 'menura', 'melaka', 'menura@gmail.com', 763714756, 'menura@gmail.com', '440952a1c7f1a17f1cf6c9e12563040f', 10504, 'homagama', 1, 0, 0, '', '63f8dac81529e.jpg 	', ''),
-(11, 'ramith', 'welikala', '30/1/A High level Road Meegoda', 771674022, 'pamith@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 10504, 'colombo', 1, 0, 0, '', '63f8dac81529e.jpg 	', ''),
-(12, 'Saneru', ' Udana', 'Hande inne Hande', 770338069, 'abc@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 69, 'kahatagasdigiliya', 1, 0, 0, NULL, '63f8dac81529e.jpg 	', '');
+INSERT INTO `registerd_user` (`user_id`, `first_name`, `last_name`, `address`, `contact_number`, `email`, `password`, `postal_code`, `city`, `seller`, `buyer`, `deliver`, `token`, `image`, `description`, `status`) VALUES
+(2, 'Pamith', 'Welikala', '30/1/A High Level Rd Meegoda', 771674022, 'pamithwelikala@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 10504, 'Colombo', 1, 0, 0, '3899', '63f9af41e8e6d.jpeg', '', 'Active Now'),
+(3, 'Praneeth', 'Jayarathna', '40/1/B rathnapura Road Rathnapura', 776098615, 'praneeth@gmail.com', 'Pranneth', 78936, 'Rathnapura', 0, 1, 0, '6416', '63f8dac81529e.jpg', '', 'Not Online'),
+(4, 'sachin', 'umayangana', '50/2/A Kirulapana Road Nugegoda', 764138580, 'sachinumayangana@gmail.com', 'Sachin123', 69875, 'Nugegoda', 0, 0, 0, '4646', '63f8dac81529e.jpg', '', 'Not Online'),
+(5, 'vimukthi', 'dulnath', '55/1 palanwaththa kirulapana', 763204215, 'vimukthi@gmail.com', 'Dulnath', 54765, 'Kottawa', 0, 0, 0, '2853', '63f8dac81529e.jpg', '', 'Not Online'),
+(6, 'rushin', 'sandeepa', '80/5 Galle Road Hambanthota', 703329164, 'Rushin@gmail.com', 'rushin123', 25487, 'Hambanthota', 0, 0, 0, '0', '63f8dac81529e.jpg', '', 'Not Online'),
+(7, 'saneru', 'akarawita', '60/1/C high level road homagama', 770338069, 'saneruakarawita@gmail.com', 'Saneru123', 98798, 'Homagama', 0, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
+(8, 'Dinuka', 'Ashan', '7/1/C highlevel Road Meegoda', 714872852, 'dinukaashan@gmail.com', 'Dinuka123', 14235, 'Godagama', 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
+(9, 'pamith', 'Minthaka', '40/5/5 highlevel road rathnapura', 772776406, 'pamithrox@gmail.com', 'pamith', 97845, 'Colombo', 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
+(10, 'menura', 'melaka', 'menura@gmail.com', 763714756, 'menura@gmail.com', '440952a1c7f1a17f1cf6c9e12563040f', 10504, 'homagama', 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
+(11, 'ramith', 'welikala', '30/1/A High level Road Meegoda', 771674022, 'pamith@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 10504, 'colombo', 1, 0, 0, '', '63f9af41e8e6d.jpeg', '', 'Not Online'),
+(12, 'Saneru', ' Udana', 'Hande inne Hande', 770338069, 'abc@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 69, 'kahatagasdigiliya', 1, 0, 0, NULL, '63f8dac81529e.jpg 	', '', 'Not Online');
 
 -- --------------------------------------------------------
 
@@ -283,7 +317,7 @@ CREATE TABLE `request_item` (
   `contact` int(11) NOT NULL,
   `approved` int(1) NOT NULL DEFAULT 0,
   `approved_userid` bigint(20) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `request_item`
@@ -317,7 +351,7 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `cnum` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -339,7 +373,7 @@ CREATE TABLE `user_requestitem` (
   `user_id` bigint(20) NOT NULL,
   `post_id` bigint(20) NOT NULL,
   `disprove` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_requestitem`
@@ -357,7 +391,7 @@ INSERT INTO `user_requestitem` (`user_id`, `post_id`, `disprove`) VALUES
 
 CREATE TABLE `vehicle` (
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `vehicle`
@@ -380,7 +414,7 @@ CREATE TABLE `wishlist` (
   `user_id` bigint(20) NOT NULL,
   `added_on` date NOT NULL DEFAULT current_timestamp(),
   `time` time NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `wishlist`
@@ -425,6 +459,12 @@ ALTER TABLE `info`
 --
 ALTER TABLE `item`
   ADD PRIMARY KEY (`item_id`);
+
+--
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`msg_id`);
 
 --
 -- Indexes for table `notifications`
@@ -479,13 +519,19 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `createbid`
 --
 ALTER TABLE `createbid`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `info`
 --
 ALTER TABLE `info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `notifications`

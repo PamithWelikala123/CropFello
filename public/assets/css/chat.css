@@ -294,7 +294,7 @@ body{
   max-width: calc(100% - 130px);
 }
 .outgoing .details p{
-  background: #4DEA25;
+  background: #3fc01f;
   color: rgb(0, 0, 0);
   border-radius: 18px 18px 0 18px;
 }
@@ -312,8 +312,8 @@ body{
   max-width: calc(100% - 130px);
 }
 .incoming .details p{
-  background: rgb(0, 0, 0);
-  color: #54ff29;
+  background: rgb(255, 255, 255);
+  color:  #2a7d15;
   border-radius: 18px 18px 18px 0;
 }
 .typing-area{
