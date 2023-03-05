@@ -294,8 +294,8 @@ body{
   max-width: calc(100% - 130px);
 }
 .outgoing .details p{
-  background: #333;
-  color: #fff;
+  background: #4DEA25;
+  color: rgb(0, 0, 0);
   border-radius: 18px 18px 0 18px;
 }
 .chat-box .incoming{
@@ -312,8 +312,8 @@ body{
   max-width: calc(100% - 130px);
 }
 .incoming .details p{
-  background: #fff;
-  color: #333;
+  background: rgb(0, 0, 0);
+  color: #54ff29;
   border-radius: 18px 18px 18px 0;
 }
 .typing-area{
@@ -331,14 +331,14 @@ body{
   border-radius: 5px 0 0 5px;
 }
 .typing-area button{
-  color: #fff;
+  color: rgb(0, 0, 0);
   width: 55px;
   border: none;
   outline: none;
-  background: #333;
+  background:#4DEA25;
   font-size: 19px;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.9;
   pointer-events: none;
   border-radius: 0 5px 5px 0;
   transition: all 0.3s ease;

@@ -164,7 +164,7 @@ trait Model{
 
 
 public function chatfunction($outgoing_id,$searchTerm){
-    
+
         $query = "select * from registerd_user WHERE NOT user_id = {$outgoing_id} AND (first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%')";
         return  $this->query($query);
     }
@@ -174,6 +174,15 @@ public function chatfunction($outgoing_id,$searchTerm){
         $query = "SELECT * FROM messages WHERE (incoming_msg_id = {$other_id}
         OR outgoing_msg_id = {$other_id}) AND (outgoing_msg_id = {$outgoing_id} 
         OR incoming_msg_id = {$outgoing_id}) ORDER BY msg_id DESC LIMIT 1";
+
+        return  $this->query($query);
+    }
+
+    public function chatfunction2($outgoing_id,$incoming_id){
+
+        $query = "SELECT * FROM messages LEFT JOIN registerd_user ON registerd_user.user_id = messages.outgoing_msg_id
+        WHERE (outgoing_msg_id = {$outgoing_id} AND incoming_msg_id = {$incoming_id})
+        OR (outgoing_msg_id = {$incoming_id} AND incoming_msg_id = {$outgoing_id}) ORDER BY msg_id";
 
         return  $this->query($query);
     }

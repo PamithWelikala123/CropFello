@@ -20,18 +20,19 @@
     <div class="wrapper">
     <section class="chat-area">
       <header>
-        <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"alt="">
+        <a href="../chat/chat_search" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image']?>" alt="">
         <div class="details">
           <span><?php echo $data['first_name']. " " . $data['last_name'] ?></span>
-          <p><?php //echo $data['status']; ?></p>
+          <p><?php echo $data['status']; ?></p>
         </div>
+        <img style="width:33%; border-radius: 0%; margin-left=2%" src="<?=ROOT?>/assets/images/login page/logo.png">
       </header>
       <div class="chat-box">
 
       </div>
       <form action="#" class="typing-area">
-        <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+        <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $data['user_id']; ?>" hidden>
         <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
         <button><i class="fab fa-telegram-plane"></i></button>
       </form>
@@ -39,6 +40,6 @@
   </div>
 
 
-  <!-- <script src="<?=ROOT?>/assets/js/chat_users.js"></script> 
-    </body> -->
+  <script src="<?=ROOT?>/assets/js/chat.js"></script> 
+    </body> 
 </html>
