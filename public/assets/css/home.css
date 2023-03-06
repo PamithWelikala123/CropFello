@@ -250,6 +250,7 @@ h3{
 div.gallery {
   /* border: 1px solid #ccc; */
   border-radius: 5%;
+  margin-left: 5%;
 }
 
 div.gallery:hover {
@@ -258,7 +259,7 @@ div.gallery:hover {
 
 div.gallery img {
   width: 100%;
-  height: 50%;
+  height: 225px;
   border-radius: 5%;
 }
 
@@ -277,6 +278,7 @@ div.desc {
   float: center;
   width: 90%;
   grid-area: responsive1;
+  
 }
 
 .responsive2 {

@@ -187,5 +187,12 @@ public function chatfunction($outgoing_id,$searchTerm){
         return  $this->query($query);
     }
 
+    public function getmax4(){
+
+        $query = "SELECT * FROM postitem ORDER BY discount DESC LIMIT 4";
+
+        return  $this->query($query);
+    }
+
 
 }
