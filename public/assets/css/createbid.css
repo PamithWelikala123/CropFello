@@ -173,10 +173,89 @@ body{
   
   color:#4DEA25;
   }
-  
-  .unit1{
+
+  .time{
     position: absolute;
     margin-left: 45px;
+    margin-top:17px;
+    color: #000000;
+  }
+  
+  .time1{
+    position: absolute;
+    margin-left: 175px;
+    margin-top:15px;
+    color:#4DEA25;
+  }
+
+  .hours{
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    margin-left: 42px;
+    margin-top:50px;
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 20px;
+  /* identical to box height */
+  
+  
+     color:#4DEA25;
+  
+  }
+
+  .minutes{
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+     margin-left: 18px;
+    /* margin-top:50px; */
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 20px;
+  /* identical to box height */
+  
+  
+     color:#4DEA25;
+  }
+
+  .day{
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+     margin-left: 18px;
+    /* margin-top:50px; */
+    background-color:white;
+    border-color: black;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 10px;
+  /* identical to box height */
+  
+  
+     color:#4DEA25;
+  }
+
+
+  .unit1{
+    position: absolute;
+    margin-left: 25px;
     margin-top:17px;
     color: #000000;
   }
@@ -184,11 +263,11 @@ body{
   
   
   .unit{
-    display: block;
+    display: inline-block;
     width: 277px;
     height: 40px;
-    margin-left: 42px;
-    margin-top:50px;
+    margin-left: 20px;
+   /* margin-top:50px; */
     background-color:white;
     border-color: black;
     border-radius: 10px;
@@ -205,12 +284,14 @@ body{
   } 
 
   .unit2{
+    
     position: absolute;
-    margin-left: 160px;
+    margin-left: 140px;
     margin-top:15px;
     color:#4DEA25;
   }
   .stock1{
+    display: block;
     position: absolute;
     margin-left: 45px;
     margin-top:15px;
@@ -218,6 +299,7 @@ body{
   }
   
   .stock2{
+    display: block;
     position: absolute;
     margin-left: 130px;
     margin-top:15px;

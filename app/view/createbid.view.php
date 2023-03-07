@@ -55,12 +55,62 @@
                                                                       <label class="bid-end-date2">*</label>
                                                                       <input class="bid-end-date" type="date" placeholder="  dd / mm / yyyy" name="bid_end_date">
 
+ 
+
+                                                                      <label class="time">Bid End Time</label>
+                                                                      <label class="time1">*</label>
+                                                                      <select class="hours" name="hours" id="hours" type="text" onkeyup="GetDetail(this.value)" value="">
+                                                                                          
+                                                                                          <option value="01">01</option>
+                                                                                          <option value="02">02</option>
+                                                                                          <option value="03">03</option>
+                                                                                          <option value="04">04</option>
+                                                                                          <option value="05">05</option>
+                                                                                          <option value="06">06</option>
+                                                                                          <option value="07">07</option>
+                                                                                          <option value="08">08</option>
+                                                                                          <option value="09">09</option>
+                                                                                          <option value="10">10</option>
+                                                                                          <option value="11">11</option>
+                                                                                          <option value="12">12</option>
+                
+                                                                      </select>
+
+                                                                      <select class="minutes" name="minutes" id="minutes" type="text" onkeyup="GetDetail(this.value)" value="">
+                                                                                          
+                                                                                          <option value="00">00</option>
+                                                                                          <option value="05">05</option>
+                                                                                          <option value="10">10</option>
+                                                                                          <option value="15">15</option>
+                                                                                          <option value="20">20</option>
+                                                                                          <option value="25">25</option>
+                                                                                          <option value="30">30</option>
+                                                                                          <option value="35">35</option>
+                                                                                          <option value="40">40</option>
+                                                                                          <option value="45">45</option>
+                                                                                          <option value="50">50</option>
+                                                                                          <option value="55">55</option>
+                
+                                                                      </select>
+
+                                                                      <select class="day" name="day" id="day" type="text" onkeyup="GetDetail(this.value)" value="">
+                                                                                          
+                                                                                          <option value="am">am</option>
+                                                                                          <option value="pm">pm</option>
+                                                                                          
+                
+                                                                      </select>
+
+        
+
+
 
                                                                       <label class="unit1">Initial Price</label>
                                                                       <label class="unit2">*</label>
                                                                       <input class="unit" name="initial_price" id="unit" type="text" placeholder="  Rs." >
 
 
+                                                                      
 
                                                      
                                                                       <label class="stock1">Amount</label>
@@ -71,7 +121,7 @@
                                                                                           <option value="G">G</option>
                                                                                           <option value="TREES">TREES</option>
                                                                                           <option value="ACRES">ACRES</option>
-                                                                                        </select>
+                                                                      </select>
 
 
 
