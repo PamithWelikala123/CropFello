@@ -149,13 +149,22 @@
                 
 
                 <div class="left">
-                                          <label class="upload1">Upload image</label>
+                                          <!-- <label class="upload1">Upload image</label>
                                           <label class="upload2">*</label>
                                           <img class="upload" src="<?=ROOT?>/assets/images/postitem/upload1.png">
                                           <label class="browse1">Drop your image here or </label>
-                                          <input class="browse" type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br>
+                                          <input class="browse" type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br> -->
                                           
-                                          
+                                          <div class="uploadOuter">
+                                          <label for="uploadFile" class="btn btn-primary">Upload Image</label>
+                                          <strong>OR</strong>
+                                          <div class="dragBox" id="dragBox">
+                                            <!-- Darg and Drop image here -->
+                                            <input type="file" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()" id="uploadFile" />
+                                          </div>
+                                          <div id="preview"></div>
+                                        </div>
+
                                           <button class="create" type="submit" name="submit">Create</button> 
 
 
@@ -169,4 +178,22 @@
       </div>
                     
     </body>
+<script>
+"use strict";
+function dragNdrop(event) {
+    var fileName = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("preview");
+    var previewImg = document.createElement("img");
+    previewImg.setAttribute("src", fileName);
+    preview.innerHTML = "";
+    preview.appendChild(previewImg);
+}
+function drag() {
+    document.getElementById('uploadFile').parentNode.className = 'draging dragBox';
+}
+function drop() {
+    document.getElementById('uploadFile').parentNode.className = 'dragBox';
+}
+
+</script>
 </html>
