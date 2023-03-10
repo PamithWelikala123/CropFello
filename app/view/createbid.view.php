@@ -47,6 +47,7 @@
  
                                                                       <!-- <input  type="text" placeholder="  Select Item Name" name="crop_name"> -->
                                                                       <input class="crop_type" type="text" id="crop_type" placeholder="  Select Item Type" name="item_type">
+                                                                     
                                                                       <label class="exp1">EXP</label>
                                                                       <label class="exp2">*</label>
                                                                       <input class="exp" type="date" placeholder="  dd / mm / yyyy" name="exp">
@@ -155,14 +156,13 @@
                                           <label class="browse1">Drop your image here or </label>
                                           <input class="browse" type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br> -->
                                           
-                                          <div class="uploadOuter">
-                                          <label for="uploadFile" class="btn btn-primary">Upload Image</label>
-                                          <strong>OR</strong>
-                                          <div class="dragBox" id="dragBox">
-                                            <!-- Darg and Drop image here -->
-                                            <input type="file" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()" id="uploadFile" />
+                                          <div class="uploadOuter" name="image">
+                                  
+                                          <strong>Upload Image OR</strong>
+                                          <div class="dragBox" id="dragBox" name="image">
+                                            <input type="file" name="image" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()" id="image"  accept=".jpg, .jpeg, .png" value="">
                                           </div>
-                                          <div id="preview"></div>
+                                          <div id="preview" name="image"></div>
                                         </div>
 
                                           <button class="create" type="submit" name="submit">Create</button> 
@@ -189,10 +189,10 @@ function dragNdrop(event) {
     preview.appendChild(previewImg);
 }
 function drag() {
-    document.getElementById('uploadFile').parentNode.className = 'draging dragBox';
+    document.getElementById('image').parentNode.className = 'draging dragBox';
 }
 function drop() {
-    document.getElementById('uploadFile').parentNode.className = 'dragBox';
+    document.getElementById('image').parentNode.className = 'dragBox';
 }
 
 </script>

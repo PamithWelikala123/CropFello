@@ -60,12 +60,39 @@ class bidding{
             $item = new item;
             $createbid = new createbid;
 
+            if(isset($_POST["submit"])){
+                if(isset($_POST["submit"])){
+                
+                      if($_FILES["image"]["error"] == 4){
+                        echo
+                        "<script> alert('Image Does Not Exist'); </script>"
+                        ;
+                      }
+                      else{
+                        $fileName = $_FILES["image"]["name"];
+                        $fileSize = $_FILES["image"]["size"];
+                        $tmpName = $_FILES["image"]["tmp_name"];
+                    
+                        $validImageExtension = ['jpg', 'jpeg', 'png'];
+                        $imageExtension = explode('.',$fileName);
+                        $imageExtension = strtolower(end($imageExtension));
+                    
+                        $newImageName = uniqid();
+                        $newImageName .= '.'.$imageExtension;
+    
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/Cropfello/public/assets/images/Post-images/'.$newImageName;
+                        move_uploaded_file($tmpName, $destinationPath); 
+                        $_POST['image']=$newImageName;
+                      }
+                    }
+            }
+
 
                     if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         //echo $_SESSION['USER']->user_id;
                             $_POST['seller_id'] = $_SESSION['USER']->user_id;
                             $createbid ->insert($_POST);
-                            //redirect('biddig/sellerbidding');
+                            redirect('bidding/sellerbidding');
                 
                     }
     }
