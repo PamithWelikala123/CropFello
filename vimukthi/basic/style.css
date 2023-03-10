@@ -224,6 +224,11 @@
     
 }
 
+.leftbar p{
+    font-weight: lighter;
+    font-size: small;color: #5d5d5d;
+}
+
 .leftbar a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
@@ -242,7 +247,7 @@
    margin: 0% 10%;
     
 }
-.leftbar button{
+.leftbar .menu button{
    /* margin-top: 0%; ; */
    margin: 0% 10%;
    /* justify-content: center; */
@@ -258,13 +263,92 @@
     
 }
 
-.leftbar button img{
+.leftbar .menu button img{
     margin-right: 10px;
 }
-.leftbar button span {
+.leftbar .menu button span {
     margin-left: 10px;
     margin-right: auto;
   }
+
+
+
+.message-box{
+    margin: 0% 10%;
+    /* justify-content: center; */
+    width: 70%;
+    padding:3% ;
+    /* display: flex; */
+   /* align-items: center; */
+   border: none;
+   border-radius: 10%;
+   background-color: #ffffff;
+   height: 180px;
+}
+
+.message-footer{
+    position: fixed;
+    left: 60px;
+    bottom: 80px;
+}
+
+
+
+.message-footer button {
+    
+    width: 110px;
+    background-color: #4DEA25;
+    border-radius: 10%;
+    padding: 3%;
+    font-size: small;
+    font-weight: 500;
+    border-style: none;
+    border-width: 0;
+    cursor: pointer;
+    transition-duration: 0.4s;
+
+}
+
+.message-footer button:hover {
+    background-color: #000000;
+    color: #4DEA25;
+
+
+}
+  
+.message0{
+    width: 70%;
+    padding:3% ;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: 
+    "message1 message2";
+    height: 20px;
+    margin-top: 10px;
+}
+
+.message0 label:hover{
+    cursor: pointer;
+}
+
+.message1{
+    grid-area: message1;
+
+}
+
+.message1 img{
+    border-radius: 50%;
+    width: 80%;
+}
+
+.message2{
+    grid-area: message2;
+    font-size: 10px;
+    align-items: center;
+     justify-content: center;
+     display: flex;
+}
+
 .main {
     /* margin-left: 160px; */
     /* Same as the width of the sidenav */
