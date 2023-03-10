@@ -37,41 +37,7 @@
                   <hr><p>Message</p><br>
                   <!-- <img class="message-bar" src="images/message-bar.png"> -->
                   <div class="message-box">
-
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="images/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-                    </div>
-
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="images/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-                    </div>
-
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="images/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-                    </div>
-
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="images/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
+                       <?php require APPROOT."/view/message.view.php"?>
 
                     </div>
 
