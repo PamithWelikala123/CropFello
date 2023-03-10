@@ -6,7 +6,7 @@ class Searchbarseller{
     use Controller;
     public function index(){
 
-        $this->view('searchbarseller');
+        $this->view('searchbarseller2');
     }
 
 }
