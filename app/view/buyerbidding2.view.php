@@ -8,30 +8,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
 </head>
 <body>
-    <div class="container">
-        <div class="topnav">
-            <div class="logo">
-                <img src="images/logo.png" alt="">
-            </div>
-            <div class="topnav-options">
-                <!-- <a class="active" href="#home">Home</a> -->
-                <a href="#orders" id="my-orders">My Orders</a>
-                <a href="#cart"><i class="fa fa-shopping-cart" style="font-size:18px"></i></a>
-                <a href="#notifi"><i class="fa fa-bell" style="font-size:18px"></i></a>
-                <!-- <a href="#profile"> -->
-                    <img src="images/user.jpg" alt=""> 
-                <!-- </a> -->
-            </div>
-                <div class="search-container">
-                  <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                  </form>
-                </div>
+
+<div id="modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="closeBtn">&times;</span>
+            <h2>Enter your bid value</h2>
+            <p>Minimum bid value: RS 630,00</p>
           </div>
+          <div class="modal-body">
+              <label> RS: &nbsp;</label>
+            <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
+            <button>Bid Now</button>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="container">
+            <?php require APPROOT."/view/searchbarseller2.php"?>
+
         <div class="content">
             <div class="leftbar">
                 <!-- <a href="#home"><i class="fa fa-rss"></i> Feed</a>
@@ -201,5 +200,36 @@
         </div>
         
     </div>
+
+
+    <script>
+          // Get the modal
+      var modal = document.getElementById("modal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("closeBtn")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+    </script>
 </body>
+
 </html>
