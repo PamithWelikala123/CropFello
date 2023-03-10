@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <link rel="Stylesheet" href="<?=ROOT?>/assets/css/message1.css">
+        <link rel="Stylesheet" href="<?=ROOT?>/assets/css/message.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
    
@@ -16,34 +16,42 @@
 
     
     <body>
-    <?php if ($data) : ?>               
-                
-                    <div class="wrapper">
-                    <section class="users">
-                    <header>
-                        <div class="content">
-                        
-                        <!-- ///<img src="php/images/<?php //echo $row['img']; ?>" alt=""> -->
-                        <div class="details">
-                            <span><?php echo $data['first_name']. " " . $data['last_name'] ?></span>
-                            <!-- <p><?php // echo $row['status']; ?></p> -->
-                        </div>
-                        </div>
-                        <!-- <a href="php/logout.php?logout_id=<?php //echo $row['unique_id']; ?>" class="logout">Logout</a> -->
-                    </header>
-                    <div class="search">
-                        <span class="text">Select an user to start chat</span>
-                        <input type="text" placeholder="Enter name to search...">
-                        <button><i class="fas fa-search"></i></button>
+              
+                     <div class="message0">
+                      <div class="message1">
+                        <img src="images/vimukthi.jpg" alt="">
+                      </div>
+                      <div class="message2">
+                        <label for="">Vimukthi Dulnath</label>
+                      </div>
                     </div>
-                    <div class="users-list">
-                
+
+                    <div class="message0">
+                      <div class="message1">
+                        <img src="images/vimukthi.jpg" alt="">
+                      </div>
+                      <div class="message2">
+                        <label for="">Vimukthi Dulnath</label>
+                      </div>
                     </div>
-                    </section>
-                </div>
 
- <?php endif; ?>
+                    <div class="message0">
+                      <div class="message1">
+                        <img src="images/vimukthi.jpg" alt="">
+                      </div>
+                      <div class="message2">
+                        <label for="">Vimukthi Dulnath</label>
+                      </div>
+                    </div>
 
-                <script src="<?=ROOT?>/assets/css/message.js"></script> 
+                    <div class="message0">
+                      <div class="message1">
+                        <img src="images/vimukthi.jpg" alt="">
+                      </div>
+                      <div class="message2">
+                        <label for="">Vimukthi Dulnath</label>
+                      </div>
+
+                <!-- <script src="<?=ROOT?>/assets/css/message.js"></script>  -->
     </body>
 </html>
