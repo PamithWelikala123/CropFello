@@ -67,7 +67,7 @@
                 <h2>Best Offers</h2>
             </div>
             <?php while ($data['count'] > 0) :?>
-            <div class="responsive<?php$data['count']?>">
+            <div class="responsive<?php $data['count']?>">
                 <div class="gallery">
                   <a target="_blank" href="img_5terre.jpg">
                     <img src="<?=ROOT?>/assets/images/Post-images/<?=$data['image'.$data['count']]?>" alt="img1" width="600" height="400">
