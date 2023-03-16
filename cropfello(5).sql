@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 05, 2023 at 04:10 PM
+-- Generation Time: Mar 16, 2023 at 06:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -71,6 +71,9 @@ CREATE TABLE `createbid` (
   `item_type` varchar(255) NOT NULL,
   `exp` date NOT NULL,
   `bid_end_date` date NOT NULL,
+  `hours` int(11) NOT NULL DEFAULT 12,
+  `minutes` int(11) NOT NULL DEFAULT 0,
+  `day` text NOT NULL DEFAULT 'am',
   `initial_price` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
   `amount_type` text NOT NULL,
@@ -78,7 +81,7 @@ CREATE TABLE `createbid` (
   `address` varchar(255) NOT NULL,
   `postal_code` int(10) NOT NULL,
   `city` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `buyer_id` int(11) DEFAULT NULL,
   `current_value` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -87,11 +90,9 @@ CREATE TABLE `createbid` (
 -- Dumping data for table `createbid`
 --
 
-INSERT INTO `createbid` (`post_id`, `seller_id`, `item_id`, `item_type`, `exp`, `bid_end_date`, `initial_price`, `amount`, `amount_type`, `bid_range`, `address`, `postal_code`, `city`, `image`, `buyer_id`, `current_value`) VALUES
-(1, 2, 2, 'vegitable', '2023-03-19', '2023-02-28', 200, 5, 'Kg', 50, '30/1/A High level Road Meegoda', 10504, 'Colombo', '6387fa702854c.jpeg', 2, 200),
-(2, 11, 3, 'fruit', '2023-03-17', '2023-02-27', 200, 5, 'Kg', 50, '30/1/A High level Road Meegoda', 10504, 'Nuwara Eliya', '6387fa702854c.jpeg', 3, 300),
-(3, 12, 1, 'Vegitable', '2023-03-17', '2023-02-28', 200, 5, 'Kg', 50, '30/1/A High level Road Meegoda', 10504, 'Colombo', '6387fa702854c.jpeg', 2, 400),
-(4, 11, 3, 'fruit', '2023-03-31', '2023-03-23', 400, 50, 'Kg', 100, '30/4/5 Nuwara Rd Peradeniya', 10562, 'Peradeniya', '6387fa702854c.jpeg', 3, 500);
+INSERT INTO `createbid` (`post_id`, `seller_id`, `item_id`, `item_type`, `exp`, `bid_end_date`, `hours`, `minutes`, `day`, `initial_price`, `amount`, `amount_type`, `bid_range`, `address`, `postal_code`, `city`, `image`, `buyer_id`, `current_value`) VALUES
+(7, 2, 2, 'Vegitable', '2023-04-10', '2023-03-06', 6, 10, 'am', 200, 10, 'KG', 20, '30/2/A High level Road Meegoda', 10504, 'Colombo', '640adfff2bb28.jpg', NULL, 200),
+(8, 2, 2, 'Vegitable', '2023-04-10', '2023-03-06', 6, 10, 'am', 200, 10, 'KG', 20, '30/2/A High level Road Meegoda', 10504, 'Colombo', '640ae04f2c4ef.jpg', NULL, 200);
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,19 @@ INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) V
 (12, 2, 12, 'adooo'),
 (13, 2, 12, 'ada use birthday ne ?'),
 (14, 12, 2, 'set na mm asa na ubata'),
-(15, 12, 2, ':(');
+(15, 12, 2, ':('),
+(16, 2, 12, 'hi'),
+(17, 12, 2, 'hi'),
+(18, 12, 2, 'huthhoo'),
+(19, 2, 12, 'adoooo'),
+(20, 12, 2, 'hi'),
+(21, 12, 2, 'huthooo'),
+(22, 3, 2, 'lk'),
+(23, 12, 2, 'hi'),
+(24, 12, 2, 'huthooo'),
+(25, 12, 2, 'hi'),
+(26, 12, 2, 'gay monty'),
+(27, 4, 2, 'sdss');
 
 -- --------------------------------------------------------
 
@@ -246,7 +259,7 @@ INSERT INTO `postitem` (`post_id`, `user_id`, `item_id`, `item_type`, `exp`, `un
 (27, 3, 3, 'fruit', '2000-07-20', 'KG', 50000, 1000, 100, 'KG', 25, '%', '30/1/A nuwara Road Gampaha', 90508, 'Katugasthota', '638483221a3a1.jpg', 'good apples'),
 (28, 2, 4, 'fruit', '0000-00-00', 'kg', 600, 5, 20, 'KG', 15, '%', '30/1/A High level road kalubowila', 10509, 'waththegedara', '6384d86b4fd0b.jpg', 'dfdfdf'),
 (30, 6, 0, 'vegitable', '0000-00-00', 'KG', 350, 1000, 100, 'KG', 30, '%', '34/5 nawala nuwaraeliya', 45698, 'NuwaraEliya', '6387fa702854c.jpeg', 'sdsdsdsdsdss'),
-(31, 3, 5, 'vegitable', '0000-00-00', 'KG', 800, 900, 100, 'KG', 500, 'Rs', '90/5 galleRoad Colombo 10', 10908, 'Colombo', '6387fbd2da471.jpg', 'galle'),
+(31, 3, 5, 'vegitable', '0000-00-00', 'KG', 800, 900, 100, 'KG', 5, '%', '90/5 galleRoad Colombo 10', 10908, 'Colombo', '6387fbd2da471.jpg', 'galle'),
 (32, 5, 8, 'fruit', '0000-00-00', 'TREES', 10000, 80, 5, 'KG', 0, '%', '30/1/A High level road Meegoda', 60908, 'thissamaharama', '6387fcca0857e.jpeg', 'a good condition mango'),
 (34, 11, 8, 'fruit', '0000-00-00', 'TREES', 800, 10, 1, 'KG', 5, '%', '30/9 madulawa road galle', 10908, 'galle', '6388007b3ca56.jpeg', 'ghgfhfhgfghfhg'),
 (35, 3, 0, 'vegitable', '0000-00-00', 'KG', 80, 600, 100, 'KG', 27, '%', '60?15 flower Road Peradeniya', 90603, 'Peradeniya', '63880231b227d.jpeg', 'sdsdsdssds'),
@@ -286,11 +299,11 @@ CREATE TABLE `registerd_user` (
 --
 
 INSERT INTO `registerd_user` (`user_id`, `first_name`, `last_name`, `address`, `contact_number`, `email`, `password`, `postal_code`, `city`, `seller`, `buyer`, `deliver`, `token`, `image`, `description`, `status`) VALUES
-(2, 'Pamith', 'Welikala', '30/1/A High Level Rd Meegoda', 771674022, 'pamithwelikala@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 10504, 'Colombo', 1, 0, 0, '3899', '63f9af41e8e6d.jpeg', '', 'Active Now'),
+(2, 'Pamith', 'Welikala', '30/1/A High Level Rd Meegoda', 771674022, 'pamithwelikala@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 10504, 'Colombo', 1, 0, 0, '6120', '63f9af41e8e6d.jpeg', '', 'Active Now'),
 (3, 'Praneeth', 'Jayarathna', '40/1/B rathnapura Road Rathnapura', 776098615, 'praneeth@gmail.com', 'Pranneth', 78936, 'Rathnapura', 0, 1, 0, '6416', '63f8dac81529e.jpg', '', 'Not Online'),
-(4, 'sachin', 'umayangana', '50/2/A Kirulapana Road Nugegoda', 764138580, 'sachinumayangana@gmail.com', 'Sachin123', 69875, 'Nugegoda', 0, 0, 0, '4646', '63f8dac81529e.jpg', '', 'Not Online'),
-(5, 'vimukthi', 'dulnath', '55/1 palanwaththa kirulapana', 763204215, 'vimukthi@gmail.com', 'Dulnath', 54765, 'Kottawa', 0, 0, 0, '2853', '63f8dac81529e.jpg', '', 'Not Online'),
-(6, 'rushin', 'sandeepa', '80/5 Galle Road Hambanthota', 703329164, 'Rushin@gmail.com', 'rushin123', 25487, 'Hambanthota', 0, 0, 0, '0', '63f8dac81529e.jpg', '', 'Not Online'),
+(4, 'sachin', 'umayangana', '50/2/A Kirulapana Road Nugegoda', 764138580, 'sachinumayangana@gmail.com', 'Sachin123', 69875, 'Nugegoda', 0, 1, 0, '4646', '63f8dac81529e.jpg', '', 'Not Online'),
+(5, 'vimukthi', 'dulnath', '55/1 palanwaththa kirulapana', 763204215, 'vimukthi@gmail.com', 'Dulnath', 54765, 'Kottawa', 0, 1, 0, '2853', '63f8dac81529e.jpg', '', 'Not Online'),
+(6, 'rushin', 'sandeepa', '80/5 Galle Road Hambanthota', 703329164, 'Rushin@gmail.com', 'rushin123', 25487, 'Hambanthota', 0, 1, 1, '0', '63f8dac81529e.jpg', '', 'Not Online'),
 (7, 'saneru', 'akarawita', '60/1/C high level road homagama', 770338069, 'saneruakarawita@gmail.com', 'Saneru123', 98798, 'Homagama', 0, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
 (8, 'Dinuka', 'Ashan', '7/1/C highlevel Road Meegoda', 714872852, 'dinukaashan@gmail.com', 'Dinuka123', 14235, 'Godagama', 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
 (9, 'pamith', 'Minthaka', '40/5/5 highlevel road rathnapura', 772776406, 'pamithrox@gmail.com', 'pamith', 97845, 'Colombo', 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
@@ -334,8 +347,7 @@ INSERT INTO `request_item` (`post_id`, `seller_id`, `item_id`, `amount`, `unit`,
 (16, 11, 0, 1, 'KG', '2022-12-21', 'aolombo', 1111, 'colombo', 112345678, 0, 0),
 (36, 12, 2, 300, 'Kg', '2023-02-17', '30/1/ a jdhbbdfbdfhdb', 67543, 'Homagama', 772776406, 0, 0),
 (38, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 56789, 'padukka', 718333864, 0, 0),
-(39, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 56789, 'padukka', 718333864, 0, 0),
-(47, 2, 6, 940, 'KG', '2023-03-24', '30/4/5 flower road colombo 07', 10504, 'Colombo', 771674022, 0, 0);
+(39, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 56789, 'padukka', 718333864, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -422,8 +434,8 @@ CREATE TABLE `wishlist` (
 
 INSERT INTO `wishlist` (`post_id`, `user_id`, `added_on`, `time`) VALUES
 (34, 2, '2023-02-25', '11:56:24'),
-(41, 2, '2023-02-25', '11:55:48'),
-(43, 2, '2023-02-25', '12:17:39');
+(41, 2, '2023-03-08', '09:37:39'),
+(43, 2, '2023-03-08', '17:15:13');
 
 --
 -- Indexes for dumped tables
@@ -519,7 +531,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `createbid`
 --
 ALTER TABLE `createbid`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `info`
@@ -531,7 +543,7 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `notifications`
