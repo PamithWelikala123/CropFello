@@ -201,7 +201,7 @@ class Chat{
         $rows=$message1->getchat($_SESSION['USER']->user_id);
 
         foreach($rows as $row){
-            $arr['user_id']=$row->outgoing_msg_id;
+            $arr['user_id']=$row->incoming_msg_id;
             $row2=$user->first($arr);
             $row->first_name=$row2->first_name;
             $row->last_name=$row2->last_name;

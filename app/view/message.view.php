@@ -19,7 +19,7 @@
                     
       <?php if ($data) : ?>   
       <?php foreach ($data as $row) : ?>  
-        <button onclick="document.location='../chat/chat1?user_id=<?=$row->outgoing_msg_id?>'">
+        <button onclick="document.location='../chat/chat1?user_id=<?=$row->incoming_msg_id 	?>'">
                       <div class="message0">
                       
                       <div class="message1">
