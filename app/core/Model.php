@@ -21,7 +21,7 @@ trait Model{
         return  $this->query($query);
     }
 
-    public function wherenot($data, $data_not = []){
+    public function wherenot($data, $data_not = [],$order_column= "post_id"){
         
         $keys = array_keys($data);
         $keys_not = array_keys($data_not);
@@ -45,7 +45,7 @@ trait Model{
     
     
     public function where($data, $data_not = []){
-        
+       
         $keys = array_keys($data);
         $keys_not = array_keys($data_not);
         $query = "select * from $this->table where ";
@@ -192,6 +192,33 @@ public function chatfunction($outgoing_id,$searchTerm){
         $query = "SELECT * FROM postitem ORDER BY discount DESC LIMIT 4";
 
         return  $this->query($query);
+    }
+    public function getchat($id){
+        
+                // $query = "SELECT DISTINCT outgoing_msg_id,msg
+                //             FROM messages
+                //             WHERE incoming_msg_id = '$id'
+                //             ORDER BY msg_id DESC
+                //             LIMIT 4";
+
+                $query = "      SELECT *
+                                FROM (
+                                SELECT incoming_msg_id AS contact_id, MAX(msg_id) AS last_msg_id
+                                FROM messages
+                                GROUP BY incoming_msg_id
+                                UNION DISTINCT
+                                SELECT outgoing_msg_id AS contact_id, MAX(msg_id) AS last_msg_id
+                                FROM messages
+                                GROUP BY outgoing_msg_id
+                                ) AS last_msgs
+                                JOIN messages ON last_msgs.last_msg_id = messages.msg_id
+                                GROUP BY last_msgs.contact_id
+                                ORDER BY messages.msg_id DESC
+                                LIMIT 4;
+                
+                        ";
+
+                return  $this->query($query);
     }
 
 

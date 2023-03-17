@@ -37,13 +37,15 @@
                   <hr><p>Message</p><br>
                   <!-- <img class="message-bar" src="images/message-bar.png"> -->
                   <div class="message-box">
-                       <?php require APPROOT."/view/message.view.php"?>
+                       <?php require APPROOT."/controller/Chat.php";
+                       $userController = new Chat();
+                       $userController->viewperson();
+                       
+                       ?>
+                          
+                  
 
-                    </div>
-
-                    <div class="message-footer">
-                      <button>All Messages</button>
-                    </div>
+                  
 
                   </div>
               </div>

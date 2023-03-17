@@ -19,7 +19,7 @@ class Login
                     $_SESSION['USER'] = $row;
                     $x="Active Now";
                     $arr['status'] = "Active Now";
-                    $user->update($id,$arr);
+                    $user->update($_SESSION['USER']->user_id ,$arr);
                     redirect('feed');
                 }
             }
