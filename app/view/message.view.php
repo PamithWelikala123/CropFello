@@ -16,42 +16,28 @@
 
     
     <body>
-              
-                     <div class="message0">
+                    
+      <?php if ($data) : ?>   
+      <?php foreach ($data as $row) : ?>  
+        <button onclick="document.location='../chat/chat1?user_id=<?=$row->outgoing_msg_id?>'">
+                      <div class="message0">
+                      
                       <div class="message1">
-                        <img src="images/vimukthi.jpg" alt="">
+                        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$row->image?>" alt="">
                       </div>
                       <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
+                        <label for=""><?=$row->first_name?> <?=$row->last_name?><br><?=$row->msg?></label>
                       </div>
+                     
                     </div>
+          </button>
 
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="images/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-                    </div>
 
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="images/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-                    </div>
+            <?php endforeach; ?>
+            <?php endif; ?>
 
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="images/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-
-                <!-- <script src="<?=ROOT?>/assets/css/message.js"></script>  -->
+      <div class="message-footer">
+               <button onclick="document.location='../chat/chat_search'">Message</button>
+      </div>           
     </body>
 </html>

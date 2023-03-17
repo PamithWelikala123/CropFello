@@ -23,7 +23,7 @@
                     <!-- <a class="active" href="#home">Home</a> -->
                     <a href="#orders" id="my-orders">My Orders</a>
                     <a href="#cart"><i class="fa fa-shopping-cart" style="font-size:18px"></i></a>
-                    <a class="notification-icon" href="#notifi"><i class="fa fa-bell" style="font-size:18px"></i></a>
+                    <a class="notification-icon" ><i class="fa fa-bell" style="font-size:18px"></i></a>
                     <span class="notification-count">6</span>
                         <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt=""> 
                     <!-- </a> -->

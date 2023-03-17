@@ -41,5 +41,5 @@
 
 
   <script src="<?=ROOT?>/assets/js/chat.js"></script> 
-    </body> 
+    </body>
 </html>
