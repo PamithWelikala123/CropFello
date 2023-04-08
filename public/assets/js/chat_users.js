@@ -7,7 +7,8 @@ usersList = document.querySelector(".users-list");
 
 //The first three lines use the document.querySelector method to select elements from the HTML page. 
 //The first line selects an input element with a class of search.
-// The second line selects a button element with a class of search. The third line selects an element with a class of users-list.
+// The second line selects a button element with a class of search. 
+//The third line selects an element with a class of users-list.
 
 
 searchIcon.onclick = ()=>{

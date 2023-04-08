@@ -168,4 +168,28 @@ class bidding{
 
     }
 
+
+
+    public function search(){
+
+        $user= new User;
+        $searchTerm = $_POST['searchTerm'];  
+        $id=$_SESSION['USER']->user_id;
+        
+        $output = "";
+
+        $rows=$user->search($id,$searchTerm);
+        if ($rows) {
+            foreach($rows as $row){
+            $this->data($id,$row->user_id,$output);
+           // echo $row->user_id;
+            }
+        }
+        else{
+           $output .= 'No user found related to your search term';
+         }
+        echo $output;
+
+}
+
 }

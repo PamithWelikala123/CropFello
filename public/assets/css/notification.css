@@ -16,6 +16,7 @@
     box-shadow: 0 0 10px #ccc;
     z-index: 9999;
     border-radius: 5%;
+    background-color: white;
   }
   
   .notification-header {
@@ -43,7 +44,7 @@
     padding: 10px;
     max-height: 300px;
     overflow-y: scroll;
-    
+    background-color: white;
     
   }
   

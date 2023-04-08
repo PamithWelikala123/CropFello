@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 16, 2023 at 06:05 PM
+-- Generation Time: Apr 08, 2023 at 08:16 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -57,6 +57,60 @@ INSERT INTO `capacity` (`weight`) VALUES
 ('5000KG'),
 ('500KG'),
 ('50KG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
+--
+
+CREATE TABLE `cities` (
+  `id` int(11) NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `city_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`id`, `country_id`, `city_name`) VALUES
+(1, 1, 'Hambantota'),
+(2, 1, 'Mathara'),
+(3, 2, 'Mumbai'),
+(4, 2, 'Bangalore');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `continents`
+--
+
+CREATE TABLE `continents` (
+  `id` int(11) NOT NULL,
+  `ContinentName` varchar(200) NOT NULL,
+  `continent_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `continents`
+--
+
+INSERT INTO `continents` (`id`, `ContinentName`, `continent_id`) VALUES
+(1, 'Southern', 1),
+(2, 'Eastern', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `countries`
+--
+
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `country` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -198,7 +252,15 @@ INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) V
 (24, 12, 2, 'huthooo'),
 (25, 12, 2, 'hi'),
 (26, 12, 2, 'gay monty'),
-(27, 4, 2, 'sdss');
+(27, 4, 2, 'sdss'),
+(28, 6, 2, 'adooo'),
+(29, 6, 2, 'kohomada mata patta kamalii'),
+(30, 5, 2, 'adoooo'),
+(31, 2, 12, 'hiiiiii'),
+(32, 12, 2, 'jijij'),
+(33, 2, 12, 'ririririr'),
+(34, 6, 2, 'adooo'),
+(35, 6, 2, 'hiiii');
 
 -- --------------------------------------------------------
 
@@ -543,7 +605,7 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `notifications`
