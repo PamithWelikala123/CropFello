@@ -17,7 +17,8 @@ class Deliverytodo{
         //     $row->item_name = $row1->name;
         //   }
 
-        $this->view('deliverytodo');
+        //$this->view('deliverytodo');
+        $this->view('deliverytodo2');
     }
 
     public function Deliverytodo_approved(){
