@@ -67,8 +67,6 @@ class deliveryuser{
       return false;
     }
 
-
-
-
-
+    
+    
 }

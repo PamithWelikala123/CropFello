@@ -30,38 +30,15 @@
                 </div>
                 <div class="AA">
                     <label for="name">Available Area <span style="color:red">&#9913 </span></label><br>
-                    <!-- <input type="text" id="name" name="name" class="tb2"> -->
-                        <div class="multipleSelection">
-                            <div class="selectBox" 
-                                onclick="showCheckboxes()">
-                                <select>
-                                    <option>Select options</option>
-
-                                </select>
-                                <div></div>
-                            </div>
+                    <select name="country" id="country">
+            <option value="">Select a country</option>
+            <?php foreach ($countries as $country) { ?>
+                <option value="<?php echo $country['id']; ?>"><?php echo $country['name']; ?></option>
+            <?php } ?>
+        </select>
                 
-                            <div id="checkBoxes">
-                                <label for="first">
-                                    <input type="checkbox" id="first" />
-                                    Colombo
-                                </label><br>
 
-                                <label for="second">
-                                    <input type="checkbox" id="second" />
-                                    Galle
-                                </label><br>
-                                <label for="third">
-                                    <input type="checkbox" id="third" />
-                                    Mathara
-                                </label><br>
-                                <label for="fourth">
-                                    <input type="checkbox" id="fourth" />
-                                    Kandy
-                                </label>
-                            </div>
-                        </div>
-
+                
                 </div>
                 <div class="password">
                     <label for="password">Password <span style="color:red">&#9913 </span></label><br>
@@ -74,9 +51,9 @@
                 <div class="VT">
                     <label for="name">Vehicle Type <span style="color:red">&#9913 </span></label><br>
                     <!-- <input type="text" id="number" name="name" class="tb1"> -->
-                    <select id="vehicle" class="vtype" >
+                    <!-- <select id="vehicle" class="vtype" >
                         
-                    </select>
+                    </select> -->
                 </div>
                 <div class="com_password">
                     <label for="password">Confirm Password <span style="color:red">&#9913 </span></label><br>
@@ -105,24 +82,8 @@
         <div class="item item-3">
             <img class="register-corner" src="<?=ROOT?>/assets/images/rushinpics/pics/register-corner.png">
             <img class="register-corner2" src="<?=ROOT?>/assets/images/rushinpics/pics/register-corner2.png">
-        </div>
+        </div> 
 
-        <!-- <script>
-            var show = true;
-    
-            function showCheckboxes() {
-                var checkboxes = 
-                    document.getElementById("checkBoxes");
-    
-                if (show) {
-                    checkboxes.style.display = "block";
-                    show = false;
-                } else {
-                    checkboxes.style.display = "none";
-                    show = true;
-                }
-            }
-        </script> -->
-    
+        <script src="<?=ROOT?>/assets/css/country_city.js"></script>
 </body>
 </html>
