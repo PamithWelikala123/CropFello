@@ -19,18 +19,37 @@
                     
       <?php if ($data) : ?>   
       <?php foreach ($data as $row) : ?>  
-        <button onclick="document.location='../chat/chat1?user_id=<?=$row->incoming_msg_id 	?>'">
+        <!-- <button onclick="document.location='../chat/chat1?user_id=<?=$row->incoming_msg_id 	?>'">
                       <div class="message0">
                       
                       <div class="message1">
                         <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$row->image?>" alt="">
                       </div>
                       <div class="message2">
-                        <label for=""><?=$row->first_name?> <?=$row->last_name?><br><?=$row->msg?></label>
+                        <label for=""><?=$row->first_name?> <?=$row->last_name?><br></label>
                       </div>
                      
                     </div>
-          </button>
+          </button> -->
+
+          
+                      <div class="message0" onclick="document.location='../chat/chat1?user_id=<?=$row->incoming_msg_id 	?>'">
+                      
+                      <div class="message1">
+                        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$row->image?>" alt="">
+                      </div>
+                      <div class="message2">
+                        <!-- <label for=""><?=$row->first_name?> <?=$row->last_name?><br></label> -->
+                        <label for=""><?php
+                          $full_name = $row->first_name . ' ' . $row->last_name;
+                          $display_name = strlen($full_name) > 15 ? substr($full_name, 0, 13) . '...' : $full_name;
+                          echo $display_name;
+                        ?><br></label>
+
+                      </div>
+                     
+                    </div>
+          
 
 
             <?php endforeach; ?>
