@@ -222,4 +222,11 @@ public function chatfunction($outgoing_id,$searchTerm){
     }
 
 
+    public function search($tablename,$searchTerm){
+
+        $query = "select * from $tablename WHERE AND (first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%')";
+        return  $this->query($query);
+    }
+
+
 }
