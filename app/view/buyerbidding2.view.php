@@ -110,6 +110,11 @@
         
     </div>
 
+    <?php
+      $myVariable = "Hello World";
+      $myVariableJSON = json_encode($myVariable);
+    ?>
+
 
     <script>
           // Get the modal
@@ -139,6 +144,7 @@
       }
       
     </script>
+    <script src="<?=ROOT?>/assets/js/chat_users.js"></script> 
 </body>
 
 </html>

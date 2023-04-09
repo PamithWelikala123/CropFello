@@ -181,7 +181,7 @@ class bidding{
         $rows=$user->search($id,$searchTerm);
         if ($rows) {
             foreach($rows as $row){
-            $this->data($id,$row->user_id,$output);
+            //$this->data($id,$row->user_id,$output);
            // echo $row->user_id;
             }
         }
