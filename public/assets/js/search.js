@@ -1,3 +1,7 @@
+console.log(name);
+
+
+
 
 const searchBar = document.querySelector(".search input"),
 searchIcon = document.querySelector(".search button"),
