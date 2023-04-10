@@ -481,6 +481,11 @@
     color: #0EBC1F;
 }
 
+.time1 {
+    font-size: 130%;
+    font-weight: 600;
+    color: #0EBC1F;
+}
 .ends-on {
     font-size: 80%;
     color: #5d5d5d;
@@ -618,6 +623,14 @@
     color: #4DEA25;
     border: none;
     padding: 10px;
+    cursor: pointer;
+  }
+  
+  .js-bid-now-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
   }
   

@@ -76,16 +76,26 @@
                           <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
                           <div class="days">
                             <p class="remain"><?=$row->remaning?> days remaining</p>
+                            <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
+                            
+                            
+                            <?php
+                                  $hours= $row->hours; 
+                                   $minutes=$row->minutes;
+                                   $day=$row->day;
+                            ?>
+
+
                             <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
                           </div>
 
                           <div class="bid-now">
-                            <button id="openModalBtn">Bid Now</button>
+                          <button id="<?=$row->post_id?>" class="js-bid-now-btn">Bid Now</button>
                           </div>
                         </div>
                       </div>
 
-                      <div id="modal" class="modal">
+                      <div id="modal-<?=$row->post_id?>" class="modal">
                             <div class="modal-content">
                               <div class="modal-header">
                                 <span class="closeBtn">&times;</span>
@@ -100,51 +110,111 @@
                               </div>
                             </div>
                           </div>
+                
 
                       
-                    <?php endforeach; ?>  
+                <?php endforeach; ?>  
                     </div>
                 <?php endif; ?>
             </div>
         </div>
         
     </div>
-
+    
+    
     <?php
-      $myVariable = "Hello World";
-      $myVariableJSON = json_encode($myVariable);
+      $name = "Nathan"; 
     ?>
 
 
-    <script>
-          // Get the modal
-      var modal = document.getElementById("modal");
-      
-      // Get the button that opens the modal
-      var btn = document.getElementById("openModalBtn");
-      
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("closeBtn")[0];
-      
-      // When the user clicks the button, open the modal 
-      btn.onclick = function() {
-        modal.style.display = "block";
-      }
-      
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-      
-    </script>
-    <script src="<?=ROOT?>/assets/js/chat_users.js"></script> 
+
+
+<script>   
+
+    var modal;
+
+            const images = document.querySelectorAll('.js-bid-now-btn');
+            images.forEach(function(image) {
+              image.addEventListener('click', function() {
+                modal = document.getElementById('modal-'+image['id']);
+                modal.style.display = "block";
+              });
+            });
+
+            
+            //var span = document.getElementsByClassName('closeBtn')[1];
+            var closeBtns = document.querySelectorAll('.closeBtn');
+              closeBtns.forEach(function(span) {
+                span.onclick = function() {
+                  var modal = span.closest('.modal');
+                  modal.style.display = 'none';
+                }
+              });
+ 
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+
+        
+
+
+            window.onload = function () {
+                
+                const images = document.querySelectorAll('.time1');
+                images.forEach(function(image) {
+                  var display = document.querySelector('#time-'+image.id.split('-')[1]);
+                 
+                 var Minutes = 60 * <?php echo $minutes?>;
+                  startTimer(Minutes, display);
+                });
+              };
+
+
+
+              
+
+          function startTimer(duration, display) {
+            var start = Date.now();
+            
+            function updateDisplay() {
+              var diff = getDiffInSeconds();
+              var minutes = padNumber(Math.floor(diff / 60));
+              var seconds = padNumber(diff % 60);
+              display.textContent = minutes + ":" + seconds;
+            }
+            
+            function getDiffInSeconds() {
+              return duration - Math.floor((Date.now() - start) / 1000);
+            }
+            
+            function padNumber(num) {
+              return num < 10 ? "0" + num : num;
+            }
+            
+            function restartTimer() {
+              start = Date.now() + 1000;
+            }
+            
+            updateDisplay();
+            setInterval(updateDisplay, 1000);
+          }
+
+
+    </script> 
+
+
+
+
+
+
+
+
+    <script type="text/javascript">var name = "<?= $name ?>";</script> 
+    <!-- <script type="text/javascript" src="<?=ROOT?>/assets/js/buyerbidding.js"></script> -->
+    <!-- <script type="text/javascript" src="<?=ROOT?>/assets/js/search1.js"></script>  -->
+
 </body>
 
 </html>
