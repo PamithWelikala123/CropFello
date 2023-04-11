@@ -6,7 +6,7 @@ class deliverydoing{
     use Controller;
     public function index(){
 
-        $this->view('deliverydoing');
+        $this->view('deliverydoing2');
     }
 
 }
