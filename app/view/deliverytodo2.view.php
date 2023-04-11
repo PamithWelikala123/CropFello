@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
+   <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverytodo1.css"> -->
 </head>
 <body>
 
@@ -27,10 +28,10 @@
                 <div class="menu">
                   <!-- <hr><label >Menu</label><br> -->
                   <hr><p>Menu</p><br>
-                  <button><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Feed</span></button><br>
-                  <button><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Bidding</span></button><br>
-                  <button><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Wishlist</span></button><br>
-                  <button><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Requests</span></button><br>
+                  <button><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span>To Do</span></button><br>
+                  <button><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
+                  <button><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
+                  <button><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
               </div>
               <div class="message">
                   <!-- <hr><label>Message</label> -->
@@ -45,67 +46,62 @@
                           
                   
 
-                  
-
                   </div>
               </div>
 
             </div>
-            <div class="main">
-                <div class="page-selector">
-                    <button class="active" onclick="window.location.href = 'index.html';">All</button>
-                    <button onclick="window.location.href = 'index2.html';">My Bids</button>
-                </div>
-                <?php if($data) :    ?>   
-                <div class="main-content">
+            <!-- <div class="main">
+            <div class="containerx">
+                    <div class="item item-1">
+                      <img class="profile-pic" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
+                      <p class="nam">Pamith Welikala</p><br>
+                      <p class="date">3 September 2022</p>
 
-                <?php foreach ($data as $row) : ?>
-                    <div class="bidding-post">
-                        <div class="image">
-                          <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
-                        </div>
-                        <div class="info">
-                          <div class="name-size-place">
-                            <label><span style="color: #000000;"><?=$row->item_name?>&nbsp; </span><?=$row->amount?> <?=$row->amount_type?></label><br>
-                            <p><img src="images/map-pin.svg" alt="">&nbsp; <?=$row->city?></p>
-                          </div>
-                          <div class="price">
-                            <h5 class="initial-price">RS <?=$row->initial_price?></h5>
-                            <h3 class="current-price"><img src="images/green-circle.svg" alt=""> RS <?=$row->current_value?></h3>
-                          </div>
-                          <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
-                          <div class="days">
-                            <p class="remain"><?=$row->remaning?> days remaining</p>
-                            <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
-                          </div>
-
-                          <div class="bid-now">
-                            <button id="openModalBtn">Bid Now</button>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div id="modal" class="modal">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <span class="closeBtn">&times;</span>
-                                <h2>Enter your bid value</h2>
-                                <p>Current bid value: RS <?=$row->current_value?></p>
-                                <p>Minimum bid value: RS <?=$row->bid_range?></p>
-                              </div>
-                              <div class="modal-body">
-                                  <label> RS: &nbsp;</label>
-                                <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
-                                <button>Bid Now</button>
-                              </div>
-                            </div>
-                          </div>
-
-                      
-                    <?php endforeach; ?>  
                     </div>
-                <?php endif; ?>
-            </div>
+                    <div class="item item-2">
+                    <h2 class="head">Pamith Welikala&nbsp wants to deliver&nbsp Papaya &nbsp 2 &nbspKgs &nbsp<br>from Godagama &nbsp to Thalawathugoda &nbsp</h2>
+
+                      <table class="table">
+
+                        <tr>
+                          <td>Item:</td>
+                          <td><font color="#0C7417">Papaya</td>
+                        </tr>
+
+                        <tr>
+                          <td>Amount:</td>
+                          <td><font color="#0C7417">2KG</td> 
+                        </tr>
+
+                        
+                        <tr>
+                          <td>From:</td>
+                          <td><font color="#0C7417">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td> 
+                        </tr>
+
+                        
+                        <tr>
+                          <td>To:</td>
+                          <td><font color="#0C7417">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td> 
+                        </tr>                        
+                        <tr>
+                          <td>Fee:</td>
+                          <td><font color="#0C7417">Rs.350.00</td> 
+                        </tr>
+
+                        
+                        <tr>
+                          <td>Vehicle Type:</td>
+                          <td><font color="#0C7417">Motocycle</td> 
+                        </tr>
+                      </table>
+
+                      <button class="Approve btn1">Approve &nbsp  &#10004</button>
+                      <button class="Discard btn2">Discard &nbsp &#xf014 </button>
+                    </div>
+              
+                  </div>                
+            </div> -->
         </div>
         
     </div>
