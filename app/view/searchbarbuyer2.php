@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/searchbarbuyer2.css">
+    <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/searchbarbuyer2.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -32,16 +31,18 @@
                     <!-- </a> -->
                 </div>
                 
-                <!-- <div class="search-container"> -->
-                  <!-- <form action="/action_page.php">
+
+
+                <div class="search-container">
+                  <!-- //<form action="/action_page.php"> -->
                     <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                  </form> -->
-                  <div class="search-bar">
-                    <input type="text" placeholder="Search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                  </div>
-                <!-- </div> -->
+                    <button><i class="fa fa-search"></i></button>
+                  <!-- </form> -->
+                </div>
+
+
+
+
         </div>
 
         <div class="notification-box">
@@ -75,9 +76,11 @@
             </div>
 
           </div>
-
+        
 
 <script src="<?=ROOT?>/assets/js/notification.js"></script> 
 <script src="<?=ROOT?>/assets/js/profile.js"></script> 
+<script type="text/javascript" src="<?=ROOT?>/assets/js/search.js"></script> 
+
 </body>
 </html>

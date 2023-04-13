@@ -1,11 +1,11 @@
 console.log(name);
 
+const searchBar = document.querySelector(".search-container input"),
+searchIcon = document.querySelector(".search-container button"),
+usersList = document.querySelector(".main-content")
+;
 
 
-
-const searchBar = document.querySelector(".search input"),
-searchIcon = document.querySelector(".search button"),
-usersList = document.querySelector(".users-list");
 
 
 
@@ -38,11 +38,12 @@ searchBar.onkeyup = ()=>{
 
   let xhr = new XMLHttpRequest()
   
-  xhr.open('POST', 'http://localhost/Cropfello/public/Chat/search',true);
+  xhr.open('POST', 'http://localhost/Cropfello/public/'+name+'/search', true);
   xhr.onload = ()=>{
     if(xhr.readyState === XMLHttpRequest.DONE){
         if(xhr.status === 200){
           let data = xhr.response;
+          console.log(data);
           usersList.innerHTML = data;
         }
     }
@@ -61,19 +62,19 @@ searchBar.onkeyup = ()=>{
 
 
 
-setInterval(() =>{
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://localhost/Cropfello/public/Chat/chat", true);
-  xhr.onload = ()=>{
-    if(xhr.readyState === XMLHttpRequest.DONE){
-        if(xhr.status === 200){
-          let data = xhr.response;
-          if(!searchBar.classList.contains("active")){
-            usersList.innerHTML = data;
-          }
-        }
-    }
-  }
-  xhr.send();
-}, 500);
+// setInterval(() =>{
+//   let xhr = new XMLHttpRequest();
+//   xhr.open("GET", "http://localhost/Cropfello/public/Chat/chat", true);
+//   xhr.onload = ()=>{
+//     if(xhr.readyState === XMLHttpRequest.DONE){
+//         if(xhr.status === 200){
+//           let data = xhr.response;
+//           if(!searchBar.classList.contains("active")){
+//             usersList.innerHTML = data;
+//           }
+//         }
+//     }
+//   }
+//   xhr.send();
+// }, 500);
 
