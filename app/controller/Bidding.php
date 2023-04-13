@@ -6,8 +6,41 @@ class bidding{
     use Controller;
       
     public function index(){
+  
+    }
+    
 
+    public function biddingbuyer(){
+        $createbid = new createbid;
+        $id = $_POST['id'];
+       // redirect('Bidding/BuyerBidding');
+        $arr['post_id']= $id;
+        $row = $createbid->first($arr);
         
+
+            if($row){
+
+            $initial_price=$row->initial_price;
+            $bid_range=$row->bid_range;
+            $current_value=$row->current_value;
+            echo $initial_price;
+            echo $bid_range;
+            echo $current_value;
+            }
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $user = new User;
+            $bidvalue = $_POST['bidvalue'];
+            echo "<script>console.log('$bidvalue');</script>";
+            
+            $buyer_id=$_SESSION['USER']->user_id;
+
+            $createbid->update($id,$bidvalue,$id_column = 'bidvalue');
+            $createbid->update($id,$buyer_id,$id_column = 'buyer_id');
+           // redirect('Bidding/BuyerBidding');
+        
+        }       
+    
     }
 
     public function sellerbidding(){

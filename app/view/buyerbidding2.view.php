@@ -53,7 +53,7 @@
             </div>
             <div class="main">
                 <div class="page-selector">
-                    <button class="active" onclick="window.location.href = 'index.html';">All</button>
+                    <button class="active" onclick="window.location.href = '../bidding/BuyerBidding';">All</button>
                     <button onclick="window.location.href = 'index2.html';">My Bids</button>
                 </div>
                 <?php if($data) :    ?>   
@@ -98,15 +98,20 @@
                       <div id="modal-<?=$row->post_id?>" class="modal">
                             <div class="modal-content">
                               <div class="modal-header">
+                          
                                 <span class="closeBtn">&times;</span>
                                 <h2>Enter your bid value</h2>
                                 <p>Current bid value: RS <?=$row->current_value?></p>
                                 <p>Minimum bid value: RS <?=$row->bid_range?></p>
                               </div>
                               <div class="modal-body">
+                              <form method="post" autocomplete="off" action='biddingbuyer?id='+<?=$row->post_id?>>
                                   <label> RS: &nbsp;</label>
-                                <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
+                                
+                                <input type="text" placeholder="Enter your bid" name="bidvalue"><label>&nbsp;.00</label>
+                                
                                 <button>Bid Now</button>
+                                </form>
                               </div>
                             </div>
                           </div>
@@ -133,13 +138,32 @@
 
     var modal;
 
-            const images = document.querySelectorAll('.js-bid-now-btn');
-            images.forEach(function(image) {
-              image.addEventListener('click', function() {
-                modal = document.getElementById('modal-'+image['id']);
-                modal.style.display = "block";
-              });
+    const images = document.querySelectorAll('.js-bid-now-btn');
+          images.forEach(function(image) {
+            image.addEventListener('click', function() {
+              modal = document.getElementById('modal-' + image['id']);
+              modal.style.display = "block";
+              let id = image['id'];
+              //console.log(image['id']);
+              
+
+              var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'http://localhost/Cropfello/public/Bidding/biddingbuyer');
+                    xhr.onload = function() {
+                      if (xhr.status === 200) {
+                        console.log('Request sent successfully.');
+                        let data = xhr.response;
+                        console.log(data);
+                      } else {
+                        console.log('Error: ' + xhr.status);
+                      }
+                    };
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    xhr.send("id=" + image['id']);
+
             });
+          });
+        
 
             
             //var span = document.getElementsByClassName('closeBtn')[1];
@@ -160,46 +184,50 @@
         
 
 
-            window.onload = function () {
+          //   window.onload = function () {
                 
-                const images = document.querySelectorAll('.time1');
-                images.forEach(function(image) {
-                  var display = document.querySelector('#time-'+image.id.split('-')[1]);
+          //       const images = document.querySelectorAll('.time1');
+          //       images.forEach(function(image) {
+          //         var display = document.querySelector('#time-'+image.id.split('-')[1]);
                  
-                 var Minutes = 60 * <?php echo $minutes?>;
-                  startTimer(Minutes, display);
-                });
-              };
+          //        var Minutes = 60 * <?php echo $minutes?>;
+          //         startTimer(Minutes, display);
+          //       });
+          //     };
 
 
 
               
 
-          function startTimer(duration, display) {
-            var start = Date.now();
+          // function startTimer(duration, display) {
+          //   var start = Date.now();
             
-            function updateDisplay() {
-              var diff = getDiffInSeconds();
-              var minutes = padNumber(Math.floor(diff / 60));
-              var seconds = padNumber(diff % 60);
-              display.textContent = minutes + ":" + seconds;
-            }
+          //   function updateDisplay() {
+          //     var diff = getDiffInSeconds();
+          //     var minutes = padNumber(Math.floor(diff / 60));
+          //     var seconds = padNumber(diff % 60);
+          //     display.textContent = minutes + ":" + seconds;
+          //   }
             
-            function getDiffInSeconds() {
-              return duration - Math.floor((Date.now() - start) / 1000);
-            }
+          //   function getDiffInSeconds() {
+          //     return duration - Math.floor((Date.now() - start) / 1000);
+          //   }
             
-            function padNumber(num) {
-              return num < 10 ? "0" + num : num;
-            }
+          //   function padNumber(num) {
+          //     return num < 10 ? "0" + num : num;
+          //   }
             
-            function restartTimer() {
-              start = Date.now() + 1000;
-            }
+          //   function restartTimer() {
+          //     start = Date.now() + 1000;
+          //   }
             
-            updateDisplay();
-            setInterval(updateDisplay, 1000);
-          }
+          //   updateDisplay();
+          //   setInterval(updateDisplay, 1000);
+          // }
+
+
+
+
 
 
     </script> 
