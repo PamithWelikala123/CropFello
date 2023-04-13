@@ -1,0 +1,163 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    font-family: poppins;
+    /* box-sizing: border-box; */
+}
+
+ hr{
+    margin: 0% 10%;
+  }
+
+.leftbar {
+    /* height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1; */
+    /* top: 0; */
+    left: 0;
+    background-color: #F7FAF6;
+    /* overflow-x: hidden; */
+    padding-top: 16px;
+
+    width: 300px;
+    height: calc(100vh - 50px);
+}
+
+
+.leftbar i {
+    margin-right: 10px;
+    
+}
+
+.leftbar p{
+    font-weight: lighter;
+    font-size: small;color: #5d5d5d;
+}
+
+.leftbar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    margin: 20px;
+}
+
+.leftbar a:hover {
+    color: #5d5b5b;
+}
+
+.leftbar p{
+   /* margin-top: 0%; ; */
+   margin: 0% 10%;
+    
+}
+.leftbar .menu button{
+   /* margin-top: 0%; ; */
+   margin: 0% 10%;
+   /* justify-content: center; */
+   width: 70%;
+   padding:3% ;
+   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border-radius: 10%;
+  background-color: #F7FAF6;
+  font-size: 400;
+  font-size: medium;
+  font-weight: 600;
+  
+    
+}
+
+.leftbar .menu button :hover{
+   background-color:#E5F2DB;
+}
+
+.leftbar .menu button img{
+    margin-right: 10px;
+}
+.leftbar .menu button span {
+    margin-left: 10px;
+    margin-right: auto;
+  }
+
+
+
+.message-box{
+    margin: 0% 10%;
+    /* justify-content: center; */
+    width: 70%;
+    padding:3% ;
+    /* display: flex; */
+   /* align-items: center; */
+   border: none;
+   border-radius: 10%;
+   background-color: #ffffff;
+   height: 180px;
+}
+
+.message-footer{
+    position: fixed;
+    left: 60px;
+    bottom: 80px;
+}
+
+
+
+.message-footer button {
+    
+    width: 110px;
+    background-color: #4DEA25;
+    border-radius: 10%;
+    padding: 3%;
+    font-size: small;
+    font-weight: 500;
+    border-style: none;
+    border-width: 0;
+    cursor: pointer;
+    transition-duration: 0.4s;
+
+}
+
+.message-footer button:hover {
+    background-color: #000000;
+    color: #4DEA25;
+
+
+}
+  
+.message0{
+    width: 70%;
+    padding:3% ;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: 
+    "message1 message2";
+    height: 20px;
+    margin-top: 10px;
+}
+
+.message0 label:hover{
+    cursor: pointer;
+}
+
+.message1{
+    grid-area: message1;
+
+}
+
+.message1 img{
+    border-radius: 50%;
+    width: 80%;
+}
+
+.message2{
+    grid-area: message2;
+    font-size: 10px;
+    align-items: center;
+     justify-content: center;
+     display: flex;
+}

@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
 </head>
 <body>
 
@@ -25,7 +27,7 @@
                 <a href="#contact"><i class="fa fa-flag-o"></i> Requests</a> -->
 
                 <div class="menu">
-                  <!-- <hr><label >Menu</label><br> -->
+                  
                   <hr><p>Menu</p><br>
                   <button><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Feed</span></button><br>
                   <button><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Bidding</span></button><br>
@@ -33,7 +35,7 @@
                   <button><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Requests</span></button><br>
               </div>
               <div class="message">
-                  <!-- <hr><label>Message</label> -->
+                  
                   <hr><p>Message</p><br>
                   <!-- <img class="message-bar" src="images/message-bar.png"> -->
                   <div class="message-box">
