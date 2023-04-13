@@ -52,19 +52,19 @@
 }
 
 .page-selector button {
-    background-color: rgb(0, 0, 0, 0.05);
-    border: 1px rgb(0, 0, 0, 0.6) solid;
+    background-color: #F7FAF6;
+    border: 2px rgba(143, 154, 145, 0.6) solid;
     padding: 1% 2%;
     margin: 1%;
     width: 15%;
     cursor: pointer;
-    border-radius: 5% 5%;
+    border-radius: 10px;
 }
 
 .page-selector button.active {
     background-color: rgb(77, 234, 37, 0.4);
-    border: 2px rgb(0, 0, 0, 0.6) solid;
-    color: rgb(0, 0, 0, 0.8);
+    border: 2px rgba(88, 92, 88, 0.6) solid;
+    color: rgba(46, 51, 45, 0.8);
     font-weight: 600;
 }
 

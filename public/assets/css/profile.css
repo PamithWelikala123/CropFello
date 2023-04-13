@@ -7,18 +7,18 @@
   margin: 0%;
   font-family: poppins;  
 }
-.profprofmodal {
+.profmodal {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
-    right: 0;
-    top: 0;
+    /* padding-top: 100px; */
+    right: 2%;
+    top: 10%;
     width: 25%;
     height: 100%; 
     overflow: auto;
   }
-  
+
   /* Modal Content/Box */
   .profmodal-content {
     background-color: #ffffff;
@@ -26,7 +26,7 @@
     padding: 20px;
     border: 3px solid #4DEA25;
     border-radius: 10%;
-    width: 60%; /* 80% of the width of the modal box */
+    width: 60%; /* 60% of the width of the modal box */
     
   }
   
@@ -127,4 +127,5 @@
       width: 80%;
     }
   }
+  
   
