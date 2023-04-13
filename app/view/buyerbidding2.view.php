@@ -119,16 +119,19 @@
 
                       
                 <?php endforeach; ?>  
-                    </div>
-                <?php endif; ?>
+                </div>
+                
+               
+               
             </div>
+            <?php endif; ?>
         </div>
         
     </div>
     
     
     <?php
-      $name = "Nathan"; 
+      $name = "Bidding"; 
     ?>
 
 
@@ -241,7 +244,7 @@
 
     <script type="text/javascript">var name = "<?= $name ?>";</script> 
     <!-- <script type="text/javascript" src="<?=ROOT?>/assets/js/buyerbidding.js"></script> -->
-    <!-- <script type="text/javascript" src="<?=ROOT?>/assets/js/search1.js"></script>  -->
+   
 
 </body>
 

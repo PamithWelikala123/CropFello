@@ -7,7 +7,7 @@
   margin: 0%;
   font-family: poppins;  
 }
-.profprofmodal {
+.profmodal {
     display: none;
     position: fixed;
     z-index: 1;
