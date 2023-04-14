@@ -33,16 +33,16 @@
                 
 
 
-                <div class="search-container">
-                  <!-- //<form action="/action_page.php"> -->
+                <!-- <div class="search-container"> -->
+                  <!-- <form action="/action_page.php">
                     <input type="text" placeholder="Search.." name="search">
-                    <button><i class="fa fa-search"></i></button>
-                  <!-- </form> -->
-                </div>
-
-
-
-
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </form> -->
+                  <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </div>
+                <!-- </div> -->
         </div>
 
         <div class="notification-box">
