@@ -4,7 +4,8 @@
 class Feed{
 
     use Controller;
-    public function index(){
+    public function index(){}
+    public function feed(){
     $postitem = new postitems;
     $item = new item;
 

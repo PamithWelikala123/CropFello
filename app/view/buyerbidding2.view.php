@@ -1,14 +1,23 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width"/>
     <title>buyerbidding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+
 </head>
 <body>
 
@@ -25,15 +34,15 @@
                 <a href="#contact"><i class="fa fa-flag-o"></i> Requests</a> -->
 
                 <div class="menu">
-                  <!-- <hr><label >Menu</label><br> -->
+                  
                   <hr><p>Menu</p><br>
-                  <button><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Feed</span></button><br>
-                  <button><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Bidding</span></button><br>
-                  <button><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Wishlist</span></button><br>
-                  <button><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Requests</span></button><br>
+                  <button onclick="document.location='../feed/feed'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Feed</span></button><br>
+                  <button onclick="document.location='../bidding/BuyerBidding'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Bidding</span></button><br>
+                  <button onclick="document.location='../wishlists/buyerwishlist'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Wishlist</span></button><br>
+                  <button onclick="document.location='../requests/view1'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Requests</span></button><br>
               </div>
               <div class="message">
-                  <!-- <hr><label>Message</label> -->
+                  
                   <hr><p>Message</p><br>
                   <!-- <img class="message-bar" src="images/message-bar.png"> -->
                   <div class="message-box">
@@ -53,7 +62,7 @@
             </div>
             <div class="main">
                 <div class="page-selector">
-                    <button class="active" onclick="window.location.href = 'index.html';">All</button>
+                    <button class="active" onclick="window.location.href = '../bidding/BuyerBidding';">All</button>
                     <button onclick="window.location.href = 'index2.html';">My Bids</button>
                 </div>
                 <?php if($data) :    ?>   
@@ -76,69 +85,167 @@
                           <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
                           <div class="days">
                             <p class="remain"><?=$row->remaning?> days remaining</p>
+                            <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
+                            
+                            
+                            <?php
+                                  $hours= $row->hours; 
+                                   $minutes=$row->minutes;
+                                   $day=$row->day;
+                            ?>
+
+
                             <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
                           </div>
 
                           <div class="bid-now">
-                            <button id="openModalBtn">Bid Now</button>
+                          <button id="<?=$row->post_id?>" class="js-bid-now-btn">Bid Now</button>
                           </div>
                         </div>
                       </div>
 
-                      <div id="modal" class="modal">
+                      <div id="modal-<?=$row->post_id?>" class="modal">
                             <div class="modal-content">
                               <div class="modal-header">
+                          
                                 <span class="closeBtn">&times;</span>
                                 <h2>Enter your bid value</h2>
                                 <p>Current bid value: RS <?=$row->current_value?></p>
                                 <p>Minimum bid value: RS <?=$row->bid_range?></p>
                               </div>
-                              <div class="modal-body">
-                                  <label> RS: &nbsp;</label>
-                                <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
-                                <button>Bid Now</button>
+                              <div class="modal-body" id='modal-body-<?=$row->post_id?>'>
+                             
+                                          <form method="post" autocomplete="off" action='biddingbuyer2'>
+                                              <label> RS: &nbsp;</label>
+                                            
+                                            <input type="text" placeholder="Enter your bid" name="bidvalue"><label>&nbsp;.00</label>
+                                            <input type="hidden" value='<?=$row->post_id?>' name='abc'>
+                                            <button type="submit" name="submit" id='myButton'>Bid Now</button>
+
+
+                                          </form>
+                              
                               </div>
                             </div>
                           </div>
+                
 
                       
-                    <?php endforeach; ?>  
-                    </div>
-                <?php endif; ?>
+                <?php endforeach; ?>  
+                </div>
+                
+               
+               
             </div>
+            <?php endif; ?>
         </div>
         
     </div>
+    
+    
+    <?php
+      $name = "Bidding"; 
+    ?>
 
 
-    <script>
-          // Get the modal
-      var modal = document.getElementById("modal");
-      
-      // Get the button that opens the modal
-      var btn = document.getElementById("openModalBtn");
-      
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("closeBtn")[0];
-      
-      // When the user clicks the button, open the modal 
-      btn.onclick = function() {
-        modal.style.display = "block";
-      }
-      
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-      
-    </script>
+
+
+<script>   
+
+
+
+
+    var modal;
+
+    const images = document.querySelectorAll('.js-bid-now-btn');
+          images.forEach(function(image) {
+            image.addEventListener('click', function() {
+              modal = document.getElementById('modal-' + image['id']);
+              modal.style.display = "block";
+              let id = image['id'];
+              //console.log(image['id']);
+
+            });
+          });
+        
+
+
+
+
+            
+            //var span = document.getElementsByClassName('closeBtn')[1];
+            var closeBtns = document.querySelectorAll('.closeBtn');
+              closeBtns.forEach(function(span) {
+                span.onclick = function() {
+                  var modal = span.closest('.modal');
+                  modal.style.display = 'none';
+                }
+              });
+ 
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+
+        
+
+
+          //   window.onload = function () {
+                
+          //       const images = document.querySelectorAll('.time1');
+          //       images.forEach(function(image) {
+          //         var display = document.querySelector('#time-'+image.id.split('-')[1]);
+                 
+          //        var Minutes = 60 * <?php echo $minutes?>;
+          //         startTimer(Minutes, display);
+          //       });
+          //     };
+
+
+
+              
+
+          // function startTimer(duration, display) {
+          //   var start = Date.now();
+            
+          //   function updateDisplay() {
+          //     var diff = getDiffInSeconds();
+          //     var minutes = padNumber(Math.floor(diff / 60));
+          //     var seconds = padNumber(diff % 60);
+          //     display.textContent = minutes + ":" + seconds;
+          //   }
+            
+          //   function getDiffInSeconds() {
+          //     return duration - Math.floor((Date.now() - start) / 1000);
+          //   }
+            
+          //   function padNumber(num) {
+          //     return num < 10 ? "0" + num : num;
+          //   }
+            
+          //   function restartTimer() {
+          //     start = Date.now() + 1000;
+          //   }
+            
+          //   updateDisplay();
+          //   setInterval(updateDisplay, 1000);
+          // }
+
+
+
+
+
+
+    </script> 
+
+
+
+    <script type="text/javascript">var name = "<?= $name ?>";</script> 
+    <!-- <script type="text/javascript" src="<?=ROOT?>/assets/js/buyerbidding.js"></script> -->
+
+
+
 </body>
 
 </html>

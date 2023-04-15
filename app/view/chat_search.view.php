@@ -34,7 +34,7 @@
       </div>
       <!-- connecting to the logout page -->
      
-   <!-- <a href="php/logout.php?logout_id=<?php// echo $data['user_id']; ?>" class="logout">Logout</a> -->
+   
     <img style="width:35%; border-radius: 0%" src="<?=ROOT?>/assets/images/login page/logo.png">
    
     </header>

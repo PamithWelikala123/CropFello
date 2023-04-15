@@ -19,30 +19,7 @@ trait Model{
         $query = "select * from $this->table order by $this->order_column $this->order_type";
         
         return  $this->query($query);
-    }
-
-    public function wherenot($data, $data_not = [],$order_column= "post_id"){
-        
-        $keys = array_keys($data);
-        $keys_not = array_keys($data_not);
-        $query = "select * from $this->table where ";
-
-        foreach ($keys as $key){
-            $query .= $key . " != :". $key . " && ";
-        }
-
-        foreach ($keys_not as $key){
-            $query.= $key . " = :". $key . " && ";
-        }
-
-        $query = trim($query, " && ");
-
-        $query .= " order by $this->order_column $this->order_type limit $this->limit offset $this->offset";
-        $data = array_merge($data, $data_not);
-        return  $this->query($query, $data);
-    }
-
-    
+    }    
     
     public function where($data, $data_not = []){
        
@@ -222,9 +199,9 @@ public function chatfunction($outgoing_id,$searchTerm){
     }
 
 
-    public function search($tablename,$searchTerm){
+    public function search($tablename,$id,$searchTerm){
 
-        $query = "select * from $tablename WHERE AND (first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%')";
+        $query = "select * from $tablename WHERE NOT seller_id = {$id} AND (item_id  LIKE '%{$searchTerm}%' OR item_type LIKE '%{$searchTerm}%')";
         return  $this->query($query);
     }
 

@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/searchbarbuyer2.css">
+    <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/searchbarbuyer2.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/profile.css">
+
 </head>
 <body>
    
@@ -25,16 +27,22 @@
                     <a href="#cart"><i class="fa fa-shopping-cart" style="font-size:18px"></i></a>
                     <a class="notification-icon" ><i class="fa fa-bell" style="font-size:18px"></i></a>
                     <span class="notification-count">6</span>
-                        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt=""> 
+                    <a id="profmyBtn"><img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt=""> </a>
                     <!-- </a> -->
                 </div>
                 
-                <div class="search-container">
-                  <form action="/action_page.php">
+
+
+                <!-- <div class="search-container"> -->
+                  <!-- <form action="/action_page.php">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                  </form>
-                </div>
+                  </form> -->
+                  <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </div>
+                <!-- </div> -->
         </div>
 
         <div class="notification-box">
@@ -44,8 +52,35 @@
                     </div>
                     <div class="notification-list"></div>
         </div>
+
+
+
+
+          <!-- The Modal -->
+          <div id="profmyModal" class="profmodal">
+
+            <!-- Modal content -->
+            <div class="profmodal-content">
+              <span class="profclose">&times;</span>
+              <div class="profmodal-upper">
+                <img class="profprofile-picture" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>">
+                <div class="profname">Vimukthi Dulnath</div>
+              </div>
+              <div class="profmodal-lower">
+                <button id="sellBtn">Sell</button>
+                <div class="profvertical-line"></div>
+                <button id="profileBtn">Profile</button>
+                <div class="profvertical-line"></div>
+                <button id="logoutBtn">Logout</button>
+              </div>
+            </div>
+
+          </div>
         
 
 <script src="<?=ROOT?>/assets/js/notification.js"></script> 
+<script src="<?=ROOT?>/assets/js/profile.js"></script> 
+<script type="text/javascript" src="<?=ROOT?>/assets/js/search.js"></script> 
+
 </body>
 </html>

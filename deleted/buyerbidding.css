@@ -1,0 +1,604 @@
+* {
+   
+  padding: 0%;
+  margin: 0%;
+  font-family: Poppins;
+  
+}
+
+hr{
+  margin: 10% 5%;
+}
+
+h1{
+  font-weight: Medium;
+}
+
+
+h4{
+  font-weight: 500;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 21% 79%;
+  grid-template-rows: 15% 15% 25% 45% ;
+  grid-template-areas:
+  "logo topnav"
+  "menu tabs"
+  "menu main"
+  "message main"
+  ;
+  height: 100vh;
+  }
+
+.topnav{
+  grid-area: topnav;
+  background-color:#EBF3E9;
+} 
+
+.tabs{
+  grid-area: tabs;
+  /* background-color: #8cfc90; */
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.tabs button {
+  background-color: rgb(0, 0, 0, 0.05); 
+  border: 1px rgb(0, 0, 0, 0.6) solid; 
+  padding: 1% 2%; 
+  margin: 1%; 
+  width: 15%;
+  cursor: pointer; 
+  border-radius: 5% 5%;
+}
+
+.tabs button.active {
+  background-color:rgb(77, 234, 37, 0.4); 
+  border: 2px rgb(0, 0, 0, 0.6) solid; 
+  color: rgb(0, 0, 0, 0.8);
+  font-weight: 600;
+}
+
+.main{
+  grid-area: main;
+  /* background-color: rgb(240, 191, 191); */
+  display: grid;
+  /* grid-template-columns: 30% 70%;
+  grid-template-rows:30% 30% 40% ;
+  grid-template-areas:
+  "dp account-details"
+  "about about"
+  "shop shop"
+  ; */
+
+  padding-top: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+  /* padding-right: 5%; */
+}  
+
+
+
+
+.logo1{
+  max-width: 70%;
+  height: auto;
+  margin-top: 5%;
+  margin-left: 10%;
+  position:sticky;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.logo{
+  grid-area: logo;
+  background-color: #EBF3E9;
+}
+
+.menu{
+  grid-area: menu;
+  background-color: #EBF3E9;
+}
+
+.message{
+  grid-area: message;
+  background-color: #EBF3E9;
+}
+
+.Menu1{
+  position: absolute;
+  width: 40px;
+  height: 23px;
+  left: 1%;
+  top: 20%;
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 250;
+  font-size: 15px;
+  line-height: 22px;
+  /* identical to box height */
+  
+  
+  color: #000000;
+}
+
+/* .Feed{
+  position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 185px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: #abf09a;
+  border-radius: 10px;
+  border-color:#abf09a;
+  /* identical to box height */
+
+  /* border-style: solid;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: bottom;
+  
+  
+  color: #000000; */
+/* } */ 
+
+/* .Bidding:hover{
+  background: #abf09a;
+  
+} */
+
+
+.Feed1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 55px;
+  top: 194px;
+
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+}
+
+
+/* .Bidding{
+  position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 240px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: #abf09a;
+  border-radius: 10px;
+  border-color: #abf09a;
+  /* identical to box height */
+
+  /* border-style: none;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: bottom;
+  
+  
+  color: #000000;
+}
+
+.Feed:hover{
+  background: #E5F2DB;
+  
+} */ 
+
+.Bidding1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 55px;
+  top: 250px;
+
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+}
+
+
+.Wishlist{
+  position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 296px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+
+  border-style: none;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: bottom;
+  
+  
+  color: #000000;
+}
+
+.Wishlist:hover{
+  background: #E5F2DB;
+  
+}
+
+.Wishlist1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 55px;
+  top: 306px;
+}
+
+
+.Requests{
+  position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 350px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  background-color: rgba(235, 243, 233, 0.4);
+  border-radius: 10px;
+  border-color: rgba(235, 243, 233, 0.4);
+  /* identical to box height */
+
+  border-style: none;
+  cursor: pointer;
+  opacity: 0.8;
+  vertical-align: bottom;
+  
+  
+  color: #000000;
+}
+
+.Requests:hover{
+  background: #E5F2DB;
+  
+}
+
+.Requests1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 55px;
+  top: 361px;
+}
+
+.Message1{
+  position: absolute;
+  width: 40px;
+  height: 23px;
+  left: 1%;
+  top: 60%;
+  
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 250;
+  font-size: 15px;
+  line-height: 22px;
+  /* identical to box height */
+  
+  
+  color: #000000;
+}
+
+.message-bar{
+  position: absolute;
+  left: 3%;
+  top: 65%;
+  width: 180px;
+}
+  
+
+
+.Search{
+  border-style: none;
+  position: absolute;
+  width: 540px;
+  height: 52px;
+  left: 548px;
+  top: 25px;
+  border-radius: 10px;
+  border-color:rgba(235, 243, 233, 0.4);
+  padding-left: 38px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  
+  color: rgba(29, 87, 14, 0.4);
+  }
+  
+  .Search1{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 36.5%;
+  top: 6%;
+  }  
+
+
+.bell{
+border-style: none;
+cursor: pointer;
+opacity: 0.8;
+position: absolute;
+width: 44px;
+height: 44px;
+left: 85%;
+top: 5%;
+}
+
+.bell:hover{
+  opacity: 0.5;
+}
+
+.active-dot{
+  position: absolute;
+  left: 86.5%;
+  top:6%;
+  }
+
+  .profile{
+    border-style: none;
+   cursor: pointer;
+   opacity: 0.8;
+   position: absolute;
+   width: 44px;
+   height: 44px;
+   left: 93%;
+   top: 5%;
+     }
+
+
+.bidding-post{
+  display: grid;
+  grid-template-columns:30% 70%;
+  grid-template-areas: 
+  "image info";
+  height: 50%;
+}
+
+.image{
+  grid-area: image;
+  background-color: beige;
+  overflow: hidden;
+  border-radius: 10%;
+ 
+
+}
+
+.image img{
+  /* max-height: 80%; */
+  /* max-width: 80%; */
+  width: 100%;
+height: 100%; 
+ object-fit: cover;
+
+}
+
+.info{
+  grid-area: info;
+  display: grid;
+  grid-template-columns:50% 50%;
+  grid-template-rows:35% 35% 30%;
+  grid-template-areas: 
+  "name-size-place price"
+  "exp days"
+  "bid-now bid-now"
+  ;
+  padding-left:5% ;
+}       
+
+.name-size-place{
+  grid-area:name-size-place ;
+  color: #0EBC1F;
+}
+
+
+.name-size-place label{
+ font-size: 200%;
+ font-weight: 1000;
+}
+
+.name-size-place image{
+  display: inline-block;
+}
+/* .name-size-place p{
+  color: #0EBC1F;
+} */
+
+.price{
+  grid-area:price ;
+  text-align: right;
+  
+}
+.price h5{
+  font-size: 150%;
+  font-weight: 400;
+  color: #5d5d5d;
+}
+.price h3{
+  font-size: 180%;
+}
+
+.exp{
+  grid-area:exp ;
+  color: #E43D3D;
+}
+
+.days{
+  grid-area:days ;
+  text-align: right;
+}
+.remain{
+  font-size: 130%;
+ font-weight: 600;
+  color: #0EBC1F;
+}
+.ends-on{
+  font-size: 80%;
+  color: #5d5d5d;
+}
+.bid-now{
+  grid-area:bid-now ;
+}
+
+
+.bid-now button{
+  background-color: #4DEA25;
+  border-radius: 10%;
+  padding: 2%;
+  font-weight: 600;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  float: right;
+
+}
+
+.bid-now button:hover {
+  background-color: #000000;
+  color: #4DEA25;
+
+
+}
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border-radius: 5%;
+  border: 1px solid #888;
+  width: 450px; /* Set the width to 661px */
+  height: 200px; /* Set the height to 249px */
+}
+
+/* The Close Button */
+.closeBtn {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  
+}
+.modal-header p {
+  color: #FB7A7A;
+  opacity: 80%;
+  font-size: 80%;
+  
+}
+.modal-body {
+  padding: 2px 16px;
+  /* justify-content: center;
+  align-items: center; */
+  padding-top: 10%;
+}
+
+.modal-body button{
+  background-color: #4DEA25;
+  border-radius: 10%;
+  padding: 4%;
+  font-weight: 600;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  float: right;
+}
+.modal-body button:hover{
+  background-color: #000000;
+  color: #4DEA25;
+}
+
+.modal-body input{
+    height: 20%;
+}
+.modal-body label{
+  font-weight: bold;
+  opacity: 60%;
+}
+.modal-body input[type="text"] {
+  width: 150px;
+  height: 40px;
+  border-radius: 5%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #d1cece;
+}
+
+.modal-body input[type="text"]::placeholder {
+  color: rgba(77, 234, 37, 0.4);
+}
+
+.modal-body input[type="text"]:active {
+  border: 2px solid #8cfc90;
+}
+
+.modal-body input[type="submit"] {
+  height: 40px;
+  width: 100px;
+  border-radius: 10%;
+  background-color: rgba(77, 234, 37, 0.2);
+  color: #4DEA25;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+

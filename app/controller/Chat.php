@@ -58,7 +58,7 @@ class Chat{
     }
 
     public function search(){
-
+            
             $user= new User;
             $searchTerm = $_POST['searchTerm'];  
             $id=$_SESSION['USER']->user_id;

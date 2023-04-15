@@ -1,0 +1,131 @@
+/* The Modal (background) */
+
+
+
+*{
+  padding: 0%;
+  margin: 0%;
+  font-family: poppins;  
+}
+.profmodal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    /* padding-top: 100px; */
+    right: 2%;
+    top: 10%;
+    width: 25%;
+    height: 100%; 
+    overflow: auto;
+  }
+
+  /* Modal Content/Box */
+  .profmodal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    border: 3px solid #4DEA25;
+    border-radius: 10%;
+    width: 60%; /* 60% of the width of the modal box */
+    
+  }
+  
+  /* The close button */
+  .profclose {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+  }
+  
+  .profclose:hover,
+  .profclose:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* The upper div */
+  .profmodal-upper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    
+  }
+  
+  /* The profile picture */
+  .profprofile-picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  /* The name */
+  .profname {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* The lower div */
+  .profmodal-lower {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+  }
+  
+  /* The buttons */
+  button {
+    background-color: #ffffff; 
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    /* margin: 2px 1px; */
+    cursor: pointer;
+  }
+  button:hover{
+    font-weight: bold;
+  }
+  
+  /* The vertical line */
+  .profvertical-line {
+    height: 25px;
+    width: 1px;
+    background-color: #151515;
+    margin: 0 5px;
+  }
+  
+
+
+  /* Small devices (phones, 576px and up) */
+@media (min-width: 576px) {
+    .profmodal-content {
+      width: 80%;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+    .profmodal-content {
+      width: 70%;
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {
+    .profmodal {
+      width: 30%;
+    }
+    .profmodal-content {
+      width: 80%;
+    }
+  }
+  
+  
