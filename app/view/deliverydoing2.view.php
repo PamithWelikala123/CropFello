@@ -1,78 +1,142 @@
-
-<html>
-    <head><title>Buyerbiddingmybid</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyerbiddingmybid.css">
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buyerbidding</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverydoing1.css">
 </head>
-    <body>
-    <div style="display : grid; grid-template-columns: 21% 79%;">
+<body>
 
-          <div class="left-line"> 
-                    <img class="Menu"  src="<?=ROOT?>/assets/images/feed/left.png">
-                    <img class="logo"  src="<?=ROOT?>/assets/images/feed/logo.png">
-                    <img class="line"  src="<?=ROOT?>/assets/images/feed/line.png">
-                    <img class="message-bar" src="<?=ROOT?>/assets/images/feed/message-bar.png">
-                    <label class="Menu1">Menu</label>
-                    
 
-                    <div> 
-                      <button class="Feed" onclick="document.location='feed'">Feed</button>
-                      <img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png">
-                      <button class="Bidding" onclick="document.location='buyerbidding'">Bidding</button>
-                      <img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png">
-                      <button class="Wishlist" onclick="document.location='buyerwishlist'" >Wishlist</button>
-                      <img class="Wishlist1"  src="<?=ROOT?>/assets/images/feed/heart1.png">
-                      <button class="Requests" id="Requests" onclick="document.location='buyerrequest'">Requests</button>
-                      <img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png">
-                    </div>
 
-                    <img class="line1"  src="<?=ROOT?>/assets/images/feed/line.png">
-                    <label class="Message">Message</label>
+    <div class="container">
+            <?php require APPROOT."/view/searchbarbuyer2.php"?>
+
+        <div class="content">
+            <div class="leftbar">
+                <!-- <a href="#home"><i class="fa fa-rss"></i> Feed</a>
+                <a href="#services"><i class="fa fa-dollar"></i> Bidding</a>
+                <a href="#clients"><i class="fa fa-bookmark-o"></i> Wishlist</a>
+                <a href="#contact"><i class="fa fa-flag-o"></i> Requests</a> -->
+
+                <div class="menu">
+                  <!-- <hr><label >Menu</label><br> -->
+                  <hr><p>Menu</p><br>
+                  <button onclick="document.location='deliverytodo'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Todo</span></button><br>
+                  <button onclick="document.location='deliverydoing'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
+                  <button onclick="document.location='deliverydone'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
+                  <button onclick="document.location='deliveryfee'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
+              </div>
+              <div class="message">
+                  <!-- <hr><label>Message</label> -->
+                  <hr><p>Message</p><br>
+                  <!-- <img class="message-bar" src="images/message-bar.png"> -->
+                  <div class="message-box">
+                       <?php require APPROOT."/controller/Chat.php";
+                       $userController = new Chat();
+                       $userController->viewperson();
+                       
+                       ?>
+                          
                   
 
-          </div>
+                  
 
+                  </div>
+              </div>
 
-          <div style="display : grid; grid-template-rows: 10% 10% 80%; ;">
-                  <div class="top-line">
-                  <?php require APPROOT."/view/searchbarbuyer.php"?>
-          </div>
-          
-          <div><button class="all">All</button></div>
-        <?php echo '<a href="buyerbidding"> <input type="submit" class="all" value="All"/></a>';?>
-        <div><button class="all1">My Bids</button></div>
-        <div class="bid">
-            <div class="bid1">
-            <div class="bidding-post">
-                <div class="image">
-                  <img src="<?=ROOT?>/assets/images/vimukthibidding/carrot1.jpg">
-                </div>
-                <div class="info">
-                  <div class="name-size-place">
-                    <label><span style="color: #000000;">Carrot&nbsp; </span>1 KG</label><br>
-                    <p><img src="<?=ROOT?>/assets/images/vimukthibidding/map-pin.svg" alt="">&nbsp; Nuwara Eliya</p>
-                  </div>
-                  <div class="price">
-                    <h5 class="initial-price">RS 430</h5>
-                    <h3 class="current-price"><img src="<?=ROOT?>/assets/images/vimukthibidding/green-circle.svg" alt=""> RS 530</h3>
-                  </div>
-                  <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;16 September 2022</p></div>
-                  <div class="days">
-                    <p class="remain">8 days remaining</p>
-                    <p class="ends-on">Ends on 15 September 2022</p>
+            </div>
+            <div class="main">
+            <div class="containerx">
+                    <div class="item item-1">
+                      <img class="profile-pic" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
+                      <p class="nam">Pamith Welikala</p><br>
+                      <p class="date">3 September 2022</p>
+
                     </div>
-                    <div class="your-bid">
-                        <p>Your Bid:&nbsp; <span>RS 530.00</span></p>
+                    <div class="item item-2">
+                    <h2 class="head">Pamith Welikala&nbsp wants to deliver&nbsp Papaya &nbsp 2 &nbspKgs &nbsp<br>from Godagama &nbsp to Thalawathugoda &nbsp</h2>
+
+                      <table class="table">
+
+                        <tr>
+                          <td>Item:</td>
+                          <td><font color="#0C7417">Papaya</td>
+                        </tr>
+
+                        <tr>
+                          <td>Amount:</td>
+                          <td><font color="#0C7417">2KG</td> 
+                        </tr>
+
+                        
+                        <tr>
+                          <td>From:</td>
+                          <td><font color="#0C7417">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td> 
+                        </tr>
+
+                        
+                        <tr>
+                          <td>To:</td>
+                          <td><font color="#0C7417">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td> 
+                        </tr>                        
+                        <tr>
+                          <td>Fee:</td>
+                          <td><font color="#0C7417">Rs.350.00</td> 
+                        </tr>
+
+                        
+                        <tr>
+                          <td>Vehicle Type:</td>
+                          <td><font color="#0C7417">Motocycle</td> 
+                        </tr>
+                      </table>
+
+                      <button class="Approve btn1">Approve &nbsp  &#10004</button>
+                      <button class="Discard btn2">Discard &nbsp &#xf014 </button>
                     </div>
-                  <div class="bid-now">
-                    <!-- <button class="cancel">cancel</button> -->
-                    <button  class="update" id="openModalBtn">Update</button>
-                    
-                  </div>
-                </div>
-              </div>   
+              
+                  </div>                
             </div>
         </div>
+        
+    </div>
 
-  
+
+    <script>
+          // Get the modal
+      var modal = document.getElementById("modal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("closeBtn")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+    </script>
+</body>
+
+</html>

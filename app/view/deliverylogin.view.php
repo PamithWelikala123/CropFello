@@ -38,7 +38,7 @@
 
                     <div class="password">
                         <label for="password">Password <span style="color:red">&#9913 </span></label><br>
-                        <input type="password" id="password" name="password" placeholder="Enter your password" class="tb1">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" class="tb1" required>
                     </div>
                     <div class="check-box btn2">
                         <input type="checkbox">

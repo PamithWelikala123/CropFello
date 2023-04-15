@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
-   <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverytodo1.css">
+   <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverydone1.css">
    <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
 </head>
 <body>
@@ -30,9 +30,9 @@
                   <!-- <hr><label >Menu</label><br> -->
                   <hr><p>Menu</p><br>
                   <button onclick="document.location='deliverytodo'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span>To Do</span></button><br>
-                  <button onclick="document.location='deliverydoing'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
-                  <button onclick="document.location='deliverydone'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
-                  <button onclick="document.location='deliveryfee'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
+                  <button onclick="document.location='deliverydoing '"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
+                  <button onclick="document.location='deliverydone '"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
+                  <button onclick="document.location='deliveryfee '"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
               </div>
               <div class="message">
                   <!-- <hr><label>Message</label> -->

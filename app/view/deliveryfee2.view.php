@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
-   <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverytodo1.css">
-   <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliveryfee1.css">
 </head>
 <body>
 
@@ -29,7 +28,7 @@
                 <div class="menu">
                   <!-- <hr><label >Menu</label><br> -->
                   <hr><p>Menu</p><br>
-                  <button onclick="document.location='deliverytodo'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span>To Do</span></button><br>
+                  <button onclick="document.location='deliverytodo'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Todo</span></button><br>
                   <button onclick="document.location='deliverydoing'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
                   <button onclick="document.location='deliverydone'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
                   <button onclick="document.location='deliveryfee'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
@@ -47,61 +46,60 @@
                           
                   
 
+                  
+
                   </div>
               </div>
 
             </div>
             <div class="main">
-            <div class="containerx">
-                    <div class="item item-1">
-                      <img class="profile-pic" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
-                      <p class="nam">Pamith Welikala</p><br>
-                      <p class="date">3 September 2022</p>
+            <div class="item item3">
+            <div class="To">
+                <label for="to">To <span style="color:red">&#9913 </span></label><br>
+                <!-- <input type="text" id="name" name="to" placeholder="Pick up location" class="tb1"> -->
+                <select name="plan" id="plan" class="tb1" style="color:#4DEA25; overflow-y:scroll; overflow:hidden">
+                    <option value="none" selected disabled hidden>Select an Option</option>
+                    <option value="free">Free</option>
+                    <option value="starter">Starter </option>
+                    <option value="professional">Professional</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="free">Free</option>
+                    <option value="starter">Starter </option>
+                    <option value="professional">Professional</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="free">Free</option>
+                    <option value="starter">Starter </option>
+                    <option value="professional">Professional</option>
+                    <option value="corporate">Corporate</option>
+                </select>
+            </div>
+            <div class="From">
+                <label for="from">From <span style="color:red">&#9913 </span></label><br>
+                <!-- <input type="text" id="name" name="from" placeholder="Drof off location" class="tb1"> -->
+                <select name="plan" id="plan" class="tb1" style="color:#4DEA25" >
+                    <option value="none" selected disabled hidden>Select an Option</option>
+                    <option value="free">Free</option>
+                    <option value="starter">Starter </option>
+                    <option value="professional">Professional</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="free">Free</option>
+                    <option value="starter">Starter </option>
+                    <option value="professional">Professional</option>
+                    <option value="corporate">Corporate</option>
+                    <option value="free">Free</option>
+                    <option value="starter">Starter </option>
+                    <option value="professional">Professional</option>
+                    <option value="corporate">Corporate</option>
+                </select>
+            </div>
+            <div class="Vtype">
+                <label for="vtype">Vehicle Type <span style="color:red">&#9913 </span></label><br>
+                <input type="email" id="email" name="email" class="tb1">
 
-                    </div>
-                    <div class="item item-2">
-                    <h2 class="head">Pamith Welikala&nbsp wants to deliver&nbsp Papaya &nbsp 2 &nbspKgs &nbsp<br>from Godagama &nbsp to Thalawathugoda &nbsp</h2>
+                <button type="button" class="tb2">Calculate Fee</button>
+            </div>
 
-                      <table class="table">
-
-                        <tr>
-                          <td>Item:</td>
-                          <td><font color="#0C7417">Papaya</td>
-                        </tr>
-
-                        <tr>
-                          <td>Amount:</td>
-                          <td><font color="#0C7417">2KG</td> 
-                        </tr>
-
-                        
-                        <tr>
-                          <td>From:</td>
-                          <td><font color="#0C7417">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td> 
-                        </tr>
-
-                        
-                        <tr>
-                          <td>To:</td>
-                          <td><font color="#0C7417">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td> 
-                        </tr>                        
-                        <tr>
-                          <td>Fee:</td>
-                          <td><font color="#0C7417">Rs.350.00</td> 
-                        </tr>
-
-                        
-                        <tr>
-                          <td>Vehicle Type:</td>
-                          <td><font color="#0C7417">Motocycle</td> 
-                        </tr>
-                      </table>
-
-                      <button class="Approve btn1">Approve &nbsp  &#10004</button>
-                      <button class="Discard btn2">Discard &nbsp &#xf014 </button>
-                    </div>
-              
-                  </div>                
+        </div>
             </div>
         </div>
         
@@ -136,8 +134,6 @@
       }
       
     </script>
-    <script src="<?=ROOT?>/assets/js/notification.js"></script> 
-    
 </body>
 
 </html>
