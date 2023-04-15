@@ -57,7 +57,7 @@
                                         <div class="user-viewitems">
                                             <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image1']?>" alt="user" class="profile-picture">
                                             <label for=""><sup><sup><?=$data['first_name']?><?=$data['last_name']?></sup></sup></label>
-                                            <a href="#"><img class="back-viewitems" src="<?=ROOT?>/assets/images/images/back_btn.png" alt="back button"></a>
+                                            <a href='../feed/feed'><img class="back-viewitems" src="<?=ROOT?>/assets/images/images/back_btn.png" alt="back button"></a>
                                         </div>
                                         <div class="image-viewitems">
                                             <img src="<?=ROOT?>/assets/images/Post-images/<?=$data['image']?>" alt="post view" width = 500px height= 300px margin-top=20%; >

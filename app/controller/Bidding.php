@@ -1,45 +1,62 @@
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+
 <?php
 
-//Sellerbidding class
+
 class bidding{
 
     use Controller;
-      
+    public $idpost=0;
+
+    //Sellerbidding class     
     public function index(){
-  
+        
     }
     
 
-    public function biddingbuyer(){
-        $createbid = new createbid;
-        $id = $_POST['id'];
-       // redirect('Bidding/BuyerBidding');
-        $arr['post_id']= $id;
-        $row = $createbid->first($arr);
+    public function biddingbuyer2(){
+
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+         $createbid = new createbid;
+         $idpost=$_POST['abc'];
+         $arr['post_id']=$idpost;
+         $row = $createbid->first($arr);
         
+         $bidvalue = $_POST['bidvalue'];
+         $arr['current_value']= $bidvalue;
+         $buyer_id=$_SESSION['USER']->user_id;
+         $arr['buyer_id']= $buyer_id;
+
 
             if($row){
 
-            $initial_price=$row->initial_price;
-            $bid_range=$row->bid_range;
-            $current_value=$row->current_value;
-            echo $initial_price;
-            echo $bid_range;
-            echo $current_value;
-            }
+        $initial_price=$row->initial_price;
+       
 
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $user = new User;
-            $bidvalue = $_POST['bidvalue'];
-            echo "<script>console.log('$bidvalue');</script>";
-            
-            $buyer_id=$_SESSION['USER']->user_id;
+           $bid_range=$row->bid_range;
 
-            $createbid->update($id,$bidvalue,$id_column = 'bidvalue');
-            $createbid->update($id,$buyer_id,$id_column = 'buyer_id');
-           // redirect('Bidding/BuyerBidding');
+          $current_value=$row->current_value;
+
+          if($bidvalue<$current_value){
+                       
+          }
         
-        }       
+        
+          }
+
+            
+
+
+          //  $createbid->update($idpost,$arr,'post_id');
+          //$createbid->update($idpost,$arr,'buyer_id');
+
+
+         // echo $bidvalue;
+          //echo $buyer_id;
+          // redirect('Bidding/BuyerBidding');
+        
+        }   
     
     }
 
