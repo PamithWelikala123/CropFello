@@ -1,16 +1,23 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width"/>
     <title>buyerbidding</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" ></script>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+
 </head>
 <body>
 
@@ -106,14 +113,18 @@
                                 <p>Current bid value: RS <?=$row->current_value?></p>
                                 <p>Minimum bid value: RS <?=$row->bid_range?></p>
                               </div>
-                              <div class="modal-body">
-                              <form method="post" autocomplete="off" action='biddingbuyer?id='+<?=$row->post_id?>>
-                                  <label> RS: &nbsp;</label>
-                                
-                                <input type="text" placeholder="Enter your bid" name="bidvalue"><label>&nbsp;.00</label>
-                                
-                                <button>Bid Now</button>
-                                </form>
+                              <div class="modal-body" id='modal-body-<?=$row->post_id?>'>
+                             
+                                          <form method="post" autocomplete="off" action='biddingbuyer2'>
+                                              <label> RS: &nbsp;</label>
+                                            
+                                            <input type="text" placeholder="Enter your bid" name="bidvalue"><label>&nbsp;.00</label>
+                                            <input type="hidden" value='<?=$row->post_id?>' name='abc'>
+                                            <button type="submit" name="submit" id='myButton'>Bid Now</button>
+
+
+                                          </form>
+                              
                               </div>
                             </div>
                           </div>
@@ -141,6 +152,9 @@
 
 <script>   
 
+
+
+
     var modal;
 
     const images = document.querySelectorAll('.js-bid-now-btn');
@@ -150,25 +164,13 @@
               modal.style.display = "block";
               let id = image['id'];
               //console.log(image['id']);
-              
-
-              var xhr = new XMLHttpRequest();
-                    xhr.open('POST', 'http://localhost/Cropfello/public/Bidding/biddingbuyer');
-                    xhr.onload = function() {
-                      if (xhr.status === 200) {
-                        console.log('Request sent successfully.');
-                        let data = xhr.response;
-                        console.log(data);
-                      } else {
-                        console.log('Error: ' + xhr.status);
-                      }
-                    };
-                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    xhr.send("id=" + image['id']);
 
             });
           });
         
+
+
+
 
             
             //var span = document.getElementsByClassName('closeBtn')[1];
@@ -239,14 +241,10 @@
 
 
 
-
-
-
-
-
     <script type="text/javascript">var name = "<?= $name ?>";</script> 
     <!-- <script type="text/javascript" src="<?=ROOT?>/assets/js/buyerbidding.js"></script> -->
-   
+
+
 
 </body>
 
