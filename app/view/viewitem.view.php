@@ -55,7 +55,7 @@
                   <?php if ($data) : ?> 
                                     <div class="main-viewitems">
                                         <div class="user-viewitems">
-                                            <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image1']?>" alt="user">
+                                            <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image1']?>" alt="user" class="profile-picture">
                                             <label for=""><sup><sup><?=$data['first_name']?><?=$data['last_name']?></sup></sup></label>
                                             <a href="#"><img class="back-viewitems" src="<?=ROOT?>/assets/images/images/back_btn.png" alt="back button"></a>
                                         </div>
@@ -89,9 +89,9 @@
                                             </div>
                                             <div class="wish-viewitems">
                                             <?php if ($data['flag'] == 0): ?>
-                                                    <label for=""><sup> Add to wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist1()" src="<?=ROOT?>/assets/images/images/bookmark.svg" alt=""></label>
+                                                    <label for=""><sup>Wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist1()" src="<?=ROOT?>/assets/images/images/bookmark.svg" alt=""></label>
                                             <?php else: ?>
-                                                    <label for=""><sup> Add to wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist2()"  src="<?=ROOT?>/assets/images/images/bookmark-active.svg" alt=""></label>
+                                                    <label for=""><sup>Wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist2()"  src="<?=ROOT?>/assets/images/images/bookmark-active.svg" alt=""></label>
                                             <?php endif; ?>
                                                 </div>
                                             <div class="quantity buttons_added">
