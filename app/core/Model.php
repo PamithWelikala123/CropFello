@@ -205,5 +205,19 @@ public function chatfunction($outgoing_id,$searchTerm){
         return  $this->query($query);
     }
 
+    public function bidding($id){
+
+        $query = "SELECT DISTINCT  	post_id 
+        FROM bidding
+        WHERE buyer_id = {$id} AND time  = (
+          SELECT time 
+          FROM bidding
+          ORDER BY ABS(time  - NOW())
+          LIMIT 1
+        );
+        ";
+        return  $this->query($query);
+    }
+
 
 }

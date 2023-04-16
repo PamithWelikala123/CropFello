@@ -1,8 +1,13 @@
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
 
 <?php
-
 
 class bidding{
 
@@ -18,28 +23,54 @@ class bidding{
     public function biddingbuyer2(){
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-         $createbid = new createbid;
+         
+            $createbid = new createbid;
+         $bidding1=new bid;
+
          $idpost=$_POST['abc'];
          $arr['post_id']=$idpost;
          $row = $createbid->first($arr);
         
          $bidvalue = $_POST['bidvalue'];
+
          $arr['current_value']= $bidvalue;
          $buyer_id=$_SESSION['USER']->user_id;
          $arr['buyer_id']= $buyer_id;
 
+         $arr12['bidding_number'] =(uniqid(rand(), true));
+         $arr12['post_id']=$idpost;    
+         $arr12['buyer_id']=$buyer_id; 
+         $arr12['amount']=$bidvalue;; 
+
+         $bidding1->insert($arr12);
+
+
+
 
             if($row){
 
-        $initial_price=$row->initial_price;
-       
+            $initial_price=$row->initial_price;
+ 
+            $bid_range=$row->bid_range;
 
-           $bid_range=$row->bid_range;
-
-          $current_value=$row->current_value;
+            $current_value=$row->current_value;
 
           if($bidvalue<$current_value){
-                       
+            echo "<script>";
+            echo "wrong('We were hoping for a higher amount!');"; // Call the JavaScript function here
+            echo "</script>"; 
+
+          }
+          else if(($bidvalue-$current_value)<$bid_range){
+            echo "<script>";
+            echo "wrong('We were hoping for a higher amount!');"; // Call the JavaScript function here
+            echo "</script>"; 
+          }
+          else{
+            $createbid->update($idpost,$arr,'post_id');
+            echo "<script>";
+            echo "sucsess()"; // Call the JavaScript function here
+            echo "</script>";
           }
         
         
@@ -48,13 +79,8 @@ class bidding{
             
 
 
-          //  $createbid->update($idpost,$arr,'post_id');
-          //$createbid->update($idpost,$arr,'buyer_id');
-
-
-         // echo $bidvalue;
-          //echo $buyer_id;
-          // redirect('Bidding/BuyerBidding');
+          
+         // redirect('Bidding/BuyerBidding');
         
         }   
     
@@ -153,6 +179,7 @@ class bidding{
 
 
     public function BuyerBidding($rows1=''){
+        
         if (empty($rows1)) {
         $user = new user;
 
@@ -326,4 +353,57 @@ public static function content($rows) {
                 
                 }
 
+
+
+
+        public function mybid(){
+
+          $createbid = new createbid;
+          $bidding=new bid;
+          $id=$_SESSION['USER']->user_id;
+          
+          $rows=$bidding->bidding($id);
+              
+          foreach ($rows as $row) {
+              
+            $post_id=$row->post_id ;
+            echo $post_id;
+            
+            }
+
+        }              
+
+
+
 }
+
+?>
+
+<script>
+
+function sucsess(){    
+Swal.fire({
+    title: 'Success!',
+    text: 'Your Bid has been processed.',
+    icon: 'success',
+    confirmButtonText: 'OK'
+}).then(function() {
+    window.location = 'BuyerBidding';
+  });
+}
+
+function wrong(MESSAGE) {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: MESSAGE,
+  }).then(function() {
+    window.location = 'BuyerBidding';
+  });
+}
+
+
+</script>
+
+</body>
+</html>
