@@ -63,7 +63,7 @@
             <div class="main">
                 <div class="page-selector">
                     <button class="active" onclick="window.location.href = '../bidding/BuyerBidding';">All</button>
-                    <button onclick="window.location.href = 'index2.html';">My Bids</button>
+                    <button onclick="window.location.href = '../bidding/mybid';">My Bids</button>
                 </div>
                 <?php if($data) :    ?>   
                 <div class="main-content">
@@ -151,7 +151,6 @@
 
 
 <script>   
-
 
 
 
