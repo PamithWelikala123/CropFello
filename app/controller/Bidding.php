@@ -12,7 +12,7 @@
 class bidding{
 
     use Controller;
-    public $idpost=0;
+   
 
     //Sellerbidding class     
     public function index(){
@@ -24,11 +24,13 @@ class bidding{
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
          
-            $createbid = new createbid;
+        $createbid = new createbid;
          $bidding1=new bid;
+         $finalbid = new finalbid;
 
          $idpost=$_POST['abc'];
          $arr['post_id']=$idpost;
+
          $row = $createbid->first($arr);
         
          $bidvalue = $_POST['bidvalue'];
@@ -36,14 +38,6 @@ class bidding{
          $arr['current_value']= $bidvalue;
          $buyer_id=$_SESSION['USER']->user_id;
          $arr['buyer_id']= $buyer_id;
-
-         $arr12['bidding_number'] =(uniqid(rand(), true));
-         $arr12['post_id']=$idpost;    
-         $arr12['buyer_id']=$buyer_id; 
-         $arr12['amount']=$bidvalue;; 
-
-         $bidding1->insert($arr12);
-
 
 
 
@@ -54,6 +48,14 @@ class bidding{
             $bid_range=$row->bid_range;
 
             $current_value=$row->current_value;
+
+            $arr1['bidding_number']=md5(uniqid(rand(), true));
+            $arr1['buyer_id']= $arr['buyer_id'];
+            $arr1['post_id']=$idpost;    
+            $arr1['amount']=$bidvalue;
+
+            $bidding1->insert($arr1);
+
 
           if($bidvalue<$current_value){
             echo "<script>";
@@ -67,6 +69,25 @@ class bidding{
             echo "</script>"; 
           }
           else{
+
+            $arr23['buyer_id']= $arr['buyer_id'];
+            $arr23['post_id']=$idpost;
+            $arr23['bidding_number']= $arr1['bidding_number'];
+
+            $row2 = $finalbid->first($arr23);
+
+            $primaryKeys = array('post_id','buyer_id');
+
+           
+
+            if(empty($rows2)){
+              
+              $finalbid->insert($arr23);
+            }
+            else{
+              $finalbid->update2($arr23, $primaryKeys);
+            }
+
             $createbid->update($idpost,$arr,'post_id');
             echo "<script>";
             echo "sucsess()"; // Call the JavaScript function here
