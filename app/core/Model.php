@@ -87,6 +87,8 @@ trait Model{
         return false;
     }
 
+    
+
 
 
     public function update($id, $data, $id_column = 'user_id'){
@@ -117,6 +119,43 @@ trait Model{
         $this->query($query, $data);
         return false;
     }
+
+    public function update2($data, $primaryKeys) {
+
+        if (!empty($this->allowedColumns)) {
+            foreach ($data as $key => $value) {
+                if (!in_array($key, $this->allowedColumns)) {
+                    unset($data[$key]);
+                }
+            }
+        }
+    
+        $keys = array_keys($data);
+        $query = "UPDATE $this->table SET ";
+    
+        foreach ($keys as $key) {
+            $query .= "$key = :$key, ";
+        }
+    
+        $query = rtrim($query, ", ");
+        $query .= " WHERE ";
+    
+        $params = array();
+        foreach ($primaryKeys as $pk) {
+            $query .= "$pk = :$pk AND ";
+            $params[":$pk"] = $data[$pk];
+            unset($data[$pk]);
+        }
+    
+        $query = rtrim($query, "AND ");
+        $params = array_merge($params, $data);
+    
+        $this->query($query, $params);
+    
+        return false;
+    }
+    
+    
 
     public function delete($id, $id_column = 'user_id'){
 
