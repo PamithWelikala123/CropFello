@@ -37,71 +37,82 @@ class bidding{
 
          $arr['current_value']= $bidvalue;
          $buyer_id=$_SESSION['USER']->user_id;
+
+         echo "<script>";
+         echo "console.log($buyer_id)"; // Call the JavaScript function here
+         echo "</script>"; 
+
          $arr['buyer_id']= $buyer_id;
 
 
 
             if($row){
 
-            $initial_price=$row->initial_price;
- 
-            $bid_range=$row->bid_range;
-
-            $current_value=$row->current_value;
-
-            $arr1['bidding_number']=md5(uniqid(rand(), true));
-            $arr1['buyer_id']= $arr['buyer_id'];
-            $arr1['post_id']=$idpost;    
-            $arr1['amount']=$bidvalue;
-
-            $bidding1->insert($arr1);
-
-
-          if($bidvalue<$current_value){
-            echo "<script>";
-            echo "wrong('We were hoping for a higher amount!');"; // Call the JavaScript function here
-            echo "</script>"; 
-
-          }
-          else if(($bidvalue-$current_value)<$bid_range){
-            echo "<script>";
-            echo "wrong('We were hoping for a higher amount!');"; // Call the JavaScript function here
-            echo "</script>"; 
-          }
-          else{
-
-            $arr23['buyer_id']= $arr['buyer_id'];
-            $arr23['post_id']=$idpost;
-            $arr23['bidding_number']= $arr1['bidding_number'];
-
-            $row2 = $finalbid->first($arr23);
-
-            $primaryKeys = array('post_id','buyer_id');
-
-           
-
-            if(empty($rows2)){
-              
-              $finalbid->insert($arr23);
-            }
-            else{
-              $finalbid->update2($arr23, $primaryKeys);
-            }
-
-            $createbid->update($idpost,$arr,'post_id');
-            echo "<script>";
-            echo "sucsess()"; // Call the JavaScript function here
-            echo "</script>";
-          }
-        
-        
-          }
-
+                        $initial_price=$row->initial_price;
             
+                        $bid_range=$row->bid_range;
+
+                        $current_value=$row->current_value;
+
+                        $arr1['bidding_number']=md5(uniqid(rand(), true));
+                        $arr1['buyer_id']=  $buyer_id;
+                        
+                        echo "<script>";
+                        echo "console.log('" . $arr1['buyer_id'] . "');";
+                        echo "</script>"; 
+
+                        $arr1['post_id']=$idpost;    
+                        $arr1['amount']=$bidvalue;
+
+                        $bidding1->insert($arr1);
 
 
-          
-         // redirect('Bidding/BuyerBidding');
+                      if($bidvalue<$current_value){
+                                    echo "<script>";
+                                    echo "wrong('We were hoping for a higher amount!');"; // Call the JavaScript function here
+                                    echo "</script>"; 
+
+                      }
+                      else if(($bidvalue-$current_value)<$bid_range){
+                                    echo "<script>";
+                                    echo "wrong('We were hoping for a higher amount!');"; // Call the JavaScript function here
+                                    echo "</script>"; 
+                      }
+                      else{
+
+                                    $arr23['buyer_id']= $buyer_id;
+                                    $arr23['post_id']=$idpost;
+                                    $arr23['bidding_number']= $arr1['bidding_number'];
+
+                                    $row2 = $finalbid->first($arr23);
+
+                                    $primaryKeys = array('post_id','buyer_id');
+
+                      
+
+                                    if(empty($rows2)){
+                                      
+
+                                             $finalbid->insert($arr23);   
+
+                                    }
+
+
+                                    else{
+
+                                             $finalbid->update2($arr23,$primaryKeys);
+                                    }
+
+
+                                    $createbid->update($idpost,$arr,'post_id');
+
+                                    echo "<script>";
+                                    echo "sucsess()"; // Call the JavaScript function here
+                                    echo "</script>";
+                      }
+        
+        
+          }
         
         }   
     

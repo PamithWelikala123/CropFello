@@ -87,6 +87,8 @@ trait Model{
         return false;
     }
 
+    
+
 
 
     public function update($id, $data, $id_column = 'user_id'){
