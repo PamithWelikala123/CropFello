@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerbidding2.css">
+
    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverytodo1.css">
    <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
+   <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
 </head>
 <body>
 
@@ -55,35 +57,36 @@
             <div class="containerx">
                     <div class="item item-1">
                       <img class="profile-pic" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
-                      <p class="nam">Pamith Welikala</p><br>
+                      <p class="nam"><?php echo $row->first_name ?>
+                                     <?php echo $row->last_name ?></p><br>
                       <p class="date">3 September 2022</p>
 
                     </div>
                     <div class="item item-2">
-                    <h2 class="head">Pamith Welikala&nbsp wants to deliver&nbsp Papaya &nbsp 2 &nbspKgs &nbsp<br>from Godagama &nbsp to Thalawathugoda &nbsp</h2>
+                    <h2 class="head"><?php echo $row->first_name ?> <?php echo $row->last_name  ?>&nbsp wants to deliver&nbsp <?php echo $row->item_name ?> &nbsp <?php  echo $row->amount; ?> &nbsp<?php  echo $row->unit; ?> &nbsp<br>from <?php  echo $row->fro; ?> &nbsp to <?php  echo $row->too; ?> &nbsp</h2>
 
                       <table class="table">
 
                         <tr>
                           <td>Item:</td>
-                          <td><font color="#0C7417">Papaya</td>
+                          <td><font color="#0C7417"><?php echo $row->item_name ?></td>
                         </tr>
 
                         <tr>
                           <td>Amount:</td>
-                          <td><font color="#0C7417">2KG</td> 
+                          <td><font color="#0C7417"><?php  echo $row->amount ?><?php  echo $row->unit; ?></td> 
                         </tr>
 
                         
                         <tr>
                           <td>From:</td>
-                          <td><font color="#0C7417">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td> 
+                          <td><font color="#0C7417"><?php  echo $row->fro; ?></td> 
                         </tr>
 
                         
                         <tr>
                           <td>To:</td>
-                          <td><font color="#0C7417">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td> 
+                          <td><font color="#0C7417"><?php  echo $row->too; ?> </td> 
                         </tr>                        
                         <tr>
                           <td>Fee:</td>
@@ -93,7 +96,7 @@
                         
                         <tr>
                           <td>Vehicle Type:</td>
-                          <td><font color="#0C7417">Motocycle</td> 
+                          <td><font color="#0C7417"><?php  echo $row->vname; ?> </td> 
                         </tr>
                       </table>
 
