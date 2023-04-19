@@ -593,3 +593,7 @@ border-radius: 10px;
   border-radius: 10px;
   color: #259605;
 }
+
+.row{
+  height: 100px;
+}

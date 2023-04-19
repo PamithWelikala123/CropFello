@@ -6,6 +6,13 @@
         Editprofile
         </title>
         <link rel="Stylesheet" href="<?=ROOT?>/assets/css/editprofile.css">
+        <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
+        <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
+
+
+        <link rel='preconnect' href='https://fonts.googleapis.com'>
+        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+        <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
         
     </head>
     <body>
@@ -83,12 +90,15 @@
                      <label class="about-name1">*</label>
                      </div>
 
-                     <div>
-                     <img class="img5" src="<?=ROOT?>/assets/images/editprofile/drop-image.svg">
-                     <input class="file" type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> 
-                     
+                     <div class="row">
+                     <!-- class="file"  -->
+                     <!-- <input type="file" id="profilepic" credits='false'  accept=".jpg, .jpeg, .png" value="">
+                     <input type="hidden" id="pplink" name="pplink"> -->
+                     <input  type="file" id="profilepic" credits='false' name="image" 
+                                    accept="image/png, image/jpeg, image/gif" />
+                     <input type="hidden" id="pplink" name="image">
                      </div>
-                     <input class="about" type="textbox" placeholder="  Discribe yourself..." name="description">
+                     <!-- <input class="about" type="textbox" placeholder="  Discribe yourself..." name="description"> -->
                      <div>
 
                      </div>
@@ -127,4 +137,45 @@
 
     </body>
 
+    <script
+    src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
+<script>
+
+    FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
+    
+
+    FilePond.create(document.getElementById('profilepic'), {
+        // server: '<//?php echo BASEURL ?>/imageUpload/profilepic',
+        // labelIdle: `<img src='<//?php echo BASEURL ?>/images/image.svg'/><br/> <span>Upload Profile Picture</span>`,
+        imagePreviewHeight: 170,
+        imageCropAspectRatio: '1:1',
+        imageResizeTargetWidth: 200,
+        imageResizeTargetHeight: 200,
+        stylePanelLayout: 'compact circle',
+        styleLoadIndicatorPosition: 'center bottom',
+        styleButtonRemoveItemPosition: 'center bottom'
+    });
+
+    // console log file path after submit
+    document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
+        const serverId = e.detail.file.serverId;
+        console.log(serverId);
+        // parse the JSON object
+        const jsonResponse = JSON.parse(serverId);
+        // access the filepath
+        const filepath = jsonResponse.filepath;
+        console.log(filepath);
+        if (filepath != null) {
+            document.getElementById('pplink').value = filepath;
+        }
+    });
+
+</script>
 </html>
