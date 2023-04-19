@@ -67,11 +67,11 @@
                 <div class="profname">Vimukthi Dulnath</div>
               </div>
               <div class="profmodal-lower">
-                <button id="sellBtn">Sell</button>
+                <button id="sellBtn" onclick="document.location='../selling'">Sell</button>
                 <div class="profvertical-line"></div>
-                <button id="profileBtn">Profile</button>
+                <button id="profileBtn" onclick="document.location='../Profile'">Profile</button>
                 <div class="profvertical-line"></div>
-                <button id="logoutBtn">Logout</button>
+                <button id="logoutBtn"  onclick="document.location='../login'">Logout</button>
               </div>
             </div>
 
