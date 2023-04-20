@@ -1,8 +1,7 @@
 <?php
 
 //buyerrequest class
-class deliverytodo
-{
+class deliverytodo{
 
   use Controller;
   public function index()
@@ -11,74 +10,94 @@ class deliverytodo
   }
   
 
-  public function addRequestItem(){
-              
-                $request_item = new request_item;
-              if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                $_POST['post_id'] = $_SESSION['USER']->user_id;
-                $request_item->insert($_POST);
-                redirect('deliverytodo');
+  // public function addRequestItem(){
+    
+  //               $request_item = new request_item;
+  //               echo "ufhfu";
+  //               redirect('deliverytodo');
+                
+
+  //             if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  //               $_POST['post_id'] = $_SESSION['USER']->user_id;
+  //               $request_item->insert($_POST);
+                
+                
             
-              }
-  }
-
-  // public function view1(){
-
-  //           if ($_SESSION['USER']) {
-              
-              
-  //             $user = new user;
-  //             $postitems = new postitems;
-  //             $request_item = new request_item;
-  //             $item = new item;
-  //             $item1 = new item;
-
-
-  //             $crop_list='';
-
-  //         //   while($result = mysqli_fetch_assoc($result_set)){
-  //         //   $crop_list .="<option value=\"{$result['item_id']}\">{$result['name']}</option>";
-
-  //         // }
-
-              
-  //             $id1['user_id'] = $_SESSION['USER']->user_id;
-  //             $buyer = $user->first($id1);
-  //             //echo $buyer->first_name;
-
-  //             $arr['seller_id'] = $id1['user_id'];
-              
-  //             $rows = $request_item->where($arr);
-              
-  //           if($rows){
-
-              
-  //             $rows = (array) $rows;
-
-  //             foreach ($rows as $row) {
-
-  //             $row->first_name = $buyer->first_name;
-  //             $row->last_name = $buyer->last_name;
-  //               $arr1['item_id'] = $row->item_id;
-  //               $row1 = $item->first($arr1);
-  //               $row->item_name = $row1->name;
   //             }
+  // }
 
-  //             $this->view('deliverytodo',$rows);
-  //           }
-  //           else{
-  //             $this->view('deliverytodo');
-  //           }
+  public function view1(){
+
+            if ($_SESSION['USER']) {
+              
+              
+              $user = new user;
+              $postitems = new postitems;
+              $request_item = new request_item;
+              $item = new item;
+              $item1 = new item;
+              $registerd_user = new registerd_user;
+              $vehicle = new vehicle;
+
+
+              $crop_list='';
+
+          //   while($result = mysqli_fetch_assoc($result_set)){
+          //   $crop_list .="<option value=\"{$result['item_id']}\">{$result['name']}</option>";
+
+          // }
+
+              
+              $id1['user_id'] = $_SESSION['USER']->user_id;
+              $buyer = $user->first($id1);
+              $seller = $user->first($id1);
+              $deliver = $user->first($id1);
+              //echo $buyer->first_name;
+
+              $arr['seller_id'] = $id1['user_id'];
+              
+              $rows = $request_item->where($arr);
+              
+            if($rows){
+
+              
+              $rows = (array) $rows;
+
+              foreach ($rows as $row) {
+
+              $row->first_name = $buyer->first_name;
+              $row->last_name = $buyer->last_name;
+              $row->fro = $buyer->address;
+              $row->too = $seller->address;
+              $row->vname = $deliver->name;
+              
+            
+                $arr1['item_id'] = $row->item_id;
+                $row1 = $item->first($arr1);
+                $row->item_name = $row1->name;
+
+                // $arr2['item_id'] = $row->item_id;
+                // $row2 = $vehicle->first($arr2);
+                // $row->vname = $row1->vehicle_name;
+                
+                
+              }
+
+              $this->view('deliverytodo2',$rows);
+            }
+            else{
+              $this->view('deliverytodo2');
+            }
 
           
                 
 
-  //           } 
-  //           else {
-  //             redirect('deliverylogin');
-  //           }
+            } 
+            else {
+              redirect('deliverylogin');
+            }
 
-  // }
+  }
 
   public function seller_allrequests(){
 
@@ -125,7 +144,7 @@ class deliverytodo
           }
 
             $rows = (array) $rows;
-            $this->view('deliverytodo',$rows);
+            $this->view('deliverytodo2',$rows);
 
   }
 
