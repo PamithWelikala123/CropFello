@@ -87,6 +87,8 @@ trait Model{
         return false;
     }
 
+    
+
 
 
     public function update($id, $data, $id_column = 'user_id'){
@@ -117,6 +119,43 @@ trait Model{
         $this->query($query, $data);
         return false;
     }
+
+    public function update2($data, $primaryKeys) {
+
+        if (!empty($this->allowedColumns)) {
+            foreach ($data as $key => $value) {
+                if (!in_array($key, $this->allowedColumns)) {
+                    unset($data[$key]);
+                }
+            }
+        }
+    
+        $keys = array_keys($data);
+        $query = "UPDATE $this->table SET ";
+    
+        foreach ($keys as $key) {
+            $query .= "$key = :$key, ";
+        }
+    
+        $query = rtrim($query, ", ");
+        $query .= " WHERE ";
+    
+        $params = array();
+        foreach ($primaryKeys as $pk) {
+            $query .= "$pk = :$pk AND ";
+            $params[":$pk"] = $data[$pk];
+            unset($data[$pk]);
+        }
+    
+        $query = rtrim($query, "AND ");
+        $params = array_merge($params, $data);
+    
+        $this->query($query, $params);
+    
+        return false;
+    }
+    
+    
 
     public function delete($id, $id_column = 'user_id'){
 
@@ -202,6 +241,20 @@ public function chatfunction($outgoing_id,$searchTerm){
     public function search($tablename,$id,$searchTerm){
 
         $query = "select * from $tablename WHERE NOT seller_id = {$id} AND (item_id  LIKE '%{$searchTerm}%' OR item_type LIKE '%{$searchTerm}%')";
+        return  $this->query($query);
+    }
+
+    public function bidding($id){
+
+        $query = "SELECT DISTINCT  	post_id 
+        FROM bidding
+        WHERE buyer_id = {$id} AND time  = (
+          SELECT time 
+          FROM bidding
+          ORDER BY ABS(time  - NOW())
+          LIMIT 1
+        );
+        ";
         return  $this->query($query);
     }
 

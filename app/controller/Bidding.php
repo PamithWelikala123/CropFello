@@ -1,13 +1,18 @@
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
 
 <?php
-
 
 class bidding{
 
     use Controller;
-    public $idpost=0;
+   
 
     //Sellerbidding class     
     public function index(){
@@ -18,43 +23,96 @@ class bidding{
     public function biddingbuyer2(){
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-         $createbid = new createbid;
+         
+        $createbid = new createbid;
+         $bidding1=new bid;
+         $finalbid = new finalbid;
+
          $idpost=$_POST['abc'];
          $arr['post_id']=$idpost;
+
          $row = $createbid->first($arr);
         
          $bidvalue = $_POST['bidvalue'];
+
          $arr['current_value']= $bidvalue;
          $buyer_id=$_SESSION['USER']->user_id;
+
+         echo "<script>";
+         echo "console.log($buyer_id)"; // Call the JavaScript function here
+         echo "</script>"; 
+
          $arr['buyer_id']= $buyer_id;
+
 
 
             if($row){
 
-        $initial_price=$row->initial_price;
-       
-
-           $bid_range=$row->bid_range;
-
-          $current_value=$row->current_value;
-
-          if($bidvalue<$current_value){
-                       
-          }
-        
-        
-          }
-
+                        $initial_price=$row->initial_price;
             
+                        $bid_range=$row->bid_range;
+
+                        $current_value=$row->current_value;
+
+                        $arr1['bidding_number']=md5(uniqid(rand(), true));
+                        $arr1['buyer_id']=  $buyer_id;
+                        
+                        echo "<script>";
+                        echo "console.log('" . $arr1['buyer_id'] . "');";
+                        echo "</script>"; 
+
+                        $arr1['post_id']=$idpost;    
+                        $arr1['amount']=$bidvalue;
+
+                        $bidding1->insert($arr1);
 
 
-          //  $createbid->update($idpost,$arr,'post_id');
-          //$createbid->update($idpost,$arr,'buyer_id');
+                      if($bidvalue<$current_value){
+                                    echo "<script>";
+                                    echo "wrong('We were hoping for a higher amount!');"; // Call the JavaScript function here
+                                    echo "</script>"; 
+
+                      }
+                      else if(($bidvalue-$current_value)<$bid_range){
+                                    echo "<script>";
+                                    echo "wrong('We were hoping for a higher amount!');"; // Call the JavaScript function here
+                                    echo "</script>"; 
+                      }
+                      else{
+
+                                    $arr23['buyer_id']= $buyer_id;
+                                    $arr23['post_id']=$idpost;
+                                    $arr23['bidding_number']= $arr1['bidding_number'];
+
+                                    $row2 = $finalbid->first($arr23);
+
+                                    $primaryKeys = array('post_id','buyer_id');
+
+                      
+
+                                    if(empty($rows2)){
+                                      
+
+                                             $finalbid->insert($arr23);   
+
+                                    }
 
 
-         // echo $bidvalue;
-          //echo $buyer_id;
-          // redirect('Bidding/BuyerBidding');
+                                    else{
+
+                                             $finalbid->update2($arr23,$primaryKeys);
+                                    }
+
+
+                                    $createbid->update($idpost,$arr,'post_id');
+
+                                    echo "<script>";
+                                    echo "sucsess()"; // Call the JavaScript function here
+                                    echo "</script>";
+                      }
+        
+        
+          }
         
         }   
     
@@ -153,6 +211,7 @@ class bidding{
 
 
     public function BuyerBidding($rows1=''){
+        
         if (empty($rows1)) {
         $user = new user;
 
@@ -326,4 +385,57 @@ public static function content($rows) {
                 
                 }
 
+
+
+
+        public function mybid(){
+
+          $createbid = new createbid;
+          $bidding=new bid;
+          $id=$_SESSION['USER']->user_id;
+          
+          $rows=$bidding->bidding($id);
+              
+          foreach ($rows as $row) {
+              
+            $post_id=$row->post_id ;
+            echo $post_id;
+            
+            }
+
+        }              
+
+
+
 }
+
+?>
+
+<script>
+
+function sucsess(){    
+Swal.fire({
+    title: 'Success!',
+    text: 'Your Bid has been processed.',
+    icon: 'success',
+    confirmButtonText: 'OK'
+}).then(function() {
+    window.location = 'BuyerBidding';
+  });
+}
+
+function wrong(MESSAGE) {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: MESSAGE,
+  }).then(function() {
+    window.location = 'BuyerBidding';
+  });
+}
+
+
+</script>
+
+</body>
+</html>
