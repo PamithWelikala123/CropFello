@@ -1,0 +1,177 @@
+<body>
+  <link rel="stylesheet" href="new.css">
+  <link rel="stylesheet" href="new2.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
+  <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
+        
+  
+  <div class="background">
+    <div class="grid-row">
+
+          <div class="profile-upper">
+
+                
+                      <div class="form-grid-2-2">
+
+                        <div>
+
+                                  <div class="form-group">
+                                    <img src="Frame.svg">
+                                  </div> 
+
+                                  <div class="form-group">
+                                    <h1>Edit Profile</h1>
+                                  </div> 
+                        </div>
+
+                        
+
+                        <div>
+
+                                  <div class="form-group backkey">
+                                    <img src="arrow-left-circle.svg" onclick="">
+                                  </div> 
+
+                                  <div class="form-group">
+                                    <h2>Upload profile picture </h2>
+                                  </div> 
+
+                        </div>
+
+
+
+                                <div>
+                                  
+                                          <div class="form-split">
+
+                                                <div class="form-group">
+                                                  <label class="form-label" for="firstname">First Name *</label>
+                                                  <label class="errors"> </label>
+                                                  <input type="text" id="firstname" class="basic-input-field">
+                                                </div>  
+                                                
+                                                <div class="form-group">
+                                                  <label class="form-label" for="lastname">Last Name *</label>
+                                                  <label class="errors"> </label>
+                                                  <input type="text" id="lastname" class="basic-input-field">
+                                                </div>
+
+                                        </div> 
+
+                                        <div class="form-group">
+                                          <label class="form-label" for="address">Address *</label>
+                                          <label class="errors"> </label>
+                                          <input type="text" id="address" class="form-control basic-input-field">
+                                      </div>
+
+                                      <div class="form-split">
+
+                                            <div class="form-group">
+                                              <label class="form-label" for="postalcode">Postal Code *</label>
+                                  
+                                              <input type="text" id="postalcode" class="basic-input-field">
+                                            </div>  
+                                            <div class="form-group">
+                                              <label class="form-label" for="city">City *</label>
+                                              <input type="text" id="city" class="basic-input-field">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="contact-number">Contact Numbeer *</label>
+                                                <input type="text" id="contact-number" class="form-control basic-input-field">
+                                            </div>
+
+                                      </div> 
+
+                                </div>    
+
+  
+
+                              <div>
+                                    <div class="form-split">
+                                          <div class="form-group">
+                                            
+                                              <input  type="file" id="profilepic" credits='false' name="image" 
+                                              accept="image/png, image/jpeg, image/gif"  class="form-control basic-input-field profile-pic"/>
+                                              <input type="hidden" id="pplink" name="image">
+                                           
+                                                 
+                                          </div>
+
+                                          <div class="form-group">
+                                            <label class="form-label" for="about">About *</label>
+                                            <input type="text" id="about" class="form-control basic-input-field discription">
+                                          </div>
+
+
+                                    </div>
+
+                        
+
+                                    <div class="form-group">
+                                      <button class="form-control basic-input-field changepasswordbutton" onclick="Editprofile_changepassword1">Change Password   <label class="change_password1">></label> </button>
+                                    </div>       
+                      </div>
+
+                                  <div class="form-group">
+                                                  
+                                    <button class="form-control basic-input-field Register-but" type="submit" name="submit">Update</button> 
+
+                                </div>
+              
+
+          </div>
+
+          <div class="profile-lower">
+                <img src="Vector(1).svg">
+                <img src="Vector.svg">
+          </div>
+
+    </div>
+     
+  </div>
+  <script
+  src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
+<script>
+
+  FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
+  
+
+  FilePond.create(document.getElementById('profilepic'), {
+      //server: '<//?php echo BASEURL ?>/imageUpload/profilepic',
+      labelIdle: `<img src="pamith.jpg" style='Width: 260' '/>`,
+      imagePreviewHeight: 170,
+      imageCropAspectRatio: '1:1',
+      imageResizeTargetWidth: 200,
+      imageResizeTargetHeight: 200,
+      stylePanelLayout: 'compact circle',
+      styleLoadIndicatorPosition: 'center bottom',
+      styleButtonRemoveItemPosition: 'center bottom'
+  });
+
+  // console log file path after submit
+  document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
+      const serverId = e.detail.file.serverId;
+      console.log(serverId);
+      // parse the JSON object
+      const jsonResponse = JSON.parse(serverId);
+      // access the filepath
+      const filepath = jsonResponse.filepath;
+      console.log(filepath);
+      if (filepath != null) {
+          document.getElementById('pplink').value = filepath;
+      }
+  });
+
+</script>
+</html>

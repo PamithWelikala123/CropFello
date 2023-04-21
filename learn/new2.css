@@ -1,0 +1,104 @@
+.grid-row{
+  display: grid;
+  grid-template-rows: 80% 20%;
+  /* gap: 0 20px; */
+}
+
+.profile-lower{
+  align-items: baseline;
+
+}
+
+.profile-lower img{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.form-grid-2-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 200px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10%;
+}
+
+
+.basic-input-field {
+  height: 40px;
+  border: 1px solid var(--light);
+  border-radius: 4px;
+  padding: 0 10px;
+  width: 100%;
+  margin-top: 2%;
+}
+
+
+.form-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+}
+
+.profile-pic{
+  height: 80px;
+  width: 63%;
+  border-radius: 50%;
+}
+
+.discription{
+  height: 100%;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.changepasswordbutton{
+  background-color: rgba(153, 233, 135, 0.4);
+  border-color: rgba(153, 233, 135, 0.4);
+  color: #259605;
+  cursor: pointer;
+}
+
+.changepasswordbutton:hover{
+  background: #abf09a;
+  
+}
+
+.Register-but{
+
+     width: 100%;
+    box-sizing: border-box;
+    background-color:#080908;
+    color:#4DEA25;
+    border: none;
+    border-radius: 7px; 
+    cursor: pointer;
+    margin-right: 8px;
+    transition: opacity 2s;
+}
+
+.Register-but:hover{
+  background-color:#4DEA25 ;
+  box-shadow:8px;
+  color:white;
+}
+
+.change_password1{
+margin-left: 60%;
+}
+
+.backkey{
+  align-items: end;
+}
+.errors{
+display: block;
+padding-top:5%;
+}
+

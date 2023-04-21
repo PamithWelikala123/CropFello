@@ -8,9 +8,7 @@
         <link rel="Stylesheet" href="<?=ROOT?>/assets/css/editprofile.css">
         <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
         <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
-
-
-        <link rel='preconnect' href='https://fonts.googleapis.com'>
+         <link rel='preconnect' href='https://fonts.googleapis.com'>
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
         <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
         

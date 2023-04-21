@@ -1,0 +1,64 @@
+
+.basic-input-field {
+    height: 40px;
+    border: 1px solid var(--light);
+    border-radius: 4px;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.basic-input-field:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+}
+
+/*  Form with one column    */
+
+.form-grid-1{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/*  Form with two columns   */
+.form-grid-2-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    
+}
+
+/*  Must contain an input field and its label   */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: flex-start; */
+}
+
+/*  Two inputs with 50% width in one block  */
+.form-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+}
+
+.split-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#submit-form-group
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
