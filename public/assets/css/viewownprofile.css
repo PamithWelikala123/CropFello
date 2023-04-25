@@ -1,133 +1,181 @@
 
-.main-viewprofile{
-  grid-area: main;
-  /* background-color: rgb(240, 191, 191); */
-  display: grid;
-  grid-template-columns: 30% 70%;
-  grid-template-rows:30% 30% 40% ;
-  grid-template-areas:
-  "dp account-details"
-  "about about"
-  "shop shop"
-  ;
-margin-top: 10px;
-  padding-top: 10%;
-  padding-left: 5%;
-  padding-right: 5%;
-  /* padding-right: 5%; */
-}  
-
-.dp-viewprofile{
-
-  grid-area: dp;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dp-viewprofile img{
-  border-radius: 50%;
-  border-style: solid;
-  border-color: #4DEA25;
-  width: 50%;
-}
-
-.account-details-viewprofile{
-  /* background-color: rgb(222, 250, 215); */
-  grid-area: account-details;
-  display: grid;
-  grid-template-columns: 75% 25%;
-  grid-template-rows:40% 30% 30% ;
-  grid-template-areas: 
-  "name likes"
-  "empty strike"
-  "contact messages";
-}
-
-.name-viewprofile{
-  grid-area: name;
-  /* background-color: #EBF3E9; */
-  /* padding-top: 5%; */
-  display: flex;
-  align-items: center;
-}
-
-.likes-viewprofile{
-  grid-area: likes;
-  /* background-color: #f4cb8c; */
-  display: flex;
-  align-items: center;
-  justify-content: right;
-}
-.empty-viewprofile{
-  grid-area: empty;
-  /* background-color: #96e2f1; */
-}
-.strike-viewprofile{
-  grid-area: strike;
-  /* background-color: #cfa7f6; */
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
-
-.strike-viewprofile button{
- 
-  color: #4DEA25;
-  border: 2px solid #4DEA25;
-  background-color: white;
-  border-radius: 10%;
-  padding: 5%;
-  font-weight: 600;
-  cursor: pointer;
-
-}
-
-.strike-viewprofile img{
-  width: 30%;
-}
-
-
-.messages-viewprofile button{
-  background-color: #4DEA25;
-  border-radius: 10%;
-  padding: 5%;
-  font-weight: 600;
-  border-style: none;
-  border-width: 0;
-  cursor: pointer;
-  transition-duration: 0.4s;
-
-}
-
-.messages-viewprofile button:hover {
-  background-color: #000000;
-  color: #4DEA25;
-
-
-}
-
-.contact-viewprofile{
-  grid-area: contact;
-  /* background-color: #f6a7e0; */
-}
-.messages-viewprofile{
-  grid-area: messages;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-}
-
-
-.about-viewprofile{
-  grid-area: about;
-  padding: 5%;
-}
-
-.about-viewprofile p{
-  opacity: 70%;
-}
-
-.shop-viewprofile{
-  grid-area: shop;
-}
+  
+  .main-viewprofile{
+    grid-area: main;
+    /* background-color: rgb(240, 191, 191); */
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows:30% 30% 40% ;
+    grid-template-areas:
+    "dp account-details"
+    "about about"
+    "shop shop"
+    ;
+  margin-top: 10px;
+    padding-top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    /* padding-right: 5%; */
+  }  
+  
+  .dp-viewprofile{
+  
+    grid-area: dp;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dp-viewprofile img{
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #4DEA25;
+    width: 50%;
+  }
+  
+  .account-details-viewprofile{
+    /* background-color: rgb(222, 250, 215); */
+    grid-area: account-details;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows:40% 30% 30% ;
+    grid-template-areas: 
+    "name likes"
+    "empty strike"
+    "contact messages";
+  }
+  
+  .name-viewprofile{
+    grid-area: name;
+    /* background-color: #EBF3E9; */
+    /* padding-top: 5%; */
+    display: flex;
+    align-items: center;
+  }
+  
+  .likes-viewprofile{
+    grid-area: likes;
+    /* background-color: #f4cb8c; */
+    display: flex;
+    align-items: center;
+    justify-content: right;
+  }
+  .empty-viewprofile{
+    grid-area: empty;
+    /* background-color: #96e2f1; */
+  }
+  .strike-viewprofile{
+    grid-area: strike;
+    /* background-color: #cfa7f6; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  
+  .strike-viewprofile button{
+   
+    color: #4DEA25;
+    border: 2px solid #4DEA25;
+    background-color: white;
+    border-radius: 10%;
+    padding: 5%;
+    font-weight: 600;
+    cursor: pointer;
+  
+  }
+  
+  .strike-viewprofile img{
+    width: 30%;
+  }
+  
+  
+  .messages-viewprofile button{
+    background-color: #4DEA25;
+    border-radius: 10%;
+    padding: 5%;
+    font-weight: 600;
+    border-style: none;
+    border-width: 0;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  
+  }
+  
+  .messages-viewprofile button:hover {
+    background-color: #000000;
+    color: #4DEA25;
+  
+  
+  }
+  
+  .contact-viewprofile{
+    grid-area: contact;
+    /* background-color: #f6a7e0; */
+  }
+  .messages-viewprofile{
+    grid-area: messages;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  
+  
+  .about-viewprofile{
+    grid-area: about;
+    padding: 5%;
+  }
+  
+  .about-viewprofile p{
+    opacity: 70%;
+  }
+  
+  .shop-viewprofile{
+    grid-area: shop;
+  }
+  
+  
+  
+  
+  .logo1{
+    max-width: 70%;
+    height: auto;
+    margin-top: 5%;
+    margin-left: 10%;
+    position:sticky;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .logo-viewprofile{
+    grid-area: logo;
+    background-color: #EBF3E9;
+  }
+  
+  .menu-viewprofile{
+    grid-area: menu;
+    background-color: #EBF3E9;
+  }
+  
+  .message-viewprofile{
+    grid-area: message;
+    background-color: #EBF3E9;
+  }
+  
+  .Menu1-viewprofile{
+    position: absolute;
+    width: 40px;
+    height: 23px;
+    left: 1%;
+    top: 20%;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 250;
+    font-size: 15px;
+    line-height: 22px;
+    /* identical to box height */
+    
+    
+    color: #000000;
+  }
