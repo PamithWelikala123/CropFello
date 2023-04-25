@@ -1,3 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900&display=swap');
+
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #00d776;
+    --danger-color: #e10000;
+    --light-red: #ff9898;
+    --background-main: #e8e8e8;
+    --light: #a6a6a6;
+    --light-green: #95c7b2;
+    --super-light: #eaeaea;
+    --secondary-dark: #00832f;
+
+}
+
+* {
+    font-family: Inter, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.background {
+    background-image: url(background.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    margin-top: 2%;
+}
+
 .grid-row{
   display: grid;
   grid-template-rows: 80% 20%;
@@ -19,7 +59,7 @@
 .form-grid-2-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 200px;
+  gap: 0 10%;
 }
 
 .form-group {
@@ -96,9 +136,5 @@ margin-left: 60%;
 
 .backkey{
   align-items: end;
-}
-.errors{
-display: block;
-padding-top:5%;
 }
 

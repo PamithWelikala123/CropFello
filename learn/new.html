@@ -33,7 +33,7 @@
                         <div>
 
                                   <div class="form-group backkey">
-                                    <img src="arrow-left-circle.svg" onclick="">
+                                    <img src="arrow-left-circle.svg"  onclick="document.location='../Profile'">
                                   </div> 
 
                                   <div class="form-group">
@@ -45,27 +45,27 @@
 
 
                                 <div>
-                                  
+                                  <form class="" action="editprofile" method="post" enctype="multipart/form-data">
                                           <div class="form-split">
 
                                                 <div class="form-group">
                                                   <label class="form-label" for="firstname">First Name *</label>
-                                                  <label class="errors"> </label>
-                                                  <input type="text" id="firstname" class="basic-input-field">
+                                                  
+                                                  <input type="textbox" id="firstname" class="basic-input-field" placeholder="<?=$data['first_name']?>" name="first_name">
                                                 </div>  
                                                 
                                                 <div class="form-group">
                                                   <label class="form-label" for="lastname">Last Name *</label>
-                                                  <label class="errors"> </label>
-                                                  <input type="text" id="lastname" class="basic-input-field">
+                                                  
+                                                  <input type="text" id="lastname" class="basic-input-field" placeholder="<?=$data['last_name']?>" name="last_name">
                                                 </div>
 
                                         </div> 
 
                                         <div class="form-group">
                                           <label class="form-label" for="address">Address *</label>
-                                          <label class="errors"> </label>
-                                          <input type="text" id="address" class="form-control basic-input-field">
+                                          
+                                          <input type="text" id="address" class="form-control basic-input-field" placeholder="<?=$data['address']?>" name="address">
                                       </div>
 
                                       <div class="form-split">
@@ -73,15 +73,15 @@
                                             <div class="form-group">
                                               <label class="form-label" for="postalcode">Postal Code *</label>
                                   
-                                              <input type="text" id="postalcode" class="basic-input-field">
+                                              <input type="text" id="postalcode" class="basic-input-field" placeholder="<?=$data['postal_code']?>" name="postal_code">
                                             </div>  
                                             <div class="form-group">
                                               <label class="form-label" for="city">City *</label>
-                                              <input type="text" id="city" class="basic-input-field">
+                                              <input type="text" id="city" class="basic-input-field" placeholder="<?=$data['city']?>" name="city">
                                             </div>
                                             <div class="form-group">
                                                 <label class="form-label" for="contact-number">Contact Numbeer *</label>
-                                                <input type="text" id="contact-number" class="form-control basic-input-field">
+                                                <input type="text" id="contact-number" class="form-control basic-input-field"  placeholder="<?=$data['contact_number']?>" name="contact_number">
                                             </div>
 
                                       </div> 
@@ -95,15 +95,15 @@
                                           <div class="form-group">
                                             
                                               <input  type="file" id="profilepic" credits='false' name="image" 
-                                              accept="image/png, image/jpeg, image/gif"  class="form-control basic-input-field profile-pic"/>
-                                              <input type="hidden" id="pplink" name="image">
+                                              accept=".jpg, .jpeg, .png" value=""  class="form-control basic-input-field profile-pic"/>
+                                              <input type="hidden" id="pplink" name="image"  accept=".jpg, .jpeg, .png" value="">
                                            
                                                  
                                           </div>
 
                                           <div class="form-group">
                                             <label class="form-label" for="about">About *</label>
-                                            <input type="text" id="about" class="form-control basic-input-field discription">
+                                            <input type="text" id="about" class="form-control basic-input-field discription" placeholder="  Discribe yourself..." name="description">
                                           </div>
 
 
@@ -121,7 +121,7 @@
                                     <button class="form-control basic-input-field Register-but" type="submit" name="submit">Update</button> 
 
                                 </div>
-              
+                              </form>
 
           </div>
 

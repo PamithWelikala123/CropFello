@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 08, 2023 at 08:16 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: 127.0.0.1
+-- Generation Time: Apr 25, 2023 at 03:09 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,15 +24,50 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buyerbidding`
+-- Table structure for table `bidding`
 --
 
-CREATE TABLE `buyerbidding` (
-  `post_id` int(11) NOT NULL,
-  `user_id` bigint(20) NOT NULL,
-  `time` time NOT NULL DEFAULT current_timestamp(),
-  `bidvalue` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `bidding` (
+  `bidding_number` varchar(11) NOT NULL,
+  `post_id` bigint(20) NOT NULL,
+  `buyer_id` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `status` varchar(15) NOT NULL DEFAULT 'enabled',
+  `time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bidding`
+--
+
+INSERT INTO `bidding` (`bidding_number`, `post_id`, `buyer_id`, `amount`, `status`, `time`) VALUES
+('03561cca070', 11, 0, 0, 'enabled', '2023-04-18 19:52:51'),
+('1754f307070', 11, 0, 0, 'enabled', '2023-04-18 02:14:42'),
+('1c84cea09a8', 11, 0, 0, 'enabled', '2023-04-18 20:01:29'),
+('2688f3b1b23', 11, 0, 0, 'enabled', '2023-04-18 19:52:24'),
+('2f031a87af3', 11, 0, 0, 'enabled', '2023-04-18 19:53:26'),
+('3e15f00d6a0', 11, 0, 0, 'enabled', '2023-04-18 20:01:19'),
+('420efbdf1dd', 11, 0, 0, 'enabled', '2023-04-18 04:08:11'),
+('468efc32ebb', 10, 0, 0, 'enabled', '2023-04-17 23:24:05'),
+('4a52edc4329', 11, 0, 0, 'enabled', '2023-04-20 10:02:11'),
+('4e828bc525c', 10, 0, 0, 'enabled', '2023-04-17 23:30:01'),
+('5f856b29576', 11, 0, 0, 'enabled', '2023-04-18 19:52:36'),
+('7d360b0e68b', 10, 0, 0, 'enabled', '2023-04-18 04:10:51'),
+('84356af65de', 9, 0, 0, 'enabled', '2023-04-18 04:12:34'),
+('8d29065f984', 11, 0, 0, 'enabled', '2023-04-17 23:37:06'),
+('ba09a74f8d5', 11, 0, 0, 'enabled', '2023-04-17 23:26:52'),
+('c742ca90dd1', 11, 0, 0, 'enabled', '2023-04-17 23:23:13'),
+('cb68f92268b', 9, 0, 0, 'enabled', '2023-04-19 01:15:53'),
+('cea65d7b2c8', 11, 0, 0, 'enabled', '2023-04-17 23:42:03'),
+('d3c20dc74ff', 11, 0, 0, 'enabled', '2023-04-19 01:22:06'),
+('d5f5e2d3d24', 11, 0, 0, 'enabled', '2023-04-17 23:22:55'),
+('dce79f43b08', 10, 0, 0, 'enabled', '2023-04-18 04:11:11'),
+('de527a804b9', 11, 0, 0, 'enabled', '2023-04-19 01:21:59'),
+('e5467ab9474', 11, 0, 0, 'enabled', '2023-04-18 20:01:35'),
+('e7f92ad35b5', 11, 0, 0, 'enabled', '2023-04-18 19:53:17'),
+('ea538025755', 11, 0, 0, 'enabled', '2023-04-18 20:01:09'),
+('fa9e6e4ecf4', 10, 0, 0, 'enabled', '2023-04-19 01:12:13'),
+('fe719a73f4b', 11, 0, 0, 'enabled', '2023-04-19 01:19:06');
 
 -- --------------------------------------------------------
 
@@ -42,7 +77,7 @@ CREATE TABLE `buyerbidding` (
 
 CREATE TABLE `capacity` (
   `weight` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `capacity`
@@ -68,7 +103,7 @@ CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
   `country_id` int(11) NOT NULL,
   `city_name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `cities`
@@ -90,7 +125,7 @@ CREATE TABLE `continents` (
   `id` int(11) NOT NULL,
   `ContinentName` varchar(200) NOT NULL,
   `continent_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `continents`
@@ -110,7 +145,7 @@ CREATE TABLE `countries` (
   `id` int(11) NOT NULL,
   `cat_id` int(11) NOT NULL,
   `country` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -138,15 +173,39 @@ CREATE TABLE `createbid` (
   `image` varchar(255) DEFAULT NULL,
   `buyer_id` int(11) DEFAULT NULL,
   `current_value` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `createbid`
 --
 
 INSERT INTO `createbid` (`post_id`, `seller_id`, `item_id`, `item_type`, `exp`, `bid_end_date`, `hours`, `minutes`, `day`, `initial_price`, `amount`, `amount_type`, `bid_range`, `address`, `postal_code`, `city`, `image`, `buyer_id`, `current_value`) VALUES
-(7, 2, 2, 'Vegitable', '2023-04-10', '2023-03-06', 6, 10, 'am', 200, 10, 'KG', 20, '30/2/A High level Road Meegoda', 10504, 'Colombo', '640adfff2bb28.jpg', NULL, 200),
-(8, 2, 2, 'Vegitable', '2023-04-10', '2023-03-06', 6, 10, 'am', 200, 10, 'KG', 20, '30/2/A High level Road Meegoda', 10504, 'Colombo', '640ae04f2c4ef.jpg', NULL, 200);
+(7, 2, 2, 'Vegitable', '2023-04-10', '2023-04-06', 6, 10, 'am', 200, 10, 'KG', 20, '30/2/A High level Road Meegoda', 10504, 'Colombo', '640adfff2bb28.jpg', NULL, 200),
+(9, 12, 8, 'Fruit', '2023-05-10', '2023-04-28', 3, 25, 'pm', 450, 20, 'KG', 20, 'NO 30/1/A , HIGH LEVEL ROAD', 10504, 'MEEGODA', '6433ade3069fe.jpeg', 2, 500),
+(10, 12, 1, 'vegitable', '2023-06-12', '2023-04-22', 4, 15, 'pm', 200, 1, 'KG', 20, 'NO 30/1/A , HIGH LEVEL ROAD', 10504, 'MEEGODA', '6433b0cd552e1.jpg', 2, 700),
+(11, 12, 5, 'vegitable', '2023-06-21', '2023-04-22', 7, 15, 'pm', 300, 10, 'KG', 20, 'NO 30/1/A , HIGH LEVEL ROAD', 10504, 'MEEGODA', '6433ca6e00233.jpg', 2, 1030);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `final_bidding`
+--
+
+CREATE TABLE `final_bidding` (
+  `post_id` int(11) NOT NULL,
+  `buyer_id` int(11) NOT NULL,
+  `bidding_number` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `final_bidding`
+--
+
+INSERT INTO `final_bidding` (`post_id`, `buyer_id`, `bidding_number`) VALUES
+(9, 2, '84356af65de'),
+(10, 2, 'dce79f43b08'),
+(11, 0, 'd3c20dc74ff'),
+(11, 2, '420efbdf1dd');
 
 -- --------------------------------------------------------
 
@@ -166,7 +225,7 @@ CREATE TABLE `info` (
   `vtype` varchar(128) NOT NULL,
   `quantity` int(10) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `info`
@@ -193,7 +252,7 @@ CREATE TABLE `item` (
   `maximum_rental_price` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `item`
@@ -221,7 +280,7 @@ CREATE TABLE `messages` (
   `incoming_msg_id` int(255) NOT NULL,
   `outgoing_msg_id` int(255) NOT NULL,
   `msg` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `messages`
@@ -260,7 +319,8 @@ INSERT INTO `messages` (`msg_id`, `incoming_msg_id`, `outgoing_msg_id`, `msg`) V
 (32, 12, 2, 'jijij'),
 (33, 2, 12, 'ririririr'),
 (34, 6, 2, 'adooo'),
-(35, 6, 2, 'hiiii');
+(35, 6, 2, 'hiiii'),
+(36, 4, 2, 'ghg');
 
 -- --------------------------------------------------------
 
@@ -274,7 +334,7 @@ CREATE TABLE `notifications` (
   `date` date NOT NULL DEFAULT current_timestamp(),
   `time` time NOT NULL DEFAULT current_timestamp(),
   `description` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `notifications`
@@ -309,27 +369,28 @@ CREATE TABLE `postitem` (
   `city` varchar(20) NOT NULL,
   `image` varchar(100) NOT NULL,
   `description` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `postitem`
 --
 
 INSERT INTO `postitem` (`post_id`, `user_id`, `item_id`, `item_type`, `exp`, `unit`, `price`, `size`, `stock_size`, `stock_size1`, `discount`, `discount1`, `Address`, `postalcode`, `city`, `image`, `description`) VALUES
-(25, 11, 1, 'vegitable', '0000-00-00', 'KG    ', 600, 100, 20, 'KG', 17, '%', '30/1/A High level road Meegoda', 10504, 'Colombo', '63848231979f1.jpg', 'available'),
-(26, 11, 2, 'vegitable', '2000-11-25', 'KG', 20000, 200, 50, 'KG', 20, '%', '38/1/A High level road Meegoda', 50687, 'Nuwara', '638482aaf3e32.jpg', 'vghghcfcghcgf'),
-(27, 3, 3, 'fruit', '2000-07-20', 'KG', 50000, 1000, 100, 'KG', 25, '%', '30/1/A nuwara Road Gampaha', 90508, 'Katugasthota', '638483221a3a1.jpg', 'good apples'),
+(25, 11, 1, 'vegitable', '0000-00-00', 'KG    ', 600, 100, 200, 'KG', 17, '%', '30/1/A High level road Meegoda', 10504, 'Colombo', '63848231979f1.jpg', 'available'),
+(26, 11, 2, 'vegitable', '2000-11-25', 'KG', 20000, 200, 500, 'KG', 20, '%', '38/1/A High level road Meegoda', 50687, 'Nuwara', '638482aaf3e32.jpg', 'vghghcfcghcgf'),
+(27, 3, 3, 'fruit', '2000-07-20', 'KG', 50000, 1000, 1000, 'KG', 25, '%', '30/1/A nuwara Road Gampaha', 90508, 'Katugasthota', '638483221a3a1.jpg', 'good apples'),
 (28, 2, 4, 'fruit', '0000-00-00', 'kg', 600, 5, 20, 'KG', 15, '%', '30/1/A High level road kalubowila', 10509, 'waththegedara', '6384d86b4fd0b.jpg', 'dfdfdf'),
-(30, 6, 0, 'vegitable', '0000-00-00', 'KG', 350, 1000, 100, 'KG', 30, '%', '34/5 nawala nuwaraeliya', 45698, 'NuwaraEliya', '6387fa702854c.jpeg', 'sdsdsdsdsdss'),
-(31, 3, 5, 'vegitable', '0000-00-00', 'KG', 800, 900, 100, 'KG', 5, '%', '90/5 galleRoad Colombo 10', 10908, 'Colombo', '6387fbd2da471.jpg', 'galle'),
-(32, 5, 8, 'fruit', '0000-00-00', 'TREES', 10000, 80, 5, 'KG', 0, '%', '30/1/A High level road Meegoda', 60908, 'thissamaharama', '6387fcca0857e.jpeg', 'a good condition mango'),
-(34, 11, 8, 'fruit', '0000-00-00', 'TREES', 800, 10, 1, 'KG', 5, '%', '30/9 madulawa road galle', 10908, 'galle', '6388007b3ca56.jpeg', 'ghgfhfhgfghfhg'),
-(35, 3, 0, 'vegitable', '0000-00-00', 'KG', 80, 600, 100, 'KG', 27, '%', '60?15 flower Road Peradeniya', 90603, 'Peradeniya', '63880231b227d.jpeg', 'sdsdsdssds'),
-(37, 3, 3, 'friut', '2023-01-19', 'TREES', 10000, 5, 1, 'TREES', 9, '%', '30/9 madulawa road galle', 90807, 'haputhale', '639b543478bea.jpg', 'good Apples are Available'),
+(30, 6, 0, 'vegitable', '0000-00-00', 'KG', 350, 1000, 1000, 'KG', 30, '%', '34/5 nawala nuwaraeliya', 45698, 'NuwaraEliya', '6387fa702854c.jpeg', 'sdsdsdsdsdss'),
+(31, 3, 5, 'vegitable', '0000-00-00', 'KG', 800, 900, 1000, 'KG', 5, '%', '90/5 galleRoad Colombo 10', 10908, 'Colombo', '6387fbd2da471.jpg', 'galle'),
+(32, 5, 8, 'fruit', '0000-00-00', 'TREES', 10000, 80, 500, 'KG', 0, '%', '30/1/A High level road Meegoda', 60908, 'thissamaharama', '6387fcca0857e.jpeg', 'a good condition mango'),
+(34, 11, 8, 'fruit', '0000-00-00', 'TREES', 800, 10, 100, 'KG', 5, '%', '30/9 madulawa road galle', 10908, 'galle', '6388007b3ca56.jpeg', 'ghgfhfhgfghfhg'),
+(35, 3, 0, 'vegitable', '0000-00-00', 'KG', 80, 600, 1000, 'KG', 27, '%', '60?15 flower Road Peradeniya', 90603, 'Peradeniya', '63880231b227d.jpeg', 'sdsdsdssds'),
+(37, 3, 3, 'friut', '2023-01-19', 'TREES', 10000, 5, 10, 'TREES', 9, '%', '30/9 madulawa road galle', 90807, 'haputhale', '639b543478bea.jpg', 'good Apples are Available'),
 (38, 11, 6, 'vegitable', '2023-02-17', 'KG', 8000, 20, 200, 'KG', 5, '%', '40/5/A  polgasowita road piliyandala', 90763, 'homagma', '639b55784bf5e.jpg', 'a good raddish'),
 (39, 2, 8, 'fruit', '2023-01-27', 'TREES', 9000, 10, 100, 'KG', 2, '%', '30/9 madulawa road galle', 20401, 'Mathara', '639baad46bc0c.jpeg', 'sdsadsdasd'),
 (41, 11, 2, 'Vegitable', '2023-03-11', 'TREES', 700, 1, 40, 'KG', 10, '%', '30/1/A high level Road meegoda', 10504, 'Colombo', '63f703544b6db.jpg', 'good qulity vegitables directly imported from Nuwara Eliya'),
-(43, 6, 0, 'Vegitable', '2023-03-25', 'KG', 250, 1, 20, 'KG', 15, '%', '40/2 Jaffna Rd Jaffana 2', 14533, 'Jaffna', '63f705f62c2bd.jpeg', 'good qulity vegitables directly imported from India');
+(43, 6, 0, 'Vegitable', '2023-03-25', 'KG', 250, 1, 20, 'KG', 15, '%', '40/2 Jaffna Rd Jaffana 2', 14533, 'Jaffna', '63f705f62c2bd.jpeg', 'good qulity vegitables directly imported from India'),
+(44, 6, 6, 'vegitable', '2023-04-14', 'KG', 80, 40, 400, 'KG', 70, '%', '30/1/A High level road Maththegoda', 10479, 'Godagama', '643ef5a1b28c6.png', '');
 
 -- --------------------------------------------------------
 
@@ -352,16 +413,16 @@ CREATE TABLE `registerd_user` (
   `deliver` tinyint(1) NOT NULL DEFAULT 0,
   `token` varchar(50) DEFAULT NULL,
   `image` varchar(255) NOT NULL DEFAULT '63f8dac81529e.jpg 	',
-  `description` varchar(255) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'Not Online'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `registerd_user`
 --
 
 INSERT INTO `registerd_user` (`user_id`, `first_name`, `last_name`, `address`, `contact_number`, `email`, `password`, `postal_code`, `city`, `seller`, `buyer`, `deliver`, `token`, `image`, `description`, `status`) VALUES
-(2, 'Pamith', 'Welikala', '30/1/A High Level Rd Meegoda', 771674022, 'pamithwelikala@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 10504, 'Colombo', 1, 0, 0, '6120', '63f9af41e8e6d.jpeg', '', 'Active Now'),
+(2, 'Pamith', 'Welikala', '30/1/A High Level Rd Meegoda', 771674022, 'pamithwelikala@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 10504, 'Colombo', 1, 0, 0, '6120', '63f9af41e8e6d.jpeg', 'Buyers are responsible for purchasing goods for a company to use or sell in their own business. This position requires extensive research and the ability to negotiate contracts with suppliers, manage an inventory, evaluate quality goods, and stick within a budget. Since these individuals work in a range of sectors, from fashion and technology to food and industry, Buyers must understand the unique needs of their particular employer. ', 'Active Now'),
 (3, 'Praneeth', 'Jayarathna', '40/1/B rathnapura Road Rathnapura', 776098615, 'praneeth@gmail.com', 'Pranneth', 78936, 'Rathnapura', 0, 1, 0, '6416', '63f8dac81529e.jpg', '', 'Not Online'),
 (4, 'sachin', 'umayangana', '50/2/A Kirulapana Road Nugegoda', 764138580, 'sachinumayangana@gmail.com', 'Sachin123', 69875, 'Nugegoda', 0, 1, 0, '4646', '63f8dac81529e.jpg', '', 'Not Online'),
 (5, 'vimukthi', 'dulnath', '55/1 palanwaththa kirulapana', 763204215, 'vimukthi@gmail.com', 'Dulnath', 54765, 'Kottawa', 0, 1, 0, '2853', '63f8dac81529e.jpg', '', 'Not Online'),
@@ -392,22 +453,21 @@ CREATE TABLE `request_item` (
   `contact` int(11) NOT NULL,
   `approved` int(1) NOT NULL DEFAULT 0,
   `approved_userid` bigint(20) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `request_item`
 --
 
 INSERT INTO `request_item` (`post_id`, `seller_id`, `item_id`, `amount`, `unit`, `date`, `address`, `postal_code`, `city`, `contact`, `approved`, `approved_userid`) VALUES
-(7, 3, 7, 89, 'KG', '2022-12-23', '30/1/A High level road kalubowila', 90807, 'Colombo', 77968547, 0, 0),
-(8, 5, 1, 90, 'KG', '2022-12-30', '30/1/A High level road Meegoda', 10504, 'colombo', 771674022, 0, 0),
+(7, 2, 7, 89, 'KG', '2022-12-23', '30/1/A High level road kalubowila', 90807, 'Colombo', 77968547, 0, 0),
 (10, 3, 6, 30, 'KG', '2023-01-25', '50/1 galle Road colombo5', 30506, 'Colombo', 718333864, 0, 0),
-(11, 3, 2, 80, 'KG', '2023-02-23', '30/1/A nuwara Road Gampaha', 30250, 'gampaha', 771674022, 1, 2),
+(11, 2, 2, 80, 'KG', '2023-02-23', '30/1/A nuwara Road Gampaha', 30250, 'gampaha', 771674022, 1, 2),
 (13, 11, 0, 1, 'KG', '2022-12-19', '90/5 galleRoad Colombo 10', 12345, 'colombo', 112750684, 1, 2),
 (14, 4, 1, 2, 'KG', '2022-12-21', '50/1 galle Road colombo5', 1111, 'Colombo', 998765322, 0, 0),
-(15, 5, 0, 1, 'KG', '2022-12-21', 'aolombo', 1111, 'colombo', 112345678, 0, 0),
+(15, 2, 0, 1, 'KG', '2022-12-21', 'aolombo', 1111, 'colombo', 112345678, 0, 0),
 (16, 11, 0, 1, 'KG', '2022-12-21', 'aolombo', 1111, 'colombo', 112345678, 0, 0),
-(36, 12, 2, 300, 'Kg', '2023-02-17', '30/1/ a jdhbbdfbdfhdb', 67543, 'Homagama', 772776406, 0, 0),
+(36, 2, 2, 300, 'Kg', '2023-02-17', '30/1/ a jdhbbdfbdfhdb', 67543, 'Homagama', 772776406, 0, 0),
 (38, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 56789, 'padukka', 718333864, 0, 0),
 (39, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 56789, 'padukka', 718333864, 0, 0);
 
@@ -425,7 +485,7 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `cnum` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -447,7 +507,7 @@ CREATE TABLE `user_requestitem` (
   `user_id` bigint(20) NOT NULL,
   `post_id` bigint(20) NOT NULL,
   `disprove` int(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_requestitem`
@@ -465,7 +525,7 @@ INSERT INTO `user_requestitem` (`user_id`, `post_id`, `disprove`) VALUES
 
 CREATE TABLE `vehicle` (
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `vehicle`
@@ -488,27 +548,26 @@ CREATE TABLE `wishlist` (
   `user_id` bigint(20) NOT NULL,
   `added_on` date NOT NULL DEFAULT current_timestamp(),
   `time` time NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `wishlist`
 --
 
 INSERT INTO `wishlist` (`post_id`, `user_id`, `added_on`, `time`) VALUES
+(31, 2, '2023-04-14', '16:49:58'),
 (34, 2, '2023-02-25', '11:56:24'),
-(41, 2, '2023-03-08', '09:37:39'),
-(43, 2, '2023-03-08', '17:15:13');
+(41, 2, '2023-03-08', '09:37:39');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `buyerbidding`
+-- Indexes for table `bidding`
 --
-ALTER TABLE `buyerbidding`
-  ADD PRIMARY KEY (`post_id`,`user_id`),
-  ADD KEY `user_id` (`user_id`);
+ALTER TABLE `bidding`
+  ADD PRIMARY KEY (`bidding_number`);
 
 --
 -- Indexes for table `capacity`
@@ -521,6 +580,12 @@ ALTER TABLE `capacity`
 --
 ALTER TABLE `createbid`
   ADD PRIMARY KEY (`post_id`);
+
+--
+-- Indexes for table `final_bidding`
+--
+ALTER TABLE `final_bidding`
+  ADD PRIMARY KEY (`post_id`,`buyer_id`);
 
 --
 -- Indexes for table `info`
@@ -593,7 +658,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `createbid`
 --
 ALTER TABLE `createbid`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `info`
@@ -605,7 +670,7 @@ ALTER TABLE `info`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -617,7 +682,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `postitem`
 --
 ALTER TABLE `postitem`
-  MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `registerd_user`
@@ -634,13 +699,6 @@ ALTER TABLE `request_item`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `buyerbidding`
---
-ALTER TABLE `buyerbidding`
-  ADD CONSTRAINT `buyerbidding_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `createbid` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `buyerbidding_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `registerd_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `postitem`
