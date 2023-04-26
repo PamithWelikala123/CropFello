@@ -65,6 +65,38 @@
                     <button  onclick="window.location.href = '../bidding/BuyerBidding';">All</button>
                     <button class="active" onclick="window.location.href = '../bidding/mybid';">My Bids</button>
                 </div>
+
+
+                <div class="bidding-post-mybid">
+                      <div class="image-mybid">
+                              <img src="images/carrot1.jpg">
+                      </div>
+
+                      <div class="info-mybid">
+
+                            <div class="name-size-place-mybid">
+                              <label><span style="color: #000000;">Carrot&nbsp; </span>1 KG</label><br>
+                              <p><img src="images/map-pin.svg" alt="">&nbsp; Nuwara Eliya</p>
+                      </div>
+
+                        <div class="price-mybid">
+                              <h5 class="initial-price-mybid">RS 430</h5>
+                              <h3 class="current-price-mybid"><img src="images/green-circle.svg" alt=""> RS 530</h3>
+                        </div>
+                        <div class="exp-mybid"><p><span style="font-weight: 600;">EXP:</span>&nbsp;16 September 2022</p></div>
+                        <div class="days-mybid">
+                              <p class="remain-mybid">8 days remaining</p>
+                              <p class="ends-on-mybid">Ends on 15 September 2022</p>
+                        </div>
+                        <div class="your-bid-mybid">
+                              <p>Your Bid:&nbsp; <span>RS 530.00</span></p>
+                        </div>
+                        <div class="bid-now-mybid">
+                          <!-- <button class="cancel">cancel</button> -->
+                          <button  class="update-mybid" id="openModalBtn">Update</button>
+                          
+                        </div>
+            </div>
                 
            </div>
         
