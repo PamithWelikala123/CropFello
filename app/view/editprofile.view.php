@@ -1,130 +1,188 @@
-<!DOCTYPE html>
-<html>
-    <head>
+<body>
+  
+  <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile.css">
+  <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile1.css"> 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
+  <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
         
-        <title>
-        Editprofile
-        </title>
-        <link rel="Stylesheet" href="<?=ROOT?>/assets/css/editprofile.css">
-        
-    </head>
-    <body>
+  
+  <div class="background">
+    <div class="grid-row">
 
-        <div class="logo">
-               <img class="img1"  src="<?=ROOT?>/assets/images/editprofile/logo.png">
-               <img  class="img4" onclick="document.location='../Profile'" src="<?=ROOT?>/assets/images/editprofile/arrow-left-circle.svg">
-        </div>
+          <div class="profile-upper">
 
-        <div class="Register">
-              <p class="letter">Edit Profile</p>
-        </div>
-    <form class="" action="editprofile" method="post" enctype="multipart/form-data">
-        <div style="display : grid; grid-template-columns: 50% 50%">
-              <div>
+                
+                      <div class="form-grid-2-2">
 
-                     <div style="display : grid; grid-template-columns: 50% 50%"> 
+                        <div>
+
+                                  <div class="form-group">
+                                    <img  src="<?=ROOT?>/assets/images/images/frame.svg">
+                                  </div> 
+
+                                  <div class="form-group">
+                                    <h1>Edit Profile</h1>
+                                  </div> 
+                        </div>
+
+                        
+
+                        <div>
+
+                                  <div class="form-group backkey">
+                                    <img src="<?=ROOT?>/assets/images/images/arrow-left-circle.svg"  onclick="document.location='../Profile'">
+                                  </div> 
+
+                                  <div class="form-group">
+                                    <h2>Upload profile picture </h2>
+                                  </div> 
+
+                        </div>
+
+
+
+                                <div>
+                                  <form class="" action="editprofile" method="post" enctype="multipart/form-data">
+                                          <div class="form-split">
+
+                                                <div class="form-group">
+                                                  <label class="form-label" for="firstname">First Name *</label>
+                                                  
+                                                  <input type="textbox" id="firstname" class="basic-input-field" placeholder="<?=$data['first_name']?>" name="first_name">
+                                                </div>  
+                                                
+                                                <div class="form-group">
+                                                  <label class="form-label" for="lastname">Last Name *</label>
+                                                  
+                                                  <input type="text" id="lastname" class="basic-input-field" placeholder="<?=$data['last_name']?>" name="last_name">
+                                                </div>
+
+                                        </div> 
+
+                                        <div class="form-group">
+                                          <label class="form-label" for="address">Address *</label>
+                                          
+                                          <input type="text" id="address" class="form-control basic-input-field" placeholder="<?=$data['address']?>" name="address">
+                                      </div>
+
+                                      <div class="form-split">
+
+                                            <div class="form-group">
+                                              <label class="form-label" for="postalcode">Postal Code *</label>
+                                  
+                                              <input type="text" id="postalcode" class="basic-input-field" placeholder="<?=$data['postal_code']?>" name="postal_code">
+                                            </div>  
+                                            <div class="form-group">
+                                              <label class="form-label" for="city">City *</label>
+                                              <input type="text" id="city" class="basic-input-field" placeholder="<?=$data['city']?>" name="city">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="contact-number">Contact Numbeer *</label>
+                                                <input type="text" id="contact-number" class="form-control basic-input-field"  placeholder="<?=$data['contact_number']?>" name="contact_number">
+                                            </div>
+
+                                      </div> 
+
+                                </div>    
+
+  
 
                               <div>
-                                <label class="name">Name</label>
-                                <label class="name1">*</label>
-                                <input class="firstname" type="textbox" placeholder="<?=$data['first_name']?>" name="first_name"> 
-                              </div>
-                              <div>
-                                <input class="lastname" type="textbox" placeholder="<?=$data['last_name']?>" name="last_name"> 
-                              </div>
+                                    <div class="form-split">
+                                   
+                                          <div class="form-group">
+                                            
+                                             
+                                            <input  type="file" name="image" id ="image"
+                                            accept="image/png, image/jpeg, image/gif"  class="form-control basic-input-field profile-pic"/>
+                                            <input type="hidden" id="pplink" name="pplink">
+                                           
+                                                 
+                                          </div>
 
-                     </div>
-                    
-                     <div>
-                        <label class="Address-name" >Address</Address></label>
-                        <label class="Address-name1">*</label>
-                        <br>
-                           <input class="Address" type="textbox" placeholder="<?=$data['address']?>" name="address"> 
-                     </div>
-                     
-                     <div style="display : grid; grid-template-columns: 50% 50%">
-                      
-                            <div> 
-                              <label class="Postal-code-name">Postal code</Address></label>
-                              <label class="Postal-code-name1">*</label>
-                              <br>
-                              <input class="Postal-code" type="textbox" placeholder="<?=$data['postal_code']?>" name="postal_code"> 
-                            </div>
-
-                            <div>
-                              <label class="City-name">City</Address></label>
-                              <label class="City-name1">*</label>
-                              <br>
-                              <input class="City" type="textbox" placeholder="<?=$data['city']?>" name="city"> 
-                            </div>
-                     </div>
-
-                     <div>
-                           <label class="ContactNo-name">Contact No</Address></label>
-                            <label class="ContactNo-name1">*</label>
-                             <br>
-                             <img class="srilanka"  src="<?=ROOT?>/assets/images/buyersignup page/Sri Lanka.png">
-                             <label class="ContactNo-name2">|</label>
-                             <label class="ContactNo-name3">+94</label>
-                            <input class="ContactNo" type="textbox" placeholder="<?=$data['contact_number']?>" name="contact_number">
-                     </div>
+                                          <div class="form-group">
+                                            <label class="form-label" for="about">About *</label>
+                                            <input type="text" id="about" class="form-control basic-input-field discription" placeholder="  Change your Description..." name="description" >
+                                          </div>
 
 
-              </div>
-              <div>
-                     <div>
-                     <label class="upload-profile-pic">Upload profile picture </Address></label>
-                     </div>   
+                                    </div>
 
-                     <div>
-                     <label class="profile-picture">Profile picture</label>
-                     <label class="profile-picture1">*</label>
-                     <label class="about-name">About</label>
-                     <label class="about-name1">*</label>
-                     </div>
+                        
 
-                     <div>
-                     <img class="img5" src="<?=ROOT?>/assets/images/editprofile/drop-image.svg">
-                     <input class="file" type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> 
-                     
-                     </div>
-                     <input class="about" type="textbox" placeholder="  Discribe yourself..." name="description">
-                     <div>
+                                    <div class="form-group">
 
-                     </div>
+                                            <button type="button" class="form-control basic-input-field changepasswordbutton" onclick="location.href='../Profile/Editprofile_changepassword1'">
+                                              Change Password <label class="change_password1">></label>
+                                            </button>
 
-                     <div>
-
-
-                     <a href="Editprofile_changepassword1">
-                      
-                          <button class="change_password">Change Password</button>
-                          </a>
-                          <label class="change_password1">></label> 
-                      
-
+                                      
+                                    </div>       
                       </div>
 
-                     
+                                  <div class="form-group">
+                                                  
+                                    <button class="form-control basic-input-field Register-but" type="submit" name="submit">Update</button> 
 
-                      <div>
-                          <button class="Register-but" type="submit" name="submit">Update</button> 
-                      </div>
+                                </div>
+                              </form>
 
-            </form>
+          </div>
 
-                      
-               
+          <div class="profile-lower">
+                <img src="<?=ROOT?>/assets/images/images/bottom1.png">
+                <img src="<?=ROOT?>/assets/images/images/bottom2.png">
+          </div>
 
-            </div>
-        </div>
-        
-        <div>
-          <img class="img2" src="<?=ROOT?>/assets/images/editprofile/register-corner2.png">
-          <img class="img3" src="<?=ROOT?>/assets/images/editprofile/register-corner.png">
-        </div>
+    </div>
+     
+  </div>
 
 
-    </body>
+  <script
+  src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
 
+<script>
+
+  FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
+  
+
+  FilePond.create(document.getElementById('image'), {
+      //server: '<//?php echo BASEURL ?>/imageUpload/profilepic',
+      labelIdle: `<img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" style='Width: 130' '/>`,
+      imagePreviewHeight: 170,
+      imageCropAspectRatio: '1:1',
+      imageResizeTargetWidth: 200,
+      imageResizeTargetHeight: 200,
+      stylePanelLayout: 'compact circle',
+      styleLoadIndicatorPosition: 'center bottom',
+      styleButtonRemoveItemPosition: 'center bottom'
+  });
+
+  // console log file path after submit
+  document.getElementById('image').addEventListener('FilePond:processfile', function (e) {
+    
+      const serverId = e.detail.file.serverId;
+      console.log(serverId);
+      // parse the JSON object
+      const jsonResponse = JSON.parse(serverId);
+      // access the filepath
+      const filepath = jsonResponse.filepath;
+      console.log(filepath);
+      if (filepath != null) {
+          document.getElementById('pplink').value = filepath;
+      }
+  });
+
+</script>
 </html>

@@ -20,7 +20,7 @@
     <div class="wrapper">
     <section class="chat-area">
       <header>
-        <a href="../chat/chat_search" class="back-icon"><i class="fas fa-arrow-left"></i></a>
+        <!-- <a href="../chat/chat_search" class="back-icon"><i class="fas fa-arrow-left"></i></a> -->
         <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image']?>" alt="">
         <div class="details">
           <span><?php echo $data['first_name']. " " . $data['last_name'] ?></span>
