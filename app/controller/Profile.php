@@ -35,17 +35,19 @@ class profile{
 
             if(isset($_POST["submit"])){
             
-                  if($_FILES["image"]["error"] == 4){
-                    echo
-                    "<script> alert('Image Does Not Exist'); </script>"
-                    ;
-                  }
-                  else{
+                  // if($_FILES["image"]["error"] == 4){
+                  //   echo
+                  //   "<script> alert('Image Does Not Exist'); </script>"
+                  //   ;
+                  // }
+                  // else{
+                    echo $_POST['pplink'];
                     $fileName = $_FILES["image"]["name"];
                     $fileSize = $_FILES["image"]["size"];
                     $tmpName = $_FILES["image"]["tmp_name"];
                 
                     $validImageExtension = ['jpg', 'jpeg', 'png'];
+                    echo $fileName;
                     $imageExtension = explode('.',$fileName);
                     $imageExtension = strtolower(end($imageExtension));
                 
@@ -57,7 +59,7 @@ class profile{
                     move_uploaded_file($tmpName, $destinationPath); 
                     $arr['image']=$newImageName;
                    // $user->update($_SESSION['USER']->user_id,$arr ,'user_id');
-                  }
+                  // }
                 
               }
             $arr['user_id']=$_SESSION['USER']->user_id;
@@ -96,9 +98,9 @@ class profile{
             }
 
 
-            $user->update($_SESSION['USER']->user_id,$arr ,'user_id');
+           // $user->update($_SESSION['USER']->user_id,$arr ,'user_id');
             
-            redirect('Profile/Editprofile_details');
+            //redirect('Profile/Editprofile_details');
 
 
 
