@@ -97,9 +97,9 @@
                                           <div class="form-group">
                                             
                                              
-                                            <input  type="file" id="profilepic" credits='false' name="image" 
+                                            <input  type="file" name="image" id ="image"
                                             accept="image/png, image/jpeg, image/gif"  class="form-control basic-input-field profile-pic"/>
-                                            <input type="hidden" id="pplink" name="image">
+                                            <input type="hidden" id="pplink" name="pplink">
                                            
                                                  
                                           </div>
@@ -142,12 +142,6 @@
      
   </div>
 
-  <script>  
-changelocation() {   
-alert("how are you");  
-         }  
-</script>  
-
 
   <script
   src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
@@ -163,7 +157,7 @@ alert("how are you");
   FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
   
 
-  FilePond.create(document.getElementById('profilepic'), {
+  FilePond.create(document.getElementById('image'), {
       //server: '<//?php echo BASEURL ?>/imageUpload/profilepic',
       labelIdle: `<img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" style='Width: 130' '/>`,
       imagePreviewHeight: 170,
@@ -176,7 +170,8 @@ alert("how are you");
   });
 
   // console log file path after submit
-  document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
+  document.getElementById('image').addEventListener('FilePond:processfile', function (e) {
+    
       const serverId = e.detail.file.serverId;
       console.log(serverId);
       // parse the JSON object

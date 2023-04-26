@@ -65,6 +65,7 @@ class Login
        // }
        
         }
+        
         $this->view('forgetpassword1');
     }
 
