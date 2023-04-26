@@ -69,15 +69,15 @@ class deliverytodo{
               $row->last_name = $buyer->last_name;
               $row->fro = $buyer->address;
               $row->too = $seller->address;
-              $row->vname = $deliver->name;
+              // $row->vname = $deliver->vehicle_name;
               
             
                 $arr1['item_id'] = $row->item_id;
                 $row1 = $item->first($arr1);
                 $row->item_name = $row1->name;
 
-                // $arr2['item_id'] = $row->item_id;
-                // $row2 = $vehicle->first($arr2);
+                // $arr2['vehicle_id'] = $row->vehicle_id;
+                // $row1 = $vehicle->first($arr2);
                 // $row->vname = $row1->vehicle_name;
                 
                 
