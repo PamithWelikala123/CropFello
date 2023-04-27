@@ -83,8 +83,8 @@
                                                                   </div>
 
                                                                     <div class="price-mybid">
-                                                                          <h5 class="initial-price-mybid">Rs <?=$row->initial_price?></h5>
-                                                                          <h3 class="current-price-mybid"><img src="images/green-circle.svg" alt="">Rs <?=$row->current_value?></h3>
+                                                                          <h5 class="initial-price-mybid">Rs <?=$row->initial_price?>.00</h5>
+                                                                          <h3 class="current-price-mybid"><img src="images/green-circle.svg" alt="">Rs <?=$row->current_value?>.00</h3>
                                                                     </div>
                                                                     <div class="exp-mybid"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
                                                                     <div class="days-mybid">
@@ -92,12 +92,17 @@
                                                                           <p class="ends-on-mybid">Ends on  <?=$row->bid_end_date?></p>
                                                                     </div>
                                                                     <div class="your-bid-mybid">
-                                                                          <p>Your Bid:&nbsp; <span>RS <?=$row->youramount?></span></p>
+                                                                          <p>Your Bid:&nbsp; <span>RS <?=$row->youramount?>.00</span></p>
                                                                     </div>
                                                                     <div class="bid-now-mybid">
                                                                       <!-- <button class="cancel">cancel</button> -->
-                                                                      <button  class="update-mybid" id="openModalBtn">Update</button>
-                                                                      
+                                                                      <?php if ($row->current_value!=$row->youramount):?>
+                                                                      <button   class="update-mybid" id="openModalBtn">Update</button>
+                                                                      <?php else:?>
+                                                                        <button  class="update1-mybid">Owned</button>
+                                                                      <?php endif;?>
+                                                                     
+
                                                                     </div>
 
                                               
