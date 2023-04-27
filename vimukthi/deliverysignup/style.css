@@ -1,0 +1,318 @@
+* {
+	box-sizing: border-box;
+}
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: poppins;
+	font-size: 16px;
+}
+
+header {
+	/* background-color: #333; */
+	color: #fff;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.logo img {
+	height: 70px;
+}
+
+.back-btn button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.back-btn button img {
+	height: 40px;
+}
+
+main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.left-side {
+	width: 60%;
+	padding-right: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.right-side {
+	width: 40%;
+	padding-left: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.left-side h2, .right-side h2 {
+	margin-top: 0;
+}
+
+form {
+	margin-top: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	padding: 5px;
+	margin-bottom: 10px;
+	width: 100%;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+	background-color: #000000;
+	color: #4DEA25;
+	padding: 20px 30px;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+    transition: 0.4s;
+}
+
+
+
+button[type="submit"] :hover{
+	background-color: #4DEA25;
+	color: #ffffff;
+   
+}
+
+footer {
+	/* background-color: #333;
+	color: #fff;
+	text-align: center;
+	padding: 10px;
+	margin-top: 20px; */
+}
+
+.img2{
+    position: absolute;
+    width: 100%;
+    height: 80px; 
+    bottom: 0px;
+    left: 0px;
+  }
+  
+  .img3{
+  position: absolute;
+  height: 80px;
+  bottom: 0px;
+  width: 100%;
+  left: 0px;
+  }
+
+
+  select {
+    width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+	width: 100%;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+
+
+
+}
+option:checked{
+    background-color:rgb(77, 234, 37, 0.6);
+}
+
+.multiselect-dropdown{
+    display: inline-block;
+    /* padding: 2px 5px 0px 5px; */
+    padding: 1%;
+    border-radius: 4px;
+    border: solid 1px #ced4da;
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+  }
+  .multiselect-dropdown span.optext, .multiselect-dropdown span.placeholder{
+    margin-right:0.5em; 
+    margin-bottom:2px;
+    padding:1px 0; 
+    border-radius: 4px; 
+    display:inline-block;
+  }
+  .multiselect-dropdown span.optext{
+    background-color:rgb(77, 234, 37, 0.6);
+    color: #ffffff;
+    padding:1px 0.75em; 
+    border-radius: 10px;
+  }
+  .multiselect-dropdown span.optext .optdel {
+    float: right;
+    margin: 0 -6px 1px 5px;
+    font-size: 0.7em;
+    /* margin-top: 2px; */
+    cursor: pointer;
+    color: #ffffff;
+  }
+  .multiselect-dropdown span.optext .optdel:hover { color: rgb(0, 0, 0);}
+  .multiselect-dropdown span.placeholder{
+    color:rgb(77, 234, 37);
+  }
+  .multiselect-dropdown-list-wrapper{
+    /* box-shadow: #E4FBDE 0 3px 8px; */
+    z-index: 100;
+    padding:2px;
+    border-radius: 4px;
+    border: solid 1px #ced4da;
+    display: none;
+    margin: -1px;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    background: white;
+  }
+  .multiselect-dropdown-list-wrapper .multiselect-dropdown-search{
+    margin-bottom:5px;
+  }
+  .multiselect-dropdown-list{
+    padding:2px;
+    height: 15rem;
+    overflow-y:auto;
+    overflow-x: hidden;
+  }
+  .multiselect-dropdown-list::-webkit-scrollbar {
+    width: 6px;
+  }
+  .multiselect-dropdown-list::-webkit-scrollbar-thumb {
+    background-color: #bec4ca;
+    border-radius:3px;
+  }
+  
+  .multiselect-dropdown-list div{
+    padding: 5px;
+  }
+  .multiselect-dropdown-list input{
+    height: 1.15em;
+    width: 1.15em;
+    margin-right: 0.35em;  
+  }
+  .multiselect-dropdown-list div.checked{
+   
+  }
+  .multiselect-dropdown-list div:hover{
+    background-color: #E4FBDE;
+  }
+  .multiselect-dropdown span.maxselected {width:100%;}
+  .multiselect-dropdown-all-selector {border-bottom:solid 1px #E4FBDE;}
+
+
+
+  
+.vehicle-info1, .vehicle-info2 {
+	display: flex;
+	justify-content: space-between;
+    padding-top: 5%;
+}
+
+.vehicle-info1, .vehicle-info2 label {
+	width: 100%;
+}
+
+.vehicle-info1, .vehicle-info2 input {
+	width: 100%;
+}
+
+
+
+
+
+
+/*the container must be positioned relative:*/
+.custom-select {
+    position: relative;
+    font-family: Arial;
+  }
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element:*/
+  }
+  
+  .select-selected {
+    background-color: DodgerBlue;
+  }
+  
+  /*style the arrow inside the select element:*/
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+  
+  /*point the arrow upwards when the select box is open (active):*/
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+  
+  /*style the items (options), including the selected item:*/
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  /*style items (options):*/
+  .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  
+  /*hide the items when the select box is closed:*/
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
