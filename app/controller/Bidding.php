@@ -79,25 +79,20 @@ class bidding{
 
                                     $primaryKeys = array('post_id','buyer_id');
 
-                                   
-
-                      
-
                                     if(empty($rows2)){
-                                      
 
-                                          //   $finalbid->insert($arr23);   
+                                           $finalbid->insert($arr23);   
 
                                     }
 
 
                                     else{
 
-                                           //  $finalbid->update2($arr23,$primaryKeys);
+                                           $finalbid->update2($arr23,$primaryKeys);
                                     }
 
 
-                                   // $createbid->update($idpost,$arr,'post_id');
+                                   $createbid->update($idpost,$arr,'post_id');
 
                                     echo "<script>";
                                     echo "sucsess()"; // Call the JavaScript function here
@@ -248,8 +243,62 @@ class bidding{
 
     
     public function BuyerBiddingmybid(){
-    
-            $this->view('buyerbiddingmybid');
+
+        $finalbid = new finalbid;
+        $bidding1=new bid;
+        $createbid = new createbid;
+
+        $buyer_id=$_SESSION['USER']->user_id;
+        $arr['buyer_id']=$buyer_id;
+        $rows = $finalbid->where($arr);
+
+        if($rows){
+
+            
+                foreach ($rows as $row) {
+                  
+                    $arr['post_id']=$row->post_id;
+
+                    $row1=$createbid->first($arr);
+
+                    if($row1->status=="enable"){
+
+                        $post_id=$row1->post_id;
+                        $amount=$row1->amount;
+
+                        $row->item_id=$row1->item_id;
+                        $row->exp=$row1->exp;
+                        $date1=date_create($row1->bid_end_date);
+                        $date2=date_create(date("Y-m-d"));
+                        $diff=date_diff($date2,$date1);
+                        $row->remaning=$diff->format("%R%a");
+                        $row->initial_price=$row1->initial_price;
+                        $row->current_value=$row1->current_value;
+                        $row->bid_end_date=$row1->bid_end_date;
+                        $row->image=$row1->image;
+                        $row->amount=$row1->amount;
+                        $row->amount_type=$row1->amount_type;
+                        $arr1['bidding_number']=$row->bidding_number;
+                        $row->city=$row1->city;
+
+                        $row2=$bidding1->first($arr1);
+                        $row->youramount=$row2->amount;
+
+
+                        // $this->view('buyerbiddingmybid');
+
+
+                    }
+
+                //    $arr['bidding_number']=$row->bidding_number;
+                 //   $post_id=$row1->post_id;
+                 //   $amount=$row1->amount;
+
+
+                }
+        }
+
+                 $this->view('buyerbiddingmybid',$rows);
     }
 
 

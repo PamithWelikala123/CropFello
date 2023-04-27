@@ -63,44 +63,54 @@
             <div class="main">
                 <div class="page-selector">
                     <button  onclick="window.location.href = '../bidding/BuyerBidding';">All</button>
-                    <button class="active" onclick="window.location.href = '../bidding/mybid';">My Bids</button>
+                    <button class="active" onclick="window.location.href = '../bidding/BuyerBiddingmybid';">My Bids</button>
                 </div>
 
+                <?php if ($data) : ?>      
+                  <div class="main-content">
+                <?php foreach ($data as $row) : ?>  
+                              <div class="bidding-post-mybid">
+              
+                                                            <div class="image-mybid">
+                                                                    <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
+                                                            </div>
 
-                <div class="bidding-post-mybid">
-                      <div class="image-mybid">
-                              <img src="images/carrot1.jpg">
-                      </div>
+                                                            <div class="info-mybid">
 
-                      <div class="info-mybid">
+                                                                  <div class="name-size-place-mybid">
+                                                                    <label><span style="color: #000000;">Carrot&nbsp; </span><?=$row->amount?> <?=$row->amount_type?></label><br>
+                                                                    <p><img src="images/map-pin.svg" alt="">&nbsp; <?=$row->city?></p>
+                                                                  </div>
 
-                            <div class="name-size-place-mybid">
-                              <label><span style="color: #000000;">Carrot&nbsp; </span>1 KG</label><br>
-                              <p><img src="images/map-pin.svg" alt="">&nbsp; Nuwara Eliya</p>
-                      </div>
+                                                                    <div class="price-mybid">
+                                                                          <h5 class="initial-price-mybid">Rs <?=$row->initial_price?></h5>
+                                                                          <h3 class="current-price-mybid"><img src="images/green-circle.svg" alt="">Rs <?=$row->current_value?></h3>
+                                                                    </div>
+                                                                    <div class="exp-mybid"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
+                                                                    <div class="days-mybid">
+                                                                          <p class="remain-mybid"><?=$row->remaning?>days remaining</p>
+                                                                          <p class="ends-on-mybid">Ends on  <?=$row->bid_end_date?></p>
+                                                                    </div>
+                                                                    <div class="your-bid-mybid">
+                                                                          <p>Your Bid:&nbsp; <span>RS <?=$row->youramount?></span></p>
+                                                                    </div>
+                                                                    <div class="bid-now-mybid">
+                                                                      <!-- <button class="cancel">cancel</button> -->
+                                                                      <button  class="update-mybid" id="openModalBtn">Update</button>
+                                                                      
+                                                                    </div>
 
-                        <div class="price-mybid">
-                              <h5 class="initial-price-mybid">RS 430</h5>
-                              <h3 class="current-price-mybid"><img src="images/green-circle.svg" alt=""> RS 530</h3>
-                        </div>
-                        <div class="exp-mybid"><p><span style="font-weight: 600;">EXP:</span>&nbsp;16 September 2022</p></div>
-                        <div class="days-mybid">
-                              <p class="remain-mybid">8 days remaining</p>
-                              <p class="ends-on-mybid">Ends on 15 September 2022</p>
-                        </div>
-                        <div class="your-bid-mybid">
-                              <p>Your Bid:&nbsp; <span>RS 530.00</span></p>
-                        </div>
-                        <div class="bid-now-mybid">
-                          <!-- <button class="cancel">cancel</button> -->
-                          <button  class="update-mybid" id="openModalBtn">Update</button>
-                          
-                        </div>
-            </div>
+                                              
+              
+                                                            </div>
+                                  </div>
+                                  <?php endforeach; ?>
+                  </div>
+                                <?php endif; ?>
                 
-           </div>
+
         
-    </div>
+              </div>
     
     
     <?php
