@@ -73,16 +73,15 @@ class bidding{
 
                                     $arr23['buyer_id']= $buyer_id;
                                     $arr23['post_id']=$idpost;
-                                    $arr23['bidding_number']= $arr1['bidding_number'];
+                                    
 
                                     $row2 = $finalbid->first($arr23);
-
+                                    
                                     $primaryKeys = array('post_id','buyer_id');
 
-                                    if(empty($rows2)){
-
+                                    if (is_null($row2) || $row2 === '' || empty($row2)) {
+                                            $arr23['bidding_number']= $arr1['bidding_number'];
                                            $finalbid->insert($arr23);   
-
                                     }
 
 
@@ -250,12 +249,12 @@ class bidding{
 
         $buyer_id=$_SESSION['USER']->user_id;
         $arr['buyer_id']=$buyer_id;
-        $rows = $finalbid->where($arr);
+        $rows2 = $finalbid->where($arr);
 
-        if($rows){
+        if($rows2){
 
             
-                foreach ($rows as $row) {
+                foreach ($rows2 as $row) {
                   
                     $arr['post_id']=$row->post_id;
 
@@ -265,7 +264,7 @@ class bidding{
 
                         $post_id=$row1->post_id;
                         $amount=$row1->amount;
-
+                        $row->post_id=$row1->post_id;
                         $row->item_id=$row1->item_id;
                         $row->exp=$row1->exp;
                         $date1=date_create($row1->bid_end_date);
@@ -274,6 +273,7 @@ class bidding{
                         $row->remaning=$diff->format("%R%a");
                         $row->initial_price=$row1->initial_price;
                         $row->current_value=$row1->current_value;
+                        $row->bid_range=$row1->bid_range;
                         $row->bid_end_date=$row1->bid_end_date;
                         $row->image=$row1->image;
                         $row->amount=$row1->amount;
@@ -298,7 +298,7 @@ class bidding{
                 }
         }
 
-                 $this->view('buyerbiddingmybid',$rows);
+                 $this->view('buyerbiddingmybid',$rows2);
     }
 
 

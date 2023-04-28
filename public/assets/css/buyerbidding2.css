@@ -235,6 +235,25 @@
 
 }
 
+.your-bid-mybid p{
+    font-weight: 500;
+    font-size:x-large;
+    color: #8F8F8F;
+}
+
+.your-bid-mybid span{
+    font-weight: 700;
+    color: black;
+}
+
+.bid-now-mybid{
+    position: absolute;
+  width: 212px;
+  height: 47px;
+  left: 24px;
+  top: 240px;
+}
+
 
 
 
