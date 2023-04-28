@@ -58,7 +58,7 @@
             <div class="main">
             <div class="containerx">
                     <div class="item item-1">
-                      <img class="profile-pic" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
+                      <img class="profile-pic" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>">
                       <p class="nam">Pamith Welikala</p><br>
                       <p class="date">3 September 2022</p>
 
