@@ -69,66 +69,81 @@
                 <div class="main-content">
 
                 <?php foreach ($data as $row) : ?>
-                    <div class="bidding-post">
-                        <div class="image">
-                          <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
-                        </div>
-                        <div class="info">
-                          <div class="name-size-place">
-                            <label><span style="color: #000000;"><?=$row->item_name?>&nbsp; </span><?=$row->amount?> <?=$row->amount_type?></label><br>
-                            <p><img src="images/map-pin.svg" alt="">&nbsp; <?=$row->city?></p>
-                          </div>
-                          <div class="price">
-                            <h5 class="initial-price">RS <?=$row->initial_price?></h5>
-                            <h3 class="current-price"><img src="images/green-circle.svg" alt=""> RS <?=$row->current_value?></h3>
-                          </div>
-                          <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
-                          <div class="days">
-                            <p class="remain"><?=$row->remaning?> days remaining</p>
-                            <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
-                            
-                            
-                            <?php
-                                  $hours= $row->hours; 
-                                   $minutes=$row->minutes;
-                                   $day=$row->day;
-                            ?>
+                                  <div class="bidding-post">
+                                                                          <div class="image">
+                                                                            <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
+                                                                          </div>
 
 
-                            <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
-                          </div>
+                                                              <div class="info">
+                                                                          <div class="name-size-place">
+                                                                            <label><span style="color: #000000;"><?=$row->item_name?>&nbsp; </span><?=$row->amount?> <?=$row->amount_type?></label><br>
+                                                                            <p><img src="images/map-pin.svg" alt="">&nbsp; <?=$row->city?></p>
+                                                                          </div>
+ 
 
-                          <div class="bid-now">
-                          <button id="<?=$row->post_id?>" class="js-bid-now-btn">Bid Now</button>
-                          </div>
-                        </div>
-                      </div>
+                                                                          <div class="price">
+                                                                            <h5 class="initial-price">RS <?=$row->initial_price?>.00</h5>
+                                                                            <h3 class="current-price"><img src="images/green-circle.svg" alt=""> RS <?=$row->current_value?>.00</h3>
+                                                                          </div>
 
-                      <div id="modal-<?=$row->post_id?>" class="modal">
-                            <div class="modal-content">
-                              <div class="modal-header">
+                                                                          <div class="exp">
+                                                                                <p><span style="font-weight: 600;">EXP :</span>&nbsp;<?=$row->exp?></p>
+                                                                              
+                                                                                <!-- <div class="your-bid-mybid">
+                                                                                            <p>Your Bid:&nbsp; <span>RS <?=$row->youramount?>.00</span></p>
+                                                                                </div> -->
+                                                                          </div>
+                                                                          
+                                                                          <div class="days">
+                                                                            <p class="remain"><?=$row->remaning?> days remaining</p>
+                                                                            <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
+                                                                            
+
+                                                                            <?php
+                                                                                  $hours= $row->hours; 
+                                                                                  $minutes=$row->minutes;
+                                                                                  $day=$row->day;
+                                                                            ?>
+
+                                                                          
+                                                                            <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
+                                                                          </div>
+
+
+
+                                                                          <div class="bid-now">
+                                                                          <button id="<?=$row->post_id?>" class="js-bid-now-btn">Bid Now</button>
+                                                                          </div>
+                                                              </div>
+                                    </div>
+
+                                <div id="modal-<?=$row->post_id?>" class="modal">
+                                            <div class="modal-content">
+                                                      <div class="modal-header">
+                                                  
+                                                        <span class="closeBtn">&times;</span>
+                                                        <h2>Enter your bid value</h2>
+                                                        <p>Current bid value: RS <?=$row->current_value?>.00</p>
+                                                        <p>Minimum bid value: RS <?=$row->bid_range?>.00</p>
+                                                      </div>
+                                                      
+                                                      <div class="modal-body" id='modal-body-<?=$row->post_id?>'>
+                                                    
+                                                                  <form method="post" autocomplete="off" action='biddingbuyer2'>
+                                                                      <label> RS: &nbsp;</label>
+                                                                    
+                                                                    <input type="text" placeholder="Enter your bid" name="bidvalue"><label>&nbsp;.00</label>
+                                                                    <input type="hidden" value='<?=$row->post_id?>' name='abc'>
+                                                                    <button type="submit" name="submit" id='myButton'>Bid Now</button>
+
+
+                                                                  </form>
+                                                      
+                                                      </div>
+                                            </div>
+                                  </div>
                           
-                                <span class="closeBtn">&times;</span>
-                                <h2>Enter your bid value</h2>
-                                <p>Current bid value: RS <?=$row->current_value?></p>
-                                <p>Minimum bid value: RS <?=$row->bid_range?></p>
-                              </div>
-                              <div class="modal-body" id='modal-body-<?=$row->post_id?>'>
-                             
-                                          <form method="post" autocomplete="off" action='biddingbuyer2'>
-                                              <label> RS: &nbsp;</label>
-                                            
-                                            <input type="text" placeholder="Enter your bid" name="bidvalue"><label>&nbsp;.00</label>
-                                            <input type="hidden" value='<?=$row->post_id?>' name='abc'>
-                                            <button type="submit" name="submit" id='myButton'>Bid Now</button>
-
-
-                                          </form>
-                              
-                              </div>
-                            </div>
-                          </div>
-                
 
                       
                 <?php endforeach; ?>  
@@ -159,6 +174,7 @@
     const images = document.querySelectorAll('.js-bid-now-btn');
           images.forEach(function(image) {
             image.addEventListener('click', function() {
+              console.log(image['id']);      
               modal = document.getElementById('modal-' + image['id']);
               modal.style.display = "block";
               let id = image['id'];
