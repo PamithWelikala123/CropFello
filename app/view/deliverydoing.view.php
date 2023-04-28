@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>buyerbidding</title>
+    <title>deliverydoing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,8 +31,8 @@
                 <div class="menu">
                   <!-- <hr><label >Menu</label><br> -->
                   <hr><p>Menu</p><br>
-                  <button onclick="document.location='deliverytodo/view1'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Todo</span></button><br>
-                  <button onclick="document.location='../deliverydoing/'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
+                  <button onclick="document.location='deliverytodo/view1'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> To Do</span></button><br>
+                  <button onclick="document.location='deliverydoing/index'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
                   <button onclick="document.location='deliverydone'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
                   <button onclick="document.location='deliveryfee'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
               </div>
