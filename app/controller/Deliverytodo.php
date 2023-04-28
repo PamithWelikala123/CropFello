@@ -83,10 +83,10 @@ class deliverytodo{
                 
               }
 
-              $this->view('deliverytodo2',$rows);
+              $this->view('deliverytodo',$rows);
             }
             else{
-              $this->view('deliverytodo2');
+              $this->view('deliverytodo');
             }
 
           
@@ -144,7 +144,7 @@ class deliverytodo{
           }
 
             $rows = (array) $rows;
-            $this->view('deliverytodo2',$rows);
+            $this->view('deliverytodo',$rows);
 
   }
 
