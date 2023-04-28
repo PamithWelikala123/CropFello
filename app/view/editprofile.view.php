@@ -133,8 +133,9 @@
           </div>
 
           <div class="profile-lower">
+                 <img src="<?=ROOT?>/assets/images/images/bottom2.png">
                 <img src="<?=ROOT?>/assets/images/images/bottom1.png">
-                <img src="<?=ROOT?>/assets/images/images/bottom2.png">
+                
           </div>
 
     </div>
