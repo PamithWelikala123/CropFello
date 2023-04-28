@@ -107,6 +107,7 @@
 
 
                                                                           <div class="bid-now">
+                                                                          
                                                                           <button id="<?=$row->post_id?>" class="js-bid-now-btn">Update</button>
                                                                           </div>
                                                               </div>
@@ -162,89 +163,35 @@
 <script>   
 
 
+var modal = null;
 
-    var modal;
-
-    const images = document.querySelectorAll('.js-bid-now-btn');
-          images.forEach(function(image) {
-            image.addEventListener('click', function() {
-              console.log(image['id']);      
-              modal = document.getElementById('modal-' + image['id']);
-              modal.style.display = "block";
-              let id = image['id'];
-              //console.log(image['id']);
-
-            });
-          });
+const images = document.querySelectorAll('.js-bid-now-btn');
+images.forEach(function(image) {
+  image.addEventListener('click', function() {
         
+    modal = document.getElementById('modal-' + image.id);
+    modal.style.display = "block";
+    let id = image.id;
+    //console.log(image.id);
 
+  });
+});
 
+var closeBtns = document.querySelectorAll('.closeBtn');
+closeBtns.forEach(function(span) {
+  span.onclick = function() {
+    var modal = span.closest('.modal');
+    modal.style.display = 'none';
+  }
+});
 
-
-            
-            //var span = document.getElementsByClassName('closeBtn')[1];
-            var closeBtns = document.querySelectorAll('.closeBtn');
-              closeBtns.forEach(function(span) {
-                span.onclick = function() {
-                  var modal = span.closest('.modal');
-                  modal.style.display = 'none';
-                }
-              });
- 
-            window.onclick = function(event) {
-              if (event.target == modal) {
-                modal.style.display = "none";
-              }
-            }
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
         
-
-
-          //   window.onload = function () {
-                
-          //       const images = document.querySelectorAll('.time1');
-          //       images.forEach(function(image) {
-          //         var display = document.querySelector('#time-'+image.id.split('-')[1]);
-                 
-          //        var Minutes = 60 * <?php echo $minutes?>;
-          //         startTimer(Minutes, display);
-          //       });
-          //     };
-
-
-
-              
-
-          // function startTimer(duration, display) {
-          //   var start = Date.now();
-            
-          //   function updateDisplay() {
-          //     var diff = getDiffInSeconds();
-          //     var minutes = padNumber(Math.floor(diff / 60));
-          //     var seconds = padNumber(diff % 60);
-          //     display.textContent = minutes + ":" + seconds;
-          //   }
-            
-          //   function getDiffInSeconds() {
-          //     return duration - Math.floor((Date.now() - start) / 1000);
-          //   }
-            
-          //   function padNumber(num) {
-          //     return num < 10 ? "0" + num : num;
-          //   }
-            
-          //   function restartTimer() {
-          //     start = Date.now() + 1000;
-          //   }
-            
-          //   updateDisplay();
-          //   setInterval(updateDisplay, 1000);
-          // }
-
-
-
-
-
 
     </script> 
 
