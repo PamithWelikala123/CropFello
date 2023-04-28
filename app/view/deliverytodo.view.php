@@ -1,87 +1,95 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverytodo.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deliverytodo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverytodo1.css">
+   <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
+   <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
 </head>
 <body>
+
+
+
     <div class="container">
-        <div class="item item1">
-            <img class="logo" src="<?=ROOT?>/assets/images/rushinpics/pics/logo.png">
-            <input class="Search" type="textbox" placeholder="Search">
-            <img class="Search1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/search.png">
-            <img class="bell" src="<?=ROOT?>/assets/images/rushinpics/pics/feed/bell.png">
-            <img class="active" src="<?=ROOT?>/assets/images/rushinpics/pics/feed\active.png"> 
-            <img class="profile" src="<?=ROOT?>/assets/images/rushinpics/pics/feed\profilepic.png"> 
-        </div>
-        <div class="item item2">
-          <img class="line2"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed\line.png">
-          <label class="Menu">Menu</label>
+            <?php require APPROOT."/view/searchbarbuyer2.php"?>
 
-            <a href="todo.php"><button class="Feed">To Do</button></a>
-            <img class="Feed1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/todo.png">
-            <a href="Deliverydoing"><button class="Bidding">Doing</button></a>
-            <img class="Bidding1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/doing.png">
-            <a href="Deliverydone"><button class="Wishlist">Done</button></a>
-            <img class="Wishlist1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/done.png">
-            <a href="Deliveryfee"><button class="Requests">Fee</button></a>
-            <img class="Requests1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/fee.png">
+        <div class="content">
+            <div class="leftbar">
+                <!-- <a href="#home"><i class="fa fa-rss"></i> Feed</a>
+                <a href="#services"><i class="fa fa-dollar"></i> Bidding</a>
+                <a href="#clients"><i class="fa fa-bookmark-o"></i> Wishlist</a>
+                <a href="#contact"><i class="fa fa-flag-o"></i> Requests</a> -->
 
-            <img class="line1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed\line.png">
-            <label class="Message">Message</label>
+                <div class="menu">
+                  <!-- <hr><label >Menu</label><br> -->
+                  <hr><p>Menu</p><br>
+                  <button onclick="document.location='view1'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span>To Do</span></button><br>
+                  <button onclick="document.location='../deliverydoing'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
+                  <button onclick="document.location='../deliverydone'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
+                  <button onclick="document.location='../deliveryfee'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
+              </div>
+              <div class="message">
+                  <!-- <hr><label>Message</label> -->
+                  <hr><p>Message</p><br>
+                  <!-- <img class="message-bar" src="images/message-bar.png"> -->
+                  <div class="message-box">
+                       <?php require APPROOT."/controller/Chat.php";
+                       $userController = new Chat();
+                       $userController->viewperson();
+                       
+                       ?>
+                          
+                  
 
-            <div class="box" style="background-color:#FFFFFF; width: 130px; height:100px; border: 1px solid rgb(16, 17, 16); padding: 40px; margin-top: 370px;">
-                <img class="man1" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
-                <p class="nam1">Vimukthi Dulnath</p>
+                  </div>
+              </div>
 
-                <img class="man2" src="<?=ROOT?>/assets/images/rushinpics/pics/man2.png">
-                <p class="nam2">Praneeth Silva</p>
-
-                <img class="man3" src="<?=ROOT?>/assets/images/rushinpics/pics/man3.png">
-                <p class="nam3">Rushin Sandeepana</p>
-
-                <img class="man4" src="<?=ROOT?>/assets/images/rushinpics/pics/man4.png">
-                <p class="nam4">Janith Hesara</p>
             </div>
-            <button type="button" class="Allmsg">All Messages</button>
-        </div>
-        <div class="item item3">
-            <div class="scroll-div">
-            
-                <div class="containerx">
+            <div class="main">
+            <div class="containerx">
                     <div class="item item-1">
                       <img class="profile-pic" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
-                      <p class="nam">Pamith Welikala</p><br>
+                      <?php if($data) :    ?>
+                            <?php foreach ($data as $row) :
+                               ?>
+                      <p class="nam"><?php echo $row->first_name ?>
+                                     <?php echo $row->last_name ?></p><br>
                       <p class="date">3 September 2022</p>
 
                     </div>
                     <div class="item item-2">
-                    <h2 class="head">Pamith Welikala&nbsp wants to deliver&nbsp Papaya &nbsp 2 &nbspKgs &nbsp<br>from Godagama &nbsp to Thalawathugoda &nbsp</h2>
+                    <h2 class="head"><?php echo $row->first_name ?> <?php echo $row->last_name  ?>&nbsp wants to deliver&nbsp <?php echo $row->item_name ?> &nbsp <?php  echo $row->amount; ?> &nbsp<?php  echo $row->unit; ?> &nbsp<br>from <?php  echo $row->fro; ?> &nbsp to <?php  echo $row->too; ?> &nbsp</h2>
 
                       <table class="table">
 
                         <tr>
                           <td>Item:</td>
-                          <td><font color="#0C7417">Papaya</td>
+                          <td><font color="#0C7417"><?php echo $row->item_name ?></td>
                         </tr>
 
                         <tr>
                           <td>Amount:</td>
-                          <td><font color="#0C7417">2KG</td> 
+                          <td><font color="#0C7417"><?php  echo $row->amount ?><?php  echo $row->unit; ?></td> 
                         </tr>
 
                         
                         <tr>
                           <td>From:</td>
-                          <td><font color="#0C7417">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td> 
+                          <td><font color="#0C7417"><?php  echo $row->fro; ?></td> 
                         </tr>
 
                         
                         <tr>
                           <td>To:</td>
-                          <td><font color="#0C7417">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td> 
+                          <td><font color="#0C7417"><?php  echo $row->too; ?> </td> 
                         </tr>                        
                         <tr>
                           <td>Fee:</td>
@@ -91,7 +99,7 @@
                         
                         <tr>
                           <td>Vehicle Type:</td>
-                          <td><font color="#0C7417">Motocycle</td> 
+                          <td><font color="#0C7417"><?php  echo $row->vname; ?> </td> 
                         </tr>
                       </table>
 
@@ -99,10 +107,51 @@
                       <button class="Discard btn2">Discard &nbsp &#xf014 </button>
                     </div>
               
-                  </div>                
-                 
+                  </div> 
+                  <?php endforeach; ?>
+                          
+                        <?php endif;?>               
             </div>
         </div>
+        
     </div>
+
+    <?php
+    $crop_list='';
+    $item = new item;
+    $rows3 = $item->findAll();
+    foreach($rows3 as $result){
+      $crop_list .="<option value=\"{$result->item_id}\">{$result->name}</option>";
+
+    }
+    ?>
+
+
+<script>
+  document.getElementById('plus').addEventListener("click", function() {
+	document.querySelector('.bg-modal-4').style.display = "flex";
+});
+
+document.querySelector('.close').addEventListener("click", function() {
+	document.querySelector('.bg-modal-4').style.display = "none";
+
+});
+
+
+// function delete1(){
+
+// const images = document.querySelectorAll('.delete');
+// images.forEach(function(image) {
+//   image.addEventListener('click', function() {
+//     const id = this.id;
+//     window.location.href = 'delete?id='+id;
+//   });
+// });
+
+// }
+</script>
+    <script src="<?=ROOT?>/assets/js/notification.js"></script> 
+    
 </body>
+
 </html>

@@ -2,51 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fee</title>
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliveryfee.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deliveryfee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliveryfee1.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
 </head>
 <body>
+
+
+
     <div class="container">
-        <div class="item item1">
-            <img class="logo" src="<?=ROOT?>/assets/images/rushinpics/pics/logo.png">
-            <input class="Search" type="textbox" placeholder="Search">
-            <img class="Search1"  src="<?=ROOT?>/assets/images/rushinpics/pics\feed\search.png">
-            <img class="bell" src="<?=ROOT?>/assets/images/rushinpics/pics\feed\bell.png">
-            <img class="active" src="<?=ROOT?>/assets/images/rushinpics/pics\feed\active.png"> 
-            <img class="profile" src="<?=ROOT?>/assets/images/rushinpics/pics\feed\profilepic.png"> 
-        </div>
-        <div class="item item2">
-            <img class="line2"  src="<?=ROOT?>/assets/images/rushinpics/pics\feed\line.png">
-            <label class="Menu">Menu</label>
+            <?php require APPROOT."/view/searchbarbuyer2.php"?>
 
-            <a href="Deliverytodo"><button class="Feed">To Do</button></a>
-            <img class="Feed1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/todo.png">
-            <a href="Deliverydoing"><button class="Bidding">Doing</button></a>
-            <img class="Bidding1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/doing.png">
-            <a href="Deliverydone"><button class="Wishlist">Done</button></a>
-            <img class="Wishlist1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/done.png">
-            <a href="Deliveryfee"><button class="Requests">Fee</button></a>
-            <img class="Requests1"  src="<?=ROOT?>/assets/images/rushinpics/pics/feed/fee.png">
+        <div class="content">
+            <div class="leftbar">
+                <!-- <a href="#home"><i class="fa fa-rss"></i> Feed</a>
+                <a href="#services"><i class="fa fa-dollar"></i> Bidding</a>
+                <a href="#clients"><i class="fa fa-bookmark-o"></i> Wishlist</a>
+                <a href="#contact"><i class="fa fa-flag-o"></i> Requests</a> -->
 
-            <img class="line1"  src="<?=ROOT?>/assets/images/rushinpics/pics\feed\line.png">
-            <label class="Message">Message</label>
+                <div class="menu">
+                  <!-- <hr><label >Menu</label><br> -->
+                  <hr><p>Menu</p><br>
+                  <button onclick="document.location='deliverytodo/view1'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> To Do</span></button><br>
+                  <button onclick="document.location='deliverydoing'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
+                  <button onclick="document.location='deliverydone'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
+                  <button onclick="document.location='deliveryfee'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
+              </div>
+              <div class="message">
+                  <!-- <hr><label>Message</label> -->
+                  <hr><p>Message</p><br>
+                  <!-- <img class="message-bar" src="images/message-bar.png"> -->
+                  <div class="message-box">
+                       <?php require APPROOT."/controller/Chat.php";
+                       $userController = new Chat();
+                       $userController->viewperson();
+                       
+                       ?>
+                          
+                  
 
-            <div class="box" style="background-color:#FFFFFF; width: 130px; height:100px; border: 1px solid rgb(16, 17, 16); padding: 40px; margin-top: 370px;">
-                <img class="man1" src="<?=ROOT?>/assets/images/rushinpics/pics/man1.png">
-                <p class="nam1">Vimukthi Dulnath</p>
+                  
 
-                <img class="man2" src="<?=ROOT?>/assets/images/rushinpics/pics/man2.png">
-                <p class="nam2">Praneeth Silva</p>
+                  </div>
+              </div>
 
-                <img class="man3" src="<?=ROOT?>/assets/images/rushinpics/pics/man3.png">
-                <p class="nam3">Rushin Sandeepana</p>
-
-                <img class="man4" src="<?=ROOT?>/assets/images/rushinpics/pics/man4.png">
-                <p class="nam4">Janith Hesara</p>
             </div>
-            <button type="button" class="Allmsg">All Messages</button>
-        </div>
-        <div class="item item3">
+            <div class="main">
+            <div class="item item3">
             <div class="To">
                 <label for="to">To <span style="color:red">&#9913 </span></label><br>
                 <!-- <input type="text" id="name" name="to" placeholder="Pick up location" class="tb1"> -->
@@ -93,7 +102,40 @@
             </div>
 
         </div>
+            </div>
         </div>
+        
     </div>
+
+
+    <script>
+          // Get the modal
+      var modal = document.getElementById("modal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("closeBtn")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+    </script>
 </body>
+
 </html>

@@ -7,7 +7,7 @@ class Checkout{
     public function index(){
 
         $this->view('checkout');
-    }
 
+    }  
 }
 
