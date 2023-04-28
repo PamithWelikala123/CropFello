@@ -233,10 +233,11 @@
 }
 
 .main {
+    
     /* margin-left: 160px; */
     /* Same as the width of the sidenav */
     /* padding: 0px 10px; */
-
+    
     width: 100%;
     height: calc(100vh - 50px);
 }
@@ -245,7 +246,9 @@
     /* overflow: hidden; */
     overflow-y: scroll;
     height: 100%;
-    margin-left: 8%;
+    margin-left: 5%;
+    
+    
 }
 
 @media screen and (max-height: 450px) {
