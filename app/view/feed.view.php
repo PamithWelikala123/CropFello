@@ -14,10 +14,19 @@
  </head>
 <body>
 
-
+<?php
+$_SESSION['filename'] = 'feed';
+?>
 
     <div class="container">
-            <?php require APPROOT."/view/searchbarbuyer2.php"?>
+
+
+              <?php
+        
+            require APPROOT."/view/searchbarbuyer2.php";
+          
+          ?>
+
 
         <div class="content">
             <div class="leftbar">
@@ -97,7 +106,13 @@
                                                                     </div> 
                                                         <?php endif; ?>
                                               <?php endforeach; ?>
-                                <?php endif; ?>
+                               
+                                <?php else : ?>
+                                  <p>Items are unavailable Right now</p>
+                                  <?php endif; ?>
+
+
+
                     </div>
               </div>
         
@@ -109,6 +124,9 @@
 
   </body>
   <script>
+
+
+
 const images = document.querySelectorAll('.img');
   images.forEach(function(image) {
     image.addEventListener('click', function() {
@@ -116,6 +134,8 @@ const images = document.querySelectorAll('.img');
       window.location.href = '../feed/viewitems?id='+id;
     });
   });
+
+
 
 </script>
 </html>
