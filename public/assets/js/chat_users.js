@@ -25,7 +25,8 @@ searchIcon.onclick = ()=>{
 
 searchBar.onkeyup = ()=>{
   let searchTerm = searchBar.value;
-  
+  console.log("Pamith");
+
   if(searchTerm != ""){
     searchBar.classList.add("active");
   }else{

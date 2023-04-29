@@ -126,6 +126,8 @@
                                                         <h2>Enter your bid value</h2>
                                                         <p>Current bid value: RS <?=$row->current_value?>.00</p>
                                                         <p>Minimum bid value: RS <?=$row->bid_range?>.00</p>
+                                                        <div class="output" id="output"></div>
+                                                        <div class="output2" id="output2"></div>
                                                       </div>
                                                       
                                                       <div class="modal-body" id='modal-body-<?=$row->post_id?>'>
@@ -178,16 +180,66 @@
               modal = document.getElementById('modal-' + image['id']);
               modal.style.display = "block";
               let id = image['id'];
-              //console.log(image['id']);
+
+
+
+                                    const searchBar = modal.querySelector(".modal-body input");
+                                    const outputDiv = document.getElementById("output");
+                                    const outputDiv2 = document.getElementById("output2");
+                                    
+                                  
+                                    const currentBidText = modal.querySelector(".modal-header p:first-of-type").textContent;
+                                    const currentBidValue = currentBidText.match(/\d+(\.\d+)?/)[0];
+                                    let currentBidValueInt = parseInt(currentBidValue);
+
+                                    const currentBidRangeText = modal.querySelector(".modal-header p:nth-of-type(2)").textContent;
+                                    const currentBidRangeValue = currentBidRangeText.match(/\d+(\.\d+)?/)[0];
+                                    const currentBidRangeValueInt = parseInt(currentBidRangeValue);
+
+                                    currentBidValueInt=currentBidValueInt+currentBidRangeValueInt-1;
+
+
+                                    //const bidbutton = document.querySelector(".js-bid-now-btn");
+                                    searchBar.focus();
+                                      searchBar.addEventListener("keyup", () => {
+                                        let searchTerm = searchBar.value;
+
+                                        console.log(currentBidValueInt);
+                                        console.log(currentBidValue);
+                                        console.log(currentBidRangeValue);
+
+                                        if(searchTerm == ""){
+                                          const result = " ";
+                                        outputDiv.textContent = result;
+                                        outputDiv2.textContent = result;
+                                        }
+
+
+
+                                        else if(isNaN(searchTerm)){
+                                        const result = " ";
+                                        outputDiv.textContent = result;
+                                        outputDiv2.textContent = result;
+                                        }
+
+
+                                        else if(searchTerm<=currentBidValueInt){
+                                        const result = searchTerm;
+                                        outputDiv.textContent = "Try higher amount Than  " + result+" .00";
+                                        outputDiv2.textContent = " ";
+                                        }
+                                        else{
+                                          const result = searchTerm;
+                                        outputDiv.textContent = " ";
+                                        outputDiv2.textContent =  result+" .00 Is Acceptable";
+                                        }
+                                        
+                                      });
+                                        
 
             });
           });
-        
 
-
-
-
-            
             //var span = document.getElementsByClassName('closeBtn')[1];
             var closeBtns = document.querySelectorAll('.closeBtn');
               closeBtns.forEach(function(span) {
@@ -204,48 +256,12 @@
             }
 
         
-
-
-          //   window.onload = function () {
-                
-          //       const images = document.querySelectorAll('.time1');
-          //       images.forEach(function(image) {
-          //         var display = document.querySelector('#time-'+image.id.split('-')[1]);
-                 
-          //        var Minutes = 60 * <?php echo $minutes?>;
-          //         startTimer(Minutes, display);
-          //       });
-          //     };
-
-
-
-              
-
-          // function startTimer(duration, display) {
-          //   var start = Date.now();
             
-          //   function updateDisplay() {
-          //     var diff = getDiffInSeconds();
-          //     var minutes = padNumber(Math.floor(diff / 60));
-          //     var seconds = padNumber(diff % 60);
-          //     display.textContent = minutes + ":" + seconds;
-          //   }
-            
-          //   function getDiffInSeconds() {
-          //     return duration - Math.floor((Date.now() - start) / 1000);
-          //   }
-            
-          //   function padNumber(num) {
-          //     return num < 10 ? "0" + num : num;
-          //   }
-            
-          //   function restartTimer() {
-          //     start = Date.now() + 1000;
-          //   }
-            
-          //   updateDisplay();
-          //   setInterval(updateDisplay, 1000);
-          // }
+
+
+
+
+  
 
 
 
@@ -254,12 +270,19 @@
 
     </script> 
 
-
-
     <script type="text/javascript">var name = "<?= $name ?>";</script> 
-    <!-- <script type="text/javascript" src="<?=ROOT?>/assets/js/buyerbidding.js"></script> -->
 
 
+    <script>
+
+
+
+
+  // searchBar.addEventListener("keyup", () => {
+  //   let searchTerm = searchBar.value;
+  //   console.log("Pamith");
+  // });
+</script>
 
 </body>
 
