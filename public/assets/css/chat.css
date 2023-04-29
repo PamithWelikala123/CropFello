@@ -1,22 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
-}
-body{
+}*/
+
+.body-chatsystem{
+  
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: #f7f7f7;
+  min-height: 60vh;
   padding: 0 10px;
+}  
+.search-bar{
+  display: none;
 }
-.wrapper{
+
+.wrapper-chatsystem{
+  margin-top: 5%;
   background: #fff;
-  max-width: 450px;
+  max-width: 80%;
   width: 100%;
   border-radius: 16px;
   box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
@@ -114,11 +120,11 @@ body{
 
 
 /* Users List CSS Start */
-.users{
+.users-chatsystem{
   padding: 25px 30px;
 }
-.users header,
-.users-list a{
+.users-chatsystem header,
+.users-list-chatsystem a{
   display: flex;
   align-items: center;
   padding-bottom: 20px;
@@ -127,28 +133,27 @@ body{
 }
 
 
-
-.wrapper img{
+.wrapper-chatsystem img{
   object-fit: cover;
   border-radius: 50%;
 }
-.users header img{
+.users-chatsystem header img{
   height: 50px;
   width: 50px;
 }
-:is(.users, .users-list) .content{
+:is(.users-chatsystem, .users-list-chatsystem) .content-chatsystem{
   display: flex;
   align-items: center;
 }
-:is(.users, .users-list) .content .details{
+:is(.users-chatsystem, .users-list-chatsystem) .content-chatsystem .details-chatsystem{
   color: #000;
   margin-left: 20px;
 }
-:is(.users, .users-list) .details span{
+:is(.users-chatsystem, .users-list-chatsystem) .details-chatsystem span{
   font-size: 18px;
   font-weight: 500;
 }
-.users header .logout{
+.users-chatsystem header .logout-chatsystem{
   display: block;
   background: #333;
   color: #fff;
@@ -159,17 +164,17 @@ body{
   border-radius: 5px;
   font-size: 17px;
 }
-.users .search{
+.users-chatsystem .search-chatsystem{
   margin: 20px 0;
   display: flex;
   position: relative;
   align-items: center;
   justify-content: space-between;
 }
-.users .search .text{
+.users-chatsystem .search-chatsystem .text-chatsystem{
   font-size: 18px;
 }
-.users .search input{
+.users-chatsystem .search-chatsystem input{
   position: absolute;
   height: 42px;
   width: calc(100% - 50px);
@@ -182,11 +187,11 @@ body{
   pointer-events: none;
   transition: all 0.2s ease;
 }
-.users .search input.show{
+.users-chatsystem .search-chatsystem input.show{
   opacity: 1;
   pointer-events: auto;
 }
-.users .search button{
+.users-chatsystem .search-chatsystem button{
   position: relative;
   z-index: 1;
   width: 47px;
@@ -200,66 +205,67 @@ body{
   border-radius: 0 5px 5px 0;
   transition: all 0.2s ease;
 }
-.users .search button.active{
+.users-chatsystem .search-chatsystem button.active{
   background: #333;
   color: #fff;
 }
-.search button.active i::before{
+.search-chatsystem button.active i::before{
   content: '\f00d';
 }
-.users-list{
+.users-list-chatsystem{
   max-height: 350px;
   overflow-y: auto;
 }
-:is(.users-list, .chat-box)::-webkit-scrollbar{
+:is(.users-list-chatsystem, .chat-box-chatsystem)::-webkit-scrollbar{
   width: 0px;
 }
-.users-list a{
+.users-list-chatsystem a{
   padding-bottom: 10px;
   margin-bottom: 15px;
   padding-right: 15px;
   border-bottom-color: #f1f1f1;
 }
-.users-list a:last-child{
+.users-list-chatsystem a:last-child{
   margin-bottom: 0px;
   border-bottom: none;
 }
-.users-list a img{
+.users-list-chatsystem a img{
   height: 40px;
   width: 40px;
 }
-.users-list a .details p{
+.users-list-chatsystem a .details-chatsystem p{
   color: #67676a;
 }
-.users-list a .status-dot{
+.users-list-chatsystem a .status-dot-chatsystem{
   font-size: 12px;
   color: #468669;
   padding-left: 10px;
 }
-.users-list a .status-dot.offline{
+.users-list a .status-dot-chatsystem.offline{
   color: #ccc;
 }
 
 /* Chat Area CSS Start */
-.chat-area header{
+
+.chat-area-chatsystem header{
   display: flex;
   align-items: center;
   padding: 18px 30px;
 }
-.chat-area header .back-icon{
+.chat-area-chatsystem header .back-icon{
   color: #333;
   font-size: 18px;
 }
-.chat-area header img{
+.chat-area-chatsystem header img{
   height: 45px;
   width: 45px;
   margin: 0 15px;
 }
-.chat-area header .details span{
+.chat-area-chatsystem header .details-chatsystem span{
   font-size: 17px;
   font-weight: 500;
 }
-.chat-box{
+.chat-box-chatsystem{
   position: relative;
   min-height: 500px;
   max-height: 500px;
@@ -269,7 +275,7 @@ body{
   box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
               inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
 }
-.chat-box .text{
+.chat-box-chatsystem .text-chatsystem{
   position: absolute;
   top: 45%;
   left: 50%;
@@ -277,51 +283,51 @@ body{
   text-align: center;
   transform: translate(-50%, -50%);
 }
-.chat-box .chat{
+.chat-box-chatsystem .chat-chatsystem{
   margin: 15px 0;
 }
-.chat-box .chat p{
+.chat-box-chatsystem .chat-chatsystem p{
   word-wrap: break-word;
   padding: 8px 16px;
   box-shadow: 0 0 32px rgb(0 0 0 / 8%),
               0rem 16px 16px -16px rgb(0 0 0 / 10%);
 }
-.chat-box .outgoing{
+.chat-box-chatsystem .outgoing-chatsystem{
   display: flex;
 }
-.chat-box .outgoing .details{
+.chat-box-chatsystem .outgoing-chatsystem .details-chatsystem{
   margin-left: auto;
   max-width: calc(100% - 130px);
 }
-.outgoing .details p{
+.outgoing-chatsystem .details-chatsystem p{
   background: #3fc01f;
   color: rgb(0, 0, 0);
   border-radius: 18px 18px 0 18px;
 }
-.chat-box .incoming{
+.chat-box-chatsystem .incoming-chatsystem{
   display: flex;
   align-items: flex-end;
 }
-.chat-box .incoming img{
+.chat-box-chatsystem .incoming-chatsystem img{
   height: 35px;
   width: 35px;
 }
-.chat-box .incoming .details{
+.chat-box-chatsystem .incoming-chatsystem .details-chatsystem{
   margin-right: auto;
   margin-left: 10px;
   max-width: calc(100% - 130px);
 }
-.incoming .details p{
+.incoming-chatsystem .details-chatsystem p{
   background: rgb(255, 255, 255);
   color:  #2a7d15;
   border-radius: 18px 18px 18px 0;
 }
-.typing-area{
+.typing-area-chatsystem{
   padding: 18px 30px;
   display: flex;
   justify-content: space-between;
 }
-.typing-area input{
+.typing-area-chatsystem input{
   height: 45px;
   width: calc(100% - 58px);
   font-size: 16px;
@@ -330,7 +336,7 @@ body{
   outline: none;
   border-radius: 5px 0 0 5px;
 }
-.typing-area button{
+.typing-area-chatsystem button{
   color: rgb(0, 0, 0);
   width: 55px;
   border: none;
@@ -343,73 +349,80 @@ body{
   border-radius: 0 5px 5px 0;
   transition: all 0.3s ease;
 }
-.typing-area button.active{
+.typing-area-chatsystem button.active{
   opacity: 1;
   pointer-events: auto;
 }
 
 /* Responive media query */
 @media screen and (max-width: 450px) {
-  .form, .users{
+  .form, .users-chatsystem{
     padding: 20px;
   }
   .form header{
     text-align: center;
   }
-  .form form .name-details{
+  .form form .name-details-chatsystem{
     flex-direction: column;
   }
-  .form .name-details .field:first-child{
+  .form .name-details-chatsystem .field:first-child{
     margin-right: 0px;
   }
-  .form .name-details .field:last-child{
+  .form .name-details-chatsystem .field:last-child{
     margin-left: 0px;
   }
 
-  .users header img{
+  .users-chatsystem header img{
     height: 45px;
     width: 45px;
   }
-  .users header .logout{
+  .users-chatsystem header .logout{
     padding: 6px 10px;
     font-size: 16px;
   }
-  :is(.users, .users-list) .content .details{
+  :is(.users-chatsystem, .users-list-chatsystem) .content-chatsystem .details-chatsystem{
     margin-left: 15px;
   }
 
-  .users-list a{
+  .users-list-chatsystem a{
     padding-right: 10px;
   }
 
-  .chat-area header{
+  .chat-area-chatsystem header{
     padding: 15px 20px;
   }
-  .chat-box{
+  .chat-box-chatsystem{
     min-height: 400px;
     padding: 10px 15px 15px 20px;
   }
-  .chat-box .chat p{
+  .chat-box-chatsystem .chat p{
     font-size: 15px;
   }
-  .chat-box .outogoing .details{
+  .chat-box-chatsystem .outogoing-chatsystem .details{
     max-width: 230px;
   }
-  .chat-box .incoming .details{
+  .chat-box-chatsystem .incoming-chatsystem .details{
     max-width: 265px;
   }
-  .incoming .details img{
+  .incoming-chatsystem .details-chatsystem img{
     height: 30px;
     width: 30px;
   }
-  .chat-area form{
+  .chat-area-chatsystem form{
     padding: 20px;
   }
-  .chat-area form input{
+  .chat-area-chatsystem form input{
     height: 40px;
     width: calc(100% - 48px);
   }
-  .chat-area form button{
+  .chat-area-chatsystem form button{
     width: 45px;
   }
+}
+
+
+.logo2{
+  width:30%;
+  border-radius: 0%;
+  margin-left:2%; 
 }
