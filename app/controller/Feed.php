@@ -72,5 +72,34 @@ class Feed{
       
     }
 
+
+
+
+    public function search(){
+      $word=$_GET['search'];
+      $item = new item;
+      $postitem = new postitems;
+      $rows1=$item->searchitem('item',$word);
+      $rowsx = array();
+
+      if (!empty($rows1)) {
+        foreach ($rows1 as $row1) {
+          // $row1->item_name = $row1->name;
+               $arrx1['item_id']=$row1->item_id;
+              $rowsx=$postitem->where($arrx1);
+             
+              foreach ($rowsx as $row) {
+                   $row->item_name = $row1->name;
+              }
+         }
+   
+         $this->view('feed',$rowsx);
+      } else {
+        $this->view('feed');
+      }
+
+      
+
+    }
 }
 

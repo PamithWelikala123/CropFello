@@ -14,7 +14,10 @@
 
 </head>
 <body>
-   
+<?php
+$filename = $_SESSION['filename'];
+echo "<script>console.log('Filename: ".$filename."');</script>";
+?> 
         <div class="topnav">
 
                 <div class="logo">
@@ -39,8 +42,12 @@
                     <button type="submit"><i class="fa fa-search"></i></button>
                   </form> -->
                   <div class="search-bar">
-                    <input type="text" placeholder="Search">
-                    <button type="submit"><i class="fa fa-search class1"></i></button>
+
+                  <form action="../<?=$filename?>/search">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+
                   </div>
                 <!-- </div> -->
         </div>
