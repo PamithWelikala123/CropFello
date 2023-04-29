@@ -112,14 +112,14 @@ class Chat{
        ($id == $row->user_id) ? $hid_me = "hide" : $hid_me = "";
 
         $output .= '<a href="chat1?user_id='. $row->user_id .'">
-                    <div class="content">
+                    <div class="content-chatsystem">
                     <img src="'.ROOT.'/assets/images/Profile_pic/'.$row->image.'"  alt="">
-                    <div class="details">
+                    <div class="details-chatsystem">
                         <span>'. $row->first_name. " " . $row->last_name .'</span>
                         <p>'. $you . $msg .'</p>
                     </div>
                     </div>
-                    <div class="status-dot '. $offline .'"><i class="fas fa-circle"></i></div>
+                    <div class="status-dot-chatsystem '. $offline .'"><i class="fas fa-circle"></i></div>
                 </a>';
         echo $output;
             
@@ -167,15 +167,15 @@ class Chat{
 
         foreach($rows as $row){
             if($row->outgoing_msg_id === $outgoing_id){
-                $output .= '<div class="chat outgoing">
-                            <div class="details">
+                $output .= '<div class="chat-chatsystem outgoing-chatsystem">
+                            <div class="details-chatsystem">
                                 <p>'. $row->msg .'</p>
                             </div>
                             </div>';
             }else{
-                $output .= '<div class="chat incoming">
+                $output .= '<div class="chat-chatsystem incoming-chatsystem">
                             <img src="'.ROOT.'/assets/images/Profile_pic/'.$row1->image.'" alt="">
-                            <div class="details">
+                            <div class="details-chatsystem">
                                 <p>'. $row->msg .'</p>
                             </div>
                             </div>';
@@ -183,7 +183,7 @@ class Chat{
         }
         }
         else{
-            $output .= '<div class="text">No messages are available. Once you send message they will appear here.</div>';
+            $output .= '<div class="text-chatsystem">No messages are available. Once you send message they will appear here.</div>';
         }
         echo $output;
 
@@ -214,9 +214,8 @@ class Chat{
         }
     }
 
-
-
 }
+
 
 
 

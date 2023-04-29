@@ -40,7 +40,7 @@
                   </form> -->
                   <div class="search-bar">
                     <input type="text" placeholder="Search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit"><i class="fa fa-search class1"></i></button>
                   </div>
                 <!-- </div> -->
         </div>

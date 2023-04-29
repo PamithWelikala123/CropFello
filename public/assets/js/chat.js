@@ -1,9 +1,9 @@
-const form = document.querySelector(".typing-area"),
-incoming_id = form.querySelector(".incoming_id").value,
+const form = document.querySelector(".typing-area-chatsystem"),
+incoming_id = form.querySelector(".incoming_id-chatsystem").value,
 
-inputField = form.querySelector(".input-field"),
+inputField = form.querySelector(".input-field-chatsystem"),
 sendBtn = form.querySelector("button"),
-chatBox = document.querySelector(".chat-box");
+chatBox = document.querySelector(".chat-box-chatsystem");
 
 
 // The first line selects the HTML element with the class name "typing-area" and assigns it to the variable form.
