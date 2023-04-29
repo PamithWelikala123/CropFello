@@ -20,6 +20,7 @@
   left: 0;
   right: 0;
   background-color: #090909;
+  opacity: 80%;
   overflow: hidden;
   width: 200px;
   border-radius: 15px;
@@ -34,7 +35,7 @@
 
 .text {
   white-space: nowrap; 
-  color:#4DEA25;
+  color:#ffffff;
   font-size: 20px;
   position: absolute;
   overflow: hidden;
