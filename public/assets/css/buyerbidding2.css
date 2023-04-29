@@ -278,7 +278,7 @@
     border-radius: 5%;
     border: 1px solid #888;
     width: 450px; /* Set the width to 661px */
-    height: 200px; /* Set the height to 249px */
+    height: 400px; /* Set the height to 249px */
   }
   
   /* The Close Button */
@@ -371,5 +371,17 @@
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
+  }
+
+
+  .output{
+    color: #FB7A7A;
+
+    font-size: 90%;
+  }
+
+  .output2{
+    color: #0EBC1F;
+    font-size: 90%;
   }
   
