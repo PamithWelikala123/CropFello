@@ -66,7 +66,7 @@
 
                     </div>
                     <div class="item item-2">
-                    <h2 class="head"><?php echo $row->first_name ?> <?php echo $row->last_name  ?>&nbsp wants to deliver&nbsp <?php echo $row->item_name ?> &nbsp <?php  echo $row->amount; ?> &nbsp<?php  echo $row->unit; ?> &nbsp<br>from <?php  echo $row->fro; ?> &nbsp to <?php  echo $row->too; ?> &nbsp</h2>
+                    <h2 class="head"> <?php echo $row->first_name ?><?php echo $row->last_name  ?>&nbsp wants to deliver&nbsp <?php echo $row->item_name ?> &nbsp <?php  echo $row->amount; ?> &nbsp<?php  echo $row->unit; ?> &nbsp<br>from <?php  echo $row->fro; ?> &nbsp to <?php  echo $row->too; ?> &nbsp</h2>
 
                       <table class="table">
 
@@ -104,7 +104,7 @@
                       </table>
 
                       <button class="Approve btn1">Approve &nbsp  &#10004</button>
-                      <button class="Discard btn2">Discard &nbsp &#xf014 </button>
+                      <button class="Discard btn2">Discard &nbsp &#xf00d </button>
                     </div>
               
                   </div> 
