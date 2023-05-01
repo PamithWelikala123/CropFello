@@ -378,7 +378,7 @@
 
 
 
-
+/* 
 
 
 .post {
@@ -400,7 +400,7 @@
   
   .upper-left {
     width: 20%;
-    /* padding-bottom: 10%; */
+
     position: relative;
 
   }
@@ -474,4 +474,153 @@
     color: #a3a2a2;
   }
 
+   */
+
+
+   /* Default styles */
+.post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 20%;
+    margin: 10%;
+  }
+  
+  .left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  
+  .upper-left {
+    width: 20%;
+    position: relative;
+  }
+  
+  .upper-left img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 10px;
+    width: 130px;
+    height: 130px;
+  }
+  
+  .upper-right h2,p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: right;
+  }
+  
+  .lower {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .right {
+    width: 60%;
+    text-align: left;
+    margin-left: 20px;
+    border-left: 1px solid rgb(215, 215, 215);
+    padding-left: 5%;
+    left: 0;
+  }
+  
+  .upper-right span{
+    font-size: small;
+  }
+  
+  .green {
+    color: #0EBC1F;
+  }
+  
+  .exp{
+    color: #FB7A7A;
+    line-height: 0cm
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+  }
+  
+  .post .right button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 20px;
+  }
+  
+  .request-deliverer {
+    background-color: #DBFBD3;
+    color: #000000;
+  }
+  
+  .proceed-to-checkout {
+    background-color: #ebfde7;
+    color: #a3a2a2;
+  }
+  
+  /* Media queries for responsive layout */
+  @media only screen and (max-width: 768px) {
+    .post {
+      flex-direction: column;
+      height: auto;
+      margin: 5%;
+      padding: 10px;
+    }
+  
+    .left {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .right {
+      width: 100%;
+      margin-left: 0;
+      border-left: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+  
+    .upper-left {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .upper-left img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        border-radius: 10px;
+        width: 100px;
+        height: 100px;
+      }
+  
+    .upper-right {
+      text-align: center;
+    }
+  
+    .upper-right h2 {
+      font-size: 1.5rem;
+    }
+  
+    .lower {
+      font-size: 12px;
+    }
+  
+    .post .right button {
+      padding: 10px;
+      font-size: 12px;
+      margin-right: 10px;
+    }
+  }
   
