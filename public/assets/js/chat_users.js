@@ -1,7 +1,7 @@
 
-const searchBar = document.querySelector(".search input"),
-searchIcon = document.querySelector(".search button"),
-usersList = document.querySelector(".users-list");
+const searchBar = document.querySelector(".search-chatsystem input"),
+searchIcon = document.querySelector(".search-chatsystem button"),
+usersList = document.querySelector(".users-list-chatsystem");
 
 
 
@@ -25,7 +25,8 @@ searchIcon.onclick = ()=>{
 
 searchBar.onkeyup = ()=>{
   let searchTerm = searchBar.value;
-  
+  console.log("Pamith");
+
   if(searchTerm != ""){
     searchBar.classList.add("active");
   }else{

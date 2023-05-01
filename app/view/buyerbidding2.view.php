@@ -63,72 +63,89 @@
             <div class="main">
                 <div class="page-selector">
                     <button class="active" onclick="window.location.href = '../bidding/BuyerBidding';">All</button>
-                    <button onclick="window.location.href = '../bidding/mybid';">My Bids</button>
+                    <button onclick="window.location.href = '../bidding/BuyerBiddingmybid';">My Bids</button>
                 </div>
                 <?php if($data) :    ?>   
                 <div class="main-content">
 
                 <?php foreach ($data as $row) : ?>
-                    <div class="bidding-post">
-                        <div class="image">
-                          <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
-                        </div>
-                        <div class="info">
-                          <div class="name-size-place">
-                            <label><span style="color: #000000;"><?=$row->item_name?>&nbsp; </span><?=$row->amount?> <?=$row->amount_type?></label><br>
-                            <p><img src="images/map-pin.svg" alt="">&nbsp; <?=$row->city?></p>
-                          </div>
-                          <div class="price">
-                            <h5 class="initial-price">RS <?=$row->initial_price?></h5>
-                            <h3 class="current-price"><img src="images/green-circle.svg" alt=""> RS <?=$row->current_value?></h3>
-                          </div>
-                          <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
-                          <div class="days">
-                            <p class="remain"><?=$row->remaning?> days remaining</p>
-                            <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
-                            
-                            
-                            <?php
-                                  $hours= $row->hours; 
-                                   $minutes=$row->minutes;
-                                   $day=$row->day;
-                            ?>
+                                  <div class="bidding-post">
+                                                                          <div class="image">
+                                                                            <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
+                                                                          </div>
 
 
-                            <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
-                          </div>
+                                                              <div class="info">
+                                                                          <div class="name-size-place">
+                                                                            <label><span style="color: #000000;"><?=$row->item_name?>&nbsp; </span><?=$row->amount?> <?=$row->amount_type?></label><br>
+                                                                            <p><img src="images/map-pin.svg" alt="">&nbsp; <?=$row->city?></p>
+                                                                          </div>
+ 
 
-                          <div class="bid-now">
-                          <button id="<?=$row->post_id?>" class="js-bid-now-btn">Bid Now</button>
-                          </div>
-                        </div>
-                      </div>
+                                                                          <div class="price">
+                                                                            <h5 class="initial-price">RS <?=$row->initial_price?>.00</h5>
+                                                                            <h3 class="current-price"><img src="images/green-circle.svg" alt=""> RS <?=$row->current_value?>.00</h3>
+                                                                          </div>
 
-                      <div id="modal-<?=$row->post_id?>" class="modal">
-                            <div class="modal-content">
-                              <div class="modal-header">
+                                                                          <div class="exp">
+                                                                                <p><span style="font-weight: 600;">EXP :</span>&nbsp;<?=$row->exp?></p>
+                                                                              
+                                                                                <!-- <div class="your-bid-mybid">
+                                                                                            <p>Your Bid:&nbsp; <span>RS <?=$row->youramount?>.00</span></p>
+                                                                                </div> -->
+                                                                          </div>
+                                                                          
+                                                                          <div class="days">
+                                                                            <p class="remain"><?=$row->remaning?> days remaining</p>
+                                                                            <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
+                                                                            
+
+                                                                            <?php
+                                                                                  $hours= $row->hours; 
+                                                                                  $minutes=$row->minutes;
+                                                                                  $day=$row->day;
+                                                                            ?>
+
+                                                                          
+                                                                            <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
+                                                                          </div>
+
+
+
+                                                                          <div class="bid-now">
+                                                                          <button id="<?=$row->post_id?>" class="js-bid-now-btn">Bid Now</button>
+                                                                          </div>
+                                                              </div>
+                                    </div>
+
+                                <div id="modal-<?=$row->post_id?>" class="modal">
+                                            <div class="modal-content">
+                                                      <div class="modal-header">
+                                                  
+                                                        <span class="closeBtn">&times;</span>
+                                                        <h2>Enter your bid value</h2>
+                                                        <p>Current bid value: RS <?=$row->current_value?>.00</p>
+                                                        <p>Minimum bid value: RS <?=$row->bid_range?>.00</p>
+                                                        <div class="output" id="output"></div>
+                                                        <div class="output2" id="output2"></div>
+                                                      </div>
+                                                      
+                                                      <div class="modal-body" id='modal-body-<?=$row->post_id?>'>
+                                                    
+                                                                  <form method="post" autocomplete="off" action='biddingbuyer2'>
+                                                                      <label> RS: &nbsp;</label>
+                                                                    
+                                                                    <input type="text" placeholder="Enter your bid" name="bidvalue"><label>&nbsp;.00</label>
+                                                                    <input type="hidden" value='<?=$row->post_id?>' name='abc'>
+                                                                    <button type="submit" name="submit" id='myButton'>Bid Now</button>
+
+
+                                                                  </form>
+                                                      
+                                                      </div>
+                                            </div>
+                                  </div>
                           
-                                <span class="closeBtn">&times;</span>
-                                <h2>Enter your bid value</h2>
-                                <p>Current bid value: RS <?=$row->current_value?></p>
-                                <p>Minimum bid value: RS <?=$row->bid_range?></p>
-                              </div>
-                              <div class="modal-body" id='modal-body-<?=$row->post_id?>'>
-                             
-                                          <form method="post" autocomplete="off" action='biddingbuyer2'>
-                                              <label> RS: &nbsp;</label>
-                                            
-                                            <input type="text" placeholder="Enter your bid" name="bidvalue"><label>&nbsp;.00</label>
-                                            <input type="hidden" value='<?=$row->post_id?>' name='abc'>
-                                            <button type="submit" name="submit" id='myButton'>Bid Now</button>
-
-
-                                          </form>
-                              
-                              </div>
-                            </div>
-                          </div>
-                
 
                       
                 <?php endforeach; ?>  
@@ -159,19 +176,70 @@
     const images = document.querySelectorAll('.js-bid-now-btn');
           images.forEach(function(image) {
             image.addEventListener('click', function() {
+              console.log(image['id']);      
               modal = document.getElementById('modal-' + image['id']);
               modal.style.display = "block";
               let id = image['id'];
-              //console.log(image['id']);
+
+
+
+                                    const searchBar = modal.querySelector(".modal-body input");
+                                    const outputDiv = document.getElementById("output");
+                                    const outputDiv2 = document.getElementById("output2");
+                                    
+                                  
+                                    const currentBidText = modal.querySelector(".modal-header p:first-of-type").textContent;
+                                    const currentBidValue = currentBidText.match(/\d+(\.\d+)?/)[0];
+                                    let currentBidValueInt = parseInt(currentBidValue);
+
+                                    const currentBidRangeText = modal.querySelector(".modal-header p:nth-of-type(2)").textContent;
+                                    const currentBidRangeValue = currentBidRangeText.match(/\d+(\.\d+)?/)[0];
+                                    const currentBidRangeValueInt = parseInt(currentBidRangeValue);
+
+                                    currentBidValueInt=currentBidValueInt+currentBidRangeValueInt-1;
+
+
+                                    //const bidbutton = document.querySelector(".js-bid-now-btn");
+                                    searchBar.focus();
+                                      searchBar.addEventListener("keyup", () => {
+                                        let searchTerm = searchBar.value;
+
+                                        console.log(currentBidValueInt);
+                                        console.log(currentBidValue);
+                                        console.log(currentBidRangeValue);
+
+                                        if(searchTerm == ""){
+                                          const result = " ";
+                                        outputDiv.textContent = result;
+                                        outputDiv2.textContent = result;
+                                        }
+
+
+
+                                        else if(isNaN(searchTerm)){
+                                        const result = " ";
+                                        outputDiv.textContent = result;
+                                        outputDiv2.textContent = result;
+                                        }
+
+
+                                        else if(searchTerm<=currentBidValueInt){
+                                        const result = searchTerm;
+                                        outputDiv.textContent = "Try higher amount Than  " + result+" .00";
+                                        outputDiv2.textContent = " ";
+                                        }
+                                        else{
+                                          const result = searchTerm;
+                                        outputDiv.textContent = " ";
+                                        outputDiv2.textContent =  result+" .00 Is Acceptable";
+                                        }
+                                        
+                                      });
+                                        
 
             });
           });
-        
 
-
-
-
-            
             //var span = document.getElementsByClassName('closeBtn')[1];
             var closeBtns = document.querySelectorAll('.closeBtn');
               closeBtns.forEach(function(span) {
@@ -188,48 +256,12 @@
             }
 
         
-
-
-          //   window.onload = function () {
-                
-          //       const images = document.querySelectorAll('.time1');
-          //       images.forEach(function(image) {
-          //         var display = document.querySelector('#time-'+image.id.split('-')[1]);
-                 
-          //        var Minutes = 60 * <?php echo $minutes?>;
-          //         startTimer(Minutes, display);
-          //       });
-          //     };
-
-
-
-              
-
-          // function startTimer(duration, display) {
-          //   var start = Date.now();
             
-          //   function updateDisplay() {
-          //     var diff = getDiffInSeconds();
-          //     var minutes = padNumber(Math.floor(diff / 60));
-          //     var seconds = padNumber(diff % 60);
-          //     display.textContent = minutes + ":" + seconds;
-          //   }
-            
-          //   function getDiffInSeconds() {
-          //     return duration - Math.floor((Date.now() - start) / 1000);
-          //   }
-            
-          //   function padNumber(num) {
-          //     return num < 10 ? "0" + num : num;
-          //   }
-            
-          //   function restartTimer() {
-          //     start = Date.now() + 1000;
-          //   }
-            
-          //   updateDisplay();
-          //   setInterval(updateDisplay, 1000);
-          // }
+
+
+
+
+  
 
 
 
@@ -238,12 +270,19 @@
 
     </script> 
 
-
-
     <script type="text/javascript">var name = "<?= $name ?>";</script> 
-    <!-- <script type="text/javascript" src="<?=ROOT?>/assets/js/buyerbidding.js"></script> -->
 
 
+    <script>
+
+
+
+
+  // searchBar.addEventListener("keyup", () => {
+  //   let searchTerm = searchBar.value;
+  //   console.log("Pamith");
+  // });
+</script>
 
 </body>
 

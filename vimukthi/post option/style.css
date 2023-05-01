@@ -1,0 +1,149 @@
+*{
+    font-family: poppins;
+}
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #090909;
+  overflow: hidden;
+  width: 200px;
+  border-radius: 15px;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  white-space: nowrap; 
+  color:#4DEA25;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  line-height: 180%;
+}
+
+label:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #888;
+  width: 450px; /* Set the width to 661px */
+  height: 200px; /* Set the height to 249px */
+}
+
+/* The Close Button */
+.closeBtn {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  
+}
+.modal-header p {
+  color: #252525;
+  opacity: 80%;
+  font-size: 110%;
+  
+}
+.modal-body {
+  padding: 2px 16px;
+
+  padding-bottom: 10%;
+}
+
+.modal-body .delete{
+  background-color: #4DEA25;
+  border-radius: 10%;
+  padding: 4%;
+  font-weight: 600;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  float: right;
+  margin-right: 10px;
+}
+.modal-body .delete:hover{
+  background-color: #000000;
+  color: #4DEA25;
+}
+
+.modal-body .cancel{
+  background-color: #e4ffdc;
+  border-radius: 10%;
+  padding: 4%;
+  font-weight: 600;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  float: right;
+  margin-right: 10px;
+}
+.modal-body .cancel:hover{
+  background-color: #000000;
+  color: #4DEA25;
+}
+
+
+.modal-body label{
+  font-weight: bold;
+  opacity: 60%;
+}
+
