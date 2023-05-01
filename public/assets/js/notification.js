@@ -1,5 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+
+
     // Get notification box elements
     const notificationBox = document.querySelector('.notification-box');
     const notificationList = document.querySelector('.notification-list');
