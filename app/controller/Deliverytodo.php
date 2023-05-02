@@ -69,7 +69,7 @@ class deliverytodo{
               $row->last_name = $buyer->last_name;
               $row->fro = $buyer->address;
               $row->too = $seller->address;
-              // $row->vname = $deliver->vehicle_name;
+              $row->vname = $deliver->vehicle_name;
               
             
                 $arr1['item_id'] = $row->item_id;
@@ -94,12 +94,12 @@ class deliverytodo{
 
             } 
             else {
-              redirect('deliverylogin');
+              redirect('login');
             }
 
   }
 
-  public function seller_allrequests(){
+  public function buyer_allrequests(){
 
             $request_item = new request_item;
             $user_requestitem = new user_requestitem;

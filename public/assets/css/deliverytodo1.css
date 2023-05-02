@@ -93,7 +93,7 @@
       font-size: 16px;
       transition-duration: 0.4s;
       cursor: pointer;
-      padding: 6px 30px ;
+      padding: 6px 25px ;
       border-radius: 8px;
       margin-top: -180px;
       margin-left: 690px;
@@ -109,7 +109,7 @@
       font-size: 16px;
       transition-duration: 0.4s;
       cursor: pointer;
-      padding: 6px 33px ;
+      padding: 6px 25px ;
       border-radius: 8px;
       margin-top: -110px;
       margin-left: 690px;
@@ -145,3 +145,20 @@
     font-size: 100px;
   } */
 
+  .todo{
+    width : 24px;
+    height: 24px;
+  }
+
+.doing{
+  width : 24px;
+  height: 24px;
+} 
+.done{
+  width : 24px;
+  height: 24px;
+} 
+.fee{
+  width : 24px;
+  height: 24px;
+}

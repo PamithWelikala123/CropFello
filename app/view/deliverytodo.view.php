@@ -31,10 +31,10 @@
                 <div class="menu">
                   <!-- <hr><label >Menu</label><br> -->
                   <hr><p>Menu</p><br>
-                  <button onclick="document.location='view1'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span>To Do</span></button><br>
-                  <button onclick="document.location='../deliverydoing'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
-                  <button onclick="document.location='../deliverydone'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
-                  <button onclick="document.location='../deliveryfee'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
+                  <button onclick="document.location='view1'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/todo.png"><span>To Do</span></button><br>
+                  <button onclick="document.location='../deliverydoing'"><img class="doing"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
+                  <button onclick="document.location='../deliverydone'"><img class="done"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
+                  <button onclick="document.location='../deliveryfee'"><img class="fee"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
               </div>
               <div class="message">
                   <!-- <hr><label>Message</label> -->
