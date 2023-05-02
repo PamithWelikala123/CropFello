@@ -1,5 +1,7 @@
 <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
 
+console.log("AUTO_MAP_URL");
+
     let map;
     var marker;
     var marker_d;
@@ -13,6 +15,8 @@
         zoom: 8,
     });
 
+
+
         var input = document.getElementById("pickuplocation");
         var autocomplete = new google.maps.places.Autocomplete(input);
         marker = new google.maps.Marker({
@@ -20,6 +24,10 @@
         draggable:true,
         title:"Pickup location"
         });
+
+
+
+
         autocomplete.bindTo("bounds", map);
         autocomplete.setFields(['address_components','geometry','name'])
         autocomplete.addListener('place_changed', function () {
@@ -50,6 +58,8 @@
                 // console.log(marker.position.lat()+'  '+marker.position.lng()+'--->')
             }
         );
+
+
 
 
         marker_d = new google.maps.Marker({
