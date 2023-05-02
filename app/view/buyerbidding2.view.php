@@ -69,6 +69,7 @@
                 <div class="main-content">
 
                 <?php foreach ($data as $row) : ?>
+                  <?php if(($row->remaning)>=0) :    ?>   
                                   <div class="bidding-post">
                                                                           <div class="image">
                                                                             <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
@@ -146,7 +147,7 @@
                                             </div>
                                   </div>
                           
-
+                                  <?php endif; ?>
                       
                 <?php endforeach; ?>  
                 </div>

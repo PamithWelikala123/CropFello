@@ -8,25 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
     <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/searchbarbuyer2.css"> -->
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/profile.css">
 
 </head>
 <body>
-   
+<?php
+$filename = $_SESSION['filename'];
+echo "<script>console.log('Filename: ".$filename."');</script>";
+?> 
         <div class="topnav">
 
                 <div class="logo">
                     <img src="<?=ROOT?>/assets/images/Topnavbar/logo.png" altba="">
                 </div>
 
+                <?php require APPROOT."/controller/Notification.php";
+                              $userNotification = new Notification();
+                              $notifications = $userNotification->notifications();
+                              $jsonArray = json_encode($notifications);
+
+                   ?>
+
                 <div class="topnav-options">
                     <!-- <a class="active" href="#home">Home</a> -->
                     <a href="#orders" id="my-orders">My Orders</a>
                     <a href="#cart"><i class="fa fa-shopping-cart" style="font-size:18px"></i></a>
-                    <a class="notification-icon" ><i class="fa fa-bell" style="font-size:18px"></i></a>
-                    <span class="notification-count">6</span>
+                    <a class="notification-icon"><i class="fa fa-bell" style="font-size:18px"></i></a>
+                    <span class="notification-count">7</span>
                     <a id="profmyBtn"><img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt=""> </a>
                     <!-- </a> -->
                 </div>
@@ -39,14 +50,19 @@
                     <button type="submit"><i class="fa fa-search"></i></button>
                   </form> -->
                   <div class="search-bar">
-                    <input type="text" placeholder="Search">
-                    <button type="submit"><i class="fa fa-search class1"></i></button>
+
+                  <form action="../<?=$filename?>/search">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </form>
+
                   </div>
                 <!-- </div> -->
         </div>
 
+
         <div class="notification-box">
-                    <div class="notification-header">
+                    <div class="notification-header" >
                     <h3>Notifications</h3>
                     <button class="close-btn"><img src="<?=ROOT?>/assets/images/notification/close.svg" alt=""></button>
                     </div>
@@ -67,7 +83,7 @@
                 <div class="profname">Vimukthi Dulnath</div>
               </div>
               <div class="profmodal-lower">
-                <button id="sellBtn" onclick="document.location='../selling'">Sell</button>
+                <button id="sellBtn" onclick="document.location='../selling/selling'">Sell</button>
                 <div class="profvertical-line"></div>
                 <button id="profileBtn" onclick="document.location='../Profile'">Profile</button>
                 <div class="profvertical-line"></div>
@@ -77,6 +93,8 @@
 
           </div>
         
+
+
 
 <script src="<?=ROOT?>/assets/js/notification.js"></script> 
 <script src="<?=ROOT?>/assets/js/profile.js"></script> 

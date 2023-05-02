@@ -31,33 +31,66 @@ class profile{
 
 
     public function editprofile(){
-      $user= new User;
-      print_r($_POST['pplink']);
-            if(isset($_POST["submit"])){
-            print_r("AWA");
-                  // if($_FILES["image"]["error"] == 4){
-                  //   echo
-                  //   "<script> alert('Image Does Not Exist'); </script>"
-                  //   ;
-                  // }
-                  // else{
-                    
-            //         $fileName = $_FILES["image"]["name"];
-            //         $fileSize = $_FILES["image"]["size"];
-            //         $tmpName = $_FILES["image"]["tmp_name"];
-                
-            //         $validImageExtension = ['jpg', 'jpeg', 'png'];
-            //         echo $fileName;
-            //         $imageExtension = explode('.',$fileName);
-            //         $imageExtension = strtolower(end($imageExtension));
-                
-            //         $newImageName = uniqid();
-            //         $newImageName .= '.'.$imageExtension;
+      echo "<script>console.log('Hi');</script>";
+      if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+        if(isset($_FILES["image"]) && $_FILES["image"]["error"] == 0){
+          $targetDir = ROOT."\assets\images\Profile_pic";
+          $fileName = basename($_FILES["image"]["name"]);
+          $completePath = $targetDir . $fileName;
+          $fileType = pathinfo($completePath,PATHINFO_EXTENSION);
+          $allowTypes = array('jpg','png','jpeg','gif','pdf');
+       
+          $filename_without_ext = substr($fileName, 0, strrpos($fileName, "."));
+       
+          $uniqueFileName = $filename_without_ext.time().".".$fileType;
+          $targetFilePath = $targetDir . $uniqueFileName;
+          $statusMsg = '';
+       
+          if(in_array($fileType, $allowTypes)){
+             // Upload file to server
+             if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)){
+                   $statusMsg = '';
+                   
+             }else{
+                   $statusMsg = "Sorry, there was an error uploading your file.";
+             }
+          }else{
+             $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+          }
+       } else {
+        echo "<script>console.log('Hi');</script>";
+          $statusMsg = "No file uploaded.";
+       }
+       
 
-            //         $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/Cropfello/public/assets/images/Profile_pic/'.$newImageName;
-            //       //  echo $newImageName;
-            //         move_uploaded_file($tmpName, $destinationPath); 
-            //         $arr['image']=$newImageName;
+
+      // $user= new User;
+      //       if(isset($_POST["submit"])){
+   
+      //             if($_FILES["image"]["error"] == 4){
+      //               echo
+      //               "<script> alert('Image Does Not Exist'); </script>"
+      //               ;
+      //             }
+      //             else{
+                    
+      //               $fileName = $_FILES["image"]["name"];
+      //               $fileSize = $_FILES["image"]["size"];
+      //               $tmpName = $_FILES["image"]["tmp_name"];
+                
+      //               $validImageExtension = ['jpg', 'jpeg', 'png'];
+      //               echo $fileName;
+      //               $imageExtension = explode('.',$fileName);
+      //               $imageExtension = strtolower(end($imageExtension));
+                
+      //               $newImageName = uniqid();
+      //               $newImageName .= '.'.$imageExtension;
+
+      //               $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/Cropfello/public/assets/images/Profile_pic/'.$newImageName;
+      //              echo $newImageName;
+      //               move_uploaded_file($tmpName, $destinationPath); 
+      //               $arr['image']=$newImageName;
             //        // $user->update($_SESSION['USER']->user_id,$arr ,'user_id');
             //       // }
                 
@@ -141,6 +174,7 @@ class profile{
     //redirect('profile/Editprofile_changepassword1');
 
   }
+
 
 
 
