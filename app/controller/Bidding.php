@@ -79,12 +79,14 @@ class bidding{
                                     $primaryKeys = array('post_id','buyer_id');
 
                                     if (is_null($row2) || $row2 === '' || empty($row2)) {
+                                        $arr23['amount']= $arr1['amount'];
                                             $arr23['bidding_number']= $arr1['bidding_number'];
                                            $finalbid->insert($arr23);   
                                     }
 
 
                                     else{
+                                        $arr23['amount']= $arr1['amount'];
                                         $arr23['bidding_number']=$arr1['bidding_number'];
                                            $finalbid->update2($arr23,$primaryKeys);
                                     }
@@ -330,30 +332,30 @@ class bidding{
 
 
 
-    public function search(){
+//     public function search(){
 
-        $createbid = new createbid;
-        $searchTerm = $_POST['searchTerm'];  
-        $id=$_SESSION['USER']->user_id;
+//         $createbid = new createbid;
+//         $searchTerm = $_POST['searchTerm'];  
+//         $id=$_SESSION['USER']->user_id;
         
-        $output = "";
+//         $output = "";
 
-        $rows=$createbid->search('createbid',$id,$searchTerm);
-        echo "Hi";
+//         $rows=$createbid->search('createbid',$id,$searchTerm);
+//         echo "Hi";
 
-        $this->BuyerBidding($rows);
-        // if ($rows) {
-        //     foreach($rows as $row){
-        //     //$this->data($id,$row->user_id,$output);
-        //    // echo $row->user_id;
-        //     }
-        // }
-        // else{
-        //    $output .= 'No item found related to your search term';
-        //  }
-        // echo $output;
+//         $this->BuyerBidding($rows);
+//         // if ($rows) {
+//         //     foreach($rows as $row){
+//         //     //$this->data($id,$row->user_id,$output);
+//         //    // echo $row->user_id;
+//         //     }
+//         // }
+//         // else{
+//         //    $output .= 'No item found related to your search term';
+//         //  }
+//         // echo $output;
 
-}
+// }
 
 public static function content($rows) {
     $output = "";
@@ -445,7 +447,17 @@ public static function content($rows) {
             
             }
 
-        }              
+        }     
+
+
+
+        public function rankbidders(){
+            
+        }
+        
+        
+
+        
 
 
 

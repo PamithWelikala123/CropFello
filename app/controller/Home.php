@@ -62,5 +62,12 @@ class Home{
        $this->view('home', $rowx);
     }
 
+
+    public function map(){
+    
+
+       $this->view('map');
+    }
+
 }
 

@@ -11,6 +11,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     define('ROOT', 'http://localhost/Cropfello/public');
     define('ROOT1', 'http://localhost/Cropfello/app');
     define('APPROOT',dirname(dirname(__FILE__)));
+    define('AUTO_MAP_URL','https://maps.googleapis.com/maps/api/js?key=AIzaSyCo0cnVa0-HmEMm2M5wGXP_DQ37Z2L0teo&callback=initMap&libraries=places&v=weekly');
 
 }else{
     define('ROOT', 'https://www.mywebsite.com');
