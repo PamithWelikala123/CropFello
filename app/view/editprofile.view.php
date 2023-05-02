@@ -158,8 +158,9 @@
 
 FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
 
+
     FilePond.create(document.getElementById('profilepic'), {
-      server: 'APPROOT./controller/Profileee/editprofile',
+      server:'http://localhost/Cropfello/public/Profile/editprofile',
        // labelIdle: `<img src='<//?php// echo BASEURL?>/public/images/profilepic.png'/><br/><br/> <span>Upload Profile Picture</span>`,
         imagePreviewHeight: 170,
         imageCropAspectRatio: '1:1',
@@ -172,8 +173,11 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
 
     // console log file path after submit
     document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
-        const serverId = e.detail.file.serverId;
+      
+      
+      const serverId = e.detail.file.serverId;
         console.log(serverId);
+
         // parse the JSON object
         const jsonResponse = JSON.parse(serverId);
         // access the filepath

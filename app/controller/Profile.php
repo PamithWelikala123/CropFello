@@ -31,37 +31,37 @@ class profile{
 
 
     public function editprofile(){
-      echo "<script>console.log('Hi');</script>";
-      if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-        if(isset($_FILES["image"]) && $_FILES["image"]["error"] == 0){
-          $targetDir = ROOT."\assets\images\Profile_pic";
-          $fileName = basename($_FILES["image"]["name"]);
-          $completePath = $targetDir . $fileName;
-          $fileType = pathinfo($completePath,PATHINFO_EXTENSION);
-          $allowTypes = array('jpg','png','jpeg','gif','pdf');
+      //echo "<script>console.log('Hi');</script>";
+      // if ($_SERVER['REQUEST_METHOD'] == 'POST')
+      // {
+      //   if(isset($_FILES["image"]) && $_FILES["image"]["error"] == 0){
+      //     $targetDir = ROOT."/assets/images/Profile_pic";
+      //     $fileName = basename($_FILES["image"]["name"]);
+      //     $completePath = $targetDir . $fileName;
+      //     $fileType = pathinfo($completePath,PATHINFO_EXTENSION);
+      //     $allowTypes = array('jpg','png','jpeg','gif','pdf');
        
-          $filename_without_ext = substr($fileName, 0, strrpos($fileName, "."));
+      //     $filename_without_ext = substr($fileName, 0, strrpos($fileName, "."));
        
-          $uniqueFileName = $filename_without_ext.time().".".$fileType;
-          $targetFilePath = $targetDir . $uniqueFileName;
-          $statusMsg = '';
+      //     $uniqueFileName = $filename_without_ext.time().".".$fileType;
+      //     $targetFilePath = $targetDir . $uniqueFileName;
+      //     $statusMsg = '';
        
-          if(in_array($fileType, $allowTypes)){
-             // Upload file to server
-             if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)){
-                   $statusMsg = '';
+      //     if(in_array($fileType, $allowTypes)){
+      //        // Upload file to server
+      //        if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)){
+      //              $statusMsg = '';
                    
-             }else{
-                   $statusMsg = "Sorry, there was an error uploading your file.";
-             }
-          }else{
-             $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
-          }
-       } else {
-        echo "<script>console.log('Hi');</script>";
-          $statusMsg = "No file uploaded.";
-       }
+      //        }else{
+      //              $statusMsg = "Sorry, there was an error uploading your file.";
+      //        }
+      //     }else{
+      //        $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
+      //     }
+      //  } else {
+      //   echo "<script>console.log('Hi');</script>";
+      //     $statusMsg = "No file uploaded.";
+      //  }
        
 
 
@@ -94,7 +94,7 @@ class profile{
             //        // $user->update($_SESSION['USER']->user_id,$arr ,'user_id');
             //       // }
                 
-              }
+              //}
             // $arr['user_id']=$_SESSION['USER']->user_id;
             // $row=$user->first($arr);
             // $row=(array)$row;

@@ -267,4 +267,17 @@ public function chatfunction($outgoing_id,$searchTerm){
     }
 
 
+
+    public function Rank($post_id){
+        
+        $query = "SELECT buyer_id,RANK() OVER (ORDER BY amount DESC) AS rank
+        FROM $this->table
+        WHERE post_id = {$post_id}
+        ORDER BY amount DESC;
+        ";
+
+        return  $this->query($query);
+    }
+
+
 }
