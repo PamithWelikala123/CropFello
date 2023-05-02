@@ -83,7 +83,7 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                 <div class="profname">Vimukthi Dulnath</div>
               </div>
               <div class="profmodal-lower">
-                <button id="sellBtn" onclick="document.location='../selling'">Sell</button>
+                <button id="sellBtn" onclick="document.location='../selling/selling'">Sell</button>
                 <div class="profvertical-line"></div>
                 <button id="profileBtn" onclick="document.location='../Profile'">Profile</button>
                 <div class="profvertical-line"></div>

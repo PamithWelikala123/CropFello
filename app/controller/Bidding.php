@@ -74,7 +74,6 @@ class bidding{
                                     $arr23['buyer_id']= $buyer_id;
                                     $arr23['post_id']=$idpost;
                                     
-
                                     $row2 = $finalbid->first($arr23);
                                     
                                     $primaryKeys = array('post_id','buyer_id');
@@ -86,7 +85,7 @@ class bidding{
 
 
                                     else{
-
+                                        $arr23['bidding_number']=$arr1['bidding_number'];
                                            $finalbid->update2($arr23,$primaryKeys);
                                     }
 
@@ -96,6 +95,7 @@ class bidding{
                                     echo "<script>";
                                     echo "sucsess()"; // Call the JavaScript function here
                                     echo "</script>";
+
                       }
         
         

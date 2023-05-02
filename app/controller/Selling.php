@@ -4,7 +4,7 @@
 class Selling{
 
     use Controller;
-    public function index()
+    public function selling()
     {
         if ($_SESSION['USER']) {
             $postitem = new postitems;
@@ -68,6 +68,10 @@ class Selling{
         }
         redirect('selling');
         
+    }
+
+    public function Postitem(){
+        $this->view('postitem');
     }
 
 
