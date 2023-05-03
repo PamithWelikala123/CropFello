@@ -10,17 +10,17 @@ class Deliverylogin
     public function index()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $user = new User;
+            $user = new deliveryuser;
+
+
             $arr['email'] = $_POST['email'];
+
             $row = $user->first($arr);
 
             if ($row) {
-                if ($row->password == md5($_POST['password'])) {
+                if ($row->password == ($_POST['password'])) {
                     $_SESSION['USER'] = $row;
-                    $x="Active Now";
-                    $arr['status'] = "Active Now";
-                    $user->update($_SESSION['USER']->user_id ,$arr);
-                    redirect('deliverytodo/view1');
+                    redirect('deliverytodo');
                 }
             }
             $data['errors'] = $user->errors;
@@ -65,7 +65,6 @@ class Deliverylogin
        // }
        
         }
-        
         $this->view('forgetpassword1');
     }
 
@@ -112,4 +111,5 @@ class Deliverylogin
 
           
 }
+
 
