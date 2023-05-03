@@ -1,7 +1,13 @@
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Map</title>
+  </head>
+  <body>
 
-  
-            <form  method="POST">
+  <form  method="POST">
                 
 
                 <input type="text" id="pickuplocation" name="pickuplocation" placeholder="From Where journey Begin...?" >
@@ -24,11 +30,18 @@
               </form> 
 
 
+  </body>
 
 
-<script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
+  
+            
+
+
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCo0cnVa0-HmEMm2M5wGXP_DQ37Z2L0teo&callback=initMap&libraries=places&v=weekly" defer></script>
 <script>
-console.log("AUTO_MAP_URL");
+
 
     let map;
     var marker;
@@ -38,6 +51,7 @@ console.log("AUTO_MAP_URL");
 
     let srilanka={lat: 7.8731 ,lng: 80.7718};
     function initMap() {
+        console.log("AUTO_MAP_URL");
         map = new google.maps.Map(document.getElementById("map"), {
         center: srilanka,
         zoom: 8,
