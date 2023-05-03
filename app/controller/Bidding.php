@@ -250,8 +250,10 @@ class bidding{
         $createbid = new createbid;
 
         $buyer_id=$_SESSION['USER']->user_id;
-        $arr['buyer_id']=$buyer_id;
-        $rows2 = $finalbid->where($arr);
+        $arrx['buyer_id']=$buyer_id;
+        $rows2 = $finalbid->where($arrx);
+        
+
 
         if($rows2){
 
@@ -259,16 +261,40 @@ class bidding{
                 foreach ($rows2 as $row) {
                   
                     $arr['post_id']=$row->post_id;
+                    
+
+                    $post_idrank=$row->post_id;
+
+                    
+                   
+
 
                     $row1=$createbid->first($arr);
+                    
+                  
 
-                    if($row1->status=="enable"){
+                    if(isset($row1->status)=="enable"){
 
                         $post_id=$row1->post_id;
+
+                        $userranks=$finalbid->Rank1($post_id);
+                        foreach ($userranks as $rowuserranks) {
+                            if($rowuserranks->buyer_id==$buyer_id){
+                                $row->rank=$rowuserranks->rank;
+                            
+                            }
+                        }
+
+                    
+
                         $amount=$row1->amount;
+
                         $row->post_id=$row1->post_id;
+
                         $row->item_id=$row1->item_id;
+
                         $row->exp=$row1->exp;
+
                         $date1=date_create($row1->bid_end_date);
                         $date2=date_create(date("Y-m-d"));
                         $diff=date_diff($date2,$date1);
@@ -282,6 +308,7 @@ class bidding{
                         $row->amount_type=$row1->amount_type;
                         $arr1['bidding_number']=$row->bidding_number;
                         $row->city=$row1->city;
+                       // $row->rank=$userranks->Rank();
 
                         $row2=$bidding1->first($arr1);
                         $row->youramount=$row2->amount;

@@ -30,115 +30,36 @@ class profile{
 
 
 
-    public function editprofile(){
-      //echo "<script>console.log('Hi');</script>";
-      // if ($_SERVER['REQUEST_METHOD'] == 'POST')
-      // {
-      //   if(isset($_FILES["image"]) && $_FILES["image"]["error"] == 0){
-      //     $targetDir = ROOT."/assets/images/Profile_pic";
-      //     $fileName = basename($_FILES["image"]["name"]);
-      //     $completePath = $targetDir . $fileName;
-      //     $fileType = pathinfo($completePath,PATHINFO_EXTENSION);
-      //     $allowTypes = array('jpg','png','jpeg','gif','pdf');
-       
-      //     $filename_without_ext = substr($fileName, 0, strrpos($fileName, "."));
-       
-      //     $uniqueFileName = $filename_without_ext.time().".".$fileType;
-      //     $targetFilePath = $targetDir . $uniqueFileName;
-      //     $statusMsg = '';
-       
-      //     if(in_array($fileType, $allowTypes)){
-      //        // Upload file to server
-      //        if(move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)){
-      //              $statusMsg = '';
-                   
-      //        }else{
-      //              $statusMsg = "Sorry, there was an error uploading your file.";
-      //        }
-      //     }else{
-      //        $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
-      //     }
-      //  } else {
-      //   echo "<script>console.log('Hi');</script>";
-      //     $statusMsg = "No file uploaded.";
-      //  }
-       
-
-
-      // $user= new User;
-      //       if(isset($_POST["submit"])){
-   
-      //             if($_FILES["image"]["error"] == 4){
-      //               echo
-      //               "<script> alert('Image Does Not Exist'); </script>"
-      //               ;
-      //             }
-      //             else{
+    public function editprofile()
+        {
+            
+            if (isset($_FILES['profilepic']) && $_FILES['profilepic']['error'] === UPLOAD_ERR_OK) {
+                
+                $filename = basename($_FILES['profilepic']['name']);
+                $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                
+                
+                $newFilename = uniqid() . '.' . $ext;
+                $targetPath = APPROOT . '/../public/assets/images/Profile_pic/' . $newFilename;
+                
+                
+                if (move_uploaded_file($_FILES['profilepic']['tmp_name'], $targetPath)) {
                     
-      //               $fileName = $_FILES["image"]["name"];
-      //               $fileSize = $_FILES["image"]["size"];
-      //               $tmpName = $_FILES["image"]["tmp_name"];
-                
-      //               $validImageExtension = ['jpg', 'jpeg', 'png'];
-      //               echo $fileName;
-      //               $imageExtension = explode('.',$fileName);
-      //               $imageExtension = strtolower(end($imageExtension));
-                
-      //               $newImageName = uniqid();
-      //               $newImageName .= '.'.$imageExtension;
-
-      //               $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/Cropfello/public/assets/images/Profile_pic/'.$newImageName;
-      //              echo $newImageName;
-      //               move_uploaded_file($tmpName, $destinationPath); 
-      //               $arr['image']=$newImageName;
-            //        // $user->update($_SESSION['USER']->user_id,$arr ,'user_id');
-            //       // }
-                
-              //}
-            // $arr['user_id']=$_SESSION['USER']->user_id;
-            // $row=$user->first($arr);
-            // $row=(array)$row;
-
-            // if (isset($_POST['first_name']) && !empty($_POST['first_name'])) {
-            //   $arr['first_name']=$_POST['first_name'];
-              
-            // }
-            
-
-            // if (isset($_POST['last_name']) && !empty($_POST['last_name'])) {
-            //   $arr['last_name']=$_POST['last_name'];
-            // }
-
-
-            // if (isset($_POST['address']) && !empty($_POST['address'])) {
-            //   $arr['address']=$_POST['address'];
-            // }
-            
-            // if (isset($_POST['city']) && !empty($_POST['city'])) {
-            //   $arr['city']=$_POST['city'];
-            // }
-
-            // if (isset($_POST['description']) && !empty($_POST['description'])) {
-            //   $arr['description']=$_POST['description'];
-            // }
-
-            // if (isset($_POST['postal_code']) && !empty($_POST['postal_code'])) {
-            //   $arr['postal_code']=$_POST['postal_code'];
-            // }
-            
-            // if (isset($_POST['contact_number']) && !empty($_POST['contact_number'])) {
-            //   $arr['contact_number']=$_POST['contact_number'];
-            // }
-
-
-           // $user->update($_SESSION['USER']->user_id,$arr ,'user_id');
-            
-            //redirect('Profile/Editprofile_details');
-
-
-
-
-    }
+                    // Return JSON response with file path
+                    $response = [
+                        'success' => true,
+                        'filepath' => '/public/images/uploadimages/profilepic/' . $newFilename
+                    ];
+                    echo json_encode($response);
+                } else {
+                    $response = ['success' => false];
+                    echo json_encode($response);
+                }
+            } else {
+                $response = ['success' => false];
+                echo json_encode($response);
+            }
+        }
 
 
 

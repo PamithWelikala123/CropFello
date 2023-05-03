@@ -96,10 +96,19 @@
                                                                           </div>
                                                                           
                                                                           <div class="days">
+                                                                          <?php if(($row->remaning)>1) :    ?> 
                                                                             <p class="remain"><?=$row->remaning?> days remaining</p>
-                                                                            <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
-                                                                          
+                                                                            <!-- <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
+                                                                           -->
+                                                                           <?php elseif(abs($row->remaning)==$row->rank) :    ?> 
+                                                                            <p class="remain">Please Confirem Before Today</p>
+                                                                            
+                                                                            <?php elseif(abs($row->remaning)<$row->rank) :    ?> 
+                                                                            <p class="remain">we will let u know</p>
 
+                                                                            <?php else:    ?> 
+                                                                              <p class="remain">Your confermation date has been expired</p>
+                                                                           <?php endif; ?>
                                                                           
                                                                             <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
                                                                           </div>
@@ -107,8 +116,15 @@
 
 
                                                                           <div class="bid-now">
-                                                                          
+                                                                          <?php if(($row->remaning)>1) :    ?> 
                                                                           <button id="<?=$row->post_id?>" class="js-bid-now-btn">Update</button>
+
+                                                                          <?php elseif(abs($row->remaning)==$row->rank) :    ?> 
+
+                                                                          <button id="<?=$row->post_id?>" class="js-bid-now-btn">confirm</button>
+
+                                                                          <?php endif; ?>
+
                                                                           </div>
                                                               </div>
                                     </div>
