@@ -35,7 +35,7 @@ class deliverytodo{
               $postitems = new postitems;
               $request_item = new request_item;
               $item = new item;
-              $item1 = new item;
+              // $item1 = new item;
               $registerd_user = new registerd_user;
               $vehicle = new vehicle;
 
@@ -52,7 +52,7 @@ class deliverytodo{
               $buyer = $user->first($id1);
               $seller = $user->first($id1);
               $deliver = $user->first($id1);
-              //echo $buyer->first_name;
+              // echo $buyer->first_name;
 
               $arr['seller_id'] = $id1['user_id'];
               
@@ -67,8 +67,8 @@ class deliverytodo{
 
               $row->first_name = $buyer->first_name;
               $row->last_name = $buyer->last_name;
-              $row->fro = $buyer->address;
-              $row->too = $seller->address;
+              $row->fro = $seller->address;
+              $row->too = $buyer->address;
               $row->vname = $deliver->vehicle_name;
               
             
@@ -94,7 +94,7 @@ class deliverytodo{
 
             } 
             else {
-              redirect('login');
+              redirect('deliverylogin');
             }
 
   }
@@ -212,7 +212,7 @@ public function approve(){
               $request_item->update($id,$row1,'post_id');
 
             }
-            $this->notification_seller();
+            // $this->notification_seller();
             //redirect('requests/seller_approvedrequests');
             
 }
@@ -264,55 +264,55 @@ public function approve(){
   }
 
 
-  public function notification_seller(){
-          $notifications = new notifications;
-          $user_id=$_SESSION['USER']->user_id;
+  // public function notification_seller(){
+  //         $notifications = new notifications;
+  //         $user_id=$_SESSION['USER']->user_id;
 
 
-          $id=$_GET['id'];
-          $arr['post_id']=$id;
+  //         $id=$_GET['id'];
+  //         $arr['post_id']=$id;
 
-          $request_item = new request_item;
-          $row=$request_item->first($arr);
+  //         $request_item = new request_item;
+  //         $row=$request_item->first($arr);
 
-          $user = new user;
+  //         $user = new user;
 
-          $arr2['user_id']=$row->seller_id;
-
-
-
-          $row1=$user->first($arr2);
+  //         $arr2['user_id']=$row->seller_id;
 
 
 
-          $arr3['user_id']=$user_id;
+  //         $row1=$user->first($arr2);
+
+
+
+  //         $arr3['user_id']=$user_id;
          
 
-          $arr3['description']="You have accepted $row1->first_name $row1->last_name Request";
-          $arr3=(array)$arr3;
+  //         $arr3['description']="You have accepted $row1->first_name $row1->last_name Request";
+  //         $arr3=(array)$arr3;
 
 
-          $notifications->insert($arr3);
+  //         $notifications->insert($arr3);
 
-          redirect('requests/seller_approvedrequests');
-
-
-  }
+  //         redirect('requests/seller_approvedrequests');
 
 
-  public function delete(){
-
-          $id=$_GET['id'];
-          //echo $id;
-          //$arr['post_id']=$id;
+  // }
 
 
-          $request_item = new request_item;
+  // public function delete(){
 
-          $request_item->delete($id,'post_id');
-          redirect('requests/view1');
+  //         $id=$_GET['id'];
+  //         //echo $id;
+  //         //$arr['post_id']=$id;
 
-  }
+
+  //         $request_item = new request_item;
+
+  //         $request_item->delete($id,'post_id');
+  //         redirect('requests/view1');
+
+  // }
 
 
 
