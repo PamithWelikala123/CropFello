@@ -1,89 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverysignup.css">
-    <title>Document</title>
-    
+	<title>Signup Page</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="container">
+	<header>
+		<div class="logo">
+			<img src="images/logo.png" alt="Logo">
+		</div>
+		<div class="back-btn">
+			<button><img src="images/arrow-left-circle.svg" alt="Back"></button>
+		</div>
+	</header>
+	<main>
+		<div class="left-side">
+			<h2>Register to CropFello</h2>
+			<form>
+				<label for="firstName">First Name:</label>
+				<input type="text" id="firstName" name="firstName"><br>
 
-        <div class="item item-1">
-            <img class="logo" src="<?=ROOT?>/assets/images/rushinpics/pics/logo.png">
-            <a href="Deliverylogin">
-            <button class="botn">Login</button>
-            </a>
-        </div>
+				<label for="lastName">Last Name:</label>
+				<input type="text" id="lastName" name="lastName"><br>
 
-        <div class="item item-2">
-            <h2 class="h2">Register to <b>CropFello</b></h2>
-            <form action="process-signup.php" method="post">
-                <div class="name">
-                    <label for="name">Name <span style="color:red">&#9913 </span></label><br>
-                    <input type="text" name="fname" placeholder="First Name" class="tb1">
-                    <input type="text" name="lname" placeholder="Last Name" class="tb3">
-                </div>
-                <div class="email">
-                    <label for="email">Email <span style="color:red">&#9913 </span></label><br>
-                    <input type="email" id="email" name="email" class="tb1" placeholder="Enter your Email">
-                </div>
-                <div class="AA">
-                    <label for="name">Available Area <span style="color:red">&#9913 </span></label><br>
-                    <select name="country" id="country">
-            <option value="">Select a country</option>
-            <?php foreach ($countries as $country) { ?>
-                <option value="<?php echo $country['id']; ?>"><?php echo $country['name']; ?></option>
-            <?php } ?>
-        </select>
-                
+				<!-- <label for="address">Address:</label>
+				<input type="text" id="address" name="address"><br> -->
 
-                
-                </div>
-                <div class="password">
-                    <label for="password">Password <span style="color:red">&#9913 </span></label><br>
-                    <input type="password" id="password" name="password" class="tb1" placeholder="Enter your Password">
-                </div>
-                <div class="VN">
-                    <label for="number" po>Vehicle Number <span style="color:red">&#9913 </span></label><br>
-                    <input type="text" id="number" name="vnum" placeholder="XYZ-1234" class="tb10">
-                </div>
-                <div class="VT">
-                    <label for="name">Vehicle Type <span style="color:red">&#9913 </span></label><br>
-                    <!-- <input type="text" id="number" name="name" class="tb1"> -->
-                    <!-- <select id="vehicle" class="vtype" >
-                        
-                    </select> -->
-                </div>
-                <div class="com_password">
-                    <label for="password">Confirm Password <span style="color:red">&#9913 </span></label><br>
-                    <input type="password" id="password" name="password" class="tb1" placeholder="Confirm Password">
-                </div>
-                <div class="V_capacity">
-                    <label for="name">Vehicle Capacity <span style="color:red">&#9913 </span></label><br>
-                    <!-- <input type="text" id="name" name="name" class="tb1"> -->
-                    <select id="vehicle" class="vcap">
-                    
-                    </select>
-                </div>
-                <div class="Co_number">
-                    <label for="name">Contact Number <span style="color:red">&#9913 </span></label><br>
-                    <img class="srilanka"  src="<?=ROOT?>/assets/images/rushinpics/pics/Sri Lanka.png">
-                    <!-- <label class="ContactNo-name2">|</label> -->
-                    <label class="ContactNo-name3">+94</label>
-                    <input type="text" id="number" name="cnum" class="tb4">
-                </div>
-                <div class="register">
-                    <button class="button btn1" type="submit">Register</button>
+                <label>Available Area *</label>
+        <select name="field2" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" onchange="console.log(this.selectedOptions)">
+          <option>Kottawa</option>
+          <option>Pannipitiya</option>
+          <option>Maharagama</option>
+          <option>Nugegoda</option>
+          <option>Kirulapana</option>
+          <option>Panadura</option>
+          <option>Moratuwa</option>
+          <option>Gampaha</option>
+          
+        </select><br>
+
+                <div class="vehicle-info1">
+                    <!-- <label for="vehicleNo">Vehicle  Number</label> -->
+				    <input type="text" id="vehicleNo" name="vehicleNo" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				    <!-- <label for="vehicleType">Vehcle Type </label>
+				    <input type="text" id="vehicleType" name="vehicleType"><br> -->
+                    <select>
+                        <option value="0">Select Vehicle Type</option>
+                        <option value="1">Lorry</option>
+                        <option value="2">Van</option>
+                        <option value="3">Car</option>
+                        <option value="4">3 Wheeler</option>
+                        <option value="5">Motorcycle</option>
+                        <option value="6">Tractor</option>
+                        <option value="7">Truck</option>
+                      </select>
                 </div>
 
-            </form>    
-        </div>
-        <div class="item item-3">
-            <img class="register-corner" src="<?=ROOT?>/assets/images/rushinpics/pics/register-corner.png">
-            <img class="register-corner2" src="<?=ROOT?>/assets/images/rushinpics/pics/register-corner2.png">
-        </div> 
+                <div class="vehicle-info2">
+                    <label for="vehicleCapacity">Vehicle Capacity</label>
+                    <input type="text" id="vehicleCapacity" name="vehicleCapacity">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                    <label for="contactNo">Contact No:</label>
+                    <input type="text" id="contactNo" name="contactNo">
+                </div>
 
-        <script src="<?=ROOT?>/assets/css/country_city.js"></script>
+
+			</form>
+		</div>
+		<div class="right-side">
+			<!-- <h2>Register</h2> -->
+            <br><br>
+			<form>
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email"><br>
+
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password"><br>
+
+				<label for="confirmPassword">Confirm Password:</label>
+				<input type="password" id="confirmPassword" name="confirmPassword"><br>
+
+				<button type="submit">Register</button>
+			</form>
+		</div>
+	</main>
+	<footer>
+		<img class="img2" src="images/register-corner2.png" alt="">
+        <img class="img3" src="images/register-corner.png" alt="">
+	</footer>
+
+    <!-- <script src="multiselect-dropdown.js"></script> -->
+
+
 </body>
 </html>
