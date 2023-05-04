@@ -69,5 +69,10 @@ class Home{
        $this->view('map');
     }
 
+
+    public function temp(){
+        $this->view('temp');
+    }
+
 }
 
