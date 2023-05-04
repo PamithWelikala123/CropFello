@@ -432,8 +432,11 @@
   
   .post-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    /* align-items: flex-end; */
+
+    align-items: center;
+    justify-content: center;
   }
   
   .post-button {
@@ -447,6 +450,8 @@
     font-weight: 600;
     cursor: pointer;
     width: 160px;
+    margin-right:10px ;
+    margin-left:10px ;
   }
   
   /* .approved-button {
@@ -457,6 +462,14 @@
     background-color: red;
   }
    */
+   .map-button{
+    background-color: white;
+
+   }
+   .map-button:hover{
+    color: #4DEA25;
+    
+   }
 
 
    #more{
@@ -465,9 +478,31 @@
    #dots{
     color: white;
    }
+#myBtn{
+    background-color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#more{
+    font-size: 16;
+    font-weight: 500;
+}
+
 
   @media screen and (max-width: 600px) {
     .post-buttons button{
         width: 100%;
     }
+
+    .post-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    
+        align-items: center;
+        justify-content: center;
+      }
   }
