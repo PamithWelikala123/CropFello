@@ -69,6 +69,7 @@
                 <div class="main-content">
 
                 <?php foreach ($data as $row) : ?>
+                  <?php if(($row->remaning)>0) :    ?>   
                                   <div class="bidding-post">
                                                                           <div class="image">
                                                                             <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
@@ -97,7 +98,7 @@
                                                                           
                                                                           <div class="days">
                                                                             <p class="remain"><?=$row->remaning?> days remaining</p>
-                                                                            <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p>
+                                                                            <!-- <p class="time1" id="post-<?=$row->post_id?>">And <span id="time-<?=$row->post_id?>"></span> minutes</p> -->
                                                                             
 
                                                                             <?php
@@ -146,7 +147,7 @@
                                             </div>
                                   </div>
                           
-
+                                  <?php endif; ?>
                       
                 <?php endforeach; ?>  
                 </div>

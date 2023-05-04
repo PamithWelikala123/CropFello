@@ -97,8 +97,9 @@
                                           <div class="form-group">
                                             
                                              
-                                            <input  type="file" name="image" id ="image" accept="image/png, image/jpeg, image/gif"  class="form-control basic-input-field profile-pic"/>
-                                            <input type="hidden" id="pplink" name="pplink" />
+ 
+                                                <input class="form-control basic-input-field profile-pic" type="file" id="profilepic" credits='false' name="image" accept="image/png, image/jpeg, image/gif" />
+                                                <input type="hidden" id="pplink" name="pplink">
                                            
                                                  
                                           </div>
@@ -125,7 +126,7 @@
 
                                   <div class="form-group">
                                                   
-                                    <button class="form-control basic-input-field Register-but" type="button" name="submit" id="submit" >Update</button> 
+                                    <button class="form-control basic-input-field Register-but" type="submit" name="submit" id="submit" >Update</button> 
 
                                 </div>
                               </form>
@@ -155,52 +156,37 @@
 
 <script>
 
-  FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
-  
-  FilePond.create(document.getElementById('image'), {
-  imagePreviewHeight: 170,
-  imageCropAspectRatio: '1:1',
-  imageResizeTargetWidth: 200,
-  imageResizeTargetHeight: 200,
-  stylePanelLayout: 'compact circle',
-  styleLoadIndicatorPosition: 'center bottom',
-  styleButtonRemoveItemPosition: 'center bottom',
-  debug: true,
-  plugins: [
-    FilePondPluginImagePreview
-  ]
-}).on('processfile', (error, file) => {
-  if (error) {
-    console.log('File processing error:', error);
-    return;
-  }
-  console.log('File path:', file.serverId);
-});
+FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
 
 
-  // console log file path after submit
-  // document.getElementById('submit').addEventListener('click', function (e) {
-  //     const serverId = e.detail.file.serverId;
-  //     console.log(serverId);
-  //     // parse the JSON object
-  //     const jsonResponse = JSON.parse(serverId);
-  //     // access the filepath
-  //     const filepath = jsonResponse.filepath;
-  //     console.log(filepath);
-  //     if (filepath != null) {
-  //         document.getElementById('pplink').value = filepath;
-  //     }
-  // });
+    FilePond.create(document.getElementById('profilepic'), {
+      server:'http://localhost/Cropfello/public/Profile/editprofile',
+       // labelIdle: `<img src='<//?php// echo BASEURL?>/public/images/profilepic.png'/><br/><br/> <span>Upload Profile Picture</span>`,
+        imagePreviewHeight: 170,
+        imageCropAspectRatio: '1:1',
+        imageResizeTargetWidth: 200,
+        imageResizeTargetHeight: 200,
+        stylePanelLayout: 'compact circle',
+        styleLoadIndicatorPosition: 'center bottom',
+        styleButtonRemoveItemPosition: 'center bottom'
+    });
 
+    // console log file path after submit
+    document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
+      
+      
+      const serverId = e.detail.file.serverId;
+        console.log(serverId);
 
+        // parse the JSON object
+        const jsonResponse = JSON.parse(serverId);
+        // access the filepath
+        const filepath = jsonResponse.filepath;
+        console.log(filepath);
+        if (filepath != null) {
+            document.getElementById('pplink').value = filepath;
+        }
+    });
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   document.getElementById('submit').addEventListener('click', () => {
-//     const input = document.getElementById('image');
-//     const file = input.files[0];
-//     const filePath = URL.createObjectURL(file);
-//     console.log(filePath);
-//   });
-// });
 </script>
 </html>

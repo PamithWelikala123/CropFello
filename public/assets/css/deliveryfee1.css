@@ -44,3 +44,20 @@ font-size: 16px;
   top:350px;
   right: 694px;
 }
+.todo{
+    width : 24px;
+    height: 24px;
+  }
+
+.doing{
+  width : 24px;
+  height: 24px;
+} 
+.done{
+  width : 24px;
+  height: 24px;
+} 
+.fee{
+  width : 24px;
+  height: 24px;
+}

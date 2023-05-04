@@ -74,19 +74,20 @@ class bidding{
                                     $arr23['buyer_id']= $buyer_id;
                                     $arr23['post_id']=$idpost;
                                     
-
                                     $row2 = $finalbid->first($arr23);
                                     
                                     $primaryKeys = array('post_id','buyer_id');
 
                                     if (is_null($row2) || $row2 === '' || empty($row2)) {
+                                        $arr23['amount']= $arr1['amount'];
                                             $arr23['bidding_number']= $arr1['bidding_number'];
                                            $finalbid->insert($arr23);   
                                     }
 
 
                                     else{
-
+                                        $arr23['amount']= $arr1['amount'];
+                                        $arr23['bidding_number']=$arr1['bidding_number'];
                                            $finalbid->update2($arr23,$primaryKeys);
                                     }
 
@@ -96,6 +97,7 @@ class bidding{
                                     echo "<script>";
                                     echo "sucsess()"; // Call the JavaScript function here
                                     echo "</script>";
+
                       }
         
         
@@ -248,8 +250,10 @@ class bidding{
         $createbid = new createbid;
 
         $buyer_id=$_SESSION['USER']->user_id;
-        $arr['buyer_id']=$buyer_id;
-        $rows2 = $finalbid->where($arr);
+        $arrx['buyer_id']=$buyer_id;
+        $rows2 = $finalbid->where($arrx);
+        
+
 
         if($rows2){
 
@@ -257,16 +261,40 @@ class bidding{
                 foreach ($rows2 as $row) {
                   
                     $arr['post_id']=$row->post_id;
+                    
+
+                    $post_idrank=$row->post_id;
+
+                    
+                   
+
 
                     $row1=$createbid->first($arr);
+                    
+                  
 
-                    if($row1->status=="enable"){
+                    if(isset($row1->status)=="enable"){
 
                         $post_id=$row1->post_id;
+
+                        $userranks=$finalbid->Rank1($post_id);
+                        foreach ($userranks as $rowuserranks) {
+                            if($rowuserranks->buyer_id==$buyer_id){
+                                $row->rank=$rowuserranks->rank;
+                            
+                            }
+                        }
+
+                    
+
                         $amount=$row1->amount;
+
                         $row->post_id=$row1->post_id;
+
                         $row->item_id=$row1->item_id;
+
                         $row->exp=$row1->exp;
+
                         $date1=date_create($row1->bid_end_date);
                         $date2=date_create(date("Y-m-d"));
                         $diff=date_diff($date2,$date1);
@@ -280,6 +308,7 @@ class bidding{
                         $row->amount_type=$row1->amount_type;
                         $arr1['bidding_number']=$row->bidding_number;
                         $row->city=$row1->city;
+                       // $row->rank=$userranks->Rank();
 
                         $row2=$bidding1->first($arr1);
                         $row->youramount=$row2->amount;
@@ -330,30 +359,30 @@ class bidding{
 
 
 
-    public function search(){
+//     public function search(){
 
-        $createbid = new createbid;
-        $searchTerm = $_POST['searchTerm'];  
-        $id=$_SESSION['USER']->user_id;
+//         $createbid = new createbid;
+//         $searchTerm = $_POST['searchTerm'];  
+//         $id=$_SESSION['USER']->user_id;
         
-        $output = "";
+//         $output = "";
 
-        $rows=$createbid->search('createbid',$id,$searchTerm);
-        echo "Hi";
+//         $rows=$createbid->search('createbid',$id,$searchTerm);
+//         echo "Hi";
 
-        $this->BuyerBidding($rows);
-        // if ($rows) {
-        //     foreach($rows as $row){
-        //     //$this->data($id,$row->user_id,$output);
-        //    // echo $row->user_id;
-        //     }
-        // }
-        // else{
-        //    $output .= 'No item found related to your search term';
-        //  }
-        // echo $output;
+//         $this->BuyerBidding($rows);
+//         // if ($rows) {
+//         //     foreach($rows as $row){
+//         //     //$this->data($id,$row->user_id,$output);
+//         //    // echo $row->user_id;
+//         //     }
+//         // }
+//         // else{
+//         //    $output .= 'No item found related to your search term';
+//         //  }
+//         // echo $output;
 
-}
+// }
 
 public static function content($rows) {
     $output = "";
@@ -445,7 +474,17 @@ public static function content($rows) {
             
             }
 
-        }              
+        }     
+
+
+
+        public function rankbidders(){
+            
+        }
+        
+        
+
+        
 
 
 

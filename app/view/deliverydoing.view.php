@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverytodo1.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverydoing1.css">
    <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
@@ -31,10 +31,10 @@
                 <div class="menu">
                   <!-- <hr><label >Menu</label><br> -->
                   <hr><p>Menu</p><br>
-                  <button onclick="document.location='deliverytodo/view1'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> To Do</span></button><br>
-                  <button onclick="document.location='deliverydoing/index'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Doing</span></button><br>
-                  <button onclick="document.location='deliverydone'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Done</span></button><br>
-                  <button onclick="document.location='deliveryfee'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Fee</span></button><br>
+                  <button onclick="document.location='deliverytodo/view1'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/todo.png"><span> To Do</span></button><br>
+                  <button onclick="document.location='deliverydoing/index'"><img class="doing"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
+                  <button onclick="document.location='deliverydone'"><img class="done"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
+                  <button onclick="document.location='deliveryfee'"><img class="fee"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
               </div>
               <div class="message">
                   <!-- <hr><label>Message</label> -->
@@ -101,8 +101,8 @@
                         </tr>
                       </table>
 
-                      <button class="Approve btn1">Approve &nbsp  &#10004</button>
-                      <button class="Discard btn2">Discard &nbsp &#xf014 </button>
+                      <button class="Approve btn1">Done &nbsp  &#10004</button>
+                      <!-- <button class="Discard btn2">Discard &nbsp &#xf014 </button> -->
                     </div>
               
                   </div>                
