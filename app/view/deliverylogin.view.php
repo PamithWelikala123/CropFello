@@ -3,7 +3,7 @@
     <head>
         
         <title>
-            login page
+             deliverylogin page
         </title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +17,14 @@
 
         <div class="back">
                 <div class="mainletter">
-                          <p class="letters">Don't have an account? <a class="para">Register as a Deliverer</a></p>
+                          <p class="letters">Don't have an account? <a class="para" href="<?=ROOT?>/deliverysignup">Register as a Deliverer </a></p>
                           <!-- <a href="<?=ROOT?>/buyersignup">
                           <button class="button-buyer">Buyer</button> -->
                          
                           <!-- <a href="<?=ROOT?>/sellersignup">
                           <button class="button-seller">Seller</button> 
                           </a> -->
-                          <a href="<?=ROOT?>/deliverysignup">
+                          <!-- <a href="<?=ROOT?>/deliverysignup"> -->
                           <!-- <button class="button-deliverer">Deliverer</button></a> -->
                           
                </div>
@@ -53,7 +53,7 @@
                         <label class="tag3">Remember me</label>
                         <button class="button">Login</button>
 
-                        <a class="link" href="login/forgetpassword1">Forgot password</a>
+                        <a class="link" href="deliverylogin/forgetpassword1">Forgot password</a>
 
                   </form>
                         
