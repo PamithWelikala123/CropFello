@@ -8,7 +8,38 @@ class User{
     protected $allowedColumns = ['first_name','last_name','address','location','p-latitude','p-longitude','city','contact_number','email','password','token','seller','buyer','deliver','user_id','image','description'];
     public $errors = [];
 
-    
+    public function validate2($data){
+
+      $this->errors = [];      
+
+
+         if (empty($data['email'])){
+            $this->errors['email'] = "Email is Required";
+
+         } 
+
+         else {
+         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $this->errors['email'] = "Email is Not Valid";
+         }
+         if (validateemail($data['email'])) {
+            $this->errors['email'] = "Email is Already Exist";
+         }
+         }
+
+         if (empty($data['password'])){
+            $this->errors['password'] = "Password is Required";
+         }
+          if (empty($data['confirm_password'])){
+            $this->errors['confirm_password'] = "Confirm_password is Required";
+         
+         }
+
+         if(empty($this->errors)){
+         return true;
+           }
+
+    }
 
 
     public function validate($data){
@@ -26,6 +57,14 @@ class User{
       //    if (validateemail($data['email'])) {
       //       $this->errors['email'] = "Email is Already Exist";
       //    }
+
+       // if (empty($data['password'])){
+         //    $this->errors['password'] = "Password is Required";
+         // }
+          // if (empty($data['confirm_password'])){
+         //    $this->errors['confirm_password'] = "Confirm_password is Required";
+         // }
+      
       // }
       
            
