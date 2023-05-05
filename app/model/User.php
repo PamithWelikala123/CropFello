@@ -5,7 +5,7 @@ class User{
     use Model;
 
     protected $table = 'registerd_user';
-    protected $allowedColumns = ['first_name','last_name','address','location','p-latitude','p-longitude','city','contact_number','email','password','token','seller','buyer','deliver','user_id','image','description'];
+    protected $allowedColumns = ['first_name','last_name','address','location','platitude','plongitude','city','contact_number','email','password','token','seller','buyer','deliver','user_id','image','description'];
     public $errors = [];
 
     public function validate2($data){

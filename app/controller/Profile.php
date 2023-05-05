@@ -89,14 +89,15 @@ class profile{
             if(isset($_POST['location'])&& !empty($_POST['location'])){
 
                         $arr['location']= $_POST['location'];
-                        $arr['p-latitude']=$_POST['p-latitude'];
-                        $arr['p-longitude']=$_POST['p-longitude'];
+                        $arr['platitude']=$_POST['p-latitude'];
+                        $arr['plongitude']=$_POST['p-longitude'];
             }
         
             
             $primaryKeys = array('user_id');
             
             $user->update2($arr,$primaryKeys);
+
             $arr['user_id']=$_SESSION['USER']->user_id;
             $row = $user->first($arr);
             $_SESSION['USER'] = $row;

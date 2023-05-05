@@ -138,6 +138,7 @@
 
 
 
+
                                                             <div class="map-container">
                                                                 <div id="map"></div>
                                                             </div>
@@ -182,6 +183,8 @@
      
   </div>
 
+
+ 
 
   <script
   src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>

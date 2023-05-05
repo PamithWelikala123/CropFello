@@ -185,6 +185,8 @@ var directionsRenderer;
 
 
 
+
+
 function calculateAndDisplayRoute() {
                                 // Create a directions service object
                                 var directionsService = new google.maps.DirectionsService();

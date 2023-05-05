@@ -9,70 +9,78 @@
         let marker;
         function initMap() {
 
-            const input = document.getElementById('location');
+           // const input = document.getElementById('location');
 
-                            const options = {
-                                // componentRestrictions: {country: 'us'}
-                            };
+                            // const options = {
+                            //     // componentRestrictions: {country: 'us'}
+                            // };
 
-                            const autocomplete = new google.maps.places.Autocomplete(input, options);
+                            // const autocomplete = new google.maps.places.Autocomplete(input, options);
 
-                            let srilanka={lat: 7.8731 ,lng: 80.7718};
-                            const map = new google.maps.Map(document.getElementById('map'), {
-                            center: srilanka,
-                            zoom: 7,
+                            //let start={lat: 6.828959157721786 ,lng:80.01828950117186};
+                            var start = new google.maps.LatLng(6.828959157721786,80.01828950117186);
+                           // var destination=new google.maps.LatLng(data.d_latitude,data.d_longitude);
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                            center: start,
+                            zoom: 15,
                             });
 
 
+                            var directionsService = new google.maps.DirectionsService();
+                            var directionsRenderer = new google.maps.DirectionsRenderer();
+                            directionsRenderer.setMap(map);
+                    
+                    var request = {
+                      origin: start, 
+                      destination: destination, 
+                      travelMode: 'DRIVING' 
+                    };
+                    
+                //     directionsService.route(request, function(result, status) {
+                //       if (status === 'OK') {
+                //         directionsRenderer.setDirections(result);
+                //       }
+                //     });
+                //   }
+
+        //     autocomplete.addListener('place_changed', function() {
+        //         const place = autocomplete.getPlace();
+        //         if (!place.geometry) {
+        //             window.alert("No details available for input: '" + place.name + "'");
+        //             return;
+        //         }
+        //         if (place.geometry.viewport) {
+        //             map.fitBounds(place.geometry.viewport);
+        //         } else {
+        //             map.setCenter(place.geometry.location);
+        //             map.setZoom(17);
+        //         }
+        //         marker.setPosition(place.geometry.location);
+        //         updateLocationField(place.formatted_address);
+        //     });
 
 
 
-                            marker = new google.maps.Marker({
-                                map: map,
-                                draggable: true
-                            });
-
-
-                            
-
-            autocomplete.addListener('place_changed', function() {
-                const place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    window.alert("No details available for input: '" + place.name + "'");
-                    return;
-                }
-                if (place.geometry.viewport) {
-                    map.fitBounds(place.geometry.viewport);
-                } else {
-                    map.setCenter(place.geometry.location);
-                    map.setZoom(17);
-                }
-                marker.setPosition(place.geometry.location);
-                updateLocationField(place.formatted_address);
-            });
-
-
-
-            marker.addListener('dragend', function() {
-                const geocoder = new google.maps.Geocoder();
-                geocoder.geocode({'location': marker.getPosition()}, function(results, status) {
-                    if (status === 'OK') {
-                        if (results[0]) {
-                            map.setZoom(14);
-                            map.setCenter(marker.getPosition());
-                            updateLocationField(results[0].formatted_address);
-                        } else {
-                            window.alert('No results found');
-                        }
-                    } else {
-                        window.alert('Geocoder failed due to: ' + status);
-                    }
-                });
-            });
+        //     marker.addListener('dragend', function() {
+        //         const geocoder = new google.maps.Geocoder();
+        //         geocoder.geocode({'location': marker.getPosition()}, function(results, status) {
+        //             if (status === 'OK') {
+        //                 if (results[0]) {
+        //                     map.setZoom(14);
+        //                     map.setCenter(marker.getPosition());
+        //                     updateLocationField(results[0].formatted_address);
+        //                 } else {
+        //                     window.alert('No results found');
+        //                 }
+        //             } else {
+        //                 window.alert('Geocoder failed due to: ' + status);
+        //             }
+        //         });
+        //     });
         }
-        function updateLocationField(value) {
-            document.getElementById('location').value = value;
-        }
+        // function updateLocationField(value) {
+        //     document.getElementById('location').value = value;
+        // }
     </script>
     <style>
         #map {
