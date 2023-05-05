@@ -8,6 +8,221 @@
 
 
     <style>
+     #map {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+        }
+        .map-container{
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+
+
+
+
+        body {
+    font-family: poppins;
+    font-size: 17px;
+    padding: 8px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+  
+  .col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+  }
+  
+  .col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+  
+  .col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+  }
+  
+  .col-25,
+  .col-50,
+  .col-75 {
+    padding: 0 16px;
+  }
+  
+  .container {
+    padding: 5%;
+  }
+  
+  input[type=text] ,  input[type=email] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    display: block;
+    font-size: medium;
+    font-weight: 500;
+  }
+  
+
+  /* .btn {
+    background-color: white;
+    color: #4DEA25;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    width: 25%;
+font-weight: 550;
+    cursor: pointer;
+    font-size: 17px;
+   
+    float: right;
+  }
+  
+  .btn:hover {
+    background-color: #4DEA25;
+    color: black;
+  } */
+  
+
+  .btn {
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: none;
+  color: #000000;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 25%;
+font-weight: 550;
+    cursor: pointer;
+    font-size: 17px;
+   
+    float: right;
+}
+
+.btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn:hover span {
+  padding-right: 25px;
+}
+
+.btn:hover span:after {
+  opacity: 1;
+  right: 0;
+} 
+
+
+ img{
+    width: 200px;
+    display: inline-block;
+ }
+.login{
+    float:right ;
+    margin-top: 1%;
+    margin-right: 10%;
+    font-weight: 600;
+    cursor: pointer;
+ }
+
+/* .img2{
+ position: absolute;
+ width: 100%;
+ height: 80px; 
+ bottom: 0px;
+ left: 0px;
+}
+
+.img3{
+position: absolute;
+height: 80px;
+bottom: 0px;
+width: 100%;
+left: 0px;
+} */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+ }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+  @media (max-width: 800px) {
+    .row {
+      flex-direction: column;
+    }
+    .col-25 {
+      margin-bottom: 20px;
+    }
+    .img2{
+        display: none;
+       }
+       
+       .img3{
+        display: none;
+       }
+       
+  }
+
+  @media (min-width: 800px) {
+
+    .img2{
+        position: absolute;
+        width: 100%;
+        height: 80px; 
+        bottom: 0px;
+        left: 0px;
+       }
+       
+       .img3{
+       position: absolute;
+       height: 80px;
+       bottom: 0px;
+       width: 100%;
+       left: 0px;
+       }
+       
+  }
+
  
     </style>
 </head>
