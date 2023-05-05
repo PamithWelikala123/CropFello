@@ -18,7 +18,7 @@
         
         <div class="Register">
               <p class="letter">Register to CropFello</p>
-        </div>
+        </div> 
 
         <div style="display : grid; grid-template-columns: 60% 40%">
               <div>
