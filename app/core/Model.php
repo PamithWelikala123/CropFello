@@ -93,33 +93,40 @@ trait Model{
 
 
     public function update($id, $data, $id_column = 'user_id'){
+        //print_r($data);
 
         if(!empty($this->allowedColumns)){
 
             foreach($data as $key => $value){
 
                 if(!in_array($key, $this->allowedColumns)){
-
+                    //print_r($data[$key]);
                     unset($data[$key]);
                 }
             }
         }
 
         $keys = array_keys($data);
-        
+        //print_r($data);
         $query = "update $this->table set ";
 
         foreach ($keys as $key){
             $query .= $key . " = :". $key . ", ";
+            print_r($key);
         }
 
         $query = trim($query, ", ");
 
         $query .= " where $id_column = :$id_column";
         $data[$id_column] = $id;
+
+      
         $this->query($query, $data);
         return false;
     }
+
+
+
 
     public function update2($data, $primaryKeys) {
 

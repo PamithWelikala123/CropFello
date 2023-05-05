@@ -31,11 +31,15 @@ class profile{
 
 
     public function editprofile()
-        {
-            
-            if (isset($_FILES['profilepic']) && $_FILES['profilepic']['error'] === UPLOAD_ERR_OK) {
+
+        { if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                 $user = new User;
+                 $arr = array();
+                 $arr['user_id']=$_SESSION['USER']->user_id;
+
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
                 
-                $filename = basename($_FILES['profilepic']['name']);
+                $filename = basename($_FILES['image']['name']);
                 $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                 
                 
@@ -43,23 +47,64 @@ class profile{
                 $targetPath = APPROOT . '/../public/assets/images/Profile_pic/' . $newFilename;
                 
                 
-                if (move_uploaded_file($_FILES['profilepic']['tmp_name'], $targetPath)) {
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
                     
                     // Return JSON response with file path
                     $response = [
                         'success' => true,
-                        'filepath' => '/public/images/uploadimages/profilepic/' . $newFilename
+                        'filepath' => '/public/images/uploadimages/profilepic/' . $newFilename,
+                        $arr['image']=$newFilename
                     ];
+                    echo  $arr['image'];
                     echo json_encode($response);
                 } else {
-                    $response = ['success' => false];
-                    echo json_encode($response);
+                    // $response = ['success' => false];
+                    // echo json_encode($response);
                 }
             } else {
-                $response = ['success' => false];
-                echo json_encode($response);
+                // $response = ['success' => false];
+                // echo json_encode($response);
             }
+
+            //echo $_POST['location'];
+
+            if(isset($_POST['first_name'])  && !empty($_POST['first_name'])){
+                $arr['first_name']=$_POST['first_name'];
+            }
+            if(isset($_POST['last_name'])  && !empty($_POST['last_name'])){
+                $arr['last_name']=$_POST['last_name'];
+            }
+            if(isset($_POST['address']) && !empty($_POST['address'])){
+                $arr['address']=$_POST['address'];
+            }
+            if(isset($_POST['city']) && !empty($_POST['city'])){
+                $arr['city']=$_POST['city'];
+            }
+            if(isset($_POST['contact_number'])&& !empty($_POST['contact_number'])){
+                $arr['contact_number']=$_POST['contact_number'];
+            }
+            if(isset($_POST['description'])&& !empty($_POST['description'])){
+                $arr['description']=$_POST['description'];
+            }
+            if(isset($_POST['location'])&& !empty($_POST['location'])){
+
+                        $arr['location']= $_POST['location'];
+                        $arr['p-latitude']=$_POST['p-latitude'];
+                        $arr['p-longitude']=$_POST['p-longitude'];
+            }
+        
+            
+            $primaryKeys = array('user_id');
+            
+            $user->update2($arr,$primaryKeys);
+            $arr['user_id']=$_SESSION['USER']->user_id;
+            $row = $user->first($arr);
+            $_SESSION['USER'] = $row;
+            $this->Editprofile_details();
+
         }
+
+    }
 
 
 

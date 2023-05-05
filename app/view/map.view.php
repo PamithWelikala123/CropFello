@@ -2,324 +2,231 @@
 <html>
 <head>
     <title>Location Picker</title>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile1.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
+    <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
     <script src="<?=ROOT?>/assets/js/map.js"></script> 
 
-
     <style>
      #map {
             width: 100%;
-            height: 180px;
+            height: 190px;
             border-radius: 10px;
         }
         .map-container{
-            width: 200px;
-            height: 200px;
+            width: 100%;
+            height: 215px;
             border-radius: 10px;
+            margin-top: 2%;
         }
-
-
-
-
-
-        body {
-    font-family: poppins;
-    font-size: 17px;
-    padding: 8px;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  .row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -16px;
-  }
-  
-  .col-25 {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-  }
-  
-  .col-50 {
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-  }
-  
-  .col-75 {
-    -ms-flex: 75%; /* IE10 */
-    flex: 75%;
-  }
-  
-  .col-25,
-  .col-50,
-  .col-75 {
-    padding: 0 16px;
-  }
-  
-  .container {
-    padding: 5%;
-  }
-  
-  input[type=text] ,  input[type=email] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-  }
-  
-  label {
-    margin-bottom: 10px;
-    display: block;
-    font-size: medium;
-    font-weight: 500;
-  }
-  
-
-  /* .btn {
-    background-color: white;
-    color: #4DEA25;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 10px;
-    width: 25%;
-font-weight: 550;
-    cursor: pointer;
-    font-size: 17px;
-   
-    float: right;
-  }
-  
-  .btn:hover {
-    background-color: #4DEA25;
-    color: black;
-  } */
-  
-
-  .btn {
-  border-radius: 4px;
-  background-color: #ffffff;
-  border: none;
-  color: #000000;
-  text-align: center;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-  padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 25%;
-font-weight: 550;
-    cursor: pointer;
-    font-size: 17px;
-   
-    float: right;
-}
-
-.btn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.btn span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.btn:hover span {
-  padding-right: 25px;
-}
-
-.btn:hover span:after {
-  opacity: 1;
-  right: 0;
-} 
-
-
- img{
-    width: 200px;
-    display: inline-block;
- }
-.login{
-    float:right ;
-    margin-top: 1%;
-    margin-right: 10%;
-    font-weight: 600;
-    cursor: pointer;
- }
-
-/* .img2{
- position: absolute;
- width: 100%;
- height: 80px; 
- bottom: 0px;
- left: 0px;
-}
-
-.img3{
-position: absolute;
-height: 80px;
-bottom: 0px;
-width: 100%;
-left: 0px;
-} */
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-
- }
-  
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-  @media (max-width: 800px) {
-    .row {
-      flex-direction: column;
-    }
-    .col-25 {
-      margin-bottom: 20px;
-    }
-    .img2{
-        display: none;
-       }
-       
-       .img3{
-        display: none;
-       }
-       
-  }
-
-  @media (min-width: 800px) {
-
-    .img2{
-        position: absolute;
-        width: 100%;
-        height: 80px; 
-        bottom: 0px;
-        left: 0px;
-       }
-       
-       .img3{
-       position: absolute;
-       height: 80px;
-       bottom: 0px;
-       width: 100%;
-       left: 0px;
-       }
-       
-  }
-
- 
     </style>
 </head>
 
-
 <body onload="initMap()">
 
+  <div class="background">
+    <div class="grid-row">
 
+          <div class="profile-upper">
 
-
-
-
-<img src="http://localhost/Cropfello/vimukthi/register form/images/logo.png" alt="">
-<p class="login">Login</p>
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form method="post">
-      
-        <div class="row">
-          <div class="col-50">
-            <div class="row">
-                <div class="col-50">
-                  <label for="name">Name</label>
-                  <input type="text" id="firstname"  placeholder="First Name" name="first_name">
-                </div>
-                <div class="col-50">
-                  <label for="lastname">&nbsp;</label>
-                  <input type="text" id="lastname" name="last_name" placeholder="Last Name">
-                </div>
-              </div>
-        
-            <label for="adr">Address</label>
-            <input type="text" id="adress" name="address">
-
-            <div class="row">
-              <div class="col-25">
-                <label for="city">City</label>
-                <input type="text" id="city" name="city">
-              </div>
-              <div class="col-25">
-                <label for="contact">Contact No</label>
-                <input type="text" id="contact" name="contact_number">
-              </div>
-              
-            </div>
-            
-          </div>
-          
-
-          <div class="col-50">
-            <label for="">Location</label>
-
-            <input type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" value="" >
-
-            <input type="hidden" name="p-latitude" id="p-latitude" value="">
-            <input type="hidden" name="p-longitude" id="p-longitude" value="">
-
-<!-- 
-            <input type="text" id="destination" name="destination" placeholder="From Where journey End...?"  value=""> -->
-<!-- 
-            <input type="hidden" name="d-latitude" id="d-latitude" value="">
-            <input type="hidden" name="d-longitude" id="d-longitude" value="">
-
-
-
-            <input type="hidden" name="distance" id="distance" value="">
-            <input type="hidden" name="duration" id="duration" value=""> -->
-
-            <div class="map-container">
-                <div id="map"></div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-25">
-                    <!-- <input type="submit" value="Next" class="btn" > -->
-                    <button type="submit" class="btn"><span>Next </span></i></button>
-                  </div>
                 
-            </div>
-          </div>
-          
-        </div>
+                      <div class="form-grid-2-2">
 
-        
-      </form>
+                        <div>
+
+                                  <div class="form-group">
+                                    <img  src="<?=ROOT?>/assets/images/images/frame.svg">
+                                  </div> 
+
+                                  <div class="form-group">
+                                    <h1>Edit Profile</h1>
+                                  </div> 
+                        </div>
+
+                        
+
+                        <div>
+
+                                  <div class="form-group backkey">
+                                    <img src="<?=ROOT?>/assets/images/images/arrow-left-circle.svg"  onclick="document.location='../Profile'">
+                                  </div> 
+
+                                  <div class="form-group">
+                                    <h2>Upload profile picture </h2>
+                                  </div> 
+
+                        </div>
+
+
+
+                                <div>
+                                  <form class="" action="editprofile" method="post" enctype="multipart/form-data">
+                                          <div class="form-split">
+
+                                                <div class="form-group">
+                                                  <label class="form-label" for="firstname">First Name *</label>
+                                                  
+                                                  <input type="textbox" id="firstname" class="basic-input-field" placeholder="<//?=$data['first_name']?>" name="first_name">
+                                                </div>  
+                                                
+                                                <div class="form-group">
+                                                  <label class="form-label" for="lastname">Last Name *</label>
+                                                  
+                                                  <input type="text" id="lastname" class="basic-input-field" placeholder="<//?=$data['last_name']?>" name="last_name">
+                                                </div>
+
+                                        </div> 
+
+                                        <div class="form-group">
+                                          <label class="form-label" for="address">Address *</label>
+                                          
+                                          <input type="text" id="address" class="form-control basic-input-field" placeholder="<//?=$data['address']?>" name="address">
+                                      </div>
+
+                                      <div class="form-split">
+
+                                          
+                                            <div class="form-group">
+                                              <label class="form-label" for="city">City *</label>
+                                              <input type="text" id="city" class="basic-input-field" placeholder="<//?=$data['city']?>" name="city">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label" for="contact-number">Contact Numbeer *</label>
+                                                <input type="text" id="contact-number" class="form-control basic-input-field"  placeholder="<//?=$data['contact_number']?>" name="contact_number">
+                                            </div>
+
+                                      </div> 
+
+                                      <div class="form-group">
+                                            <label class="form-label" for="about">About *</label>
+                                            <input type="text" id="about" class="form-control basic-input-field" placeholder="  Change your Description..." name="description" >
+                                          </div>
+
+                                </div>    
+
+  
+
+                              <div>
+                                    <div class="form-split">
+                                   
+                                          <div class="form-group">
+                                            
+                                             
+ 
+                                                <input class="form-control basic-input-field profile-pic" type="file" id="profilepic" credits='false' name="image" accept="image/png, image/jpeg, image/gif" />
+                                                <input type="hidden" id="pplink" name="pplink">
+                                           
+                                                 
+                                          </div>
+
+                                          <div class="form-group">
+
+                                                            <label for="">Location</label>
+                                                            
+                                                            <input class="basic-input-field" type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" >
+                                                            <input type="hidden" name="p-latitude" id="p-latitude" value="">
+                                                            <input type="hidden" name="p-longitude" id="p-longitude" value="">
+                                                            <input type="hidden" id="city1" name="city1" value="">
+
+
+
+                                                            <div class="map-container">
+                                                                <div id="map"></div>
+                                                            </div>
+
+                                          </div>
+
+                                          
+
+
+                                    </div>
+
+                        
+
+                                    <div class="form-group">
+
+                                            <button type="button" class="form-control basic-input-field changepasswordbutton" onclick="location.href='../Profile/Editprofile_changepassword1'">
+                                              Change Password <label class="change_password1">></label>
+                                            </button>
+
+                                      
+                                    </div>    
+                                      
+                                    <div class="form-group">
+                                                  
+                                    <button class="form-control basic-input-field Register-but" type="submit" name="submit" id="submit" >Update</button> 
+
+                                    </div> 
+                      </div>
+
+                                  
+                              </form>
+
+          </div>
+
+          <div class="profile-lower">
+                 <img src="<?=ROOT?>/assets/images/images/bottom2.png">
+                <img src="<?=ROOT?>/assets/images/images/bottom1.png">
+                
+          </div>
+
     </div>
+     
   </div>
 
-</div>
-<div class="footer">
-    <img class="img2" src="http://localhost/Cropfello/vimukthi/register form/images/register-corner2.png" alt="">
-    <img class="img3" src="http://localhost/Cropfello/vimukthi/register form/images/register-corner.png" alt="">
-</div>
+
+  <script
+  src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+<script src="https://unpkg.com/filepond@^4"></script>
+
+<script>
+
+FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
 
 
+    FilePond.create(document.getElementById('profilepic'), {
+      server:'http://localhost/Cropfello/public/Profile/editprofile',
+       // labelIdle: `<img src='<//?php// echo BASEURL?>/public/images/profilepic.png'/><br/><br/> <span>Upload Profile Picture</span>`,
+        imagePreviewHeight: 170,
+        imageCropAspectRatio: '1:1',
+        imageResizeTargetWidth: 200,
+        imageResizeTargetHeight: 200,
+        stylePanelLayout: 'compact circle',
+        styleLoadIndicatorPosition: 'center bottom',
+        styleButtonRemoveItemPosition: 'center bottom'
+    });
+
+    // console log file path after submit
+    document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
+      
+      
+      const serverId = e.detail.file.serverId;
+        console.log(serverId);
+
+        // parse the JSON object
+        const jsonResponse = JSON.parse(serverId);
+        // access the filepath
+        const filepath = jsonResponse.filepath;
+        console.log(filepath);
+        if (filepath != null) {
+            document.getElementById('pplink').value = filepath;
+        }
+    });
+
+</script>
 
 
 
