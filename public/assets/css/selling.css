@@ -82,3 +82,158 @@
   display: inline-block;
   
   }
+
+
+
+
+
+ *{
+    font-family: poppins;
+}
+
+.container-selling {
+  position: relative;
+  width: 200px;
+}
+
+.image-selling {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.overlay-selling {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #090909;
+  opacity: 80%;
+  overflow: hidden;
+  width: 200px;
+  border-radius: 15px;
+  height: 0;
+  transition: .5s ease;
+}
+
+.container-selling:hover .overlay-selling {
+  bottom: 0;
+  height: 100%;
+}
+
+.text-selling {
+  white-space: nowrap; 
+  color:#ffffff;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  line-height: 180%;
+}
+
+label:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+.modal-selling {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+}
+
+/* Modal Content */
+.modal-content-selling {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #888;
+  width: 450px; /* Set the width to 661px */
+  height: 200px; /* Set the height to 249px */
+}
+
+/* The Close Button */
+.closeBtn-selling {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeBtn-selling:hover,
+.closeBtn-selling:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header-selling {
+  padding: 2px 16px;
+  
+}
+.modal-header-selling p {
+  color: #252525;
+  opacity: 80%;
+  font-size: 110%;
+  
+}
+.modal-body-selling {
+  padding: 2px 16px;
+
+  padding-bottom: 10%;
+}
+
+.modal-body-selling .delete-selling{
+  background-color: #4DEA25;
+  border-radius: 10%;
+  padding: 4%;
+  font-weight: 600;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  float: right;
+  margin-right: 10px;
+}
+.modal-body-selling .delete-selling:hover{
+  background-color: #000000;
+  color: #4DEA25;
+}
+
+.modal-body-selling .cancel-selling{
+  background-color: #e4ffdc;
+  border-radius: 10%;
+  padding: 4%;
+  font-weight: 600;
+  border-style: none;
+  border-width: 0;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  float: right;
+  margin-right: 10px;
+}
+.modal-body-selling .cancel-selling:hover{
+  background-color: #000000;
+  color: #4DEA25;
+}
+
+
+.modal-body-selling label{
+  font-weight: bold;
+  opacity: 60%;
+}
+
