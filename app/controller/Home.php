@@ -74,5 +74,9 @@ class Home{
         $this->view('temp');
     }
 
+    public function temp2(){
+        $this->view('temp2');
+    }
+
 }
 
