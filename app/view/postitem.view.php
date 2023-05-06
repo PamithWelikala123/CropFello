@@ -260,8 +260,7 @@
           </form>
 
           <div class="profile-lower">
-                 <img src="<?=ROOT?>/assets/images/images/bottom2.png">
-                <img src="<?=ROOT?>/assets/images/images/bottom1.png">
+             
                 
           </div>
 
@@ -286,7 +285,7 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
 
 
     FilePond.create(document.getElementById('profilepic'), {
-      server:'http://localhost/Cropfello/public/Selling/databasepost',
+      server: '<?php echo ROOT ?>/Selling/databasepost',
        // labelIdle: `<img src='<//?php// echo BASEURL?>/public/images/profilepic.png'/><br/><br/> <span>Upload Profile Picture</span>`,
         imagePreviewHeight: 300,
         imageCropAspectRatio: '1:1',

@@ -2,19 +2,19 @@
     font-family: poppins;
 }
 
-.container {
+.container-selling {
   position: relative;
   width: 200px;
 }
 
-.image {
+.image-selling {
   display: block;
   width: 200px;
   height: 200px;
   border-radius: 15px;
 }
 
-.overlay {
+.overlay-selling {
   position: absolute;
   bottom: 100%;
   left: 0;
@@ -28,12 +28,12 @@
   transition: .5s ease;
 }
 
-.container:hover .overlay {
+.container-selling:hover .overlay-selling {
   bottom: 0;
   height: 100%;
 }
 
-.text {
+.text-selling {
   white-space: nowrap; 
   color:#ffffff;
   font-size: 20px;
@@ -54,7 +54,7 @@ label:hover{
 
 
 
-.modal {
+.modal-selling {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -67,7 +67,7 @@ label:hover{
 }
 
 /* Modal Content */
-.modal-content {
+.modal-content-selling {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
@@ -78,37 +78,37 @@ label:hover{
 }
 
 /* The Close Button */
-.closeBtn {
+.closeBtn-selling {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.closeBtn:hover,
-.closeBtn:focus {
+.closeBtn-selling:hover,
+.closeBtn-selling:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
-.modal-header {
+.modal-header-selling {
   padding: 2px 16px;
   
 }
-.modal-header p {
+.modal-header-selling p {
   color: #252525;
   opacity: 80%;
   font-size: 110%;
   
 }
-.modal-body {
+.modal-body-selling {
   padding: 2px 16px;
 
   padding-bottom: 10%;
 }
 
-.modal-body .delete{
+.modal-body-selling .delete-selling{
   background-color: #4DEA25;
   border-radius: 10%;
   padding: 4%;
@@ -120,12 +120,12 @@ label:hover{
   float: right;
   margin-right: 10px;
 }
-.modal-body .delete:hover{
+.modal-body-selling .delete-selling:hover{
   background-color: #000000;
   color: #4DEA25;
 }
 
-.modal-body .cancel{
+.modal-body-selling .cancel-selling{
   background-color: #e4ffdc;
   border-radius: 10%;
   padding: 4%;
@@ -137,13 +137,13 @@ label:hover{
   float: right;
   margin-right: 10px;
 }
-.modal-body .cancel:hover{
+.modal-body-selling .cancel-selling:hover{
   background-color: #000000;
   color: #4DEA25;
 }
 
 
-.modal-body label{
+.modal-body-selling label{
   font-weight: bold;
   opacity: 60%;
 }
