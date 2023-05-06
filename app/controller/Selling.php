@@ -33,45 +33,53 @@ class Selling{
     }
 
     public function databasepost(){
-        if(isset($_POST["submit"])){
-            if(isset($_POST["submit"])){
-            
-                  if($_FILES["image"]["error"] == 4){
-                    echo
-                    "<script> alert('Image Does Not Exist'); </script>"
-                    ;
-                  }
-                  else{
-                    $fileName = $_FILES["image"]["name"];
-                    $fileSize = $_FILES["image"]["size"];
-                    $tmpName = $_FILES["image"]["tmp_name"];
-                
-                    $validImageExtension = ['jpg', 'jpeg', 'png'];
-                    $imageExtension = explode('.',$fileName);
-                    $imageExtension = strtolower(end($imageExtension));
-                
-                    $newImageName = uniqid();
-                    $newImageName .= '.'.$imageExtension;
-
-                    $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/Cropfello/public/assets/images/Post-images/'.$newImageName;
-                    move_uploaded_file($tmpName, $destinationPath); 
-                    $_POST['image']=$newImageName;
-                  }
-                }
-        }
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
-            $postitem = new postitems;
-            $_POST['user_id']=$_SESSION['USER']->user_id;
-            $row=$postitem->insert($_POST);
-
-        }
-        redirect('selling');
+        $arr = array();
+        $newFilename='';
         
-    }
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                                                            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                                                                $filename = basename($_FILES['image']['name']);
+                                                                $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                                                                $newFilename = uniqid() . '.' . $ext;
+                                                                $targetPath = APPROOT . '/../public/assets/images/postitem/' . $newFilename;
+                                                                $arr["image"] = $newFilename;
+                                                                
+                                                                if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
+                                                                    // Return JSON response with file path
+                                                                    $response = [
+                                                                        // 'success' => true,
+                                                                        'filepath' =>$newFilename,
+                                                                       
+                                                                    ];
+                                                                    echo $_POST['image'];
+                                                                    echo json_encode($response);
+                                                                } else {
+                                                                    // $response = ['success' => false];
+                                                                    // echo json_encode($response);
+                                                                }
+                                                            } else {
+                                                                // $response = ['success' => false];
+                                                                // echo json_encode($response);
+                                                            }
+     }                                                       // Move this line inside the "if" statement
+     if (isset($_POST['submit'])) {                                                       
+                                                            $postitem = new postitems;
+                                                            $_POST['user_id']=$_SESSION['USER']->user_id;
+                                                            foreach ($_POST as $key => $value) {
+                                                                echo $key . " = " . $value . "<br>";
+                                                            }
+                                                            $row=$postitem->insert($_POST);
+                                                        }
+
+           
+
+        }
+        //redirect('selling/selling');
+        
+   
 
     public function Postitem(){
-        $this->view('postitem');
+        $this->view('temp');
     }
 
 

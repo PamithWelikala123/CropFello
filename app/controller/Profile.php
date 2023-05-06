@@ -66,7 +66,7 @@ class profile{
                 // echo json_encode($response);
             }
 
-            //echo $_POST['location'];
+            
 
             if(isset($_POST['first_name'])  && !empty($_POST['first_name'])){
                 $arr['first_name']=$_POST['first_name'];
