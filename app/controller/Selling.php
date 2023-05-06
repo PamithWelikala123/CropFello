@@ -41,7 +41,7 @@ class Selling{
                                                                 $filename = basename($_FILES['image']['name']);
                                                                 $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
                                                                 $newFilename = uniqid() . '.' . $ext;
-                                                                $targetPath = APPROOT . '/../public/assets/images/postitem/' . $newFilename;
+                                                                $targetPath = APPROOT . '/../public/assets/images/Post-images/' . $newFilename;
                                                                 $arr["image"] = $newFilename;
                                                                 
                                                                 if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
@@ -65,11 +65,10 @@ class Selling{
      if (isset($_POST['submit'])) {                                                       
                                                             $postitem = new postitems;
                                                             $_POST['user_id']=$_SESSION['USER']->user_id;
-                                                            foreach ($_POST as $key => $value) {
-                                                                echo $key . " = " . $value . "<br>";
-                                                            }
+                                                      
                                                             $row=$postitem->insert($_POST);
-                                                        }
+                                                             redirect('selling/selling');
+    }
 
            
 
@@ -79,7 +78,7 @@ class Selling{
    
 
     public function Postitem(){
-        $this->view('temp');
+        $this->view('postitem');
     }
 
 
