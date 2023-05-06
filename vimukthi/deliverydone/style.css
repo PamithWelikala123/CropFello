@@ -1,4 +1,4 @@
-* {
+ * {
     padding: 0%;
     margin: 0%;
     font-family: poppins;
@@ -436,13 +436,14 @@
     /* align-items: flex-end; */
 
     align-items: center;
-    justify-content: center;
+    justify-content: right;
   }
   
   .post-button {
-    background-color: #4DEA25;
-    color: rgb(0, 0, 0);
-    border: none;
+    background-color: #ffffff;
+    color: #FB7A7A;
+    border: 2px solid #faa5a5;
+    /* border: none; */
     border-radius: 5px;
     padding: 10px 20px;
     margin-bottom: 5px;
@@ -452,10 +453,11 @@
     width: 160px;
     margin-right:10px ;
     margin-left:10px ;
+    transition: 0.4s;
   }
   .post-button:hover {
-    color: #4DEA25;
-    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    background-color: #FB7A7A;
     
   }
   
@@ -467,14 +469,7 @@
     background-color: red;
   }
    */
-   .map-button{
-    background-color: white;
 
-   }
-   .map-button:hover{
-    color: #4DEA25;
-    
-   }
 
 
    #more{
