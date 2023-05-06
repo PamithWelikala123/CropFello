@@ -14,36 +14,36 @@
 </head>
 <body onload="initMap()">
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="closeBtn">&times;</span>
+    <div id="modal" class="requestcrop-modal">
+        <div class="requestcrop-modal-content">
+          <div class="requestcrop-modal-header">
+            <span class="requestcrop-closeBtn">&times;</span>
             <h2>Request Crop</h2>
           </div>
-          <div class="modal-body">
+          <div class="requestcrop-modal-body">
         
 
 
-            <div class="row">
-                <div class="col-75">
-                  <div class="container">
+            <div class="requestcrop-row">
+                <div class="requestcrop-col-75">
+                  <div class="requestcrop-container">
                     <form action="/action_page.php">
                     
-                      <div class="row">
-                        <div class="col-50">
-                          <div class="row">
+                      <div class="requestcrop-row">
+                        <div class="requestcrop-col-50">
+                          <div class="requestcrop-row">
                             <label for="email">Item Name</label>
                             <input type="text" id="password" name="password" >
                             </div>
                       
                           
               
-                          <div class="row">
-                            <div class="col-75">
+                          <div class="requestcrop-row">
+                            <div class="requestcrop-col-75">
                               <label for="city">Quantity</label>
                               <input type="text" id="city" name="city">
                             </div>
-                            <div class="col-25">
+                            <div class="requestcrop-col-25">
                                 <label for="city">&nbsp;</label>
                                 <select name="cars" id="cars">
                                     <option value="volvo">Kg</option>
@@ -55,19 +55,19 @@
 
                           </div>
 
-                          <div class="row">
+                          <div class="requestcrop-row">
                             <label for="email">Before</label>
                             <input type="text" id="password" name="password" >
                             </div>
                       
                           
               
-                          <div class="row">
-                            <div class="col-50">
+                          <div class="requestcrop-row">
+                            <div class="requestcrop-col-50">
                               <label for="city">City</label>
                               <input type="text" id="city" name="city">
                             </div>
-                            <div class="col-50">
+                            <div class="requestcrop-col-50">
                               <label for="postalcode">Contact No</label>
                               <input type="text" id="postalcode" name="postalcode" >
                             </div>
@@ -77,7 +77,7 @@
                         </div>
                         
               
-                        <div class="col-50">
+                        <div class="requestcrop-col-50">
                             <label for="">Location</label>
                             <input type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" >
                 
@@ -95,13 +95,13 @@
                             <input type="hidden" name="distance" id="distance" value="">
                             <input type="hidden" name="duration" id="duration" value=""> -->
                 
-                            <div class="map-container">
+                            <div class="requestcrop-map-container">
                                 <div id="map"></div>
                             </div>
-                            <div class="row">
-                                <div class="col-25">
-                                    <!-- <input type="submit" value="Next" class="btn" > -->
-                                    <button type="submit" class="btn"><span>Next </span></i></button>
+                            <div class="requestcrop-row">
+                                <div class="requestcrop-col-25">
+                                    <!-- <input type="submit" value="Next" class="requestcrop-btn" > -->
+                                    <button type="submit" class="requestcrop-btn"><span>Next </span></i></button>
                                   </div>
                                 
                             </div>
@@ -122,10 +122,10 @@
           </div>
         </div>
       </div>
-      <!-- <div class="container">
-        <img src="images/pinaple1.jpg" alt="Avatar" class="image">
-        <div class="overlay">
-          <div class="text">
+      <!-- <div class="requestcrop-container">
+        <img src="images/pinaple1.jpg" alt="Avatar" class="requestcrop-image">
+        <div class="requestcrop-overlay">
+          <div class="requestcrop-text">
               <label>Edit</label><br> -->
               <label   id="openModalBtn" >button</label>
           <!-- </div>
@@ -140,7 +140,7 @@
       var btn = document.getElementById("openModalBtn");
       
       // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("closeBtn")[0];
+      var span = document.getElementsByClassName("requestcrop-closeBtn")[0];
       
       // When the user clicks the button, open the modal 
       btn.onclick = function() {
