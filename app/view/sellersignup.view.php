@@ -6,9 +6,12 @@
            Seller Register Page
         </title>
         <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyersignup.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
         <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
         <script src="<?=ROOT?>/assets/js/map.js"></script> 
+        <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         
     </head>
     
@@ -66,7 +69,7 @@
 
                     <div class="col-25">
                     <label for="contact">Contact No</label>
-                    <?php if(empty($errors['address'])):?>
+                    <?php if(empty($errors['contact_number'])):?>
 
                       <input type="text" id="contact" name="contact_number">
                       <?php else:?>
@@ -95,10 +98,10 @@
           <div class="col-50">
 
             <label for="">Location</label>
-            <?php if(empty($errors['pickuplocation'])):?>
-            <input type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" value="" >
+            <?php if(empty($errors['location'])):?>
+            <input type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" >
             <?php else:?>
-              <input style="border: 1px solid #FB7A7A;" type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" value="" >
+              <input style="border: 1px solid #FB7A7A;" type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location">
             <?php endif;?>
             
             
