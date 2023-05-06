@@ -22,6 +22,9 @@ class requests
               }
   }
 
+
+  
+
   public function view1(){
 
             if ($_SESSION['USER']) {
