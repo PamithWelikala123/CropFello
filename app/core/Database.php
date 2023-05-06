@@ -39,6 +39,22 @@ trait Database{
         return false;
         
     }
+
+    // aluth ekak (Rushin)
+    function getConnection() {
+        $host = 'localhost';
+        $user = 'root';
+        $password = '';
+        $database = 'cropfello';
+    
+        $connection = mysqli_connect($host, $user, $password, $database);
+    
+        if (!$connection) {
+            die('Connection failed: ' . mysqli_connect_error());
+        }
+    
+        return $connection;
+    }
 }
 
 

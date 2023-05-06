@@ -18,7 +18,7 @@
 	<main>
 		<div class="left-side">
 			<h2>Register to CropFello</h2>
-			<form method="post" action="Deliverysignup.php">
+			<form method="post" >
 				<label for="firstName">First Name:</label>
 				<input type="text" id="firstName" name="fname"><br>
 
@@ -29,7 +29,7 @@
 				<input type="text" id="address" name="address"><br> -->
 
                 <label>Available Area *</label>
-        <select name="field2" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" onchange="console.log(this.selectedOptions)">
+        <!-- <select name="field2" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" onchange="console.log(this.selectedOptions)">
           <option>Kottawa</option>
           <option>Pannipitiya</option>
           <option>Maharagama</option>
@@ -39,7 +39,15 @@
           <option>Moratuwa</option>
           <option>Gampaha</option>
           
-        </select><br>
+        </select>--> 
+		<form method="POST">
+		<select id="items" name="items[]" multiple>
+            <?php foreach ($listItems as $item): ?>
+                <option value="<?= $item['id'] ?>" <?php if (in_array($item['id'], $selectedItems)) echo 'selected' ?>><?= $item['name'] ?></option>
+            <?php endforeach; ?>
+        </select>
+		</form>
+		<br> 
 
                 <div class="vehicle-info1">
                     <!-- <label for="vehicleNo">Vehicle  Number</label> -->

@@ -1,39 +1,71 @@
 <?php
-class Deliveryuser {
+
+class Deliveryuser{
+
     use Model;
 
     protected $table = 'user';
     protected $allowedColumns = ['fname','lname','cnum','email','password_hash','id','vnumber'];
     public $errors = [];
-    // private $db;
 
-    // function __construct($db) {
-    //     $this->db = $db;
-    // }
 
-    // function addUser($name, $email, $password) {
-    //     $sql = "INSERT INTO user (fname, email, password) VALUES (:fname, :email, :password)";
-    //     $stmt = $this->db->prepare($sql);
-    //     $stmt->bindParam(':fname', $name, PDO::PARAM_STR);
-    //     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    //     $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
-    //     return $stmt->execute();
-    // }
 
-    // function getUserByEmail($email) {
-    //     $sql = "SELECT * FROM user WHERE email = :email";
-    //     $stmt = $this->db->prepare($sql);
-    //     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    //     $stmt->execute();
-    //     return $stmt->fetch(PDO::FETCH_ASSOC);
-    // }
 
-    // function checkUserExists($email) {
-    //     $sql = "SELECT COUNT(*) FROM user WHERE email = :email";
-    //     $stmt = $this->db->prepare($sql);
-    //     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    //     $stmt->execute();
-    //     return $stmt->fetchColumn();
-    // }
+    public function validate($data){
+        $this->errors = [];      
+
+
+         if (empty($data['email'])){
+            $this->errors['email'] = "Email is Required";
+
+         } else {
+         if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            $this->errors['email'] = "Email is Not Valid";
+         }
+         if (validateemail($data['email'])) {
+            $this->errors['email'] = "Email is Already Exist";
+         }
+      }
+      
+    {
+         }
+
+
+         if (empty($data['password_hash'])){
+            $this->errors['password_hash'] = "Password is Required";
+         }
+         if (empty($data['fname'])){
+            $this->errors['fname'] = "First_name is Required";
+         }
+         if (empty($data['lname'])){
+            $this->errors['lname'] = "Last name is Required";
+         }
+         if (empty($data['cnum'])){
+            $this->errors['cnum'] = "Contact no is Required";
+         }
+         if (empty($data['confirm_password'])){
+            $this->errors['confirm_password'] = "Confirm_password is Required";
+         }
+
+
+
+
+        if(empty($this->errors)){
+         return true;
+           }
+
+
+      return false;
+    }
+
+    public function getListItems() {
+      $sql = "SELECT * FROM cities ORDER BY id ASC";
+      $result = mysqli_query(getConnection(), $sql);
+      $listItems = [];
+      while ($row = mysqli_fetch_assoc($result)) {
+          $listItems[] = $row;
+      }
+      return $listItems;
+  }
+    
 }
-?>

@@ -18,7 +18,7 @@
 
         <div class="item item-2">
             <h2 class="h2">Register to <b>CropFello</b></h2>
-            <form action="process-signup.php" method="post">
+            <form method="post">
                 <div class="name">
                     <label for="name">Name <span style="color:red">&#9913 </span></label><br>
                     <input type="text" name="fname" placeholder="First Name" class="tb1">
@@ -32,9 +32,9 @@
                     <label for="name">Available Area <span style="color:red">&#9913 </span></label><br>
                     <select name="country" id="country">
             <option value="">Select a country</option>
-            <?php foreach ($countries as $country) { ?>
+            <!-- <?php foreach ($countries as $country) { ?>
                 <option value="<?php echo $country['id']; ?>"><?php echo $country['name']; ?></option>
-            <?php } ?>
+            <?php } ?> -->
         </select>
                 
 
@@ -42,7 +42,7 @@
                 </div>
                 <div class="password">
                     <label for="password">Password <span style="color:red">&#9913 </span></label><br>
-                    <input type="password" id="password" name="password" class="tb1" placeholder="Enter your Password">
+                    <input type="password" id="password" name="password_hash" class="tb1" placeholder="Enter your Password">
                 </div>
                 <div class="VN">
                     <label for="number" po>Vehicle Number <span style="color:red">&#9913 </span></label><br>
