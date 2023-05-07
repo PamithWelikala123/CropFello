@@ -16,8 +16,12 @@
   
   .post-preview{
     margin-bottom: 10px;
+    position: relative;
+    width: 200px;
   } 
   
+
+
   .img{
     width: 100%;
     border-radius: 20px;
@@ -83,7 +87,14 @@
   
   }
 
-
+.selling-post-exp{
+  color: #E43D3D;
+  font-weight: 600;
+}
+.selling-post-stock{
+  color: #34901C;
+  font-weight: 600;
+}
 
 
 
@@ -91,10 +102,7 @@
     font-family: poppins;
 }
 
-.container-selling {
-  position: relative;
-  width: 200px;
-}
+
 
 .image-selling {
   display: block;
@@ -114,10 +122,10 @@
   width: 200px;
   border-radius: 15px;
   height: 0;
-  transition: .5s ease;
+  transition: .2s ease;
 }
 
-.container-selling:hover .overlay-selling {
+.post-preview:hover .overlay-selling {
   bottom: 0;
   height: 100%;
 }
@@ -125,14 +133,20 @@
 .text-selling {
   white-space: nowrap; 
   color:#ffffff;
-  font-size: 20px;
+  font-size: 16px;
   position: absolute;
   overflow: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  line-height: 180%;
+  line-height: 120%;
+}
+
+.text-selling hr{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: 0.4;
 }
 
 label:hover{

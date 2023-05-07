@@ -372,7 +372,7 @@ public function cart(){
 
   if(empty($data)){
     $data = [];
-    $this->view('cart',$data);
+    $this->view('cart');
   }else{
     $this->view('cart',$data);
   }

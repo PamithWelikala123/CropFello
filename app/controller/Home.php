@@ -71,7 +71,7 @@ class Home{
 
 
     public function temp(){
-        $this->view('temp');
+        $this->view('404');
     }
 
     public function temp2(){

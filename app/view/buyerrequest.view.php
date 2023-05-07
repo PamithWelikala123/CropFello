@@ -12,6 +12,13 @@
     <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
     <script src="<?=ROOT?>/assets/js/map.js"></script> 
     <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
+    <script src="<?=ROOT?>/assets/js/map.js"></script> 
+    <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
     <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyerrequest.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
@@ -21,6 +28,7 @@
      
       </style>
   </head>
+  <body onload="initMap()">
   <body onload="initMap()">
 
 
@@ -69,6 +77,8 @@
 
 
 
+
+
 <div class="post">
                                   
                                             <div class="post-header">
@@ -110,7 +120,10 @@
 
                                               <div class="post-button post-buttons">
                                                 <button class="approved-button" id="<?=$row->post_id?>" >Update</button>
+                                              <div class="post-button post-buttons">
+                                                <button class="approved-button" id="<?=$row->post_id?>" >Update</button>
 
+                                                <button class="delete-button" id="<?=$row->post_id?>" onclick="delete1()" >Delete&nbsp;
                                                 <button class="delete-button" id="<?=$row->post_id?>" onclick="delete1()" >Delete&nbsp;
                                                   <i class='fa fa-trash'></i></button>
                                               </div>
@@ -149,7 +162,13 @@
                                                       }
                                                       ?>
 <!-- 
+<!-- 
                                                     <div class="bg-modal-4">
+                                                                      <div class="modal-contents1">
+                                                                      <form class="" action='addRequestItem' method="post" enctype="multipart/form-data">
+                                                                      <label class="tag1">Request a Crop</label>
+                                                                        <div class="close">+</div>
+                                                                        <img src="https://richardmiddleton.me/comic-100.png" alt="">
                                                                       <div class="modal-contents1">
                                                                       <form class="" action='addRequestItem' method="post" enctype="multipart/form-data">
                                                                       <label class="tag1">Request a Crop</label>
@@ -157,6 +176,40 @@
                                                                         <img src="https://richardmiddleton.me/comic-100.png" alt="">
 
 
+                                                                        <label class="tag2">item name</label>
+                                                                        <label class="tag3">*</label>
+                                                                        <form action="">
+                                                                        <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="item_id" onchange="fetchemp()">
+                                                                                                                                                    <?php echo $crop_list?> 
+                                                                                                                                          </select>
+                                                                          
+                                                                        <label class="tag4">Amount</label>
+                                                                        <label class="tag5">*</label>
+                                                                        <input class="Amount" type="text" name="amount" >
+                                                                          <select class="unit" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" value="">
+                                                                                                                                                              <option value="KG">KG</option>
+                                                                                                                                                              <option value="G">G</option>
+                                                                                                                                                              <option value="TREES">TREES</option>
+                                                                                                                                                              <option value="ACRES">ACRES</option>
+                                                                                                                                                            </select> 
+                                                                          
+                                                                          <label class="tag6">Before</label>
+                                                                          <label class="tag7">*</label>
+                                                                          <input  class="date" type="date" name="date" >
+                                                                          <label class="tag8">Address</label>
+                                                                          <label class="tag9">*</label>
+                                                                          <input  class="Address" type="text" name="address" >
+                                                                          <label class="tag10">Postal Code</label>
+                                                                          <label class="tag11">*</label>
+                                                                          <input class="postal-code" type="text" name="postal_code" >
+                                                                          <label class="tag12">City</label>
+                                                                          <label class="tag13">*</label>
+                                                                          <input class="city" type="text" name="city" >
+                                                                          <label class="tag14">Contact Number</label>
+                                                                          <label class="tag15">*</label>
+                                                                          <input class="contact" type="type" name="contact" >
+                                                                          <button class="button" type="sumbit" name="submit">Send</button>
+                                                                      </form>
                                                                         <label class="tag2">item name</label>
                                                                         <label class="tag3">*</label>
                                                                         <form action="">
@@ -374,11 +427,45 @@
      
       
       </script> 
+
+<script>
+        // Get the modal
+      var modal = document.getElementById("modal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("plus");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("requestcrop-closeBtn")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+      modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+      modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+      }
+
+
+
+     
+      
+      </script> 
   <!-- <script src="<?=ROOT?>/assets/js/wishlist.js"></script> -->
 <script>
 
 function delete1(){
 
+const images = document.querySelectorAll('.delete-button');
 const images = document.querySelectorAll('.delete-button');
 images.forEach(function(image) {
   image.addEventListener('click', function() {
