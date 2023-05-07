@@ -106,6 +106,7 @@
                 </div> -->
                 
                 <div class="main-content">
+                <?php if(isset($data['a']) && !empty($data['a'])) {?>
                     <?php foreach($data['a'] as $dat){ ?>
                     <div class="post">
                         <div class="left">
@@ -135,6 +136,12 @@
                       </div>
                       <?php }
                         ?>
+
+<?php } else {?>
+  <div class="total-price">
+                      <span></span>
+                    </div>
+                  <?php } ?>
                 </div>
                 
             </div>
