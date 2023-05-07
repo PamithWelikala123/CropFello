@@ -5,8 +5,8 @@
     <title>
      Requests
     </title>
-    <!-- <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyerrequest.css"> -->
-   
+    <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyerrequest.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/requestcrop.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">

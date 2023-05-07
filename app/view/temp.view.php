@@ -127,7 +127,7 @@
         <div class="requestcrop-overlay">
           <div class="requestcrop-text">
               <label>Edit</label><br> -->
-              <label   id="openModalBtn" >button</label>
+              <label   id="plus" >button</label>
           <!-- </div>
         </div>
       </div>
@@ -137,7 +137,7 @@
       var modal = document.getElementById("modal");
       
       // Get the button that opens the modal
-      var btn = document.getElementById("openModalBtn");
+      var btn = document.getElementById("plus");
       
       // Get the <span> element that closes the modal
       var span = document.getElementsByClassName("requestcrop-closeBtn")[0];
