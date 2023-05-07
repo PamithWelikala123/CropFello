@@ -201,7 +201,10 @@
     color: rgb(0, 0, 0, 0.8);
     font-weight: 600;
 }
-
+.history{
+ float: right;
+ right: 10;
+}
 
 .leftbar {
     /* height: 100%;
