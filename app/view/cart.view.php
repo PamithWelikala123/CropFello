@@ -122,6 +122,7 @@
                       <tbody>
                       
                         <tr>
+                          <?php if ($data['a']) {?>
                         <?php foreach($data['a'] as $dat2){ ?>
                           <td>
                             <div class="product">
@@ -153,15 +154,21 @@
                         </tr>
                         
                       </tbody>
-                      <?php }
-                        ?>
+                      <?php } ?>
+                      <?php } ?>
                     </table>
+                    <?php if(isset($data['b']) && !empty($data['b'])) {?>
                     <?php foreach($data['b'] as $dat){ ?>
+                      <div class="total-price">
+                        <span>Rs. <?php echo $dat->total; ?></span>
+                      </div>
+                    <?php }?>
+                  <?php } else {?>
                     <div class="total-price">
-                      <span>Rs. <?php echo($dat->total);  ?></span>
+                      <span>Rs. 0.00</span>
                     </div>
-                    <?php }
-                        ?>
+                  <?php } ?>
+
                   </div>
                   
                   
