@@ -155,7 +155,7 @@ padding-bottom: 10%; */
       height: 600px; /* Set the height to 249px */
     }
 
-    .requestcrop-modal input[type=text] ,.requestcrop-modal  input[type=email]  ,.requestcrop-modal select{
+    .requestcrop-modal select[type=text],.requestcrop-modal input[type=text] ,.requestcrop-modal  input[type=date] ,.requestcrop-modal select,.requestcrop-modal input{
       width: 100%;
       margin-bottom: 0px;
       padding: 14px;

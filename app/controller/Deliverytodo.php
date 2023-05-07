@@ -99,6 +99,10 @@ class deliverytodo{
 
   }
 
+  public function view2(){
+          $this->view('deliverytodo2');
+  }
+
   public function buyer_allrequests(){
 
             $request_item = new request_item;
