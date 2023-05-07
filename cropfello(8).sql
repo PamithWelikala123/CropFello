@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2023 at 02:50 PM
+-- Generation Time: May 07, 2023 at 07:36 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -176,7 +176,8 @@ CREATE TABLE `checkout` (
 --
 
 INSERT INTO `checkout` (`first_name`, `last_name`, `address`, `contact_number`, `id`, `order_code`) VALUES
-('Pamith', 'Welikala', '30/1/A High Level Rd Meegoda', '771674022', 128, '4358d7fc6d38f58c15122a73c2ea8570');
+('Pamith', 'Welikala', '30/1/A High Level Rd Meegoda', '771674022', 128, '4358d7fc6d38f58c15122a73c2ea8570'),
+('pamith', 'welikala', '30/1/A High level Road Meegoda', '771674022', 129, '2c7e3bac530016f5399310214c301d30');
 
 -- --------------------------------------------------------
 
@@ -494,7 +495,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `buy_id`, `order_code`, `price`, `del_price`, `qua`, `tot`, `city`, `contact_number`, `del_id`, `postal_code`, `post_id`, `unit`, `item_name`, `del_method`, `cart`, `image`, `exp`, `placed_on`) VALUES
-(294, 2, '4358d7fc6d38f58c15122a73c2ea8570', 700, 500, 1, 1200, NULL, NULL, NULL, NULL, 41, 'TREES', 'Beans', 'delper', 0, '63f703544b6db.jpg', '2023-03-11', '2023-05-07');
+(294, 2, '4358d7fc6d38f58c15122a73c2ea8570', 700, 500, 1, 1200, NULL, NULL, NULL, NULL, 41, 'TREES', 'Beans', 'delper', 0, '63f703544b6db.jpg', '2023-03-11', '2023-05-07'),
+(295, 2, '2c7e3bac530016f5399310214c301d30', 100, 0, 10, 100, NULL, NULL, NULL, NULL, 58, 'KG', 'Lemon', 'pickup', 0, '6455dfb22a229.jpg', '2023-07-08', '2023-05-07');
 
 -- --------------------------------------------------------
 
@@ -662,9 +664,7 @@ INSERT INTO `request_item` (`post_id`, `seller_id`, `item_id`, `amount`, `unit`,
 (11, 2, 2, 80, 'KG', '2023-02-23', '30/1/A nuwara Road Gampaha', 30250, 'gampaha', 771674022, 1, 2),
 (13, 11, 0, 1, 'KG', '2022-12-19', '90/5 galleRoad Colombo 10', 12345, 'colombo', 112750684, 1, 2),
 (14, 4, 1, 2, 'KG', '2022-12-21', '50/1 galle Road colombo5', 1111, 'Colombo', 998765322, 0, 0),
-(15, 2, 0, 1, 'KG', '2022-12-21', 'aolombo', 1111, 'colombo', 112345678, 0, 0),
 (16, 11, 0, 1, 'KG', '2022-12-21', 'aolombo', 1111, 'colombo', 112345678, 0, 0),
-(36, 2, 2, 300, 'Kg', '2023-02-17', '30/1/ a jdhbbdfbdfhdb', 67543, 'Homagama', 772776406, 0, 0),
 (38, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 56789, 'padukka', 718333864, 0, 0),
 (39, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 56789, 'padukka', 718333864, 0, 0);
 
@@ -935,7 +935,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=129;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT for table `createbid`
@@ -971,13 +971,13 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=295;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=296;
 
 --
 -- AUTO_INCREMENT for table `postitem`
 --
 ALTER TABLE `postitem`
-  MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `registerd_user`
