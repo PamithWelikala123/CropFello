@@ -12,8 +12,8 @@
     <title>Document</title>
 
 </head>
-<body onload="initMap()">
-
+<body onload="initMap()" class="requestcrop-body">
+  <!-- <div class="requestcrop-modal"> -->
     <div id="modal" class="requestcrop-modal">
         <div class="requestcrop-modal-content">
           <div class="requestcrop-modal-header">
@@ -121,7 +121,14 @@
 
           </div>
         </div>
+
+
+
       </div>
+    
+
+
+
       <!-- <div class="requestcrop-container">
         <img src="images/pinaple1.jpg" alt="Avatar" class="requestcrop-image">
         <div class="requestcrop-overlay">
@@ -132,6 +139,8 @@
         </div>
       </div>
        -->
+
+
       <script>
         // Get the modal
       var modal = document.getElementById("modal");

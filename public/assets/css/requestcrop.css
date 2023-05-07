@@ -1,9 +1,17 @@
-/* *{
+/* .requestcrop-body{
   box-sizing: border-box;
   font-family: poppins;
   font-size: 17px;
   padding: 8px;
 } */
+
+*{
+  box-sizing: border-box;
+  font-family: poppins;
+  font-size: 17px;
+  padding: 8px;
+}
+
 
 .requestcrop-row {
   display: -ms-flexbox; /* IE10 */
@@ -38,20 +46,20 @@
   padding: 1%;
 }
 
-/* input[type=text] ,  input[type=email]  ,select{
+ .requestcrop-modal input[type=text] , .requestcrop-modal  input[type=email]  , .requestcrop-modal select{
   width: 100%;
   margin-bottom: 5px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
-} */
+} 
 
-/* label {
+.requestcrop-modal label {
   margin-bottom: 5px;
   display: block;
   font-size: medium;
   font-weight: 500;
-} */
+} 
 
 
 .requestcrop-btn {

@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.top-nav {
+        
+    background-color: aqua;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.side-bar{
+    width: 300px;
+    background-color: rgb(81, 81, 81);
+    height: calc(100vh - 50px);
+
+}
+
+.main-content{
+    background-color: blueviolet;
+    width: 100%;
+    height: calc(100vh - 50px);
+}
+
+.content-final{
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.filler{
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: antiquewhite;
+}
