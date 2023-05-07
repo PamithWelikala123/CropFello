@@ -6,10 +6,11 @@
      Requests
     </title>
     <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyerrequest.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/requestcrop.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/requestcrop.css">
     <style>
      
       </style>
@@ -60,7 +61,7 @@
                                                                               <?php foreach ($data as $row) :
                                                                                 ?>
 
-                                                                            <div class="request-posts">
+                                                                            <!-- <div class="request-posts">
 
                                                                                   <div class="request-top-line1">
                                                                                                 <img class="request-profile2" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"> 
@@ -109,7 +110,58 @@
                                                                                           
                                                                                   </div>
 
-                                                                              </div> 
+                                                                              </div>  -->
+
+<div class="post">
+                                  
+                                            <div class="post-header">
+                                              <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt="Profile Picture" class="post-profile-pic">
+                                                  <div class="post-header-info">
+                                                    <div class="post-header-name">
+                                                      <?php echo $row->first_name ?>
+                                                       <?php echo $row->last_name ?>
+                                                      </div>
+                                                    <div class="post-header-date">Posted on May 5, 2023</div>
+                                                  </div>
+                                            </div>
+
+
+                                            <div class="post-content">
+                                              <div class="post-description">
+                                                
+                                                <table class="info-table">
+                                                  <tr>
+                                                    <td class="left-column">Item:</td>
+                                                    <td class="right-column"><?php echo $row->item_name ?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="left-column">Amount:</td>
+                                                    <td class="right-column"><?php  echo $row->amount ?><?php  echo $row->unit; ?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="left-column">Before:</td>
+                                                    <td class="right-column"><?php  echo $row->date ?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="left-column">To:</td>
+                                                    <td class="right-column"><?php  echo $row->city; ?></td>
+                                                  </tr>
+                                                </table>
+                                                
+                                              </div>
+
+
+                                              <div class="post-buttons">
+                                                <button class="post-button approved-button" id="<?=$row->post_id?>" >Update</button>
+
+                                                <button class="post-button delete-button" id="<?=$row->post_id?>" onclick="delete1()" >Delete&nbsp;
+                                                  <i class='fa fa-trash'></i></button>
+                                              </div>
+
+
+                                            </div>
+                                </div>
+
                                                                                     
                                                                             <?php endforeach; ?>
                                                                             
