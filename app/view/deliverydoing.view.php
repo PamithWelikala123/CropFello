@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverydoing1.css">
-   <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
 
@@ -32,9 +31,9 @@
                   <!-- <hr><label >Menu</label><br> -->
                   <hr><p>Menu</p><br>
                   <button onclick="document.location='deliverytodo/view1'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/todo.png"><span> To Do</span></button><br>
-                  <button onclick="document.location='deliverydoing/index'"><img class="doing"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
-                  <button onclick="document.location='deliverydone'"><img class="done"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
-                  <button onclick="document.location='deliveryfee'"><img class="fee"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
+                  <button onclick="document.location='deliverydoing/index'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
+                  <button onclick="document.location='deliverydone'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
+                  <button onclick="document.location='deliveryfee'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
               </div>
               <div class="message">
                   <!-- <hr><label>Message</label> -->
@@ -55,91 +54,21 @@
               </div>
 
             </div>
-            <div class="main">
-            <div class="containerx">
-                    <div class="item item-1">
-                      <img class="profile-pic" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>">
-                      <p class="nam">Pamith Welikala</p><br>
-                      <p class="date">3 September 2022</p>
 
-                    </div>
-                    <div class="item item-2">
-                    <h2 class="head">Pamith Welikala&nbsp wants to deliver&nbsp Papaya &nbsp 2 &nbspKgs &nbsp<br>from Godagama &nbsp to Thalawathugoda &nbsp</h2>
 
-                      <table class="table">
 
-                        <tr>
-                          <td>Item:</td>
-                          <td><font color="#0C7417">Papaya</td>
-                        </tr>
 
-                        <tr>
-                          <td>Amount:</td>
-                          <td><font color="#0C7417">2KG</td> 
-                        </tr>
 
-                        
-                        <tr>
-                          <td>From:</td>
-                          <td><font color="#0C7417">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td> 
-                        </tr>
 
-                        
-                        <tr>
-                          <td>To:</td>
-                          <td><font color="#0C7417">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td> 
-                        </tr>                        
-                        <tr>
-                          <td>Fee:</td>
-                          <td><font color="#0C7417">Rs.350.00</td> 
-                        </tr>
 
-                        
-                        <tr>
-                          <td>Vehicle Type:</td>
-                          <td><font color="#0C7417">Motocycle</td> 
-                        </tr>
-                      </table>
 
-                      <button class="Approve btn1">Done &nbsp  &#10004</button>
-                      <!-- <button class="Discard btn2">Discard &nbsp &#xf014 </button> -->
-                    </div>
-              
-                  </div>                
-            </div>
+
+ 
         </div>
         
     </div>
 
 
-    <script>
-          // Get the modal
-      var modal = document.getElementById("modal");
-      
-      // Get the button that opens the modal
-      var btn = document.getElementById("openModalBtn");
-      
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("closeBtn")[0];
-      
-      // When the user clicks the button, open the modal 
-      btn.onclick = function() {
-        modal.style.display = "block";
-      }
-      
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-      
-    </script>
 </body>
 
 </html>
