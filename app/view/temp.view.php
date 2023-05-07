@@ -12,7 +12,7 @@
     <title>Document</title>
 
 </head>
-<body onload="initMap()" class="requestcrop-body">
+<body onload="initMap()">
   <!-- <div class="requestcrop-modal"> -->
     <div id="modal" class="requestcrop-modal">
         <div class="requestcrop-modal-content">
