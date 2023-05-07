@@ -120,6 +120,11 @@ class User{
       return false;
     }
 
+    public function func1($para){
+      $query = "select * from $this->table where user_id=$para";
+      return $this->query($query);
+    }
+
 
 
 

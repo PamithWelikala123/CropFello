@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
     <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="<?=ROOT?>/assets/js/view.js"></script>
+    <script src="<?=ROOT?>/assets/js/view1.js"></script>
     <title>View Post</title>
 </head>
 <body>
@@ -77,14 +78,14 @@
                                             </div>
                                             <div class="delivery-viewitems">
                                                 <p>Delivery Method *</p>
-                                                <form>
+                                                <form method="post">
                                                     <label class="radio-inline-viewitems">
-                                                    <input type="radio" name="optradio" checked>&ensp;On my own&emsp;
+                                                    <input type="radio" name="optradio" value="pickup" checked>&ensp;Pick up method&emsp;
                                                     </label>
                                                     <label class="radio-inline-viewitems">
-                                                    <input type="radio" name="optradio">&ensp;Delivery person</label>
+                                                    <input type="radio" name="optradio" value="delper">&ensp;Delivery person</label>
                                         
-                                                </form>
+                                                
                                                 
                                             </div>
                                             <div class="wish-viewitems">
@@ -94,23 +95,25 @@
                                                     <label for=""><sup>Wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist2()"  src="<?=ROOT?>/assets/images/images/bookmark-active.svg" alt=""></label>
                                             <?php endif; ?>
                                                 </div>
+                                                
                                             <div class="quantity buttons_added">
 
-                                                    <input type="button" value="-" class="minus-viewitems"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text-viewitems" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus-viewitems">
+                                                    <!--input type="button" value="-" class="minus-viewitems"--><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text-viewitems" size="4" pattern="" inputmode="" id="mynum"><!--input type="button" value="+" class="plus-viewitems"-->
 
                                             </div>
                                             <div class="buy-now-viewitems">
-                                                <button>Buy Now</button>
+                                                <button name="buynow" id="button" type="submit">Buy Now</button>
                                             </div>
                                             <div class="add-to-cart-viewitems">
-                                                <button>Add to cart</button>
+                                                <button name="addto" name="addto" type="submit">Add to cart</button>
                                             </div>
-                                            <div class="negotiate-viewitems">
+                                            </form>
+                                            <!--div class="negotiate-viewitems">
                                                 <p>Negotiations allowed when buying more than 50% of the stock </p>
                                             </div>
                                             <div class="neg-btn-viewitems">
                                                 <button>Negotiate</button>
-                                            </div>
+                                            </div-->
                                         </div>
                                         <div class="description-viewitems">
                                             <h4>description</h4><hr>
@@ -149,6 +152,8 @@ const images = document.querySelectorAll('.wish-viewitems img');
     });
   });
 }
+
+
 
 </script>
 </html>
