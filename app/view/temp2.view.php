@@ -136,7 +136,7 @@
                                       <div class="form-split">
 
                                             <div class="form-group">
-                                                              <label class="form-label" for="city">Bid Range *</label>
+                                                              <label class="form-label" for="city">Amount *</label>
                                                               <input  class="basic-input-field"  type="text"  name="bid_range" placeholder="  Rs." >
                                             </div>
 
