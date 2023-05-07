@@ -1,11 +1,11 @@
 <?php
 
-class deliveryuser{
+class Deliveryuser{
 
     use Model;
 
     protected $table = 'user';
-    protected $allowedColumns = ['fname','lname','cnum','email','password','id','vnumber'];
+    protected $allowedColumns = ['fname','lname','cnum','email','password_hash','id','vnumber'];
     public $errors = [];
 
 
@@ -40,15 +40,6 @@ class deliveryuser{
          if (empty($data['lname'])){
             $this->errors['lname'] = "Last name is Required";
          }
-        //  if (empty($data['address'])){
-        //     $this->errors['address'] = "Address is Required";
-        //  }
-        //  if (empty($data['postal_code'])){
-        //     $this->errors['postal_code'] = "Postal code is Required";
-        //  }
-        //  if (empty($data['city'])){
-        //     $this->errors['city'] = "City is Required";
-        //  }
          if (empty($data['cnum'])){
             $this->errors['cnum'] = "Contact no is Required";
          }
@@ -67,6 +58,14 @@ class deliveryuser{
       return false;
     }
 
-    
+    public function getListItems() {
+      $sql = "SELECT * FROM cities ORDER BY id ASC";
+      $result = mysqli_query(getConnection(), $sql);
+      $listItems = [];
+      while ($row = mysqli_fetch_assoc($result)) {
+          $listItems[] = $row;
+      }
+      return $listItems;
+  }
     
 }

@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Signup Page</title>
+	<title> Delivery Signup Page</title>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverysignup.css">
 </head>
 <body>
 	<header>
 		<div class="logo">
-			<img src="images/logo.png" alt="Logo">
+			<img  src="<?=ROOT?>/assets/images/deliverysignup/logo.png" alt="Logo">
 		</div>
 		<div class="back-btn">
-			<button><img src="images/arrow-left-circle.svg" alt="Back"></button>
+			<button><img src="<?=ROOT?>/assets/images/deliverysignup/arrow-left-circle.svg" alt="Back"></button>
 		</div>
 	</header>
 	<main>
 		<div class="left-side">
 			<h2>Register to CropFello</h2>
-			<form>
+			<form method="post" >
 				<label for="firstName">First Name:</label>
-				<input type="text" id="firstName" name="firstName"><br>
+				<input type="text" id="firstName" name="fname"><br>
 
 				<label for="lastName">Last Name:</label>
-				<input type="text" id="lastName" name="lastName"><br>
+				<input type="text" id="lastName" name="lname"><br>
 
 				<!-- <label for="address">Address:</label>
 				<input type="text" id="address" name="address"><br> -->
 
                 <label>Available Area *</label>
-        <select name="field2" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" onchange="console.log(this.selectedOptions)">
+        <!-- <select name="field2" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" onchange="console.log(this.selectedOptions)">
           <option>Kottawa</option>
           <option>Pannipitiya</option>
           <option>Maharagama</option>
@@ -39,11 +39,19 @@
           <option>Moratuwa</option>
           <option>Gampaha</option>
           
-        </select><br>
+        </select>--> 
+		<form method="POST">
+		<select id="items" name="items[]" multiple>
+            <?php foreach ($listItems as $item): ?>
+                <option value="<?= $item['id'] ?>" <?php if (in_array($item['id'], $selectedItems)) echo 'selected' ?>><?= $item['name'] ?></option>
+            <?php endforeach; ?>
+        </select>
+		</form>
+		<br> 
 
                 <div class="vehicle-info1">
                     <!-- <label for="vehicleNo">Vehicle  Number</label> -->
-				    <input type="text" id="vehicleNo" name="vehicleNo" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    <input type="text" id="vehicleNumber" name="vnumber" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 				    <!-- <label for="vehicleType">Vehcle Type </label>
 				    <input type="text" id="vehicleType" name="vehicleType"><br> -->
@@ -64,16 +72,16 @@
                     <input type="text" id="vehicleCapacity" name="vehicleCapacity">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     
                     <label for="contactNo">Contact No:</label>
-                    <input type="text" id="contactNo" name="contactNo">
+                    <input type="text" id="contactNo" name="cnum">
                 </div>
 
 
-			</form>
+			
 		</div>
 		<div class="right-side">
 			<!-- <h2>Register</h2> -->
             <br><br>
-			<form>
+			
 				<label for="email">Email:</label>
 				<input type="email" id="email" name="email"><br>
 
@@ -84,15 +92,16 @@
 				<input type="password" id="confirmPassword" name="confirmPassword"><br>
 
 				<button type="submit">Register</button>
-			</form>
+                </form>
+			
 		</div>
 	</main>
 	<footer>
-		<img class="img2" src="images/register-corner2.png" alt="">
-        <img class="img3" src="images/register-corner.png" alt="">
+		<img class="img2" src="<?=ROOT?>/assets/images/deliverysignup/register-corner2.png" alt="">
+        <img class="img3" src="<?=ROOT?>/assets/images/deliverysignup/register-corner.png" alt="">
 	</footer>
 
-    <!-- <script src="multiselect-dropdown.js"></script> -->
+    <script src="multiselect-dropdown.js"></script>
 
 
 </body>
