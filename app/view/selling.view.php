@@ -31,6 +31,9 @@
                                                                 <img class="img" src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>" width = 200px height= 200px; title="<//?php //echo $row['image']; ?>">
                                                                   <div class="overlay-selling">
                                                                         <div class="text-selling">
+                                                                            <label class="selling-post-exp">EXP: 24 May 2023</label><br>
+                                                                            <label class="selling-post-stock">Stock: 55 KG</label>
+                                                                            <hr>
                                                                             <label>Edit</label><br>
                                                                             <label id="openModalBtn-selling" >Delete</label>
                                                                         </div>
