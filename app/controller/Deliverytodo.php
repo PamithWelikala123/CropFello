@@ -100,8 +100,37 @@ class deliverytodo{
   }
 
   public function view2(){
-          $this->view('deliverytodo2');
+
+
+
+    $checkout = new checkout;
+    $order = new Order;
+    $rows = $order->findAll();
+    foreach($rows as $row){
+      $arr['order_code']=$row->order_code;
+
+      $row1=$checkout->first($arr);
+      $row->first_name=$row1->first_name;
+      $row->last_name=$row1->last_name;
+      $row->address=$row1->address;
+      $row->contact_number=$row1->contact_number;
+
+
+      //$arr1['post_id']
+
+
+    }
+
+    // $this->view('deliverytodo2',$data);
   }
+
+
+
+
+
+
+
+
 
   public function buyer_allrequests(){
 

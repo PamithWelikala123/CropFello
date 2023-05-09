@@ -29,8 +29,7 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                               $userNotification = new Notification();
                               $notifications = $userNotification->notifications();
                               $jsonArray = json_encode($notifications);
-                              $name = "PAMITH";
-                              echo json_encode($name);
+                              
 
                    ?>
 
