@@ -301,4 +301,20 @@ public function approve(){
 
 
 
+//   public function update(){
+
+//     $id=$_GET['id'];
+//     //echo $id;
+//     //$arr['post_id']=$id;
+//     $arr['post_id']=$id;
+
+//     $request_item = new request_item;
+//    $rowx=$request_item->first($arr);
+//   json_encode($rowx);
+
+// }
+
+
+
+
 }

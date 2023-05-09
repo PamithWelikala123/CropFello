@@ -28,7 +28,7 @@
      
       </style>
   </head>
-  <body onload="initMap()">
+  
   <body onload="initMap()">
 
 
@@ -119,11 +119,8 @@
 
 
                                               <div class="post-button post-buttons">
-                                                <button class="approved-button" id="<?=$row->post_id?>" >Update</button>
-                                              <div class="post-button post-buttons">
-                                                <button class="approved-button" id="<?=$row->post_id?>" >Update</button>
-
-                                                <button class="delete-button" id="<?=$row->post_id?>" onclick="delete1()" >Delete&nbsp;
+                                                <button class="approved-button" id="<?=$row->post_id?>"   onclick="update()" >Update</button>
+                                              
                                                 <button class="delete-button" id="<?=$row->post_id?>" onclick="delete1()" >Delete&nbsp;
                                                   <i class='fa fa-trash'></i></button>
                                               </div>
@@ -131,6 +128,7 @@
 
                                             </div>
                                 </div>
+                                
 
                                                                                     
                                                                             <?php endforeach; ?>
@@ -151,8 +149,15 @@
                                                                     
 
                                                       </div>
+
+
+
+
+                                                        
+
+
                                                   
-                                                      <?php
+<?php
                                                       $crop_list='';
                                                       $item = new item;
                                                       $rows3 = $item->findAll();
@@ -160,106 +165,7 @@
                                                         $crop_list .="<option value=\"{$result->item_id}\">{$result->name}</option>";
 
                                                       }
-                                                      ?>
-<!-- 
-<!-- 
-                                                    <div class="bg-modal-4">
-                                                                      <div class="modal-contents1">
-                                                                      <form class="" action='addRequestItem' method="post" enctype="multipart/form-data">
-                                                                      <label class="tag1">Request a Crop</label>
-                                                                        <div class="close">+</div>
-                                                                        <img src="https://richardmiddleton.me/comic-100.png" alt="">
-                                                                      <div class="modal-contents1">
-                                                                      <form class="" action='addRequestItem' method="post" enctype="multipart/form-data">
-                                                                      <label class="tag1">Request a Crop</label>
-                                                                        <div class="close">+</div>
-                                                                        <img src="https://richardmiddleton.me/comic-100.png" alt="">
-
-
-                                                                        <label class="tag2">item name</label>
-                                                                        <label class="tag3">*</label>
-                                                                        <form action="">
-                                                                        <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="item_id" onchange="fetchemp()">
-                                                                                                                                                    <?php echo $crop_list?> 
-                                                                                                                                          </select>
-                                                                          
-                                                                        <label class="tag4">Amount</label>
-                                                                        <label class="tag5">*</label>
-                                                                        <input class="Amount" type="text" name="amount" >
-                                                                          <select class="unit" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" value="">
-                                                                                                                                                              <option value="KG">KG</option>
-                                                                                                                                                              <option value="G">G</option>
-                                                                                                                                                              <option value="TREES">TREES</option>
-                                                                                                                                                              <option value="ACRES">ACRES</option>
-                                                                                                                                                            </select> 
-                                                                          
-                                                                          <label class="tag6">Before</label>
-                                                                          <label class="tag7">*</label>
-                                                                          <input  class="date" type="date" name="date" >
-                                                                          <label class="tag8">Address</label>
-                                                                          <label class="tag9">*</label>
-                                                                          <input  class="Address" type="text" name="address" >
-                                                                          <label class="tag10">Postal Code</label>
-                                                                          <label class="tag11">*</label>
-                                                                          <input class="postal-code" type="text" name="postal_code" >
-                                                                          <label class="tag12">City</label>
-                                                                          <label class="tag13">*</label>
-                                                                          <input class="city" type="text" name="city" >
-                                                                          <label class="tag14">Contact Number</label>
-                                                                          <label class="tag15">*</label>
-                                                                          <input class="contact" type="type" name="contact" >
-                                                                          <button class="button" type="sumbit" name="submit">Send</button>
-                                                                      </form>
-                                                                        <label class="tag2">item name</label>
-                                                                        <label class="tag3">*</label>
-                                                                        <form action="">
-                                                                        <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="item_id" onchange="fetchemp()">
-                                                                                                                                                    <?php echo $crop_list?> 
-                                                                                                                                          </select>
-                                                                          
-                                                                        <label class="tag4">Amount</label>
-                                                                        <label class="tag5">*</label>
-                                                                        <input class="Amount" type="text" name="amount" >
-                                                                          <select class="unit" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" value="">
-                                                                                                                                                              <option value="KG">KG</option>
-                                                                                                                                                              <option value="G">G</option>
-                                                                                                                                                              <option value="TREES">TREES</option>
-                                                                                                                                                              <option value="ACRES">ACRES</option>
-                                                                                                                                                            </select> 
-                                                                          
-                                                                          <label class="tag6">Before</label>
-                                                                          <label class="tag7">*</label>
-                                                                          <input  class="date" type="date" name="date" >
-                                                                          <label class="tag8">Address</label>
-                                                                          <label class="tag9">*</label>
-                                                                          <input  class="Address" type="text" name="address" >
-                                                                          <label class="tag10">Postal Code</label>
-                                                                          <label class="tag11">*</label>
-                                                                          <input class="postal-code" type="text" name="postal_code" >
-                                                                          <label class="tag12">City</label>
-                                                                          <label class="tag13">*</label>
-                                                                          <input class="city" type="text" name="city" >
-                                                                          <label class="tag14">Contact Number</label>
-                                                                          <label class="tag15">*</label>
-                                                                          <input class="contact" type="type" name="contact" >
-                                                                          <button class="button" type="sumbit" name="submit">Send</button>
-                                                                      </form>
-
-                                                                      </div>
-                                                  </div>        -->
-
-
-
-
-
-
-
-
-
-
-
-
-
+?>
 
 <div id="modal" class="requestcrop-modal">
         <div class="requestcrop-modal-content">
@@ -463,9 +369,22 @@
   <!-- <script src="<?=ROOT?>/assets/js/wishlist.js"></script> -->
 <script>
 
+function update(){
+
+
+const images = document.querySelectorAll('.approved-button');
+images.forEach(function(image) {
+  image.addEventListener('click', function() {
+    const id = this.id;
+    window.location.href = 'update?id='+id;
+  });
+});
+
+}
+
 function delete1(){
 
-const images = document.querySelectorAll('.delete-button');
+
 const images = document.querySelectorAll('.delete-button');
 images.forEach(function(image) {
   image.addEventListener('click', function() {
