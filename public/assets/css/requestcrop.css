@@ -46,7 +46,7 @@
   padding: 1%;
 }
 
- .requestcrop-modal input[type=text] , .requestcrop-modal  input[type=email]  , .requestcrop-modal select{
+ .requestcrop-modal input[type=text] , .requestcrop-modal  input[type=email] , .requestcrop-modal  input[type=date] , .requestcrop-modal select{
   width: 100%;
   margin-bottom: 5px;
   padding: 18px;
@@ -135,11 +135,7 @@ opacity: 80%;
 font-size: 110%;
 
 }
-.requestcrop-modal-body {
-/* padding: 2px 16px; */
-/* 
-padding-bottom: 10%; */
-}
+
 
 @media (max-width: 800px) {
   .requestcrop-modal-content {
