@@ -87,14 +87,18 @@ class Feed{
         $qua = $data3->size*$qt;
         $image = $data3->image;
         $price = $data3->price*$qt;
+        $full_stock = $data3->stock_size;
         $exp = $data3->exp;
         $placed_on = date('Y-m-d');
         $del_price = 500;
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
-        $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image);
-      
+        if($full_stock > $qua){
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image);
+        }else{
+          print_r("not enough stock");
+        }
 
         $arrx1['user_id']=$_SESSION['USER']->user_id;
         $arrx2['order_code']=$rand;
@@ -105,9 +109,13 @@ class Feed{
         $address = $data4->address;
         $contact_number = $data4->contact_number;
         //$order_id = $data5->id;
+
+        if($full_stock > $qua){
+          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+          redirect('feed/checkout1?order_code=' . $rand);
+        }
     
-        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
-        redirect('feed/checkout1?order_code=' . $rand);
+        
       }else{
         $arr1['post_id'] = $id;
         $data3= $postitem->first($arr1);
@@ -123,12 +131,19 @@ class Feed{
         $price = $data3->price*$qt;
         $image = $data3->image;
         $exp = $data3->exp;
+        $full_stock = $data3->stock_size;
         $placed_on = date('Y-m-d');
         $del_price = 0;
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
-        $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image);
+        if($full_stock > $qua){
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image);
+        }else{
+          print_r("not enough stock");
+        }
+
+        
       
 
         $arrx1['user_id']=$_SESSION['USER']->user_id;
@@ -140,9 +155,12 @@ class Feed{
         $address = $data4->address;
         $contact_number = $data4->contact_number;
         //$order_id = $data5->id;
-    
-        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
-        redirect('feed/checkout1?order_code=' . $rand);
+        
+        if($full_stock > $qua){
+          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+          redirect('feed/checkout1?order_code=' . $rand);
+        }
+        
       }
       
   }elseif(isset($_POST['addto'])){
@@ -165,12 +183,19 @@ class Feed{
        $price = $data3->price*$qt;
        $image = $data3->image;
        $exp = $data3->exp;
+       $full_stock = $data3->stock_size;
        $placed_on = date('Y-m-d');
        $del_price = 500;
        $tot = $del_price + $price;
        $rand = md5(uniqid(rand(),true));
 
-       $order->func8($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$image,$exp,$placed_on);
+       if($full_stock > $qua){
+        $order->func8($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$image,$exp,$placed_on);
+       }else{
+        print_r("not enough stock");
+       }
+
+       
      
 
        $arrx1['user_id']=$_SESSION['USER']->user_id;
@@ -182,9 +207,13 @@ class Feed{
        $address = $data4->address;
        $contact_number = $data4->contact_number;
        //$order_id = $data5->id;
+
+       if($full_stock > $qua){
+        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+        redirect('feed/feed');
+       }
    
-       $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
-       redirect('feed/feed');
+       
      }else{
        $arr1['post_id'] = $id;
        $data3= $postitem->first($arr1);
@@ -200,12 +229,19 @@ class Feed{
        $price = $data3->price*$qt;
        $del_price = 0;
        $exp = $data3->exp;
+       $full_stock = $data3->stock_size;
        $placed_on = date('Y-m-d');
        $image = $data3->image;
        $tot = $del_price + $price;
        $rand = md5(uniqid(rand(),true));
 
-       $order->func8($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$image,$exp,$placed_on);
+       if($full_stock > $qua){
+        $order->func8($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$image,$exp,$placed_on);
+       }else{
+        print_r("not enough stock");
+       }
+
+       
      
 
        $arrx1['user_id']=$_SESSION['USER']->user_id;
@@ -217,10 +253,12 @@ class Feed{
        $address = $data4->address;
        $contact_number = $data4->contact_number;
        //$order_id = $data5->id;
+
+       if($full_stock > $qua){
+        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+        redirect('feed/feed');
+       }
    
-       $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
-       redirect('feed/feed');
-       
      }
   }else{
     $row=(array)$row;
@@ -235,13 +273,18 @@ public function checkout1(){
   $user = new User;
   $order = new Order;
   $checkout = new Checkout;
+  $post = new postitems;
 
   $arrx11['order_code']=$order_code;
   $user_id = $_SESSION['USER']->user_id;
 
-    //$data44 = $order->first($arrx11);
-    //$id = $data44->post_id;
- 
+  $data44 = $order->first($arrx11);
+  $id = $data44->post_id;
+  $arrx22['post_id']=$id;
+  $data55 = $post->first($arrx22);
+  $stock = $data55->stock_size;
+  $qua = $data44->qua;
+  $new_size = $stock-$qua;
 
   if(isset($_POST['change'])){
 
@@ -267,11 +310,19 @@ public function checkout1(){
     $arr['order_code'] = $order_code;
     $data1 = $order->first($arr);
     $del_method = $data1->del_method;
+    $post_id = $data1->post_id;
+    $arr1['post_id'] = $post_id;
+    $data2 = $post->first($arr1);
+    $seller = $data2->user_id;
+    //$arr2['user_id'] = $seller;
+    $data['c'] = $user->func1($seller);
+    
 
     if($del_method == "pickup"){
       $data['a'] = $checkout->func5($order_code);
       $data['b'] = $order->func5($order_code);
       if(isset($_POST['checkout'])){
+        
         redirect('feed/checkout2?order_code=' . $order_code);
       }
       $this->view('checkout1',$data);
@@ -279,6 +330,7 @@ public function checkout1(){
       $data['a'] = $checkout->func5($order_code);
       $data['b'] = $order->func5($order_code);
       if(isset($_POST['checkout'])){
+        
         redirect('feed/waiting');
       }
       $this->view('checkout1',$data);
@@ -289,11 +341,18 @@ public function checkout1(){
     $arr['order_code'] = $order_code;
     $data1 = $order->first($arr);
     $del_method = $data1->del_method;
+    $post_id = $data1->post_id;
+    $arr1['post_id'] = $post_id;
+    $data2 = $post->first($arr1);
+    $seller = $data2->user_id;
+    
+    $data['c'] = $user->func1($seller);
 
     if($del_method == "pickup"){
       $data['a'] = $user->func1($user_id);
       $data['b'] = $order->func5($order_code);
       if(isset($_POST['checkout'])){
+        
         redirect('feed/checkout2?order_code=' . $order_code);
       }
       $this->view('checkout1',$data);
@@ -301,6 +360,7 @@ public function checkout1(){
       $data['a'] = $user->func1($user_id);
       $data['b'] = $order->func5($order_code);
       if(isset($_POST['checkout'])){
+        
         redirect('feed/waiting');
       }
       $this->view('checkout1',$data);
@@ -314,13 +374,33 @@ public function checkout2(){
     //$user1 = new User;
     $checkout1 = new Checkout;
     $order = new Order;
+    $post = new postitems;
+    $user = new User;
+
     $arrx11['order_code']=$order_code;
     //$user_id = $_SESSION['USER']->user_id;
 
     $data44 = $order->first($arrx11);
     $metho = $data44->del_method;
+    $id = $data44->post_id;
+    $arrx22['post_id']=$id;
+    $data55 = $post->first($arrx22);
+    $stock = $data55->stock_size;
+    $qua = $data44->qua;
+    $new_size = $stock-$qua;
+
+    $arr['order_code'] = $order_code;
+    $data1 = $order->first($arr);
+    $del_method = $data1->del_method;
+    $post_id = $data1->post_id;
+    $arr1['post_id'] = $post_id;
+    $data2 = $post->first($arr1);
+    $seller = $data2->user_id;
+    $data['c'] = $user->func1($seller);
+
     $data['b'] = $checkout1->func5($order_code);
     $data['a'] = $order->func5($order_code);
+    
 
     if($metho == "pickup"){
       /*if(isset($_POST['tranBtn'])){
@@ -392,12 +472,32 @@ public function waiting(){
 }
 
 public function final(){
-  $order_code = $_GET['order_code'];
+  $order_code = $_GET['order_code']; 
+  //$user1 = new User;
   $checkout1 = new Checkout;
   $order = new Order;
-  $order->delete($order_code,'order_code');
-  $checkout1->delete($order_code,'order_code');
-  redirect("feed/feed");
+  $post = new postitems;
+  $arrx11['order_code']=$order_code;
+  //$user_id = $_SESSION['USER']->user_id;
+
+  $data44 = $order->first($arrx11);
+  $metho = $data44->del_method;
+  $id = $data44->post_id;
+  $arrx22['post_id']=$id;
+  $data55 = $post->first($arrx22);
+  $stock = $data55->stock_size;
+  $qua = $data44->qua;
+
+  if($stock > $qua){
+    $new_size = $stock-$qua;
+    $post->func1($new_size,$id);
+    $order->delete($order_code,'order_code');
+    $checkout1->delete($order_code,'order_code');
+    redirect("feed/feed");
+  }else{
+    print_r("not enough stock");
+  }
+  
   
 }
 
