@@ -87,7 +87,7 @@ $_SESSION['filename'] = 'feed';
                                                                                 </div>
                                                                                   <div class="post-info">
                                                                                             <div class="post-size">
-                                                                                                1
+                                                                                            <?php echo $row->size; ?>
                                                                                                   <?php echo $row->unit; ?>
 
                                                                                             </div>

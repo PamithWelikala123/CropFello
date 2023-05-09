@@ -76,7 +76,15 @@
                 ?>
             </div>
                 <button id="open-modal" class="ediBtn">Edit</button><br><br><br>
-                <p></p><br>
+                <p><strong>Seller Info</strong></p>
+                
+                <?php foreach($data["c"] as $dat2){ ?>
+                  <p><?php echo($dat2->first_name);  ?> <?php echo($dat2->last_name);  ?></p>
+                  <p><?php echo($dat2->address);  ?></p>
+                  <p><?php echo($dat2->contact_number);  ?></p>
+                  <?php }
+                ?>
+                <br>
             <!--form method="post">
                 <label class="radio-inline">
                 <input type="radio" name="op1" value="cash" checked>&ensp;Cash on delivery&emsp;

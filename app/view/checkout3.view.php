@@ -53,15 +53,24 @@
         
         <div class="main-content">
             <h3>Deliver To</h3>
-            <?php foreach($data['b'] as $dat1){ ?>
+            
             <div class="inner_main">
+            <?php foreach($data['b'] as $dat1){ ?>
                <p><?php echo($dat1->first_name);  ?> <?php echo($dat1->last_name);  ?></p>
                 <p><?php echo($dat1->address);  ?></p><br>
                 <p><?php echo($dat1->contact_number);  ?></p><br>
+                <?php }
+            ?>
+                <p><strong>Seller Info :</strong></p><br>
+            <?php foreach($data['c'] as $dat2){ ?>
+                <p><?php echo($dat2->first_name);  ?> <?php echo($dat2->last_name);  ?></p>
+                <p><?php echo($dat2->address);  ?></p><br>
+                <p><?php echo($dat2->contact_number);  ?></p><br>
+                <?php }
+            ?>
             </div>
             
-            <?php }
-            ?>
+            
             
             <form method="post">
                 <label class="radio-inline">
