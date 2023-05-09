@@ -12,7 +12,7 @@
 			<img  src="<?=ROOT?>/assets/images/deliverysignup/logo.png" alt="Logo">
 		</div>
 		<div class="back-btn">
-			<button><img src="<?=ROOT?>/assets/images/deliverysignup/arrow-left-circle.svg" alt="Back"></button>
+			<button onclick="document.location='deliverylogin'"><img src="<?=ROOT?>/assets/images/deliverysignup/arrow-left-circle.svg" alt="Back"></button>
 		</div>
 	</header>
 	<main>
@@ -55,7 +55,7 @@
 
 				    <!-- <label for="vehicleType">Vehcle Type </label>
 				    <input type="text" id="vehicleType" name="vehicleType"><br> -->
-                    <select>
+                    <!-- <select>
                         <option value="0">Select Vehicle Type</option>
                         <option value="1">Lorry</option>
                         <option value="2">Van</option>
@@ -64,7 +64,12 @@
                         <option value="5">Motorcycle</option>
                         <option value="6">Tractor</option>
                         <option value="7">Truck</option>
-                      </select>
+                      </select> -->
+					  <select id="vehicle" name="vehicle">
+                      <?php foreach ($options as $vehicle): ?>
+                      <option value="<?php echo $vehicle->vehicle_id; ?>"><?php echo $vehicle->vehicle_name; ?></option>
+                      <?php endforeach; ?>
+</select>
                 </div>
 
                 <div class="vehicle-info2">

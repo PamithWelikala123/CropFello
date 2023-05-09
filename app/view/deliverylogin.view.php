@@ -51,7 +51,7 @@
                         <i class="fas fa-eye" id="i"></i>
                         <input class="search3" type="checkbox">
                         <label class="tag3">Remember me</label>
-                        <button class="button">Login</button>
+                        <button onclick="document.location='deliverytodo'" class="button">Login</button>
 
                         <a class="link" href="deliverylogin/forgetpassword1">Forgot password</a>
 

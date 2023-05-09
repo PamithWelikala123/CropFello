@@ -5,7 +5,7 @@ class Deliveryuser{
     use Model;
 
     protected $table = 'user';
-    protected $allowedColumns = ['fname','lname','cnum','email','password_hash','id','vnumber'];
+    protected $allowedColumns = ['fname','lname','cnum','email','password_hash','id','vnumber','vehicle_id'];
     public $errors = [];
 
 
@@ -58,14 +58,14 @@ class Deliveryuser{
       return false;
     }
 
-    public function getListItems() {
-      $sql = "SELECT * FROM cities ORDER BY id ASC";
-      $result = mysqli_query(getConnection(), $sql);
-      $listItems = [];
-      while ($row = mysqli_fetch_assoc($result)) {
-          $listItems[] = $row;
-      }
-      return $listItems;
-  }
+//     public function getListItems() {
+//       $sql = "SELECT * FROM cities ORDER BY id ASC";
+//       $result = mysqli_query(getConnection(), $sql);
+//       $listItems = [];
+//       while ($row = mysqli_fetch_assoc($result)) {
+//           $listItems[] = $row;
+//       }
+//       return $listItems;
+//   }
     
 }

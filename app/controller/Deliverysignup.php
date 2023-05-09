@@ -39,7 +39,23 @@ class Deliverysignup{
         $this->view('deliverysignup');
     }
 
+    // public function deliverysignup(){
+    //     $this->view('deliverysignup');
+    // }
+    public function getCountryOptions($db) {
+         
+        // assume $db is a PDO object representing your database connection
+        $stmt = $db->prepare("SELECT vehicle_id, name FROM vehicle");
+        $stmt->execute();
     
+        $options = array();
+        while ($row = $stmt->fetch()) {
+          $vehicle = new Vehicle($row['vehicle_id'], $row['vehicle_name']);
+          $options[] = $vehicle;
+        }
+    
+        return $options;
+      }
 
 
 
