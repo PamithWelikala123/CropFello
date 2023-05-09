@@ -46,7 +46,7 @@
 
 <script>
     
-console.log(<?php echo json_encode($data['sel_lati']); ?>);
+
 
 let marker;
 function initMap() {
