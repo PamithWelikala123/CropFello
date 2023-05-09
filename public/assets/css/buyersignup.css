@@ -1,24 +1,207 @@
-.logo{
-  height: 120px;
-  display: flex;
-  flex-direction: row;
+
+#map {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+}
+/* .map-container{
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+} */
+
+
+
+
+
+body {
+font-family: poppins;
+font-size: 17px;
+padding: 8px;
 }
 
-.img1{
+* {
+box-sizing: border-box;
+}
+
+.row {
+display: -ms-flexbox; /* IE10 */
+display: flex;
+-ms-flex-wrap: wrap; /* IE10 */
+flex-wrap: wrap;
+margin: 0 -16px;
+}
+
+.col-25 {
+-ms-flex: 25%; /* IE10 */
+flex: 25%;
+}
+
+.col-50 {
+-ms-flex: 50%; /* IE10 */
+flex: 50%;
+}
+
+.col-75 {
+-ms-flex: 75%; /* IE10 */
+flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+padding: 0 16px;
+}
+
+.container {
+padding: 5%;
+}
+
+input[type=text] ,  input[type=email] {
+width: 100%;
+margin-bottom: 20px;
+padding: 15px;
+border: 1px solid #ccc;
+border-radius: 10px;
+}
+
+label {
+margin-bottom: 10px;
+display: block;
+font-size: medium;
+font-weight: 500;
+}
+
+
+/* .btn {
+background-color: white;
+color: #4DEA25;
+padding: 12px;
+margin: 10px 0;
+border: none;
+border-radius: 10px;
+width: 25%;
+font-weight: 550;
+cursor: pointer;
+font-size: 17px;
+
+float: right;
+}
+
+.btn:hover {
+background-color: #4DEA25;
+color: black;
+} */
+
+
+.btn {
+border-radius: 4px;
+background-color: #ffffff;
+border: none;
+color: #000000;
+text-align: center;
+transition: all 0.5s;
+cursor: pointer;
+margin: 5px;
+padding: 12px;
+margin: 10px 0;
+border: none;
+width: 25%;
+font-weight: 550;
+cursor: pointer;
+font-size: 17px;
+
+float: right;
+}
+
+.btn span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.btn span:after {
+content: '\00bb';
 position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.btn:hover span {
+padding-right: 25px;
+}
+
+.btn:hover span:after {
+opacity: 1;
+right: 0;
+} 
+
+
+img{
 width: 200px;
-height: 70px;
-left: 51px;
-top: 40px;
+display: inline-block;
+}
+.login{
+float:right ;
+margin-top: 1%;
+margin-right: 10%;
+font-weight: 600;
+cursor: pointer;
+}
+
+/* .img2{
+position: absolute;
+width: 100%;
+height: 80px; 
+bottom: 0px;
+left: 0px;
+}
+
+.img3{
+position: absolute;
+height: 80px;
+bottom: 0px;
+width: 100%;
+left: 0px;
+} */
+
+.footer {
+position: fixed;
+left: 0;
+bottom: 0;
+width: 100%;
 
 }
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+.row {
+flex-direction: column;
+}
+.col-25 {
+margin-bottom: 20px;
+}
+.img2{
+display: none;
+}
+
+.img3{
+display: none;
+}
+
+}
+
+@media (min-width: 800px) {
 
 .img2{
-  position: absolute;
-  width: 100%;
-  height: 80px; 
-  bottom: 0px;
-  left: 0px;
+position: absolute;
+width: 100%;
+height: 80px; 
+bottom: 0px;
+left: 0px;
 }
 
 .img3{
@@ -29,599 +212,7 @@ width: 100%;
 left: 0px;
 }
 
-.img4{
-  position: absolute;
-  width: 50px;
-  height: 70px;
-  right:51px;
-  top: 30px;
-  background-color: none;
-  cursor: pointer;
-  
-  }
-
-.Register{
-  display: flex;
-  flex-direction: row;
-  height: 80px;
-}
-
-.letter{
-position: absolute;
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 40px;
-line-height: 10px;
-left: 214px;
-color: #000000;
-}
-
-.firstname{
-  display:inline-block ;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  left: 204px;
-  border-radius: 10px;
-  margin-top: 30px;
-  color: #4DEA25;
-  position: absolute;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  border-color: rgb(70, 70, 66);
-  padding-left: 10px;
-}
-
-.firstname1{
-  display:inline-block ;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  left: 204px;
-  border-radius: 10px;
-  margin-top: 30px;
-  color:  #ff2200;
-  position: absolute;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  border-color: rgb(70, 70, 66);
-  padding-left: 10px;
 }
 
 
 
-.lastname{
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  left: 545px;
-  border-radius: 10px;
-  margin-top: 30px;
-  color: #4DEA25;
-  position: absolute;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  border-color: rgb(70, 70, 66);
-  line-height: 30px;
-  padding-left: 10px;
-}
-
-.lastname1{
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  left: 545px;
-  border-radius: 10px;
-  margin-top: 30px;
-  color:  #ff2200;
-  position: absolute;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  border-color: rgb(70, 70, 66);
-  line-height: 30px;
-  padding-left: 10px;
-}
-
-.Address{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-position: absolute;
-width: 616px;
-height: 40px;
-left: 203px;
-margin-top: 105px;
-border-color: rgb(70, 70, 66);
-border-radius: 10px;
-padding-left: 10px;
-}
-
-.Address-name{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left:203px;
-  margin-top: 90px;
-}
-
-.Address-name1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left:270px;
-  margin-top: 90px;
-  color: #4DEA25;
-}
-
-.Address-name1-1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left:270px;
-  margin-top: 90px;
-  color:  #ff2200;
-}
-
-.Postal-code{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  left: 204px;
-  margin-top: 180px;
-  border-color: rgb(70, 70, 66);
-  border-radius: 10px;
-  padding-left: 10px;
-}
-
-.Postal-code-name{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:203px;
-  margin-top: 165px;
-  border-radius: 10px;
-}
-
-.Postal-code-name1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:290px;
-  margin-top: 165px;
-  border-radius: 10px;
-  color: #4DEA25;
-}
-
-.Postal-code-name1-1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:290px;
-  margin-top: 165px;
-  border-radius: 10px;
-  color:  #ff2200;
-}
-
-.City{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  margin-top: 200px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  border-color: rgb(70, 70, 66);
-  margin-top: 180px;
-  left: 545px;
-  border-radius: 10px;
-  padding-left: 10px;
-}
-
-.City-name{
- font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  margin-left: 90px;
-  margin-top: 165px;
-  border-radius: 10px; 
-}
-
-.City-name1{
-  font-family: 'Poppins';
-   font-style: normal;
-   font-weight: 500;
-   font-size: 18px;
-   line-height: 30px;
-   position: absolute;
-   margin-left: 130px;
-   margin-top: 165px;
-   border-radius: 10px; 
-   color: #4DEA25;
- }
-
- .City-name1-1{
-  font-family: 'Poppins';
-   font-style: normal;
-   font-weight: 500;
-   font-size: 18px;
-   line-height: 30px;
-   position: absolute;
-   margin-left: 130px;
-   margin-top: 165px;
-   border-radius: 10px; 
-   color:  #ff2200;
- }
-
-.ContactNo{
-  margin-top: 250px;
-  position: absolute;
-  width: 182px;
-  height: 40px;
-  left: 204px;
-  border-radius: 10px;
-  border-color: rgb(70, 70, 66);
-  z-index: -1;
-  padding-left: 95px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-}
-
-.ContactNo-name{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:203px;
-  margin-top: 235px;
-  border-radius: 10px;
-}
-
-.ContactNo-name1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:290px;
-  margin-top: 235px;
-  border-radius: 10px;
-  color: #4DEA25;
-}
-
-.ContactNo-name1-1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 1000;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:290px;
-  margin-top: 235px;
-  border-radius: 10px;
-  color: #ff2200;
-}
-
-.ContactNo-name1-err{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:290px;
-  margin-top: 235px;
-  border-radius: 10px;
-  color: #4DEA25;
-}
-
-.ContactNo-name2{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:250px;
-  margin-top: 257px;
-  border-radius: 10px;
-}
-
-.ContactNo-name3{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left:260px;
-  margin-top: 257px;
-  border-radius: 10px;
-  color: #4DEA25;
-}
-
-.srilanka{
-position: absolute;
-width: 22px;
-height: 17px;
-margin-top: 265px;
-left: 225px;
-}
-
-.Email{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  border-radius: 10px;
-  margin-left: 100px;
-  margin-top: 10px;
-  border-color: rgb(70, 70, 66);
-  padding-left: 10px;
-}
-
-.Password{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-position: absolute;
-width: 277px;
-height: 40px;
-margin-left: 100px;
-margin-top: 85px;
-border-radius: 10px;
-border-color: rgb(70, 70, 66);
-padding-left: 10px;
-}
-
-.Confirm-Password{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  position: absolute;
-  width: 277px;
-  height: 40px;
-  margin-left: 100px;
-  margin-top: 165px;
-  border-color: rgb(70, 70, 66);
-  border-radius: 10px;
-  padding-left: 10px;
-}
-
-.Register-but{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  margin-top:250px;
-  position: absolute;
-  width: 297px;
-  height: 50px;
-  margin-left: 100px;
-  border-radius: 10px;
-
-  display: inline-block;
-    box-sizing: border-box;
-    background-color:#080908;
-    color:#4DEA25;
-    border: none;
-    border-radius: 7px; 
-    cursor: pointer;
-    margin-right: 8px;
-    transition: opacity 2s;
-}
-
-.Register-but:hover{
-  background-color:#4DEA25 ;
-  box-shadow:8px;
-  color:white;
-}
-
-.Email-name{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  width: 277px;
-  border-radius: 10px;
-  margin-left: 100px;
-}
-.Email-name1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  border-radius: 10px;
-  margin-left: 150px;
-  color: #4DEA25;
-}
-.Email-name1-1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  border-radius: 10px;
-  margin-left: 150px;
-  color: #ff2200;
-}
-
-.Password-name{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left: 100px;
-  margin-top: 70px;
-}
-
-.Password-name1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left: 180px;
-  margin-top: 70px;
-  color: #4DEA25;
-}
-
-.Password-name1-1{
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left: 180px;
-  margin-top: 70px;
-  color: #ff2200;
-}
-
-.Confirm-Password-name{
-  position: absolute;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left: 100px;
-  margin-top: 150px;
-}
-
-.Confirm-Password-name1{
-  position: absolute;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left: 245px;
-  margin-top: 150px;
-  color: #4DEA25;
-}
-
-
-.Confirm-Password-name1-1{
-  position: absolute;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 30px;
-  display:inline-block ;
-  position: absolute;
-  margin-left: 245px;
-  margin-top: 150px;
-  color: #ff2200;
-}
-
-i{
-  position: absolute;
-  left: 83%;
-    top:50%;
-  color:#95dd82;
-  cursor: pointer;
-  transform: translateY(-50%);
-}
-
-i.active::before{
-  color: #4DEA25;
-  content: "\f070";
-}

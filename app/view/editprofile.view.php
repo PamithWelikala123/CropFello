@@ -1,15 +1,37 @@
-<body>
-  
-  <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile.css">
-  <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile1.css"> 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
-  <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
-  <link rel='preconnect' href='https://fonts.googleapis.com'>
-  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-  <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
-        
-  
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location Picker</title>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile1.css"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
+    <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
+    <script src="<?=ROOT?>/assets/js/map.js"></script> 
+    <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
+
+    <style>
+     #map {
+            width: 100%;
+            height: 190px;
+            border-radius: 10px;
+        }
+        .map-container{
+            width: 100%;
+            height: 215px;
+            border-radius: 10px;
+            margin-top: 2%;
+        }
+    </style>
+</head>
+
+<body onload="initMap()">
+
   <div class="background">
     <div class="grid-row">
 
@@ -66,16 +88,12 @@
                                         <div class="form-group">
                                           <label class="form-label" for="address">Address *</label>
                                           
-                                          <input type="text" id="address" class="form-control basic-input-field" placeholder="<?=$data['address']?>" name="address">
+                                          <input type="text" id="address" class="basic-input-field" placeholder="<?=$data['address']?>" name="address">
                                       </div>
 
                                       <div class="form-split">
 
-                                            <div class="form-group">
-                                              <label class="form-label" for="postalcode">Postal Code *</label>
-                                  
-                                              <input type="text" id="postalcode" class="basic-input-field" placeholder="<?=$data['postal_code']?>" name="postal_code">
-                                            </div>  
+                                          
                                             <div class="form-group">
                                               <label class="form-label" for="city">City *</label>
                                               <input type="text" id="city" class="basic-input-field" placeholder="<?=$data['city']?>" name="city">
@@ -86,6 +104,11 @@
                                             </div>
 
                                       </div> 
+
+                                      <div class="form-group">
+                                            <label class="form-label" for="about">About *</label>
+                                            <input type="text" id="about" class="form-control basic-input-field" placeholder="  Change your Description..." name="description" >
+                                          </div>
 
                                 </div>    
 
@@ -105,9 +128,24 @@
                                           </div>
 
                                           <div class="form-group">
-                                            <label class="form-label" for="about">About *</label>
-                                            <input type="text" id="about" class="form-control basic-input-field discription" placeholder="  Change your Description..." name="description" >
+
+                                                            <label for="">Location</label>
+                                                            
+                                                            <input class="basic-input-field" type="text" id="pickuplocation" name="location" placeholder="<?=$data['location']?>" value="">
+                                                            <input type="hidden" name="p-latitude" id="p-latitude" value="">
+                                                            <input type="hidden" name="p-longitude" id="p-longitude" value="">
+                                                            <input type="hidden" id="city1" name="city1" value="">
+
+
+
+
+                                                            <div class="map-container">
+                                                                <div id="map"></div>
+                                                            </div>
+
                                           </div>
+
+                                          
 
 
                                     </div>
@@ -121,14 +159,16 @@
                                             </button>
 
                                       
-                                    </div>       
-                      </div>
-
-                                  <div class="form-group">
+                                    </div>    
+                                      
+                                    <div class="form-group">
                                                   
                                     <button class="form-control basic-input-field Register-but" type="submit" name="submit" id="submit" >Update</button> 
 
-                                </div>
+                                    </div> 
+                      </div>
+
+                                  
                               </form>
 
           </div>
@@ -143,6 +183,8 @@
      
   </div>
 
+
+ 
 
   <script
   src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
@@ -161,8 +203,8 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
 
     FilePond.create(document.getElementById('profilepic'), {
       server:'http://localhost/Cropfello/public/Profile/editprofile',
-       // labelIdle: `<img src='<//?php// echo BASEURL?>/public/images/profilepic.png'/><br/><br/> <span>Upload Profile Picture</span>`,
-        imagePreviewHeight: 170,
+        labelIdle: `<img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"<br/><br/> <span>Upload Profile Picture</span>`,
+        imagePreviewHeight: 100,
         imageCropAspectRatio: '1:1',
         imageResizeTargetWidth: 200,
         imageResizeTargetHeight: 200,
@@ -189,4 +231,9 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
     });
 
 </script>
+
+
+
+</body>
+
 </html>

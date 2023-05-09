@@ -1,219 +1,168 @@
-<body>
-  
-  <link rel="stylesheet" href="<?=ROOT?>/assets/css/postitem1.css">
-  <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile1.css">  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
-  <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
-  <link rel='preconnect' href='https://fonts.googleapis.com'>
-  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-  <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/requestcrop.css">
+    <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
+    <script src="<?=ROOT?>/assets/js/map.js"></script> 
+    <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
+
+    <title>Document</title>
+
+</head>
+<body onload="initMap()">
+
+    <div id="modal" class="requestcrop-modal">
+        <div class="requestcrop-modal-content">
+          <div class="requestcrop-modal-header">
+            <span class="requestcrop-closeBtn">&times;</span>
+            <h2>Request Crop</h2>
+          </div>
+          <div class="requestcrop-modal-body">
         
-  
-  <div class="background">
-    <div class="grid-row">
-
-          <div class="profile-upper">
-
-                
-                      <div class="form-grid-2-2">
-
-                        <div>
-
-                                  <div class="form-group">
-                                    <img  src="<?=ROOT?>/assets/images/images/frame.svg">
-                                  </div> 
-                        </div>
-
-                        
-
-                        <div>
-
-                                  <div class="form-group backkey">
-                                    <img src="<?=ROOT?>/assets/images/images/arrow-left-circle.svg"  onclick="document.location='../Profile'">
-                                  </div> 
-
-                                  <div class="form-group">
-                                    <h2>Upload profile picture </h2>
-                                  </div> 
-
-                        </div>
 
 
-
-                                <div>
-                                  <form class="" action="editprofile" method="post" enctype="multipart/form-data">
-                                          <div class="form-split">
-
-                                                <div class="form-group">
-                                                  <label class="form-label" for="firstname">Item *</label>
-                                                  
-                                                  <input type="textbox" id="firstname" class="basic-input-field" placeholder="" name="item_id">
-                                                </div>  
-                                                
-                                                <div class="form-group">
-                                                  <label class="form-label" for="lastname">  &nbsp;  </label>
-                                                  
-                                                  <input type="text" id="lastname" class="basic-input-field" placeholder="" name="item_type">
-                                                </div>
-
-                                        </div> 
-
-                                        <div class="form-group">
-                                          <label class="form-label" for="address">Exp *</label>
-                                          
-                                          <input type="date" id="address" class="form-control basic-input-field" placeholder="  dd / mm / yyyy" name="exp">
-                                      </div>
-
-                                      <h3>Unit  </h3>
-
-                                      <div class="form-split2">
-
-                                      
-
-                                            <div class="form-group">
-
-
-                                                            <label class="form-label" for="postalcode">Type *</label>
-                                                            <select class="basic-input-field" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" value="">
-                                                                                                        <option value="KG">KG</option>
-                                                                                                        <option value="G">G</option>
-                                                                                                        <option value="TREES">TREES</option>
-                                                                                                        <option value="ACRES">ACRES</option>
-                                                            </select> 
-                                              
-                                  
-                                            </div>  
-
-
-
-                                            <div class="form-group">
-                                              <label class="form-label" for="city">Price *</label>
-                                              <input type="text" id="city" class="basic-input-field" placeholder="" name="city">
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label class="form-label" for="contact-number">Size *</label>
-                                                <input type="text" id="contact-number" class="form-control basic-input-field"  placeholder="" name="contact_number">
-                                            </div>
-
-
-
-                                      </div> 
-
-                                </div>    
-
-  
-
-                              <div>
-                                
-                             <div class="form-group">
-                                                            
-                                                            
-                                            <label class="form-label" for="address">Exp *</label>
-                                             <input type="date" id="address" class="form-control basic-input-field" placeholder="  dd / mm / yyyy" name="exp">
-                                                    
-                                                            
+            <div class="requestcrop-row">
+                <div class="requestcrop-col-75">
+                  <div class="requestcrop-container">
+                    <form action="/action_page.php">
+                    
+                      <div class="requestcrop-row">
+                        <div class="requestcrop-col-50">
+                          <div class="requestcrop-row">
+                            <label for="email">Item Name</label>
+                            <input type="text" id="password" name="password" >
+                            </div>
+                      
+                          
+              
+                          <div class="requestcrop-row">
+                            <div class="requestcrop-col-75">
+                              <label for="city">Quantity</label>
+                              <input type="text" id="city" name="city">
+                            </div>
+                            <div class="requestcrop-col-25">
+                                <label for="city">&nbsp;</label>
+                                <select name="cars" id="cars">
+                                    <option value="volvo">Kg</option>
+                                    <option value="saab">g</option>
+                                    <option value="mercedes">Tree(s)</option>
+                                    <option value="audi">Acre(s)</option>
+                                </select>
                             </div>
 
+                          </div>
 
+                          <div class="requestcrop-row">
+                            <label for="email">Before</label>
+                            <input type="text" id="password" name="password" >
+                            </div>
+                      
+                          
+              
+                          <div class="requestcrop-row">
+                            <div class="requestcrop-col-50">
+                              <label for="city">City</label>
+                              <input type="text" id="city" name="city">
+                            </div>
+                            <div class="requestcrop-col-50">
+                              <label for="postalcode">Contact No</label>
+                              <input type="text" id="postalcode" name="postalcode" >
+                            </div>
 
-                                    <div class="form-split">
-                                   
-                                          <div class="form-group">
-                                            
-                                             
- 
-                                                <input class="form-control basic-input-field profile-pic" type="file" id="profilepic" credits='false' name="image" accept="image/png, image/jpeg, image/gif" />
-                                                <input type="hidden" id="pplink" name="pplink">
-                                           
-                                                 
-                                          </div>
-
-                                          <div class="form-group">
-                                            <label class="form-label" for="about">About *</label>
-                                            <input type="text" id="about" class="form-control basic-input-field discription" placeholder="  Change your Description..." name="description" >
-                                          </div>
-
-
-                                    </div>
-
+                          </div>
+                          
+                        </div>
                         
-
-                                    <div class="form-group">
-
-                                            <button type="button" class="form-control basic-input-field changepasswordbutton" onclick="location.href='../Profile/Editprofile_changepassword1'">
-                                              Change Password <label class="change_password1">></label>
-                                            </button>
-
-                                      
-                                    </div>       
-                      </div>
-
-                                  <div class="form-group">
-                                                  
-                                    <button class="form-control basic-input-field Register-but" type="submit" name="submit" id="submit" >Update</button> 
-
-                                </div>
-                              </form>
-
-          </div>
-
-          <div class="profile-lower">
-                 <img src="<?=ROOT?>/assets/images/images/bottom2.png">
-                <img src="<?=ROOT?>/assets/images/images/bottom1.png">
+              
+                        <div class="requestcrop-col-50">
+                            <label for="">Location</label>
+                            <input type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" >
                 
+                            <input type="hidden" name="p-latitude" id="p-latitude" value="">
+                            <input type="hidden" name="p-longitude" id="p-longitude" value="">
+                
+                <!-- 
+                            <input type="text" id="destination" name="destination" placeholder="From Where journey End...?"  value=""> -->
+                <!-- 
+                            <input type="hidden" name="d-latitude" id="d-latitude" value="">
+                            <input type="hidden" name="d-longitude" id="d-longitude" value="">
+                
+                
+                
+                            <input type="hidden" name="distance" id="distance" value="">
+                            <input type="hidden" name="duration" id="duration" value=""> -->
+                
+                            <div class="requestcrop-map-container">
+                                <div id="map"></div>
+                            </div>
+                            <div class="requestcrop-row">
+                                <div class="requestcrop-col-25">
+                                    <!-- <input type="submit" value="Next" class="requestcrop-btn" > -->
+                                    <button type="submit" class="requestcrop-btn"><span>Next </span></i></button>
+                                  </div>
+                                
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+              
+                      
+                    </form>
+                  </div>
+                </div>
+              
+              </div>
+
+
+
           </div>
+        </div>
+      </div>
+      <!-- <div class="requestcrop-container">
+        <img src="images/pinaple1.jpg" alt="Avatar" class="requestcrop-image">
+        <div class="requestcrop-overlay">
+          <div class="requestcrop-text">
+              <label>Edit</label><br> -->
+              <label   id="openModalBtn" >button</label>
+          <!-- </div>
+        </div>
+      </div>
+       -->
+      <script>
+        // Get the modal
+      var modal = document.getElementById("modal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("requestcrop-closeBtn")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+      modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+      modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+      }
 
-    </div>
+
+
      
-  </div>
-
-
-  <script
-  src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
-<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-<script src="https://unpkg.com/filepond@^4"></script>
-
-<script>
-
-FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
-
-
-    FilePond.create(document.getElementById('profilepic'), {
-      server:'http://localhost/Cropfello/public/Profile/editprofile',
-       // labelIdle: `<img src='<//?php// echo BASEURL?>/public/images/profilepic.png'/><br/><br/> <span>Upload Profile Picture</span>`,
-        imagePreviewHeight: 170,
-        imageCropAspectRatio: '1:1',
-        imageResizeTargetWidth: 200,
-        imageResizeTargetHeight: 200,
-        stylePanelLayout: 'compact circle',
-        styleLoadIndicatorPosition: 'center bottom',
-        styleButtonRemoveItemPosition: 'center bottom'
-    });
-
-    // console log file path after submit
-    document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
       
-      
-      const serverId = e.detail.file.serverId;
-        console.log(serverId);
-
-        // parse the JSON object
-        const jsonResponse = JSON.parse(serverId);
-        // access the filepath
-        const filepath = jsonResponse.filepath;
-        console.log(filepath);
-        if (filepath != null) {
-            document.getElementById('pplink').value = filepath;
-        }
-    });
-
-</script>
+      </script> 
+</body>
 </html>
