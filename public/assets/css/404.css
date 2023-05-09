@@ -1,10 +1,10 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: poppins;
     background-color: #f1f1f1;
   }
   
   .error-container {
-    width: 800px;
+    width: 900px;
     margin: 0 auto;
     text-align: center;
     /* background-color: #fff; */

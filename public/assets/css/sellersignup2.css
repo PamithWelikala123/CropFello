@@ -50,7 +50,7 @@ input[type=text] ,  input[type=email] {
 }
 
 input[type=file]{
-  width: 100%;
+  width: 20px;
   margin-bottom: 20px;
   padding: 15px;
   border: 1px solid #ccc;
@@ -64,6 +64,9 @@ label {
   font-weight: 500;
 }
 
+.about{
+  height: 50px;
+}
 
 .btn {
   background-color: black;
@@ -146,6 +149,19 @@ img{
   cursor: pointer;
 }
 
-.profile-pic{
+/* .profile-pic{
 height: 300px;
+} */
+
+
+.profpic{
+width: 200px;
+align-items: center;
+justify-content: center;
+/* height: 100px; */
+
+}
+
+.userpic{
+  width: 50px;
 }
