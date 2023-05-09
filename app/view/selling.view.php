@@ -31,11 +31,11 @@
                                                                 <img class="img" src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>" width = 200px height= 200px; title="<//?php //echo $row['image']; ?>">
                                                                   <div class="overlay-selling">
                                                                         <div class="text-selling">
-                                                                            <label class="selling-post-exp">EXP: 24 May 2023</label><br>
-                                                                            <label class="selling-post-stock">Stock: 55 KG</label>
+                                                                            <label class="selling-post-exp">EXP: <?php echo $row->exp  ?></label><br>
+                                                                            <label class="selling-post-stock">Stock: <?php echo $row->stock_size?> <?php echo $row->stock_size1?></label>
                                                                             <hr>
                                                                             <label>Edit</label><br>
-                                                                            <label id="openModalBtn-selling" >Delete</label>
+                                                                            <label id="<?=$row->post_id?>" class="Del" onmousedown="func1()">Delete</label>
                                                                         </div>
                                                                     </div>
                                                           </div>  
@@ -73,7 +73,7 @@
                                             </div> 
 
 
-                                            <div id="modal-selling" class="modal-selling" >
+                                            <div id="modal-selling-<?=$row->post_id?>" class="modal-selling" >
                                                   <div class="modal-content-selling">
                                                     <div class="modal-header-selling">
                                                       <span class="closeBtn-selling">&times;</span>
@@ -106,30 +106,72 @@
  
 <script>
   // Get the modal
-var modal = document.getElementById("modal-selling");
+var modal;
 
 // Get the button that opens the modal
-var btn = document.getElementById("openModalBtn-selling");
+// var btn = document.getElementById("openModalBtn-selling");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("closeBtn-selling")[0];
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("closeBtn-selling")[0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-modal.style.display = "block";
+// // When the user clicks the button, open the modal 
+// btn.onclick = function() {
+// // modal.style.display = "block";
+// }
+
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+// modal.style.display = "none";
+// }
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+// if (event.target == modal) {
+//   modal.style.display = "none";
+// }
+// }
+
+
+
+
+
+
+
+function func1(){
+const images = document.querySelectorAll('.Del');
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      console.log(image['id']);
+      modal = document.getElementById("modal-selling-"+image['id']);
+      modal.style.display = "block";
+    //  window.location.href = '../feed/viewitems?id='+id;
+    });
+  });
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-modal.style.display = "none";
-}
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-if (event.target == modal) {
-  modal.style.display = "none";
+window.onmousedown = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
 }
-}
+var closeBtns = document.querySelectorAll('.cancel-selling');
+              closeBtns.forEach(function(span) {
+                span.onclick = function() {
+                   modal = span.closest('.modal-selling');
+                  modal.style.display = 'none';
+                }
+              });
+
+
+
+var closeBtns = document.querySelectorAll('.closeBtn-selling');
+              closeBtns.forEach(function(span) {
+                span.onclick = function() {
+                   modal = span.closest('.modal-selling');
+                  modal.style.display = 'none';
+                }
+              });
 
 </script> 
 
