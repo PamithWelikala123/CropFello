@@ -46,7 +46,9 @@ class Sellersignup{
         $this->view('sellersignup',$data);
     }
 
-
+      public function sellersignup3(){
+        $this->view('sellersignup2');
+      }
 
 
     public function sellersignup2(){
@@ -85,7 +87,7 @@ class Sellersignup{
                             // echo json_encode($response);
                         }
             
-                        $_POST=$myArray;
+                        // $_POST=$myArray;
                           $ran_id = rand(time(), 100000000);
                           $status = "Active now";
                           $_POST['password'] = md5($_POST['password']);
@@ -98,7 +100,7 @@ class Sellersignup{
 
 
       }
-      $this->view('sellersignup2');
+    
     }
 
 

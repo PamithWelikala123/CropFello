@@ -15,7 +15,7 @@
 </head>
 <body>
 <img src="images/logo.png" alt="">
-<img src="images/arrow-left-circle.svg" alt="Back" class="back">
+<img src="<?=ROOT?>/assets/images/images/arrow-left-circle.svg" alt="Back" class="back">
 <div class="row">
   <div class="col-75">
     <div class="container">
@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-50">
             
-            <h3>Account</h3>
+           
             
             <label for="email">Email</label>
             <input type="text" id="password" name="password" >
@@ -33,12 +33,12 @@
             <label for="conformpassword">Conform Password</label>
             <input type="text" id="conformpassword" name="conformpassword" >
           
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-25">
                     <input type="submit" value="Register" class="btn">
                   </div>
                 
-            </div> 
+            </div>  -->
             
             
           </div>
@@ -46,14 +46,25 @@
 
           <div class="col-50">
             
-              <input type="file" id="profilepic" credits='false' name="image" accept="image/png, image/jpeg, image/gif" />
+            <div class="profpic">
+            <input type="file" id="profilepic" credits='false' name="image" accept="image/png, image/jpeg" />
               <input type="hidden" id="pplink" name="pplink">
+              
+            </div>
+            
+            
+            <label class="form-label about" for="about">About</label>
+             <input type="text" id="about" placeholder="  Tell us more about you..." name="description" >
+              
             
 
            
-             <label class="form-label" for="about">About *</label>
-             <input type="text" id="about" placeholder="  Change your Description..." name="description" >
-           
+             <div class="row">
+                <div class="col-25">
+                    <input type="submit" value="Register" class="btn">
+                  </div>
+                
+            </div> 
 
           </div>
           
@@ -66,8 +77,8 @@
 
 </div>
 <div class="footer">
-    <img class="img2" src="images/register-corner2.png" alt="">
-    <img class="img3" src="images/register-corner.png" alt="">
+    <img class="img2" src="<?=ROOT?>/assets/images/buyersignup page/register-corner2.png" alt="">
+    <img class="img3" src="<?=ROOT?>/assets/images/buyersignup page/register-corner.png" alt="">
 </div>
 
 </body>
@@ -89,11 +100,11 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
 
     FilePond.create(document.getElementById('profilepic'), {
       //server:'http://localhost/Cropfello/public/Profile/editprofile',
-        labelIdle: `<img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"<br/><br/> <span>Upload Profile Picture</span>`,
-        imagePreviewHeight: 100,
+        labelIdle: `<img class="userpic" src="<?=ROOT?>/assets/images/pics/account1.png"<br/><br/> <span>Upload Profile Picture</span>`,
+        imagePreviewHeight: 50,
         imageCropAspectRatio: '1:1',
-        imageResizeTargetWidth: 200,
-        imageResizeTargetHeight: 200,
+        imageResizeTargetWidth: 100,
+        imageResizeTargetHeight: 100,
         stylePanelLayout: 'compact circle',
         styleLoadIndicatorPosition: 'center bottom',
         styleButtonRemoveItemPosition: 'center bottom'
