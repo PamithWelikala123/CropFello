@@ -63,12 +63,12 @@
 
 
                         <div class="main-content">
-                        
+                        <?php foreach($data as $dat){ ?>
                         <div class="post">
                                                       <div class="post-header">
                                                         <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
                                                                 <div class="post-header-info">
-                                                                          <div class="post-header-name">James anderson</div>
+                                                                          <div class="post-header-name"><?php echo($dat->exp);  ?> anderson</div>
                                                                           <div class="post-header-date">Posted on May 5, 2023</div>
                                                                 </div>
                                                       </div>
@@ -113,7 +113,7 @@
 
 
                                                       </div>
-                                                      
+                                                      <?php } ?> 
                                           </div>
 
 

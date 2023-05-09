@@ -16,8 +16,8 @@ class Checkout{
         $query = "select orders.id,postitem1.item_name,orders.price,orders.del_price,orders.qua,orders.tot,registerd_user.first_name,registerd_user.last_name,registerd_user.address,registerd_user.contact_number from registerd_user inner join orders on orders.buy_id = registerd_user.user_id inner join postitem1 on orders.post_id = postitem1.id where orders.id = $para";
         return $this->query($query);
     }
-    public function func3($para1,$para2,$para3,$para4,$para5){
-        $query = "insert into $this->table(order_code,first_name,last_name,address,contact_number) values('$para1','$para2','$para3','$para4','$para5')";
+    public function func3($para1,$para2,$para3,$para4,$para5,$para6,$para7){
+        $query = "insert into $this->table(order_code,first_name,last_name,address,contact_number,latitude,longitude) values('$para1','$para2','$para3','$para4','$para5',$para6,$para7)";
         return $this->query($query);
     }
 
