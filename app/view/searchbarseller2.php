@@ -34,7 +34,7 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
 
                 <div class="topnav-options">
                     <!-- <a class="active" href="#home">Home</a> -->
-                    <a href="#orders" id="my-orders">My Transactions</a>
+                    <a href="../Selling/mytransaction" id="my-orders">My Transactions</a>
                     <a class="notification-icon"><i class="fa fa-bell" style="font-size:18px"></i></a>
                     <span class="notification-count">7</span>
                     <a id="profmyBtn"><img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt=""> </a>

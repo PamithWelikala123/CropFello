@@ -58,9 +58,9 @@
             <div class="row">
               <div class="col-25">
                 
-                <label for="city">City</label>
+                <label for="city">District</label>
                       <?php if(empty($errors['city'])):?>
-                      <input type="text" id="city" name="city">
+                      <input type="text" id="city" name="district">
                       <?php else:?>
                         <input style="border: 1px solid #FB7A7A;" type="text" id="city" name="city">
                       <?php endif;?>
@@ -108,7 +108,7 @@
 
             <input type="hidden" name="p-latitude" id="p-latitude" value="">
             <input type="hidden" name="p-longitude" id="p-longitude" value="">
-            <input type="hidden" id="city1" name="city1" value="">
+            <input type="hidden" id="city1" name="city" value="">
 <!-- 
             <input type="text" id="destination" name="destination" placeholder="From Where journey End...?"  value=""> -->
 <!-- 

@@ -81,6 +81,10 @@ class Selling{
         $this->view('postitem');
     }
 
+    public function mytransaction(){
+        $this->view('seller_mytransaction');
+    }
+
 
 }
 

@@ -278,6 +278,7 @@ class bidding{
                         $post_id=$row1->post_id;
 
                         $userranks=$finalbid->Rank1($post_id);
+
                         foreach ($userranks as $rowuserranks) {
                             if($rowuserranks->buyer_id==$buyer_id){
                                 $row->rank=$rowuserranks->rank;
@@ -294,7 +295,7 @@ class bidding{
                         $row->item_id=$row1->item_id;
 
                         $row->exp=$row1->exp;
-
+                        $row->status=$row1->status;
                         $date1=date_create($row1->bid_end_date);
                         $date2=date_create(date("Y-m-d"));
                         $diff=date_diff($date2,$date1);
