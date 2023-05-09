@@ -101,17 +101,17 @@ class deliverytodo{
 
 public function view2(){
 
-  $checkout = new checkout;
-  $order = new Order;
-  $post = new postitems;
-  $user = new User;
-  $data['a'] = $order->findAll();
-  $data['b'] = $checkout->findAll();
-  $data['c'] = $post->findAll();
-  $data['d'] = $user->findAll();
+  // $checkout = new checkout;
+  // $order = new Order;
+  // $post = new postitems;
+  // $user = new User;
+  // $data['a'] = $order->findAll();
+  // $data['b'] = $checkout->findAll();
+  // $data['c'] = $post->findAll();
+  // $data['d'] = $user->findAll();
     
 
-  $this->view('deliverytodo2',$data);
+  $this->view('deliverytodo2');
   }
 
 

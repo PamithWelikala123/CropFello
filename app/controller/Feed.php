@@ -22,6 +22,11 @@ class Feed{
     }
 
 
+
+
+
+
+
     public function viewitems(){
       $user = new User;
         $postitem = new postitems;
@@ -43,6 +48,14 @@ class Feed{
     $row->first_name=$row3->first_name;
     $row->last_name=$row3->last_name;
     $row->image1=$row3->image;
+
+    $arry1['user_id']=$_SESSION['USER']->user_id;
+    $rowy3= $user->first($arry1);
+
+    $row->sel_lati=$rowy3->platitude;
+    $row->sel_longi=$rowy3->plongitude;
+   
+
 
    // echo $row->image;
 
@@ -93,11 +106,12 @@ class Feed{
         $sel_longi = $data3->plongitude;
         $placed_on = date('Y-m-d');
         $del_price = 500;
+        $distance= $_POST['distance'];
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
         if($full_stock > $qua){
-          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image);
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
         }else{
           print_r("not enough stock");
         }
@@ -140,11 +154,12 @@ class Feed{
         $full_stock = $data3->stock_size;
         $placed_on = date('Y-m-d');
         $del_price = 0;
+        $distance= $_POST['distance'];
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
         if($full_stock > $qua){
-          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image);
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
         }else{
           print_r("not enough stock");
         }
