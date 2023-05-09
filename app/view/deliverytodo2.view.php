@@ -76,28 +76,35 @@
                                                       <div class="post-content">
                                                                             <div class="post-description">
                                                                               
-                                                                              <table class="info-table">
-                                                                                <tr>
-                                                                                  <td class="left-column">Item:</td>
-                                                                                  <td class="right-column">Papaya</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">Amount:</td>
-                                                                                  <td class="right-column">2KG</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">From:</td>
-                                                                                  <td class="right-column">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">To:</td>
-                                                                                  <td class="right-column">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">Fee:</td>
-                                                                                  <td class="right-column">RS. 350.00</td>
-                                                                                </tr>
-                                                                              </table>
+                                                                            <table>
+                                                    <tr>
+                                                        <td rowspan="4" class="image-cell">
+                                                                                        
+                                                            <div class="image-wrapper">
+                                                                <img src="images/pinaple1.jpg" alt="Square Image">
+                                                            </div>
+                                                        </td>
+                                                        <td><h3>Buyer Info</h3></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="grey">Drop Address: </span> 53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span class="grey">Call: </span> 0119283746</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><h3>Seller Info</h3></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><h4>Pineapple <span  class="green">5KG</span> </h4></td>
+                                                        <td> <span class="grey">Pick Address: </span> 53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><h3>RS. 450.00 <span  class="fee">Delivery Fee</span> </h3></td>
+                                                        <td><span class="grey">Call: </span> 0119283746</td>
+                                                    </tr>
+                                                </table>
+                                                
                                                                               
                                                                             </div>
 
@@ -115,153 +122,7 @@
 
 
 
-
-
-
-
-
-
-
-
-                                          <div class="post">
-                                                      <div class="post-header">
-                                                        <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
-                                                                <div class="post-header-info">
-                                                                          <div class="post-header-name">John Doe</div>
-                                                                          <div class="post-header-date">Posted on May 5, 2023</div>
-                                                                </div>
-                                                      </div>
-                                                      
-                                                      <div class="post-content">
-                                                                            <div class="post-description">
-                                                                              
-                                                                              <table class="info-table">
-                                                                                <tr>
-                                                                                  <td class="left-column">Item:</td>
-                                                                                  <td class="right-column">Papaya</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">Amount:</td>
-                                                                                  <td class="right-column">2KG</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">From:</td>
-                                                                                  <td class="right-column">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">To:</td>
-                                                                                  <td class="right-column">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">Fee:</td>
-                                                                                  <td class="right-column">RS. 350.00</td>
-                                                                                </tr>
-                                                                              </table>
-                                                                              
-                                                                            </div>
-
-
-                                                                          <div class="post-buttons">
-                                                                            <button class="post-button approved-button">Approved</button>
-                                                                            <button class="post-button discard-button">Discard</button>
-                                                                            <button class="post-button map-button"  onclick="window.open('<?php echo ROOT; ?>/Home/map', '_blank')">View On Map&nbsp;
-                                                                              <i class='fa fa-map-marker'></i></button>
-                                                                          </div>
-
-
-                                                      </div>
-                                          </div>
-
-
-                                          <div class="post">
-                                                      <div class="post-header">
-                                                        <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
-                                                                <div class="post-header-info">
-                                                                          <div class="post-header-name">John Doe</div>
-                                                                          <div class="post-header-date">Posted on May 5, 2023</div>
-                                                                </div>
-                                                      </div>
-                                                      
-                                                      <div class="post-content">
-                                                                            <div class="post-description">
-                                                                              
-                                                                              <table class="info-table">
-                                                                                <tr>
-                                                                                  <td class="left-column">Item:</td>
-                                                                                  <td class="right-column">Papaya</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">Amount:</td>
-                                                                                  <td class="right-column">2KG</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">From:</td>
-                                                                                  <td class="right-column">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">To:</td>
-                                                                                  <td class="right-column">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">Fee:</td>
-                                                                                  <td class="right-column">RS. 350.00</td>
-                                                                                </tr>
-                                                                              </table>
-                                                                              
-                                                                            </div>
-
-
-                                                                          <div class="post-buttons">
-                                                                            <button class="post-button approved-button">Approved</button>
-                                                                            <button class="post-button discard-button">Discard</button>
-                                                                            <button class="post-button map-button"  onclick="window.open('<?php echo ROOT; ?>/Home/map', '_blank')">View On Map&nbsp;
-                                                                              <i class='fa fa-map-marker'></i></button>
-                                                                          </div>
-
-
-                                                      </div>
-                                          </div>
-                      
-
-
-
-
-
-
-                                          <div class="post">
-                                                      <div class="post-header">
-                                                        <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
-                                                                <div class="post-header-info">
-                                                                          <div class="post-header-name">John Doe</div>
-                                                                          <div class="post-header-date">Posted on May 5, 2023</div>
-                                                                </div>
-                                                      </div>
-                                                      
-                                                      <div class="post-content">
-                                                                            <div class="post-description">
-                                                                              
-                                                                              <table class="info-table">
-                                                                                <tr>
-                                                                                  <td class="left-column">Item:</td>
-                                                                                  <td class="right-column">Papaya</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">Amount:</td>
-                                                                                  <td class="right-column">2KG</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">From:</td>
-                                                                                  <td class="right-column">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">To:</td>
-                                                                                  <td class="right-column">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                  <td class="left-column">Fee:</td>
-                                                                                  <td class="right-column">RS. 350.00</td>
-                                                                                </tr>
-                                                                              </table>
+                                          
                                                                               
                                                                             </div>
 
