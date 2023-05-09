@@ -104,10 +104,7 @@ class User{
          //    $this->errors['confirm_password'] = "Confirm_password is Required";
          // }
 
-         if (($data['city'])!=$data['city1']){
-            $this->errors['city'] = "Selected City and the fetch location are not matching";
-         }
-   
+        
 
 
 
