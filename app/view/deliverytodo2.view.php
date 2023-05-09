@@ -63,15 +63,16 @@
 
 
                         <div class="main-content">
-                          
+                        
                         <div class="post">
                                                       <div class="post-header">
                                                         <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
                                                                 <div class="post-header-info">
-                                                                          <div class="post-header-name">John Doe</div>
+                                                                          <div class="post-header-name">James anderson</div>
                                                                           <div class="post-header-date">Posted on May 5, 2023</div>
                                                                 </div>
                                                       </div>
+                                                     
                                                       
                                                       <div class="post-content">
                                                                             <div class="post-description">
@@ -103,14 +104,16 @@
 
 
                                                                           <div class="post-buttons">
-                                                                            <button class="post-button approved-button">Approved</button>
+                                                                            <button class="post-button approved-button">Approve</button>
                                                                             <button class="post-button discard-button">Discard</button>
                                                                             <button class="post-button map-button"  onclick="window.open('<?php echo ROOT; ?>/Home/map', '_blank')">View On Map&nbsp;
                                                                               <i class='fa fa-map-marker'></i></button>
                                                                           </div>
+                                                                          
 
 
                                                       </div>
+                                                      
                                           </div>
 
 
@@ -123,7 +126,7 @@
 
 
 
-                                          <div class="post">
+                                          <!--div class="post">
                                                       <div class="post-header">
                                                         <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
                                                                 <div class="post-header-info">
@@ -295,7 +298,7 @@
  
         </div>
         
-    </div>
+    </div-->
 
 
 </body>
