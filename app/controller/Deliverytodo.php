@@ -99,9 +99,28 @@ class deliverytodo{
 
   }
 
-  public function view2(){
-          $this->view('deliverytodo2');
+public function view2(){
+
+  $checkout = new checkout;
+  $order = new Order;
+  $post = new postitems;
+  $user = new User;
+  $data['a'] = $order->findAll();
+  $data['b'] = $checkout->findAll();
+  $data['c'] = $post->findAll();
+  $data['d'] = $user->findAll();
+    
+
+  $this->view('deliverytodo2',$data);
   }
+
+
+
+
+
+
+
+
 
   public function buyer_allrequests(){
 
@@ -114,7 +133,7 @@ class deliverytodo{
             $rows = $request_item->findAll();
 
             $id=$_SESSION['USER']->user_id;
-
+            //ejkvjrevkje
 
 
             foreach ($rows as $row) {

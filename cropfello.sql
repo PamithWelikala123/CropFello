@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2023 at 08:29 AM
+-- Generation Time: May 09, 2023 at 02:05 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -257,6 +257,59 @@ CREATE TABLE `createbid` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `district`
+--
+
+CREATE TABLE `district` (
+  `id` int(11) NOT NULL,
+  `district` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `district`
+--
+
+INSERT INTO `district` (`id`, `district`) VALUES
+(2, 'Ampara'),
+(3, 'Anuradhapura'),
+(4, 'Badulla'),
+(5, 'Batticaloa'),
+(6, 'Colombo'),
+(7, 'Galle'),
+(8, 'Gampaha'),
+(9, 'Hambantota'),
+(10, 'Jaffna'),
+(11, 'Kalutara'),
+(12, 'Kandy'),
+(13, 'Kegalla'),
+(14, 'Kilinochchi'),
+(15, 'Kurunegala'),
+(16, 'Mannar'),
+(17, 'Matale'),
+(18, 'Matara'),
+(19, 'Monaragala'),
+(20, 'Mullaitive'),
+(21, 'Nuwara Eliya'),
+(22, 'Polonnaruwa'),
+(23, 'Puttalam'),
+(24, 'Ratnapura'),
+(25, 'Trincomalee'),
+(26, 'Vavuniya');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dis_user`
+--
+
+CREATE TABLE `dis_user` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `final_bidding`
 --
 
@@ -504,7 +557,9 @@ CREATE TABLE `postitem` (
 --
 
 INSERT INTO `postitem` (`post_id`, `user_id`, `item_id`, `item_type`, `exp`, `unit`, `price`, `size`, `stock_size`, `stock_size1`, `discount`, `discount1`, `Address`, `district`, `city`, `location`, `platitude`, `plongitude`, `image`, `description`, `sold_on`) VALUES
-(62, 2, 17, 'vegetable', '2023-05-12', 'KG', 300, 1, 20, 'KG', 10, '%', 'flower road, rathnapura', '', 'rathnapura', 'P9RW+X7 Ratnapura, Sri Lanka', 6.742398018002325, 80.39572082812501, '6459e5d31fe23.jpg', 'good stuff', NULL);
+(62, 3, 17, 'vegetable', '2023-05-12', 'KG', 300, 1, 20, 'KG', 10, '%', 'flower road, rathnapura', 'Ratnapura', 'rathnapura', 'P9RW+X7 Ratnapura, Sri Lanka', 6.742398018002325, 80.39572082812501, '6459e5d31fe23.jpg', 'good stuff', NULL),
+(63, 2, 14, 'fruit', '2023-05-26', 'KG', 500, 2, 30, 'KG', 5, '%', 'maligawatta road, maradana', 'Colombo', 'colombo', 'Maradana, Colombo, Sri Lanka', 6.922409099999999, 79.8660836, '6459ea55097e8.jpg', 'patta mango', NULL),
+(65, 2, 18, 'vegetable', '2023-05-31', 'KG', 400, 2, 10, 'KG', 10, '%', 'yaka wanguwa, matara', '', 'Matara', '43 New Ln, Matara, Sri Lanka', 5.9503138464007925, 80.55303270957032, '6459f59515928.jpg', 'patta brinjol', NULL);
 
 -- --------------------------------------------------------
 
@@ -521,6 +576,7 @@ CREATE TABLE `registerd_user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
+  `district` varchar(255) NOT NULL,
   `location` varchar(1000) NOT NULL,
   `platitude` double NOT NULL,
   `plongitude` double NOT NULL,
@@ -537,18 +593,18 @@ CREATE TABLE `registerd_user` (
 -- Dumping data for table `registerd_user`
 --
 
-INSERT INTO `registerd_user` (`user_id`, `first_name`, `last_name`, `address`, `contact_number`, `email`, `password`, `city`, `location`, `platitude`, `plongitude`, `seller`, `buyer`, `deliver`, `token`, `image`, `description`, `status`) VALUES
-(2, 'pamith', 'welikala', '30/1/A High level Road Meegoda', 771674022, 'pamithwelikala@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 'nugegoda', 'R2H9+H8 Homagama, Sri Lanka', 6.828959157721786, 80.01828950117186, 1, 0, 0, '6120', '6455eea514bd7.jpg', '', 'Active Now'),
-(3, 'Praneeth', 'Jayarathna', '40/1/B rathnapura Road Rathnapura', 776098615, 'praneeth@gmail.com', 'Pranneth', 'Rathnapura', '', 0, 0, 0, 1, 0, '6416', '63f8dac81529e.jpg', '', 'Not Online'),
-(4, 'sachin', 'umayangana', '50/2/A Kirulapana Road Nugegoda', 764138580, 'sachinumayangana@gmail.com', 'Sachin123', 'Nugegoda', '', 0, 0, 0, 1, 0, '4646', '63f8dac81529e.jpg', '', 'Not Online'),
-(5, 'vimukthi', 'dulnath', '55/1 palanwaththa kirulapana', 763204215, 'vimukthi@gmail.com', 'Dulnath', 'Kottawa', '', 0, 0, 0, 1, 0, '2853', '63f8dac81529e.jpg', '', 'Not Online'),
-(6, 'rushin', 'sandeepa', '80/5 Galle Road Hambanthota', 703329164, 'Rushin@gmail.com', 'rushin123', 'Hambanthota', '', 0, 0, 0, 1, 1, '0', '63f8dac81529e.jpg', '', 'Not Online'),
-(7, 'saneru', 'akarawita', '60/1/C high level road homagama', 770338069, 'saneruakarawita@gmail.com', 'Saneru123', 'Homagama', '', 0, 0, 0, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
-(8, 'Dinuka', 'Ashan', '7/1/C highlevel Road Meegoda', 714872852, 'dinukaashan@gmail.com', 'Dinuka123', 'Godagama', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
-(9, 'pamith', 'Minthaka', '40/5/5 highlevel road rathnapura', 772776406, 'pamithrox@gmail.com', 'pamith', 'Colombo', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
-(10, 'menura', 'melaka', 'menura@gmail.com', 763714756, 'menura@gmail.com', '440952a1c7f1a17f1cf6c9e12563040f', 'homagama', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
-(11, 'ramith', 'welikala', 'flower road, rathnapura', 771674022, 'pamith@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 'colombo', '', 0, 0, 1, 0, 0, '', '63f9af41e8e6d.jpeg', '', 'Not Online'),
-(12, 'Saneru', ' Udana', 'Hande inne Hande', 770338069, 'abc@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'kahatagasdigiliya', '', 0, 0, 1, 0, 0, NULL, '63f8dac81529e.jpg 	', '', 'Not Online');
+INSERT INTO `registerd_user` (`user_id`, `first_name`, `last_name`, `address`, `contact_number`, `email`, `password`, `city`, `district`, `location`, `platitude`, `plongitude`, `seller`, `buyer`, `deliver`, `token`, `image`, `description`, `status`) VALUES
+(2, 'pamith', 'welikala', '30/1/A High level Road Meegoda', 771674022, 'pamithwelikala@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 'nugegoda', '', 'R2H9+H8 Homagama, Sri Lanka', 6.828959157721786, 80.01828950117186, 1, 0, 0, '6120', '6455eea514bd7.jpg', '', 'Active Now'),
+(3, 'Praneeth', 'Jayarathna', '40/1/B rathnapura Road Rathnapura', 776098615, 'praneeth@gmail.com', 'Pranneth', 'Rathnapura', '', '', 0, 0, 0, 1, 0, '6416', '63f8dac81529e.jpg', '', 'Not Online'),
+(4, 'sachin', 'umayangana', '50/2/A Kirulapana Road Nugegoda', 764138580, 'sachinumayangana@gmail.com', 'Sachin123', 'Nugegoda', '', '', 0, 0, 0, 1, 0, '4646', '63f8dac81529e.jpg', '', 'Not Online'),
+(5, 'vimukthi', 'dulnath', '55/1 palanwaththa kirulapana', 763204215, 'vimukthi@gmail.com', 'Dulnath', 'Kottawa', '', '', 0, 0, 0, 1, 0, '2853', '63f8dac81529e.jpg', '', 'Not Online'),
+(6, 'rushin', 'sandeepa', '80/5 Galle Road Hambanthota', 703329164, 'Rushin@gmail.com', 'rushin123', 'Hambanthota', '', '', 0, 0, 0, 1, 1, '0', '63f8dac81529e.jpg', '', 'Not Online'),
+(7, 'saneru', 'akarawita', '60/1/C high level road homagama', 770338069, 'saneruakarawita@gmail.com', 'Saneru123', 'Homagama', '', '', 0, 0, 0, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
+(8, 'Dinuka', 'Ashan', '7/1/C highlevel Road Meegoda', 714872852, 'dinukaashan@gmail.com', 'Dinuka123', 'Godagama', '', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
+(9, 'pamith', 'Minthaka', '40/5/5 highlevel road rathnapura', 772776406, 'pamithrox@gmail.com', 'pamith', 'Colombo', '', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
+(10, 'menura', 'melaka', 'menura@gmail.com', 763714756, 'menura@gmail.com', '440952a1c7f1a17f1cf6c9e12563040f', 'homagama', '', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
+(11, 'ramith', 'welikala', 'flower road, rathnapura', 771674022, 'pamith@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 'colombo', '', '', 0, 0, 1, 0, 0, '', '63f9af41e8e6d.jpeg', '', 'Not Online'),
+(12, 'Saneru', ' Udana', 'Hande inne Hande', 770338069, 'abc@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'kahatagasdigiliya', '', '', 0, 0, 1, 0, 0, NULL, '63f8dac81529e.jpg 	', '', 'Not Online');
 
 -- --------------------------------------------------------
 
@@ -620,14 +676,13 @@ CREATE TABLE `request_item` (
 --
 
 INSERT INTO `request_item` (`post_id`, `seller_id`, `item_id`, `amount`, `unit`, `date`, `address`, `city`, `location`, `platitude`, `plongitude`, `contact`, `approved`, `approved_userid`) VALUES
-(7, 2, 7, 89, 'KG', '2022-12-23', '30/1/A High level road kalubowila', 'Colombo', '', 0, 0, 77968547, 0, 0),
-(10, 3, 6, 30, 'KG', '2023-01-25', '50/1 galle Road colombo5', 'Colombo', '', 0, 0, 718333864, 0, 0),
-(11, 2, 2, 80, 'KG', '2023-02-23', '30/1/A nuwara Road Gampaha', 'gampaha', '', 0, 0, 771674022, 1, 2),
-(13, 11, 0, 1, 'KG', '2022-12-19', '90/5 galleRoad Colombo 10', 'colombo', '', 0, 0, 112750684, 1, 2),
-(14, 4, 1, 2, 'KG', '2022-12-21', '50/1 galle Road colombo5', 'Colombo', '', 0, 0, 998765322, 0, 0),
-(16, 11, 0, 1, 'KG', '2022-12-21', 'aolombo', 'colombo', '', 0, 0, 112345678, 0, 0),
-(38, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 'padukka', '', 0, 0, 718333864, 0, 0),
-(39, 12, 5, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 'padukka', '', 0, 0, 718333864, 0, 0);
+(10, 3, 15, 30, 'KG', '2023-01-25', '50/1 galle Road colombo5', 'Colombo', '', 0, 0, 718333864, 0, 0),
+(11, 2, 16, 80, 'KG', '2023-02-23', '30/1/A nuwara Road Gampaha', 'gampaha', '', 0, 0, 771674022, 1, 2),
+(13, 11, 17, 1, 'KG', '2022-12-19', '90/5 galleRoad Colombo 10', 'colombo', '', 0, 0, 112750684, 1, 2),
+(14, 4, 18, 2, 'KG', '2022-12-21', '50/1 galle Road colombo5', 'Colombo', '', 0, 0, 998765322, 0, 0),
+(16, 11, 14, 1, 'KG', '2022-12-21', 'aolombo', 'colombo', '', 0, 0, 112345678, 0, 0),
+(38, 12, 15, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 'padukka', '', 0, 0, 718333864, 0, 0),
+(39, 12, 16, 400, 'KG', '2023-03-11', '50/5 padukka Rd Madulawa', 'padukka', '', 0, 0, 718333864, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -642,18 +697,9 @@ CREATE TABLE `user` (
   `vnumber` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
-  `cnum` varchar(255) NOT NULL
+  `cnum` varchar(255) NOT NULL,
+  `district` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `fname`, `lname`, `vnumber`, `email`, `password_hash`, `cnum`) VALUES
-(0, 'rushin', 'sandeepana', 'xyz-3020', 'ru@gmail.com', '$2y$10$85dYG0jibULm20yEH.t3cu5cHsgiDYbs5TkHQTlfxbvsi8UNkxgAO', ''),
-(0, 'Jana', 'Hesha', 'ABC-2910', 'jana@gmail.com', '$2y$10$RuBqmUOvTfO.HAeZgHSSset3mRuAk1vbFCBfz5D3wcIUm72Ffsnmi', ''),
-(0, 'rushin', 'sandeepana', 'ABC-2010', 'rs@gmail.com', '$2y$10$zrtpsJJ1q89Z81YNU0hX0.fLGRzEtUy1er24UJoTgM6ShM5idZS2O', '0706632221'),
-(0, 'wqedwq', 'eqwrdewr', 'ABC-2910', 'rs@gmail.com', '$2y$10$DGhPqeMbAM4uwDV.wnZmZOhqziNTIPtpCaPxws24.o/AYCSp5ojXa', '0706632221');
 
 -- --------------------------------------------------------
 
@@ -733,7 +779,8 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`post_id`, `user_id`, `added_on`, `time`) VALUES
-(58, 2, '2023-05-07', '23:55:34');
+(58, 2, '2023-05-07', '23:55:34'),
+(65, 12, '2023-05-09', '14:33:07');
 
 --
 -- Indexes for dumped tables
@@ -768,6 +815,22 @@ ALTER TABLE `checkout`
 --
 ALTER TABLE `createbid`
   ADD PRIMARY KEY (`post_id`);
+
+--
+-- Indexes for table `district`
+--
+ALTER TABLE `district`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `district` (`district`);
+
+--
+-- Indexes for table `dis_user`
+--
+ALTER TABLE `dis_user`
+  ADD PRIMARY KEY (`id`,`user_id`),
+  ADD KEY `id` (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `final_bidding`
@@ -862,6 +925,13 @@ ALTER TABLE `request_item`
   ADD PRIMARY KEY (`post_id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
 -- Indexes for table `user_requestitem`
 --
 ALTER TABLE `user_requestitem`
@@ -896,13 +966,19 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
 
 --
 -- AUTO_INCREMENT for table `createbid`
 --
 ALTER TABLE `createbid`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `district`
+--
+ALTER TABLE `district`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `info`
@@ -938,13 +1014,13 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=317;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=319;
 
 --
 -- AUTO_INCREMENT for table `postitem`
 --
 ALTER TABLE `postitem`
-  MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `registerd_user`
@@ -971,6 +1047,12 @@ ALTER TABLE `request_item`
   MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `vehicle1`
 --
 ALTER TABLE `vehicle1`
@@ -979,6 +1061,13 @@ ALTER TABLE `vehicle1`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `dis_user`
+--
+ALTER TABLE `dis_user`
+  ADD CONSTRAINT `con4` FOREIGN KEY (`id`) REFERENCES `district` (`id`),
+  ADD CONSTRAINT `con5` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `postitem`

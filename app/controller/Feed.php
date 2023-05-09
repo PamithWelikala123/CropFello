@@ -89,6 +89,8 @@ class Feed{
         $price = $data3->price*$qt;
         $full_stock = $data3->stock_size;
         $exp = $data3->exp;
+        $sel_lati = $data3->platitude;
+        $sel_longi = $data3->plongitude;
         $placed_on = date('Y-m-d');
         $del_price = 500;
         $tot = $del_price + $price;
@@ -107,11 +109,13 @@ class Feed{
         $first_name = $data4->first_name;
         $last_name = $data4->last_name;
         $address = $data4->address;
+        $buy_lati = $data4->platitude;
+        $buy_longi = $data4->plongitude;
         $contact_number = $data4->contact_number;
         //$order_id = $data5->id;
 
         if($full_stock > $qua){
-          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
           redirect('feed/checkout1?order_code=' . $rand);
         }
     
@@ -131,6 +135,8 @@ class Feed{
         $price = $data3->price*$qt;
         $image = $data3->image;
         $exp = $data3->exp;
+        $sel_lati = $data3->platitude;
+        $sel_longi = $data3->plongitude;
         $full_stock = $data3->stock_size;
         $placed_on = date('Y-m-d');
         $del_price = 0;
@@ -153,11 +159,13 @@ class Feed{
         $first_name = $data4->first_name;
         $last_name = $data4->last_name;
         $address = $data4->address;
+        $buy_lati = $data4->platitude;
+        $buy_longi = $data4->plongitude;
         $contact_number = $data4->contact_number;
         //$order_id = $data5->id;
         
         if($full_stock > $qua){
-          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
           redirect('feed/checkout1?order_code=' . $rand);
         }
         
@@ -183,6 +191,8 @@ class Feed{
        $price = $data3->price*$qt;
        $image = $data3->image;
        $exp = $data3->exp;
+       $sel_lati = $data3->platitude;
+       $sel_longi = $data3->plongitude;
        $full_stock = $data3->stock_size;
        $placed_on = date('Y-m-d');
        $del_price = 500;
@@ -205,11 +215,13 @@ class Feed{
        $first_name = $data4->first_name;
        $last_name = $data4->last_name;
        $address = $data4->address;
+       $buy_lati = $data4->platitude;
+       $buy_longi = $data4->plongitude;
        $contact_number = $data4->contact_number;
        //$order_id = $data5->id;
 
        if($full_stock > $qua){
-        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
         redirect('feed/feed');
        }
    
@@ -229,6 +241,8 @@ class Feed{
        $price = $data3->price*$qt;
        $del_price = 0;
        $exp = $data3->exp;
+       $sel_lati = $data3->platitude;
+       $sel_longi = $data3->plongitude;
        $full_stock = $data3->stock_size;
        $placed_on = date('Y-m-d');
        $image = $data3->image;
@@ -251,11 +265,13 @@ class Feed{
        $first_name = $data4->first_name;
        $last_name = $data4->last_name;
        $address = $data4->address;
+       $buy_lati = $data4->platitude;
+       $buy_longi = $data4->plongitude;
        $contact_number = $data4->contact_number;
        //$order_id = $data5->id;
 
        if($full_stock > $qua){
-        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
         redirect('feed/feed');
        }
    
