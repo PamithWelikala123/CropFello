@@ -64,32 +64,18 @@ class Home{
 
 
     public function map() {
-        $user = new User;
-        $postitem = new postitems;
-        $item = new item;
-        $wishlist = new Wishlist;
-    
-        $arr1['post_id'] = 62;
-        $row = $postitem->first($arr1);
-    
-        $arr3['user_id'] = $row->user_id;
-        $row3 = $user->first($arr3);
-        $row->first_name = $row3->first_name;
-        $row->last_name = $row3->last_name;
-        $row->image1 = $row3->image;
-    
-        $arry1['user_id'] = $_SESSION['USER']->user_id;
-        $rowx = $user->first($arry1);
-        $row->sel_lati = $rowx->platitude;
-        $row->sel_longi = $rowx->plongitude;
-        $row->sel_loca = $rowx->location;
-        $row->sel_lati = $rowx->platitude;
-        $row->sel_longi = $rowx->plongitude;
-        $row->sel_loca = $rowx->location;
+
+
+        $row['sel_lati1'] = 6.828959157721786;
+        $row['sel_longi2'] = 80.01828950117186;
+  
+        $row['sel_lati']= 7.2906;
+        $row['sel_longi']= 80.6337;
+       
         
-        $dataArray = get_object_vars($row); // convert object to array
+        // convert object to array
         
-        $this->view('map', $dataArray);
+        $this->view('map', $row);
     }
     
 
