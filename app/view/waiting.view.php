@@ -12,6 +12,27 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
+
+
+<div id="modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="closeBtn">&times;</span>
+            <h2>Enter your bid value</h2>
+            <p>Minimum bid value: RS 630,00</p>
+          </div>
+          <div class="modal-body">
+              <label> RS: &nbsp;</label>
+            <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
+            <button>Bid Now</button>
+          </div>
+        </div>
+      </div>
+
+    <div class="container">
+
+
+
     <div class="container">
         <div class="topnav">
             <div class="logo">
@@ -128,7 +149,7 @@
                         <div class="right">
                           <h2>Delivery status: <span class="green">Pending</span></h2>
                           <div class="buttons">
-                            <button class="request-deliverer">Request Deliverer</button>
+                            <button class="request-deliverer" id="openModalBtn">Request Deliverer</button>
                             <button class="proceed-to-checkout" disabled>Proceed to checkout</button>
                           </div>
                           
@@ -148,5 +169,35 @@
         </div>
         
     </div>
+
+
+    <script>
+          // Get the modal
+      var modal = document.getElementById("modal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("closeBtn")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+      </script>
 </body>
 </html>
