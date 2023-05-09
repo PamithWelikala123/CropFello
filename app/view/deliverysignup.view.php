@@ -5,6 +5,8 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverysignup.css">
+    <script src="<?=ROOT?>/assets/js/multiselect-dropdown.js"></script>
+
 </head>
 <body>
 	<header>
@@ -19,6 +21,8 @@
 		<div class="left-side">
 			<h2>Register to CropFello</h2>
 			<form method="post" >
+
+
 				<label for="firstName">First Name:</label>
 				<input type="text" id="firstName" name="fname"><br>
 
@@ -29,42 +33,49 @@
 				<input type="text" id="address" name="address"><br> -->
 
                 <label>Available Area *</label>
-        <!-- <select name="field2" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" onchange="console.log(this.selectedOptions)">
-          <option>Kottawa</option>
-          <option>Pannipitiya</option>
-          <option>Maharagama</option>
-          <option>Nugegoda</option>
-          <option>Kirulapana</option>
-          <option>Panadura</option>
-          <option>Moratuwa</option>
-          <option>Gampaha</option>
+        <select name="field2" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" >
+          <option value="2">Ampara</option>
+          <option value="3">Anuradhapura</option>
+          <option value="4">Badulla</option>
+          <option value="5">Batticaloa</option>
+          <option value="6">Colombo</option>
+          <option value="7">Galle</option>
+          <option value="8">Gampaha</option>
+          <option value="9">Hambantota</option>
+		  <option value="10">Jaffna</option>
+		  <option value="11">Kalutara</option>
+		  <option value="12">Kandy</option>
+		  <option value="13">Kegalle</option>
+		  <option value="14">Kilinochchi</option>
+		  <option value="15">Kurunegala</option>
+		  <option value="16">Mannar</option>
+		  <option value="17">Matale</option>
+		  <option value="18">Matara</option>
+		  <option value="19">Monaragala</option>
+		  <option value="20">Mullaitivu</option>
+		  <option value="21">Nuwara Eliya</option>
+		  <option value="22">Polonnaruwa</option>
+		  <option value="23">Puttalam</option>
+		  <option value="24">Ratnapura</option>
+		  <option value="25">Trincomalee</option>
+		  <option value="26">Vavuniya</option>
+
           
-        </select>--> 
-		<form method="POST">
+        </select> 
+		<!-- <form method="POST">
 		<select id="items" name="items[]" multiple>
             <?php foreach ($listItems as $item): ?>
                 <option value="<?= $item['id'] ?>" <?php if (in_array($item['id'], $selectedItems)) echo 'selected' ?>><?= $item['name'] ?></option>
             <?php endforeach; ?>
         </select>
-		</form>
+		</form> -->
 		<br> 
 
                 <div class="vehicle-info1">
                     <!-- <label for="vehicleNo">Vehicle  Number</label> -->
 				    <input type="text" id="vehicleNumber" name="vnumber" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-				    <!-- <label for="vehicleType">Vehcle Type </label>
-				    <input type="text" id="vehicleType" name="vehicleType"><br> -->
-                    <!-- <select>
-                        <option value="0">Select Vehicle Type</option>
-                        <option value="1">Lorry</option>
-                        <option value="2">Van</option>
-                        <option value="3">Car</option>
-                        <option value="4">3 Wheeler</option>
-                        <option value="5">Motorcycle</option>
-                        <option value="6">Tractor</option>
-                        <option value="7">Truck</option>
-                      </select> -->
+				    
 					  <select id="vehicle" name="vehicle">
                       <?php foreach ($options as $vehicle): ?>
                       <option value="<?php echo $vehicle->vehicle_id; ?>"><?php echo $vehicle->vehicle_name; ?></option>
@@ -106,7 +117,12 @@
         <img class="img3" src="<?=ROOT?>/assets/images/deliverysignup/register-corner.png" alt="">
 	</footer>
 
-    <script src="multiselect-dropdown.js"></script>
+
+<script>
+    const selectElement = document.getElementById("field2");
+	const selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
+	console.log(selectedOptions);
+</script>
 
 
 </body>
