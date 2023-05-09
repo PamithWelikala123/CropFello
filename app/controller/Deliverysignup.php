@@ -13,18 +13,15 @@ class Deliverysignup{
 		
 		if($_SERVER['REQUEST_METHOD'] == "POST")
 		{
-			$user = new User;
-			if($user->validate($_POST))
-			{
-				$user->insert($_POST);
-				redirect('deliverylogin');
-			}
-
-			$data['errors'] = $user->errors;			
+			//$user = new User;
+      //field2
+     // echo "hi"	;		
+      // echo $_POST['fname'];
+      // echo $_POST['field2'];
 		}
 
 
-		$this->view('deliverysignup',$data);
+		$this->view('deliverysignup');
     }
      
     public function displayListItems() {
