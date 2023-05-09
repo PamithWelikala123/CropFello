@@ -16,7 +16,7 @@
 </head>
 <body>
 <?php
-$filename = $_SESSION['filename'];
+//$filename = $_SESSION['filename'];
 echo "<script>console.log('Filename: ".$filename."');</script>";
 ?> 
         <div class="topnav">
@@ -29,6 +29,8 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                               $userNotification = new Notification();
                               $notifications = $userNotification->notifications();
                               $jsonArray = json_encode($notifications);
+                              $name = "PAMITH";
+                              echo json_encode($name);
 
                    ?>
 
