@@ -9,6 +9,8 @@
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
     <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+
     <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
     <script src="<?=ROOT?>/assets/js/map.js"></script> 
 
@@ -29,16 +31,16 @@
 
 <body onload="initMap()">
 
-                            <input type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" >
+                            <!-- <input type="text" id="pickuplocation" name="pickuplocation" placeholder="Select and fetch your location" > -->
                 
-                            <input type="hidden" name="p-latitude" id="p-latitude" value="">
-                            <input type="hidden" name="p-longitude" id="p-longitude" value="">
+                            <input type="text" name="p-latitude" id="p-latitude" value="<?php $data['platitude']?>">
+                            <input type="text" name="p-longitude" id="p-longitude" value="<?php $data['plongitude']?>">
                             <input type="hidden" id="city1" name="city" value="">
                 
-                            <input type="text" id="destination" name="destination" placeholder="From Where journey End...?"  value="">
+                            <!-- <input type="text" id="destination" name="destination" placeholder="From Where journey End...?"  value=""> -->
                 
-                            <input type="hidden" name="d-latitude" id="d-latitude" value="">
-                            <input type="hidden" name="d-longitude" id="d-longitude" value="">
+                            <input type="text" name="d-latitude" id="d-latitude" value="<?php $data['sel_lati']?>">
+                            <input type="text" name="d-longitude" id="d-longitude" value="<?php $data['sel_longi']?>">
                 
                 
                 
