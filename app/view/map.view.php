@@ -77,9 +77,15 @@ function initMap() {
             directionsService.route(request, function(result, status) {
               if (status === 'OK') {
                 directionsRenderer.setDirections(result);
+                var distance = result.routes[0].legs[0].distance.text;
+                document.getElementById('distance').value=distance;
+                console.log('distance= '+distance);
               }
             });
           }
+
+
+
 
 
 </script>
@@ -107,6 +113,9 @@ function initMap() {
                             </div> --> 
 
                             <!-- <script>var start = new google.maps.LatLng(6.828959157721786,80.01828950117186);</script> -->
+
+                            <input type="hidden" name="distance" id="distance" value="">
+                            <input type="hidden" name="duration" id="duration" value="">
  <div id="map"></div>
 
 
