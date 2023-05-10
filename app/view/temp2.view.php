@@ -72,7 +72,7 @@
 
 
                          <div>
-                         <form class="" action="databasepost" method="post" enctype="multipart/form-data">
+                         <form class="" action="addBiddingItem" method="post" enctype="multipart/form-data">
 
                                           <div class="form-split">
 
@@ -137,13 +137,13 @@
 
                                             <div class="form-group">
                                                               <label class="form-label" for="city">Amount *</label>
-                                                              <input  class="basic-input-field"  type="text"  name="bid_range" placeholder="  Rs." >
+                                                              <input  class="basic-input-field"  type="text"  name="amount" placeholder="  Rs." >
                                             </div>
 
                                               <div class="form-group">
                                                         <label class="form-label" for="contact-number"> &nbsp;</label>
                                                         
-                                                        <select class="basic-input-field" name="stock_size1" id="stock_size1" type="text" onkeyup="GetDetail(this.value)" value="">
+                                                        <select class="basic-input-field" name="amount_type" id="amount_type" type="text" onkeyup="GetDetail(this.value)" value="">
                                                                                                                           <option value="KG">KG</option>
                                                                                                                           <option value="G">G</option>
                                                                                                                           <option value="TREES">TREES</option>
@@ -161,7 +161,7 @@
                                                                   
                                                                   
                                                                   <label class="form-label" for="address">Address *</label>
-                                                                  <input type="text" id="address" class="basic-input-field" placeholder="address" name="Address">
+                                                                  <input type="text" id="address" class="basic-input-field" placeholder="address" name="address">
                                                                           
                                       </div>
                                      
@@ -196,7 +196,7 @@
                                                     <input class="basic-input-field" type="text" id="pickuplocation" name="location" placeholder="" value="">
                                                     <input type="hidden" name="platitude" id="p-latitude" value="">
                                                     <input type="hidden" name="plongitude" id="p-longitude" value="">
-                                                    <input type="hidden" id="city1" name="city1" value="">
+                                                    <input type="hidden" id="city1" name="city" value="">
 
 
 

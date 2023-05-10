@@ -19,6 +19,7 @@ class wishlists
 
     $arr['user_id']=$_SESSION['USER']->user_id;
     $rows=$wishlist1->where($arr);
+    if($rows){
 
     foreach ($rows as $row) {
 
@@ -39,14 +40,18 @@ class wishlists
       $row->image=$row1->image;
       $row->stock_size1=$row1->stock_size1;
       
-       
-
-
-
     }
 
 
-       $this->view('buyerwishlist',$rows);
+    $this->view('buyerwishlist',$rows);
+    }
+
+    else{
+      $this->view('buyerwishlist');
+    }
+
+
+      
 
   }
 
