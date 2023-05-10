@@ -106,7 +106,7 @@ class requests
              $arr2['user_id']=$row->seller_id;
 
             $row_user=$user->first($arr2);
-            
+           
               $row->first_name=$row_user->first_name;
               $row->last_name=$row_user->last_name;
 

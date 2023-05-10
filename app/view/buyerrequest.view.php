@@ -38,10 +38,7 @@
 
     <div class="content">
         <div class="leftbar">
-            <!-- <a href="#home"><i class="fa fa-rss"></i> Feed</a>
-            <a href="#services"><i class="fa fa-dollar"></i> Bidding</a>
-            <a href="#clients"><i class="fa fa-bookmark-o"></i> Wishlist</a>
-            <a href="#contact"><i class="fa fa-flag-o"></i> Requests</a> -->
+
 
             <div class="menu">
               
@@ -54,7 +51,7 @@
             <div class="message">
                 
                       <hr><p>Message</p><br>
-                      <!-- <img class="message-bar" src="images/message-bar.png"> -->
+
                       <div class="message-box">
                           <?php require APPROOT."/controller/Chat.php";
                           $userController = new Chat();
@@ -119,11 +116,18 @@
 
 
                                               <div class="post-button post-buttons">
-                                                <button class="approved-button" id="<?=$row->post_id?>"   onclick="update()" >Update</button>
-                                              
-                                                <button class="delete-button" id="<?=$row->post_id?>" onclick="delete1()" >Delete&nbsp;
-                                                  <i class='fa fa-trash'></i></button>
-                                              </div>
+                                                      <button class="approved-button" id="<?=$row->post_id?>"   onclick="update()" >Update</button>
+                                                    
+                                                      <button class="delete-button" id="<?=$row->post_id?>" onclick="delete1()" >Delete&nbsp;
+                                                        <i class='fa fa-trash'></i></button>
+                                                  <?php if($row->approved) :    ?>
+
+                                                    
+                                                      <button class="contact-button" id="<?=$row->post_id?>" onclick="contact()" >Contact&nbsp;
+
+                                                        <i class='fa fa-phone'></i></button>
+                                                    <?php endif;?>
+                                                </div>
 
 
                                             </div>
