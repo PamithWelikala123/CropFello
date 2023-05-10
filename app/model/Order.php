@@ -16,8 +16,10 @@ class Order{
         $query = "select orders.id,postitem1.item_name,orders.price,orders.del_price,orders.qua,orders.tot,registerd_user.first_name,registerd_user.last_name,registerd_user.address,registerd_user.contact_number from registerd_user inner join orders on orders.buy_id = registerd_user.user_id inner join postitem1 on orders.post_id = postitem1.id where orders.id = $para";
         return $this->query($query);
     }
+
+    //  $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
     public function func3($para1,$para2,$para3,$para4,$para5,$para6,$para7,$para8,$para9,$para10,$para11,$para12,$para13,$para14){
-        $query = "insert into $this->table(buy_id,price,qua,post_id,del_price,tot,distance,unit,item_name,order_code,del_method,exp,placed_on,image) values($para1,$para2,$para3,$para4,$para5,$para6,$para14,'$para7','$para8','$para9','$para10','$para11','$para12','$para13')";
+        $query = "insert into $this->table(buy_id,price,qua,post_id,del_price,tot,unit,item_name,order_code,del_method,exp,placed_on,image,distance) values($para1,$para2,$para3,$para4,$para5,$para6,'$para7','$para8','$para9','$para10','$para11','$para12','$para13',$para14)";
         return $this->query($query);
     }
 

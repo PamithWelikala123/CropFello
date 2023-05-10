@@ -106,7 +106,7 @@ class Feed{
         $sel_longi = $data3->plongitude;
         $placed_on = date('Y-m-d');
         $del_price = 500;
-        $distance= $_POST['distance'];
+        $distance= intval($_POST['distance']);
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
@@ -154,7 +154,7 @@ class Feed{
         $full_stock = $data3->stock_size;
         $placed_on = date('Y-m-d');
         $del_price = 0;
-        $distance= $_POST['distance'];
+        $distance= intval($_POST['distance']);
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
