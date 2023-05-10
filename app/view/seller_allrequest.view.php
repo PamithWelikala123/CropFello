@@ -5,117 +5,102 @@
     <title>
      Seller_allrequest
     </title>
-    <link rel="Stylesheet" href="<?=ROOT?>/assets/css/sellerallrequest.css">
+    <!-- <link rel="Stylesheet" href="<?=ROOT?>/assets/css/sellerallrequest.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyerrequest.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/sellerallrequest.css">
     <style>
      
       </style>
   </head>
   <body>
-    <div style="display : grid; grid-template-columns: 21% 79%;">
-
-          <div class="left-line"> 
-                    <img class="Menu"  src="<?=ROOT?>/assets/images/selling/left.png">
-                    <img class="logo"  src="<?=ROOT?>/assets/images/selling/logo.png">
-                    <img class="line"  src="<?=ROOT?>/assets/images/selling/line.png">
-                    <img class="message-bar" src="<?=ROOT?>/assets/images/selling/message-bar.png">
-                    <label class="Menu1">Menu</label>
-
-                    <div> 
-                      <button class="Feed" onclick="document.location='../selling'">Selling</button>
-                      <img class="Feed1"  src="<?=ROOT?>/assets/images/selling/feed1.png">
-                      <button class="Bidding" onclick="document.location='sellerbidding'">Bidding</button>
-                      <img class="Bidding1"  src="<?=ROOT?>/assets/images/selling/Bidding1.png">
-                      <button class="Requests" onclick="document.location='seller_allrequests'">Requests</button>
-                      <img class="Requests1"  src="<?=ROOT?>/assets/images/selling/flag.png">
-                    </div>
-
-                    <img class="line1"  src="pics\feed\line.png">
-                    <label class="Message">Message</label>
-                  
-
-          </div>
 
 
-          <div style="display : grid; grid-template-rows: 10% 10% 80%; ;">
-                  <div class="top-line">
-                              <?php require APPROOT."/view/searchbarseller.php"?>
-                  </div>
+  <div class="container">
 
-                  <div class="All-Approved">
-                      <button class="All-request" onclick="document.location='seller_allrequests'">All</button>    
-                      <button class="Approved" onclick="document.location='seller_approvedrequests'">Approved</button>
-                  </div>
+           <?php
+        
+            require APPROOT."/view/searchbarseller2.php";
+          
+          ?>
+          <div class="main">
+          <div class="page-selector">
+                    <button class="active" onclick="window.location.href = '../Requests/seller_allrequests';">All</button>
+                    <button onclick="window.location.href = '../Requests/seller_approvedrequests';">Approved</button>
+                </div>
+                          <div class="main-content">
+                          <?php if($data) :    ?>
+                           <?php foreach ($data as $row) :?>
 
-                  
-                  <div class="Scroll-bar">
-                  
-                 
-                            <?php foreach ($data as $row) :?>
-                            <?php if($row->row_discard==0 && $row->approved==0):?>
-                           <div class="posts">
-
-                                <div class="top-line1">
-                                               <img class="profile2" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>"> 
-                                               <div class="profile-name">
-                                               <?php echo $row->first_name ?>
-                                              <?php echo $row->last_name ?>
-                                               </div>
-                                                
-                                </div>
-                                <div class="bottom-line">
-                                        <div class="infor">
-                                                    <?php echo $row->first_name ?>
-                                                    <?php echo $row->last_name  ?>
-                                                    wants
-                                                    <?php echo $row->item_name ?>
-                                                    in
-                                                    <?php  echo $row->amount; ?>
-                                                    <?php  echo $row->unit; ?>
-                                                    (s)
-
-                                        </div>
-                                        
-
-                                        <p class="content">
-                                              Item   : <br>
-                                              Amount : <br>
-                                              Before :<br>
-                                              To     : <br>
-                                        </p>
-
-                                        <p class="content1">
-                                        <?php echo $row->item_name ?><br>
-                                        <?php  echo $row->amount ?><?php  echo $row->unit; ?> <br>
-                                        <?php  echo $row->date ?><br>
-                                        <?php  echo $row->city; ?>
-
-                                        </p>
+                            <?php if($row->row_discard==0 && $row->approved==0 && $row->seller_id!=$_SESSION['USER']->user_id):?>
 
 
-                                      <button class="update" id="<?=$row->post_id?>" onclick="updatenotify()">Approve</button>
-                                      <button class="delete" id="<?=$row->post_id?>" onclick="discard()">Discard</button>
-                                            
+
+                                      <div class="post">
                                   
-                                        
+                                            <div class="post-header">
+                                              <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt="Profile Picture" class="post-profile-pic">
+                                                  <div class="post-header-info">
+                                                    <div class="post-header-name">
+                                                      <?php echo $row->first_name ?>
+                                                       <?php echo $row->last_name ?>
+                                                      </div>
+                                                    <div class="post-header-date">Posted on May 5, 2023</div>
+                                                  </div>
+                                            </div>
 
-                                         
+
+                                            <div class="post-content">
+                                              <div class="post-description">
+                                                
+                                                <table class="info-table">
+                                                  <tr>
+                                                    <td class="left-column">Item:</td>
+                                                    <td class="right-column"><?php echo $row->item_name ?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="left-column">Amount:</td>
+                                                    <td class="right-column"><?php  echo $row->amount ?><?php  echo $row->unit; ?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="left-column">Before:</td>
+                                                    <td class="right-column"><?php  echo $row->date ?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td class="left-column">To:</td>
+                                                    <td class="right-column"><?php  echo $row->city; ?></td>
+                                                  </tr>
+                                                </table>
+                                                
+                                              </div>
+
+
+                                              <div class="post-button post-buttons">
+                                                <button class="approved-button" id="<?=$row->post_id?>"   onclick="updatenotify()" >Approve</button>
+                                              
+                                                <button class="delete-button" id="<?=$row->post_id?>" onclick="discard()" >Discard&nbsp;
+
+                                                  <i class='fa fa-trash'></i></button>
+                                              </div>
+
+
+                                            </div>
                                 </div>
+                                
 
-                            </div> 
-                          <?php endif; ?>         
-                          <?php endforeach; ?>
-                          
-                  
-    
+                                <?php endif; ?>                                                             
+                         <?php endforeach; ?>
+                                                                            
+                    <?php endif;?>
+                                                                            
+                                                  
+</div>
+</div>
+</div>
 
-
-          </div>
-         
-                   
-
-    </div>
- 
 
 
   </body>
@@ -132,7 +117,7 @@ function updatenotify(){
 
 function notify(){
 
-  const images = document.querySelectorAll('.update');
+  const images = document.querySelectorAll('.approved-button');
   images.forEach(function(image) {
     image.addEventListener('click', function() {
       const id = this.id;
@@ -146,7 +131,7 @@ function notify(){
 function update(){
   
 
-  const images = document.querySelectorAll('.update');
+  const images = document.querySelectorAll('.approved-button');
   images.forEach(function(image) {
     image.addEventListener('click', function() {
       const id = this.id;
@@ -159,7 +144,7 @@ function update(){
 
 function discard(){
 
-const images = document.querySelectorAll('.delete');
+const images = document.querySelectorAll('.delete-button');
 images.forEach(function(image) {
   image.addEventListener('click', function() {
     const id = this.id;
