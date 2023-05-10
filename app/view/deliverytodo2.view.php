@@ -63,6 +63,10 @@
 
 
                         <div class="main-content">
+
+
+                        <?php if ($data) : ?>      
+                        <?php foreach ($data as $row) : ?>  
                           
                         <div class="post">
                                                       <div class="post-header">
@@ -81,7 +85,7 @@
                                                         <td rowspan="4" class="image-cell">
                                                                                         
                                                             <div class="image-wrapper">
-                                                                <img src="images/pinaple1.jpg" alt="Square Image">
+                                                                <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>" alt="Square Image">
                                                             </div>
                                                         </td>
                                                         <td><h3>Buyer Info</h3></td>
@@ -119,20 +123,14 @@
 
                                                       </div>
                                           </div>
-
+                                          <?php endforeach; ?>
+                                  <?php endif; ?>
 
 
                                           
                                                                               
                                                                             </div>
 
-
-                                                                          <div class="post-buttons">
-                                                                            <button class="post-button approved-button">Approved</button>
-                                                                            <button class="post-button discard-button">Discard</button>
-                                                                            <button class="post-button map-button"  onclick="window.open('http://example.com', '_blank')">View On Map&nbsp;
-                                                                              <i class='fa fa-map-marker'></i></button>
-                                                                          </div>
 
 
                                                       </div>

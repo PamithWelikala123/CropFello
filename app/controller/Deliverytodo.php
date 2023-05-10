@@ -9,110 +9,145 @@ class deliverytodo{
 
   }
   
+  public function view2(){
 
-  // public function addRequestItem(){
+    $order = new Order;
+    $checkout = new Checkout;
+    $user = new User;
+    $postitem = new postitems;
+
+     $arr['del_method']="delper";
+
+     $rows=$order->where($arr);
+
+     foreach($rows as $row){
     
-  //               $request_item = new request_item;
-  //               echo "ufhfu";
-  //               redirect('deliverytodo');
+      $arr1['order_code']=$row->order_code;
+       
+      $row1=$checkout->first($arr1);
+      $row->first_name=$row1->first_name;
+      $row->last_name=$row1->last_name;
+      $row->address=$row1->address;
+      $row->contact_number=$row1->contact_number;
+      $row->longitude=$row1->longitude;
+      $row->latitude=$row1->latitude;
+
+      $arr2['post_id']=$row->post_id;
+      $row2=$postitem->first($arr2);
+
+
+      $row->address_seller=$row2->Address;
+      $row->longitude_seller=$row2->plongitude;
+      $row->latitude_seller=$row2->platitude;
+
+      $arr3['user_id']=$row2->user_id;
+
+      $row3=$user->first($arr3);
+
+      $row->contact_number_seller=$row3->contact_number;
+
+
+
+
+     }
+
+
+      
+  
+    $this->view('deliverytodo2',$rows);
+    }
+
+    
+  
+  // // public function addRequestItem(){
+    
+  // //               $request_item = new request_item;
+  // //               echo "ufhfu";
+  // //               redirect('deliverytodo');
                 
 
-  //             if ($_SERVER['REQUEST_METHOD'] == "POST") {
-  //               $_POST['post_id'] = $_SESSION['USER']->user_id;
-  //               $request_item->insert($_POST);
+  // //             if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  // //               $_POST['post_id'] = $_SESSION['USER']->user_id;
+  // //               $request_item->insert($_POST);
                 
                 
             
+  // //             }
+  // // }
+
+  // public function view1(){
+
+  //           if ($_SESSION['USER']) {
+              
+              
+  //             $user = new user;
+  //             $postitems = new postitems;
+  //             $request_item = new request_item;
+  //             $item = new item;
+  //             // $item1 = new item;
+  //             $registerd_user = new registerd_user;
+  //             $vehicle = new vehicle;
+
+
+  //             $crop_list='';
+
+  //         //   while($result = mysqli_fetch_assoc($result_set)){
+  //         //   $crop_list .="<option value=\"{$result['item_id']}\">{$result['name']}</option>";
+
+  //         // }
+
+              
+  //             $id1['user_id'] = $_SESSION['USER']->user_id;
+  //             $buyer = $user->first($id1);
+  //             $seller = $user->first($id1);
+  //             $deliver = $user->first($id1);
+  //             // echo $buyer->first_name;
+
+  //             $arr['seller_id'] = $id1['user_id'];
+              
+  //             $rows = $request_item->where($arr);
+              
+  //           if($rows){
+
+              
+  //             $rows = (array) $rows;
+
+  //             foreach ($rows as $row) {
+
+  //             $row->first_name = $buyer->first_name;
+  //             $row->last_name = $buyer->last_name;
+  //             $row->fro = $seller->address;
+  //             $row->too = $buyer->address;
+  //             $row->vname = $deliver->vehicle_name;
+              
+            
+  //               $arr1['item_id'] = $row->item_id;
+  //               $row1 = $item->first($arr1);
+  //               $row->item_name = $row1->name;
+
+  //               // $arr2['vehicle_id'] = $row->vehicle_id;
+  //               // $row1 = $vehicle->first($arr2);
+  //               // $row->vname = $row1->vehicle_name;
+                
+                
   //             }
-  // }
 
-  public function view1(){
-
-            if ($_SESSION['USER']) {
-              
-              
-              $user = new user;
-              $postitems = new postitems;
-              $request_item = new request_item;
-              $item = new item;
-              // $item1 = new item;
-              $registerd_user = new registerd_user;
-              $vehicle = new vehicle;
-
-
-              $crop_list='';
-
-          //   while($result = mysqli_fetch_assoc($result_set)){
-          //   $crop_list .="<option value=\"{$result['item_id']}\">{$result['name']}</option>";
-
-          // }
-
-              
-              $id1['user_id'] = $_SESSION['USER']->user_id;
-              $buyer = $user->first($id1);
-              $seller = $user->first($id1);
-              $deliver = $user->first($id1);
-              // echo $buyer->first_name;
-
-              $arr['seller_id'] = $id1['user_id'];
-              
-              $rows = $request_item->where($arr);
-              
-            if($rows){
-
-              
-              $rows = (array) $rows;
-
-              foreach ($rows as $row) {
-
-              $row->first_name = $buyer->first_name;
-              $row->last_name = $buyer->last_name;
-              $row->fro = $seller->address;
-              $row->too = $buyer->address;
-              $row->vname = $deliver->vehicle_name;
-              
-            
-                $arr1['item_id'] = $row->item_id;
-                $row1 = $item->first($arr1);
-                $row->item_name = $row1->name;
-
-                // $arr2['vehicle_id'] = $row->vehicle_id;
-                // $row1 = $vehicle->first($arr2);
-                // $row->vname = $row1->vehicle_name;
-                
-                
-              }
-
-              $this->view('deliverytodo',$rows);
-            }
-            else{
-              $this->view('deliverytodo');
-            }
+  //             $this->view('deliverytodo',$rows);
+  //           }
+  //           else{
+  //             $this->view('deliverytodo');
+  //           }
 
           
                 
 
-            } 
-            else {
-              redirect('deliverylogin');
-            }
+  //           } 
+  //           else {
+  //             redirect('deliverylogin');
+  //           }
 
-  }
+  // }
 
-public function view2(){
-
-  // $checkout = new checkout;
-  // $order = new Order;
-  // $post = new postitems;
-  // $user = new User;
-  // $data['a'] = $order->findAll();
-  // $data['b'] = $checkout->findAll();
-  // $data['c'] = $post->findAll();
-  // $data['d'] = $user->findAll();
-    
-
-  $this->view('deliverytodo2');
-  }
 
 
 
