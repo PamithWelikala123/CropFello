@@ -151,48 +151,45 @@ class bidding{
 
 
     public function addBiddingItem(){
-       
-            $user = new user;
-            $postitems = new postitems;
-            $item = new item;
-            $createbid = new createbid;
+        $arr = array();
+        $newFilename='';
+        
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                                                            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                                                                $filename = basename($_FILES['image']['name']);
+                                                                $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                                                                $newFilename = uniqid() . '.' . $ext;
+                                                                $targetPath = APPROOT . '/../public/assets/images/Post-images/' . $newFilename;
+                                                                $arr["image"] = $newFilename;
+                                                                
+                                                                if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
+                                                                    // Return JSON response with file path
+                                                                    $response2 = [
+                                                                        // 'success' => true,
+                                                                        'filepath' =>$newFilename,
+                                                                       
+                                                                    ];
+                                                                    echo $_POST['image'];
+                                                                    echo json_encode($response2);
+                                                                } else {
+                                                                    // $response = ['success' => false];
+                                                                    // echo json_encode($response);
+                                                                }
+                                                            } else {
+                                                                // $response = ['success' => false];
+                                                                // echo json_encode($response);
+                                                            }
+     }                                                       // Move this line inside the "if" statement
+     if (isset($_POST['submit'])) {                                
+                                                        //echo $_POST['image'];                        
+                                                            $createbid = new createbid;
+                                                            $_POST['current_value']=$_POST['initial_price'];
+                                                            $_POST['seller_id']=$_SESSION['USER']->user_id;
+                                                      
+                                                            $row=$createbid->insert($_POST);
+                                                             redirect('Bidding/sellerbidding');
+    }
 
-            if(isset($_POST["submit"])){
-                if(isset($_POST["submit"])){
-                
-                      if($_FILES["image"]["error"] == 4){
-                        echo
-                        "<script> alert('Image Does Not Exist'); </script>"
-                        ;
-                      }
-                      else{
-                        $fileName = $_FILES["image"]["name"];
-                        $fileSize = $_FILES["image"]["size"];
-                        $tmpName = $_FILES["image"]["tmp_name"];
-                    
-                        $validImageExtension = ['jpg', 'jpeg', 'png'];
-                        $imageExtension = explode('.',$fileName);
-                        $imageExtension = strtolower(end($imageExtension));
-                    
-                        $newImageName = uniqid();
-                        $newImageName .= '.'.$imageExtension;
-    
-                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/Cropfello/public/assets/images/Post-images/'.$newImageName;
-                        move_uploaded_file($tmpName, $destinationPath); 
-                        $_POST['image']=$newImageName;
-                      }
-                    }
-            }
-
-
-                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                        //echo $_SESSION['USER']->user_id;
-                            $_POST['seller_id'] = $_SESSION['USER']->user_id;
-                            $_POST['current_value']=$_POST['initial_price'];
-                            $createbid ->insert($_POST);
-                            redirect('bidding/sellerbidding');
-                
-                    }
     }
 
 
