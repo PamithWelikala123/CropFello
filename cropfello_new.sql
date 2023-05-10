@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 09:19 AM
+-- Generation Time: May 10, 2023 at 09:25 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -173,6 +173,13 @@ CREATE TABLE `checkout` (
   `location` varchar(1000) NOT NULL,
   `order_code` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`first_name`, `last_name`, `address`, `contact_number`, `id`, `longitude`, `latitude`, `location`, `order_code`) VALUES
+('pamith', 'welikala', '30/1/A High level Road Meegoda', '771674022', 193, 80.01828950117186, 6.828959157721786, '', 'c19837440425696efaf170cb207bf59b');
 
 -- --------------------------------------------------------
 
@@ -534,6 +541,13 @@ CREATE TABLE `orders` (
   `exp` date NOT NULL,
   `placed_on` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `buy_id`, `order_code`, `price`, `del_price`, `qua`, `tot`, `distance`, `city`, `contact_number`, `del_id`, `post_id`, `unit`, `item_name`, `del_method`, `cart`, `image`, `exp`, `placed_on`) VALUES
+(360, 2, 'c19837440425696efaf170cb207bf59b', 300, 0, 1, 300, 310, NULL, NULL, NULL, 62, 'KG', 'beans', 'pickup', 0, '6459e5d31fe23.jpg', '2023-05-12', '2023-05-10');
 
 -- --------------------------------------------------------
 
@@ -979,7 +993,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
 
 --
 -- AUTO_INCREMENT for table `createbid`
@@ -1027,7 +1041,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=359;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=361;
 
 --
 -- AUTO_INCREMENT for table `postitem`
