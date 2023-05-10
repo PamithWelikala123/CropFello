@@ -183,6 +183,7 @@ class bidding{
      if (isset($_POST['submit'])) {                                
                                                         //echo $_POST['image'];                        
                                                             $createbid = new createbid;
+                                                            $_POST['current_value']=$_POST['initial_price'];
                                                             $_POST['seller_id']=$_SESSION['USER']->user_id;
                                                       
                                                             $row=$createbid->insert($_POST);
