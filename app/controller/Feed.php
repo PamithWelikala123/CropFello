@@ -105,8 +105,8 @@ class Feed{
         $sel_lati = $data3->platitude;
         $sel_longi = $data3->plongitude;
         $placed_on = date('Y-m-d');
-        $del_price = 500;
         $distance= intval($_POST['distance']);
+        $del_price = 500;
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
