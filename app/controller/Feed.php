@@ -48,6 +48,10 @@ class Feed{
     $row->first_name=$row3->first_name;
     $row->last_name=$row3->last_name;
     $row->image1=$row3->image;
+    $item_id = $row->item_id;
+    $az['item_id'] = $item_id;
+    $datat = $item->first($az);
+    $fee = $datat->del_fee;
 
     $arry1['user_id']=$_SESSION['USER']->user_id;
     $rowy3= $user->first($arry1);
@@ -106,12 +110,12 @@ class Feed{
         $sel_longi = $data3->plongitude;
         $placed_on = date('Y-m-d');
         $distance= intval($_POST['distance']);
-        $del_price = 500;
+        $del_price = $distance*$fee*$qua;
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
         if($full_stock > $qua){
-          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,0);
         }else{
           print_r("not enough stock");
         }
@@ -159,7 +163,7 @@ class Feed{
         $rand = md5(uniqid(rand(),true));
 
         if($full_stock > $qua){
-          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,0);
         }else{
           print_r("not enough stock");
         }
@@ -210,12 +214,13 @@ class Feed{
        $sel_longi = $data3->plongitude;
        $full_stock = $data3->stock_size;
        $placed_on = date('Y-m-d');
-       $del_price = 500;
+       $distance= intval($_POST['distance']);
+       $del_price = $fee*$distance*$qua;
        $tot = $del_price + $price;
        $rand = md5(uniqid(rand(),true));
 
        if($full_stock > $qua){
-        $order->func8($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$image,$exp,$placed_on);
+        $order->func12($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
        }else{
         print_r("not enough stock");
        }
@@ -254,6 +259,7 @@ class Feed{
        $unit = $data3->unit;
        $qua = $data3->size*$qt;
        $price = $data3->price*$qt;
+       $distance= intval($_POST['distance']);
        $del_price = 0;
        $exp = $data3->exp;
        $sel_lati = $data3->platitude;
@@ -265,7 +271,7 @@ class Feed{
        $rand = md5(uniqid(rand(),true));
 
        if($full_stock > $qua){
-        $order->func8($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$image,$exp,$placed_on);
+        $order->func12($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
        }else{
         print_r("not enough stock");
        }
@@ -454,6 +460,49 @@ public function checkout2(){
     
 }
 
+public function checkout4(){
+  $order_code = $_GET['order_code'];
+  $user = new User;
+  $order = new Order;
+  $checkout = new Checkout;
+  $createbid = new createbid;
+  $ar['order_code'] = $order_code;
+  $data1 = $order->first($ar);
+  $post_id = $data1->post_id;
+  $arr['post_id'] = $post_id;
+  $data2 = $createbid->first($arr);
+  $sell_id = $data2->seller_id;
+  $data['c'] = $user->func1($sell_id);
+
+  $data['b'] = $order->func5($order_code);
+  $data['a'] = $checkout->func5($order_code);
+
+  if(isset($_POST['checkout4'])){
+        
+    redirect('feed/checkout5?order_code=' . $order_code);
+  }
+  $this->view('checkout4',$data);
+}
+
+public function checkout5(){
+  $order_code = $_GET['order_code'];
+  $user = new User;
+  $order = new Order;
+  $checkout = new Checkout;
+  $createbid = new createbid;
+  $ar['order_code'] = $order_code;
+  $data1 = $order->first($ar);
+  $post_id = $data1->post_id;
+  $arr['post_id'] = $post_id;
+  $data2 = $createbid->first($arr);
+  $sell_id = $data2->seller_id;
+  $data['c'] = $user->func1($sell_id);
+
+  $data['a'] = $order->func5($order_code);
+  $data['b'] = $checkout->func5($order_code);
+  $this->view('checkout6',$data);
+}
+
 public function cart(){
   //$order_code = $_GET['order_code'];
   $checkout1 = new Checkout;
@@ -512,14 +561,16 @@ public function final(){
   $post = new postitems;
   $arrx11['order_code']=$order_code;
   //$user_id = $_SESSION['USER']->user_id;
-
   $data44 = $order->first($arrx11);
-  $metho = $data44->del_method;
-  $id = $data44->post_id;
-  $arrx22['post_id']=$id;
-  $data55 = $post->first($arrx22);
-  $stock = $data55->stock_size;
-  $qua = $data44->qua;
+  $bid = $data44->bid;
+
+  if($bid==0){
+    $metho = $data44->del_method;
+    $id = $data44->post_id;
+    $arrx22['post_id']=$id;
+    $data55 = $post->first($arrx22);
+    $stock = $data55->stock_size;
+    $qua = $data44->qua;
 
   if($stock > $qua){
     $new_size = $stock-$qua;
@@ -530,6 +581,14 @@ public function final(){
   }else{
     print_r("not enough stock");
   }
+  }else{
+    $order->delete($order_code,'order_code');
+    $checkout1->delete($order_code,'order_code');
+    redirect("feed/feed");
+  }
+
+  
+  
   
   
 }
@@ -541,6 +600,25 @@ public function back(){
   $order->delete($order_code,'order_code');
   $checkout1->delete($order_code,'order_code');
   redirect("feed/feed");
+}
+
+public function strike(){
+
+  $post_id = $_GET['post_id'];
+  $post = new postitems;
+  $user = new User;
+  $strike = new Reported_sellers;
+  $ax['post_id']  =$post_id;
+  $data1 = $post->first($ax);
+  $sell_id = $data1->user_id;
+  $data = $user->func1($sell_id);
+
+  /*if (isset($_POST['strike'])) {
+    $strike->func1($para);
+  }*/
+  
+  
+  $this->view('viewseller',$data);
 }
 
 
