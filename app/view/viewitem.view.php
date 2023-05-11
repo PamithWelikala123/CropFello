@@ -156,7 +156,7 @@ function initMap() {
 
                                             <Script>
                                                 function myFunction(post_id) {
-			                                         window.location.href = "http://localhost/Cropfello/public/feed/strike?post_id="+post_id;
+			                                         window.location.href = "<?=ROOT?>/feed/strike?post_id="+post_id;
 		          }
                                             </Script>
 

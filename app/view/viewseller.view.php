@@ -10,7 +10,25 @@
 </head>
 <body>
     <a target="_blank" href="https://icons8.com/icon/3mVlaWDZV99c/rss-a-type-of-web-feed-allows-users-and-applications-to-access-updates"></a>
-     <div class="container">
+     
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="closeBtn">&times;</span>
+            
+          </div>
+          <div class="modal-body">
+          <h2>Mention your reason to strike</h2><br>
+            <input type="text" placeholder="Enter a valid reason">
+            <button>Strike</button>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    <div class="container">
         <!-- <div class="topnav"></div>
         <div class="sidenav">
             <img class="logo"  src="images/logo.png">
@@ -58,14 +76,14 @@
               <h2><?php echo($dat->first_name);  ?> <?php echo($dat->last_name);  ?></h2>
             </div>
             <div class="likes">
-              <!--label><sup><strong>837</strong></sup> <img src="images/heart.svg" alt=""></span></label-->
+             <label><sup><strong>837</strong></sup> <img src="<?=ROOT?>/assets/images/viewprofile/heart.svg" alt=""></span></label>
             </div>
             <div class="empty"></div>
             <div class="strike">
-              <button><sup>Strike</sup>&nbsp;&nbsp;<img src="images/strike.svg" alt=""></button>
+              <button id="openModalBtn"><sup>Strike</sup>&nbsp;&nbsp;<img src="<?=ROOT?>/assets/images/viewprofile/strike.svg" alt=""></button>
             </div>
             <div class="contact">
-              <label for=""><img src="images/call.svg" alt="">&nbsp;<?php echo($dat->contact_number);  ?> &emsp;&emsp;</label><label for=""><img src="images/mail.svg" alt="">&nbsp;<?php echo($dat->email);  ?></label>
+              <label for=""><img src="<?=ROOT?>/assets/images/viewprofile/call.svg" alt="">&nbsp;<?php echo($dat->contact_number);  ?> &emsp;&emsp;</label><label for=""><img src="<?=ROOT?>/assets/images/viewprofile/mail.svg" alt="">&nbsp;<?php echo($dat->email);  ?></label>
             </div>
             <div class="messages">
               <button>Message</button>
@@ -82,5 +100,35 @@
         </div>
     </div>
      
+
+    <script>
+          // Get the modal
+      var modal = document.getElementById("modal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("openModalBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("closeBtn")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      
+      </script>
+
 </body>
 </html>

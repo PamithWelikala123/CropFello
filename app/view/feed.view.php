@@ -108,7 +108,10 @@ $_SESSION['filename'] = 'feed';
                                               <?php endforeach; ?>
                                
                                 <?php else : ?>
-                                  <p>Items are unavailable Right now</p>
+                                  <div class="no-search">
+                                    <p>No search Result <img src="<?=ROOT?>/assets/images/feed/no-search.svg" alt=""> </p>
+                                  </div>
+                                  
                                   <?php endif; ?>
 
 
