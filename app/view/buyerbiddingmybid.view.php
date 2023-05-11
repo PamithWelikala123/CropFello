@@ -121,9 +121,10 @@
                                                                           <button id="<?=$row->post_id?>" class="js-bid-now-btn">Update</button>
 
                                                                           <?php elseif(abs($row->remaning)>=$row->rank) :    ?> 
-
-                                                                          <button id="<?=$row->post_id?>" class="js-bid-now-btn">confirm</button>
-
+                                                                          <form method="post">
+                                                                          <?php echo '<button class="js-bid-now-btn" id="<?=$row->post_id?>" name="confirm['.$row->bidding_number.']/">confirm</button>' ?>
+                                                                          <!--button name="confirm" id="<?=$row->post_id?>" class="js-bid-now-btn">confirm</button-->
+                                                                          </form>
                                                                           <?php endif; ?>
 
                                                                           </div>
