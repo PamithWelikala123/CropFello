@@ -8,118 +8,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/waiting.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/waiting.css">
 </head>
 <body>
 
 
-<div id="modal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="closeBtn">&times;</span>
-            <h2>Enter your bid value</h2>
-            <p>Minimum bid value: RS 630,00</p>
-          </div>
-          <div class="modal-body">
-              <label> RS: &nbsp;</label>
-            <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
-            <button>Bid Now</button>
-          </div>
-        </div>
-      </div>
-
-    <div class="container">
 
 
+<div class="container">
 
-    <div class="container">
-        <div class="topnav">
-            <div class="logo">
-                <img src="<?=ROOT?>/assets/images/cart/logo.png" altba="">
-            </div>
-            <div class="topnav-options">
-                <!-- <a class="active" href="#home">Home</a> -->
-                <a href="#orders" id="my-orders">My Orders</a>
-                <a href="#cart"><i class="fa fa-shopping-cart" style="font-size:18px"></i></a>
-                <a href="#notifi"><i class="fa fa-bell" style="font-size:18px"></i></a>
-                <!-- <a href="#profile"> -->
-                    <img src="<?=ROOT?>/assets/images/cart/user.jpg" alt=""> 
-                <!-- </a> -->
-            </div>
-                <div class="search-container">
-                  <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                  </form>
-                </div>
-          </div>
+<?php
+
+require APPROOT."/view/searchbarbuyer2.php";
+
+?>
         <div class="content">
-            <div class="leftbar">
+        <div class="leftbar">
                 <!-- <a href="#home"><i class="fa fa-rss"></i> Feed</a>
                 <a href="#services"><i class="fa fa-dollar"></i> Bidding</a>
                 <a href="#clients"><i class="fa fa-bookmark-o"></i> Wishlist</a>
                 <a href="#contact"><i class="fa fa-flag-o"></i> Requests</a> -->
 
                 <div class="menu">
-                  <!-- <hr><label >Menu</label><br> -->
+                  
                   <hr><p>Menu</p><br>
-                  <button><img class="Feed1"  src="images/feed1.png"><span> Feed</span></button><br>
-                  <button><img class="Bidding1"  src="images/Bidding1.png"><span> Bidding</span></button><br>
-                  <button><img class="Bidding1"  src="images/wishlist1.png"><span> Wishlist</span></button><br>
-                  <button><img class="Requests1"  src="images/flag.png"><span> Requests</span></button><br>
-              </div>
-              <div class="message">
-                  <!-- <hr><label>Message</label> -->
-                  <hr><p>Message</p><br>
-                  <!-- <img class="message-bar" src="images/message-bar.png"> -->
-                  <div class="message-box">
+                  <button onclick="document.location='../feed/feed'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Feed</span></button><br>
+                  <button onclick="document.location='../bidding/BuyerBidding'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Bidding</span></button><br>
+                  <button onclick="document.location='../wishlists/buyerwishlist'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Wishlist</span></button><br>
+                  <button onclick="document.location='../requests/view1'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Requests</span></button><br>
+                </div>
+                <div class="message">
+                    
+                          <hr><p>Message</p><br>
+                          <!-- <img class="message-bar" src="images/message-bar.png"> -->
+                          <div class="message-box">
+                              <?php require APPROOT."/controller/Chat.php";
+                              $userController = new Chat();
+                              $userController->viewperson();
+                              ?>
+                                  
+                          
 
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="<?=ROOT?>/assets/images/cart/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-                    </div>
+                          
 
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="<?=ROOT?>/assets/images/cart/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-                    </div>
-
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="<?=ROOT?>/assets/images/cart/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-                    </div>
-
-                    <div class="message0">
-                      <div class="message1">
-                        <img src="<?=ROOT?>/assets/images/cart/vimukthi.jpg" alt="">
-                      </div>
-                      <div class="message2">
-                        <label for="">Vimukthi Dulnath</label>
-                      </div>
-
-                    </div>
-
-                    <div class="message-footer">
-                      <button>All Messages</button>
-                    </div>
-
-                  </div>
-              </div>
-
-            </div>
+                          </div>
+                </div>
+</div>
             <div class="main">
                 <!-- <div class="page-selector">
                     <button class="active" onclick="window.location.href = 'index.html';">All</button>
@@ -127,8 +66,8 @@
                 </div> -->
                 
                 <div class="main-content">
-                <?php if(isset($data['a']) && !empty($data['a'])) {?>
-                    <?php foreach($data['a'] as $dat){ ?>
+                <?php if(isset($data) && !empty($data)) {?>
+                    <?php foreach($data as $dat){ ?>
                     <div class="post">
                         <div class="left">
                           <div class="upper-left">
@@ -138,7 +77,9 @@
                           
                           <div class="upper-right">
                             <h2><?php echo($dat->item_name);  ?><span class="green">&nbsp; <?php echo($dat->qua);  ?> <?php echo($dat->unit);  ?></span></h2>
-                            <p>RS. <?php echo($dat->price);  ?></p>
+                            <p>Price : RS. <?php echo($dat->price);  ?></p>
+                            <p>Delivery Cost : RS. <?php echo($dat->del_price);  ?></p>
+                            <p>Full Amount : RS. <?php echo($dat->tot);  ?></p>
                           </div>
                           <div class="lower">
                             <p>Placed On: <?php echo($dat->placed_on);  ?></p>
@@ -147,22 +88,47 @@
                           
                         </div>
                         <div class="right">
+                        <?php if(($dat->approved)==0) {?>
                           <h2>Delivery status: <span class="green">Pending</span></h2>
+                          <?php } else {?>
+                            <h2>Delivery status: <span class="green">Approved</span></h2>
+                          <?php } ?>
                           <div class="buttons">
-                            <button class="request-deliverer" id="openModalBtn">Request Deliverer</button>
-                            <button class="proceed-to-checkout" disabled>Proceed to checkout</button>
+                          <?php if(($dat->approved)==0) {?>
+                              <button class="request-deliverer" id="openModalBtn">Request Deliverer</button>
+                              <button class="proceed-to-checkout" disabled>Proceed to checkout</button>
+                            <?php } else {?>
+                                    <button class="request-deliverer-x" id="openModalBtn"disabled>Request Deliverer</button>
+                                    <button class="proceed-to-checkout-x" >Proceed to checkout</button>
+                              <?php } ?>
                           </div>
                           
                         </div>
                       </div>
+
+
+                      <div id="modal-<?=$dat->id?>" class="modal">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <span class="closeBtn">&times;</span>
+                                      <h2>Enter your Requesting Value</h2>
+                                      <p>Current Delivery Fee: RS <?php echo($dat->del_price);  ?>.00</p>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label> RS: &nbsp;</label>
+                                      <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
+                                      <button>Bid Now</button>
+                                    </div>
+                                  </div>
+                                </div>
+
+
                       <?php }
                         ?>
 
-<?php } else {?>
-  <div class="total-price">
-                      <span></span>
-                    </div>
-                  <?php } ?>
+
+                            <?php }?>
+  
                 </div>
                 
             </div>
@@ -171,33 +137,107 @@
     </div>
 
 
-    <script>
-          // Get the modal
-      var modal = document.getElementById("modal");
-      
-      // Get the button that opens the modal
-      var btn = document.getElementById("openModalBtn");
-      
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("closeBtn")[0];
-      
-      // When the user clicks the button, open the modal 
-      btn.onclick = function() {
-        modal.style.display = "block";
-      }
-      
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
+    <script>   
+
+
+
+var modal;
+
+const images = document.querySelectorAll('.request-deliverer');
+      images.forEach(function(image) {
+        image.addEventListener('click', function() {
+          console.log(image['id']);      
+          modal = document.getElementById('modal-' + image['id']);
+          modal.style.display = "block";
+          let id = image['id'];
+
+
+
+                                const searchBar = modal.querySelector(".modal-body input");
+                                const outputDiv = document.getElementById("output");
+                                const outputDiv2 = document.getElementById("output2");
+                                
+                              
+                                const currentBidText = modal.querySelector(".modal-header p:first-of-type").textContent;
+                                const currentBidValue = currentBidText.match(/\d+(\.\d+)?/)[0];
+                                let currentBidValueInt = parseInt(currentBidValue);
+
+                                const currentBidRangeText = modal.querySelector(".modal-header p:nth-of-type(2)").textContent;
+                                const currentBidRangeValue = currentBidRangeText.match(/\d+(\.\d+)?/)[0];
+                                const currentBidRangeValueInt = parseInt(currentBidRangeValue);
+
+                                currentBidValueInt=currentBidValueInt+currentBidRangeValueInt-1;
+
+
+                                //const bidbutton = document.querySelector(".js-bid-now-btn");
+                                searchBar.focus();
+                                  searchBar.addEventListener("keyup", () => {
+                                    let searchTerm = searchBar.value;
+
+                                    console.log(currentBidValueInt);
+                                    console.log(currentBidValue);
+                                    console.log(currentBidRangeValue);
+
+                                    if(searchTerm == ""){
+                                      const result = " ";
+                                    outputDiv.textContent = result;
+                                    outputDiv2.textContent = result;
+                                    }
+
+
+
+                                    else if(isNaN(searchTerm)){
+                                    const result = " ";
+                                    outputDiv.textContent = result;
+                                    outputDiv2.textContent = result;
+                                    }
+
+
+                                    else if(searchTerm<=currentBidValueInt){
+                                    const result = searchTerm;
+                                    outputDiv.textContent = "Try higher amount Than  " + result+" .00";
+                                    outputDiv2.textContent = " ";
+                                    }
+                                    else{
+                                      const result = searchTerm;
+                                    outputDiv.textContent = " ";
+                                    outputDiv2.textContent =  result+" .00 Is Acceptable";
+                                    }
+                                    
+                                  });
+                                    
+
+        });
+      });
+
+        //var span = document.getElementsByClassName('closeBtn')[1];
+        var closeBtns = document.querySelectorAll('.closeBtn');
+          closeBtns.forEach(function(span) {
+            span.onclick = function() {
+              var modal = span.closest('.modal');
+              modal.style.display = 'none';
+            }
+          });
+
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
         }
-      }
-      
-      </script>
+
+    
+        
+
+
+
+
+
+
+
+
+
+
+
+</script> 
 </body>
 </html>

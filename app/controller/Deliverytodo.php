@@ -25,13 +25,15 @@ class deliverytodo{
       $arr1['order_code']=$row->order_code;
        
       $row1=$checkout->first($arr1);
+
       $row->first_name=$row1->first_name;
       $row->last_name=$row1->last_name;
       $row->address=$row1->address;
       $row->contact_number=$row1->contact_number;
       $row->longitude=$row1->longitude;
       $row->latitude=$row1->latitude;
-    
+
+
 
       $arr2['post_id']=$row->post_id;
       $row2=$postitem->first($arr2);
@@ -48,28 +50,38 @@ class deliverytodo{
       $row->contact_number_seller=$row3->contact_number;
 
 
-        $this->view('deliverytodo2',$rows);
+      
       }
      
-
+  $this->view('deliverytodo2',$rows);
      }
     
     
 
 
-    public function map(){
-
+     public function map($buyer_longitude, $buyer_latitude, $seller_longitude, $seller_latitude)
+     {
+         echo "The map() function is being called."; 
+         
+         print_r($buyer_longitude);
+     
         
-        $this->view('map');
- 
-    }
+         $data = new stdClass();
+         $data->longitude = $buyer_longitude;
+         $data->latitude = $buyer_latitude;
+         $data->longitude_seller = $seller_longitude;
+         $data->latitude_seller = $seller_latitude;
+     
+
+     }
+     
 
 
 
 
 
-
-
+    // Pass the data to the view
+       //  $this->view('map', $data);
 
 
 

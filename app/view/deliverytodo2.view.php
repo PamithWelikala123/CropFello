@@ -104,6 +104,7 @@
                                                         <td> <span class="grey">Pick Address: </span> <?=$row->address_seller?></td>
                                                     </tr>
                                                     <tr>
+                                                        <td><h3>Distance : <?=$row->distance?> Km </h3></td>
                                                         <td><h3>RS. <?=$row->del_price?>.00 <span  class="fee">Delivery Fee</span> </h3></td>
                                                         <td><span class="grey">Call: </span> 0<?=$row->contact_number_seller?></td>
                                                     </tr>
@@ -116,7 +117,7 @@
                                                                           <div class="post-buttons">
                                                                             <button class="post-button approved-button">Approved</button>
                                                                             <button class="post-button discard-button">Discard</button>
-                                                                            <button class="post-button map-button" name="view_on_map" onclick="window.open('<?php echo ROOT; ?>/Deliverytodo/map', '_blank')">
+                                                                            <button class="post-button map-button" name="view_on_map" onclick="window.open('map(<?=$row->longitude?>,<?=$row->latitude?>,<?=$row->longitude_seller?>,<?=$row->latitude_seller?>)', '_blank')">
                                                                                 View On Map&nbsp;<i class='fa fa-map-marker'></i>
                                                                                 </button>
 
