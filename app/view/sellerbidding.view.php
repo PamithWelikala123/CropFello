@@ -66,7 +66,7 @@
                                         
                                         <div style="color:rgba(0, 0, 0, 0.4);margin-left:225px;width:225px;margin-top:25px ">Bid Ends:<?=$row->bid_end_date?></div>
 
-                                      <!-- <div><button class="btn2" id="btn2">Close Bid</button></div> -->
+                                      <!-- <div><button class="btn2" id="btn2">Delete Bid</button></div> -->
                         </div>
                       
               <?php endforeach; ?>

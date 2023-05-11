@@ -10,9 +10,85 @@
     <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="<?=ROOT?>/assets/js/view.js"></script>
     <script src="<?=ROOT?>/assets/js/view1.js"></script>
+
+    <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
+
+
+
+
     <title>View Post</title>
+
+
+<style>
+    
+    #map {
+           width: 100%;
+           height: 900px;
+           border-radius: 10px;
+           display: none;
+       }
+       .map-container{
+           width: 100%;
+           height: 80%;
+           border-radius: 10px;
+           margin-top: 2%;
+       }
+</style>
+   
 </head>
-<body>
+<body onload="initMap()">
+
+
+<script>
+    
+
+
+let marker;
+function initMap() {
+
+
+                    var start = new google.maps.LatLng(<?php echo json_encode($data['platitude']); ?>,<?php echo json_encode($data['plongitude']); ?>);
+                   var destination=new google.maps.LatLng(<?php echo json_encode($data['sel_lati']); ?>,<?php echo json_encode($data['sel_longi']); ?>);
+
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                    center: start,
+                    zoom: 15,
+                    });
+
+
+                    var directionsService = new google.maps.DirectionsService();
+                    var directionsRenderer = new google.maps.DirectionsRenderer();
+                    directionsRenderer.setMap(map);
+
+                    var request = {
+                    origin: start, 
+                    destination: destination, 
+                    travelMode: 'DRIVING' 
+            };
+
+            
+
+
+            directionsService.route(request, function(result, status) {
+              if (status === 'OK') {
+                directionsRenderer.setDirections(result);
+                var distance = result.routes[0].legs[0].distance.text;
+                var x=distance[0]+distance[1]+distance[2]+distance[3];
+                document.getElementById('distance').value=x;
+                console.log('distance= '+x);
+              }
+            });
+          }
+
+
+
+
+
+</script>
+
+
+
+
 
 
 
@@ -78,7 +154,15 @@
                                             </div>
                                             <div class="delivery-viewitems">
                                                 <p>Delivery Method *</p>
+
+                                                
+
                                                 <form method="post">
+
+
+                                                    <input type="hidden" name="distance" id="distance" value="">
+
+
                                                     <label class="radio-inline-viewitems">
                                                     <input type="radio" name="optradio" value="pickup" checked>&ensp;Pick up method&emsp;
                                                     </label>
@@ -107,6 +191,9 @@
                                             <div class="add-to-cart-viewitems">
                                                 <button name="addto" name="addto" type="submit">Add to cart</button>
                                             </div>
+
+
+
                                             </form>
                                             <!--div class="negotiate-viewitems">
                                                 <p>Negotiations allowed when buying more than 50% of the stock </p>
@@ -119,6 +206,8 @@
                                             <h4>description</h4><hr>
                                             
                                         </div>
+
+                                         <div id="map"></div>
 
                 <?php endif; ?>
                 </div>

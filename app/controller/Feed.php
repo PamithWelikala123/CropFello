@@ -22,6 +22,11 @@ class Feed{
     }
 
 
+
+
+
+
+
     public function viewitems(){
       $user = new User;
         $postitem = new postitems;
@@ -43,6 +48,14 @@ class Feed{
     $row->first_name=$row3->first_name;
     $row->last_name=$row3->last_name;
     $row->image1=$row3->image;
+
+    $arry1['user_id']=$_SESSION['USER']->user_id;
+    $rowy3= $user->first($arry1);
+
+    $row->sel_lati=$rowy3->platitude;
+    $row->sel_longi=$rowy3->plongitude;
+   
+
 
    // echo $row->image;
 
@@ -89,13 +102,16 @@ class Feed{
         $price = $data3->price*$qt;
         $full_stock = $data3->stock_size;
         $exp = $data3->exp;
+        $sel_lati = $data3->platitude;
+        $sel_longi = $data3->plongitude;
         $placed_on = date('Y-m-d');
+        $distance= intval($_POST['distance']);
         $del_price = 500;
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
         if($full_stock > $qua){
-          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image);
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
         }else{
           print_r("not enough stock");
         }
@@ -107,11 +123,13 @@ class Feed{
         $first_name = $data4->first_name;
         $last_name = $data4->last_name;
         $address = $data4->address;
+        $buy_lati = $data4->platitude;
+        $buy_longi = $data4->plongitude;
         $contact_number = $data4->contact_number;
         //$order_id = $data5->id;
 
         if($full_stock > $qua){
-          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
           redirect('feed/checkout1?order_code=' . $rand);
         }
     
@@ -131,14 +149,17 @@ class Feed{
         $price = $data3->price*$qt;
         $image = $data3->image;
         $exp = $data3->exp;
+        $sel_lati = $data3->platitude;
+        $sel_longi = $data3->plongitude;
         $full_stock = $data3->stock_size;
         $placed_on = date('Y-m-d');
         $del_price = 0;
+        $distance= intval($_POST['distance']);
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
         if($full_stock > $qua){
-          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image);
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
         }else{
           print_r("not enough stock");
         }
@@ -153,11 +174,13 @@ class Feed{
         $first_name = $data4->first_name;
         $last_name = $data4->last_name;
         $address = $data4->address;
+        $buy_lati = $data4->platitude;
+        $buy_longi = $data4->plongitude;
         $contact_number = $data4->contact_number;
         //$order_id = $data5->id;
         
         if($full_stock > $qua){
-          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+          $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
           redirect('feed/checkout1?order_code=' . $rand);
         }
         
@@ -183,6 +206,8 @@ class Feed{
        $price = $data3->price*$qt;
        $image = $data3->image;
        $exp = $data3->exp;
+       $sel_lati = $data3->platitude;
+       $sel_longi = $data3->plongitude;
        $full_stock = $data3->stock_size;
        $placed_on = date('Y-m-d');
        $del_price = 500;
@@ -205,11 +230,13 @@ class Feed{
        $first_name = $data4->first_name;
        $last_name = $data4->last_name;
        $address = $data4->address;
+       $buy_lati = $data4->platitude;
+       $buy_longi = $data4->plongitude;
        $contact_number = $data4->contact_number;
        //$order_id = $data5->id;
 
        if($full_stock > $qua){
-        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
         redirect('feed/feed');
        }
    
@@ -229,6 +256,8 @@ class Feed{
        $price = $data3->price*$qt;
        $del_price = 0;
        $exp = $data3->exp;
+       $sel_lati = $data3->platitude;
+       $sel_longi = $data3->plongitude;
        $full_stock = $data3->stock_size;
        $placed_on = date('Y-m-d');
        $image = $data3->image;
@@ -251,11 +280,13 @@ class Feed{
        $first_name = $data4->first_name;
        $last_name = $data4->last_name;
        $address = $data4->address;
+       $buy_lati = $data4->platitude;
+       $buy_longi = $data4->plongitude;
        $contact_number = $data4->contact_number;
        //$order_id = $data5->id;
 
        if($full_stock > $qua){
-        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number);
+        $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
         redirect('feed/feed');
        }
    
@@ -463,13 +494,15 @@ public function cart(){
 
 public function waiting(){
   //$order_code = $_GET['order_code'];
-  $user_id = $_SESSION['USER']->user_id;
+  $arr['buy_id'] = $_SESSION['USER']->user_id;
   $order = new Order;
-  $data['a'] = $order->func6($user_id);
-
-  $this->view('waiting',$data);
+  $data = $order->where($arr);
+// print_r($data);
+ $this->view('waiting',$data);
   
 }
+
+
 
 public function final(){
   $order_code = $_GET['order_code']; 

@@ -1,199 +1,309 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
-        <title>
-            CreateBid item
-        </title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        <link rel="Stylesheet" href="<?=ROOT?>/assets/css/createbid.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+<head>
+  
+  <link rel="stylesheet" href="<?=ROOT?>/assets/css/postitem1.css">
+  <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile1.css">  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
+  <link rel='stylesheet' href='https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
+  <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
+    <script src="<?=ROOT?>/assets/js/map.js"></script> 
+    <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
 
-   
-    </head>
-    
-    <body>
+<style>
+     #map {
+            width: 100%;
+            height: 190px;
+            border-radius: 10px;
+        }
+        .map-container{
+            width: 100%;
+            height: 215px;
+            border-radius: 10px;
+            margin-top: 2%;
+        }
+    </style>
+</head>
 
-    <div class="logo">
-                    <img class="img1" src="<?=ROOT?>/assets/images/postitem/logo.png">   
-                    <a href="<?=ROOT?>/Bidding/sellerbidding"><img class="close" src="<?=ROOT?>/assets/images/postitem/close.png"> </a>
-      </div>
-      <form class="" action='addBiddingItem' method="post" enctype="multipart/form-data">
-      <div class="form1">
-              
+<body onload="initMap()">  
 
-                <div class="right">
+<?php
+    $crop_list='';
+    $item = new item;
+    $rows3 = $item->findAll();
+    foreach($rows3 as $result){
+      $crop_list .="<option value=\"{$result->item_id}\">{$result->name}</option>";
 
-                                                                        <?php
-                                                                        $crop_list='';
-                                                                        $item = new item;
-                                                                        $rows3 = $item->findAll();
-                                                                        foreach($rows3 as $result){
-                                                                        $crop_list .="<option value=\"{$result->item_id}\">{$result->name}</option>";
+    }
+    ?>
+  <div class="background">
+    <div class="grid-row">
 
-                                                                        }
-                                                                        ?>
+          <div class="profile-upper">
 
-
-
-
-                                                                      <label class="item_id1">Item</label>
-                                                                      <label class="item_id2">*</label>
-                                                                      <select  name="item_id" id="item_id" type="text" placeholder="  Select Item Type" onkeyup="GetDetail(this.value)" value="" class="item_id" onchange="fetchemp()" placeholder="  Select Item Name">
-                                                                                <?php echo $crop_list?> 
-                                                                      </select>
- 
-                                                                      <!-- <input  type="text" placeholder="  Select Item Name" name="crop_name"> -->
-                                                                      <input class="crop_type" type="text" id="crop_type" placeholder="  Select Item Type" name="item_type">
-                                                                     
-                                                                      <label class="exp1">EXP</label>
-                                                                      <label class="exp2">*</label>
-                                                                      <input class="exp" type="date" placeholder="  dd / mm / yyyy" name="exp">
-
-                                                                      <label class="bid-end-date1">Bid End Date</label>
-                                                                      <label class="bid-end-date2">*</label>
-                                                                      <input class="bid-end-date" type="date" placeholder="  dd / mm / yyyy" name="bid_end_date">
-
- 
-
-                                                                      <label class="time">Bid End Time</label>
-                                                                      <label class="time1">*</label>
-                                                                      <select class="hours" name="hours" id="hours" type="text" onkeyup="GetDetail(this.value)" value="">
-                                                                                          
-                                                                                          <option value="01">01</option>
-                                                                                          <option value="02">02</option>
-                                                                                          <option value="03">03</option>
-                                                                                          <option value="04">04</option>
-                                                                                          <option value="05">05</option>
-                                                                                          <option value="06">06</option>
-                                                                                          <option value="07">07</option>
-                                                                                          <option value="08">08</option>
-                                                                                          <option value="09">09</option>
-                                                                                          <option value="10">10</option>
-                                                                                          <option value="11">11</option>
-                                                                                          <option value="12">12</option>
                 
-                                                                      </select>
+                      <div class="form-grid-2-2">
 
-                                                                      <select class="minutes" name="minutes" id="minutes" type="text" onkeyup="GetDetail(this.value)" value="">
-                                                                                          
-                                                                                          <option value="00">00</option>
-                                                                                          <option value="05">05</option>
-                                                                                          <option value="10">10</option>
-                                                                                          <option value="15">15</option>
-                                                                                          <option value="20">20</option>
-                                                                                          <option value="25">25</option>
-                                                                                          <option value="30">30</option>
-                                                                                          <option value="35">35</option>
-                                                                                          <option value="40">40</option>
-                                                                                          <option value="45">45</option>
-                                                                                          <option value="50">50</option>
-                                                                                          <option value="55">55</option>
-                
-                                                                      </select>
+                        <div>
 
-                                                                      <select class="day" name="day" id="day" type="text" onkeyup="GetDetail(this.value)" value="">
-                                                                                          
-                                                                                          <option value="am">am</option>
-                                                                                          <option value="pm">pm</option>
-                                                                                          
-                
-                                                                      </select>
+                                  <div class="form-group">
+                                    <img  src="<?=ROOT?>/assets/images/images/frame.svg">
+                                  </div> 
+                        </div>
 
-        
-
-
-
-                                                                      <label class="unit1">Initial Price</label>
-                                                                      <label class="unit2">*</label>
-                                                                      <input class="unit" name="initial_price" id="unit" type="text" placeholder="  Rs." >
-
-
-                                                                      
-
-                                                     
-                                                                      <label class="stock1">Amount</label>
-                                                                      <label class="stock2">*</label>
-                                                                      <input class="stock_size" type="text"  name="amount">
-                                                                      <select class="stock_size1" name="amount_type" id="stock_size" type="text" onkeyup="GetDetail(this.value)" value="">
-                                                                                          <option value="KG">KG</option>
-                                                                                          <option value="G">G</option>
-                                                                                          <option value="TREES">TREES</option>
-                                                                                          <option value="ACRES">ACRES</option>
-                                                                      </select>
-
-
-
-
-                                                                      <label class="dis1">Bid Range</label>
-                                                                      <label class="dis2">*</label>
-                                                                      <input class ="discount" type="text"  name="bid_range" placeholder="  Rs." >
-                                                                      
-
-                                                                      <label class="address1">Address</label>
-                                                                      <label class="address2">*</label>                 
-                                                                      <input  class="address" type="text"  name="address">
-
-                                                                      <label class="postal1">Postal Code</label>
-                                                                      <label class="postal2">*</label>  
-                                                                      <input class="postal"  type="text"  name="postal_code">
-
-                                                                      <label class="city1">City</label>
-                                                                      <label class="city2">*</label>
-                                                                      <input  class="city" type="text"  name="city">
-
-
-                </div>
                         
-                
 
-                <div class="left">
-                                          <!-- <label class="upload1">Upload image</label>
-                                          <label class="upload2">*</label>
-                                          <img class="upload" src="<?=ROOT?>/assets/images/postitem/upload1.png">
-                                          <label class="browse1">Drop your image here or </label>
-                                          <input class="browse" type="file" name="image" id = "image" accept=".jpg, .jpeg, .png" value=""> <br> <br> -->
-                                          
-                                          <div class="uploadOuter" name="image">
-                                  
-                                          <strong>Upload Image OR</strong>
-                                          <div class="dragBox" id="dragBox" name="image">
-                                            <input type="file" name="image" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()" id="image"  accept=".jpg, .jpeg, .png" value="">
-                                          </div>
-                                          <div id="preview" name="image"></div>
+                        <div>
+
+                                  <div class="form-group backkey">
+                                    <img src="<?=ROOT?>/assets/images/images/arrow-left-circle.svg"  onclick="document.location='../selling/selling'">
+                                  </div> 
+
+                                  <div class="form-group">
+                                    <h2>Upload a picture </h2>
+                                  </div> 
+
+                        </div>
+
+
+
+                         <div>
+                         <form class="" action="addBiddingItem" method="post" enctype="multipart/form-data">
+
+                                          <div class="form-split">
+
+                                                <div class="form-group">
+                                                  <label class="form-label" for="firstname">Item *</label>
+                                                  
+                                                  <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="basic-input-field" onchange="fetchemp()" placeholder="  Select Item Name">
+                                                                                <?php echo $crop_list?> 
+                                                  </select>
+                                                </div>  
+                                                
+                                                <div class="form-group">
+                                                  <label class="form-label" for="lastname">  &nbsp;  </label>
+                                                  
+                                                  <input type="text" class="basic-input-field"  type="text" id="crop_type" placeholder="  Select Item Type" name="item_type">
+                                                </div>
+
+                                        </div> 
+                                        <div class="form-split">
+                                                    <div class="form-group">
+                                                      <label class="form-label" for="address">Exp *</label>
+                                                      
+                                                      <input type="date" id="address" class="form-control basic-input-field" placeholder="  dd / mm / yyyy" name="exp">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                      <label class="form-label" for="address">Bid End Date *</label>
+                                                      
+                                                      <input type="date" id="address" class="form-control basic-input-field" placeholder="  dd / mm / yyyy" name="bid_end_date">
+                                                    </div>
                                         </div>
+                                        
 
-                                          <button class="create" type="submit" name="submit">Create</button> 
+                                      <div class="form-split">
+
+                                      
+
+                                            <div class="form-group">
 
 
-                </div>
+                                                            <label class="form-label" for="postalcode">Initial Price *</label>
+                                                            <input class="form-control basic-input-field" name="initial_price" id="unit" type="text" placeholder="  Rs." > 
+                                              
+                                  
+                                            </div>  
 
-               
+
+
+                                            <div class="form-group">
+                                                              <label class="form-label" for="city">Bid Range *</label>
+                                                              <input  class="basic-input-field"  type="text"  name="bid_range" placeholder="  Rs." >
+                                            </div>
+
+
+                                            
+
+
+
+                                      </div> 
+
+                                      <div class="form-split">
+
+                                            <div class="form-group">
+                                                              <label class="form-label" for="city">Amount *</label>
+                                                              <input  class="basic-input-field"  type="text"  name="amount" placeholder="  Rs." >
+                                            </div>
+
+                                              <div class="form-group">
+                                                        <label class="form-label" for="contact-number"> &nbsp;</label>
+                                                        
+                                                        <select class="basic-input-field" name="amount_type" id="amount_type" type="text" onkeyup="GetDetail(this.value)" value="">
+                                                                                                                          <option value="KG">KG</option>
+                                                                                                                          <option value="G">G</option>
+                                                                                                                          <option value="TREES">TREES</option>
+                                                                                                                          <option value="ACRES">ACRES</option>
+                                                        </select> 
+                                                        
+                                              </div>
+
+                                      </div> 
+                                
+
+                                 
+
+                                      <div class="form-group">
+                                                                  
+                                                                  
+                                                                  <label class="form-label" for="address">Address *</label>
+                                                                  <input type="text" id="address" class="basic-input-field" placeholder="address" name="address">
+                                                                          
+                                      </div>
+                                     
+
+                               </div>    
+
+
+
+
+
+                              <div>
+                                
+                            
+
+
+                                    <div class="form-split">
+                                   
+                                          <div class="form-group">
+                                            
+                                             
+ 
+                                                <input class="basic-input-field profile-pic" type="file" id="profilepic" credits='false' name="image" accept="image/png, image/jpeg, image/gif" />
+                                                <input type="hidden" id="pplink" name="image">
+                                           
+                                                 
+                                          </div>
+
+                                          <div class="form-group">
+
+                                                    <label for="">Location</label>
+
+                                                    <input class="basic-input-field" type="text" id="pickuplocation" name="location" placeholder="" value="">
+                                                    <input type="hidden" name="platitude" id="p-latitude" value="">
+                                                    <input type="hidden" name="plongitude" id="p-longitude" value="">
+                                                    <input type="hidden" id="city1" name="city" value="">
+
+
+
+
+                                                    <div class="map-container">
+                                                        <div id="map"></div>
+                                                    </div>
+
+                                          </div>
+
+                                         
+
+                            
+                      </div>
+                     
+                      <div class="form-group">
+                                                  <label class="form-label" for="about">About *</label>
+                                                  <input type="text" id="about" class="discription" placeholder="  Change your Description..." name="description" >
+                      </div>
+
+                                          
+
+
+                     
+                      <div class="form-group">
+                                                  
+                                                  <button class="basic-input-field Register-but" type="submit" name="submit" id="submit" >Update</button> 
+              
+                      </div>
+                      </div>
+                      
+                              
+
+          </div>
+          </form>
+
+          <div class="profile-lower">
+             
                 
-        
-      </form>
+          </div>
 
-      </div>
-                    
-    </body>
+    </div>
+     
+  </div>
+
+
+  <script
+  src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+<script src="https://unpkg.com/filepond@^4"></script>
+
 <script>
-"use strict";
-function dragNdrop(event) {
-    var fileName = URL.createObjectURL(event.target.files[0]);
-    var preview = document.getElementById("preview");
-    var previewImg = document.createElement("img");
-    previewImg.setAttribute("src", fileName);
-    preview.innerHTML = "";
-    preview.appendChild(previewImg);
-}
-function drag() {
-    document.getElementById('image').parentNode.className = 'draging dragBox';
-}
-function drop() {
-    document.getElementById('image').parentNode.className = 'dragBox';
-}
+
+FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifOrientation, FilePondPluginImagePreview, FilePondPluginImageCrop, FilePondPluginImageResize, FilePondPluginImageTransform);
+
+
+    FilePond.create(document.getElementById('profilepic'), {
+      server: '<?php echo ROOT ?>/Bidding/addBiddingItem',
+       // labelIdle: `<img src='<//?php// echo BASEURL?>/public/images/profilepic.png'/><br/><br/> <span>Upload Profile Picture</span>`,
+        imagePreviewHeight: 300,
+        imageCropAspectRatio: '1:1',
+        imageResizeTargetWidth: 600,
+        imageResizeTargetHeight: 600,
+        stylePanelLayout: 'compact squre',
+        styleLoadIndicatorPosition: 'center bottom',
+        styleButtonRemoveItemPosition: 'center bottom'
+    });
+
+    // console log file path after submit
+    document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
+      
+      
+     var serverId = e.detail.file.serverId;
+        console.log(serverId);
+        var parts = serverId.split('}');
+        var filepathData = parts[13];
+       
+        var filepath = filepathData.substring(filepathData.indexOf('"') + 1 + "filepath".length + 2, filepathData.lastIndexOf('"'))
+        console.log(filepath);
+        var filepathWithoutQuotes = filepath.replace(/"/g, '');
+        console.log(filepathWithoutQuotes);
+
+
+        // var obj = JSON.parse(filepathData);
+
+        // // Access the filepath property
+        // var filepath = obj.filepath;
+
+        // // Output the filepath value
+        // console.log(filepath);
+
+
+        //serverId = serverId.trim();
+        // parse the JSON object
+        //var jsonResponse = JSON.parse(serverId);
+        // access the filepath
+        //const filepath = jsonResponse.filepath;
+        //console.log(filepath);
+        if (filepathWithoutQuotes != null) {
+            document.getElementById('pplink').value = filepathWithoutQuotes;
+        }
+    });
 
 </script>
 </html>

@@ -3,72 +3,72 @@
 
 class deliverysignup3{
     use Controller;
-    private $db;
 
     // function __construct($db){
     //     $this->db = $db;
     //      $this->view('deliverysignup');
     // }
 
-    function register() {
+    function Deliverysignup() {
+
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $fname = $_POST['fname'];
-            echo $fname;
-            $lname = $_POST['lname'];
-            $vnumber = $_POST['vnumber'];
-            $cnum = $_POST['cnum'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $deliveryuser= new Deliveryuser1;
 
-            // Validate user input
-            $errors = array();
-            if (empty($fname)) {
-                $errors['fname'] = 'First name is required';
-            }
-            if (empty($lname)) {
-                $errors['lname'] = 'Last name is required';
-            }
-            if (empty($vnumber)) {
-                $errors['vnumber'] = 'Vehicle number is required';
-            }
-            if (empty($cnum)) {
-                $errors['cnum'] = 'Contact number is required';
-            }
-            if (empty($email)) {
-                $errors['email'] = 'Email is required';
-            }
-            if (empty($password)) {
-                $errors['password'] = 'Password is required';
-            }
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $errors['email'] = 'Invalid email format';
-            }
-            if ($this->checkUserExists($email)) {
-                $errors['email'] = 'Email already exists';
+
+            $deliveryuser->validate($_POST);
+           $data['arr']=$_POST;         
+           $data['errors'] = $deliveryuser->errors;
+
+
+            if($deliveryuser->validate($_POST)){
+                $_POST['district'] = implode(', ', $_POST['district']);
+                  $ran_id = rand(time(), 100000000);
+                  $status = "Active now";
+                  $_POST['password'] = md5($_POST['password']);
+                $deliveryuser->insert($_POST);
+                
             }
 
-            // If there are no errors, add the user to the database
-            // header('Location: success.php');
-            //     exiif (count($errors) === 0) {
-            //     $Deliveryuser = new Deliveryuser($this->db);
-            //     $Deliveryuser->addUser($fname, $email, $password);
-            //     t;
-            // }
+
+          
             
         }
 
-        $this->view('deliverysignup');
+        // $this->view('deliverysignup',$data);
         // Display the registration form with any error
     }
+
+
+
+    public function register(){
+        $this->view('deliverysignup');
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function success() {
         // Display the success page
         require_once('deliverysignup');
     }
 
-    function checkUserExists($email) {
-        $Deliveryuser = new Deliveryuser($this->db);
-        return $Deliveryuser->checkUserExists($email);
-    }
+    // function checkUserExists($email) {
+    //     $Deliveryuser = new Deliveryuser($this->db);
+    //     return $Deliveryuser->checkUserExists($email);
+    // }
 }
 

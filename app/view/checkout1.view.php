@@ -51,6 +51,7 @@
                     <tr><td>Item</td><td>:</td><td> <?php echo($dat->item_name);  ?></td></tr>
                     <tr><td>Quantity</td><td>:</td><td> <?php echo($dat->qua);  ?> <?php echo($dat->unit);  ?></td></tr>
                     <tr><td>Price</td><td>:</td><td> Rs. <?php echo($dat->price);  ?></td></tr>
+                    <tr><td>Distance</td><td>:</td><td><?php echo($dat->distance);  ?> Km</td></tr>
                     <tr><td>Delivery</td><td>:</td><td> Rs. <?php echo($dat->del_price);  ?></td></tr>
                     <tr><td>EXP</td><td>:</td><td> <?php echo($dat->exp);  ?></td></tr>
                     <tr></tr><tr></tr><tr></tr>

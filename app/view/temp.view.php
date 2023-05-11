@@ -84,17 +84,6 @@
                             <input type="hidden" name="p-latitude" id="p-latitude" value="">
                             <input type="hidden" name="p-longitude" id="p-longitude" value="">
                 
-                <!-- 
-                            <input type="text" id="destination" name="destination" placeholder="From Where journey End...?"  value=""> -->
-                <!-- 
-                            <input type="hidden" name="d-latitude" id="d-latitude" value="">
-                            <input type="hidden" name="d-longitude" id="d-longitude" value="">
-                
-                
-                
-                            <input type="hidden" name="distance" id="distance" value="">
-                            <input type="hidden" name="duration" id="duration" value=""> -->
-                
                             <div class="requestcrop-map-container">
                                 <div id="map"></div>
                             </div>

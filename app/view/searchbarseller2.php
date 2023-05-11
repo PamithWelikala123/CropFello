@@ -101,8 +101,8 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                   <hr><p>Menu</p><br>
                   <button onclick="document.location='../selling/selling'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span>selling</span></button><br>
                   <button onclick="document.location='../bidding/sellerbidding'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Bidding</span></button><br>
-                  <button onclick="document.location='../requests/view1'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Requests</span></button><br>
-                  <button onclick="document.location='../wishlists/buyerwishlist'"><img class="Bidding1"><span></span></button><br>
+                  <button onclick="document.location='../requests/seller_approvedrequests'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Requests</span></button><br>
+                  <button style="display: none;" onclick="document.location='../wishlists/buyerwishlist'"><img class="Bidding1"><span></span></button><br>
                 </div>
                 <div class="message">
                     

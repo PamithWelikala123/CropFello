@@ -63,12 +63,21 @@ class Home{
     }
 
 
-    public function map(){
-    
+    public function map() {
 
-       $this->view('map');
+
+        $row['sel_lati1'] = 6.828959157721786;
+        $row['sel_longi2'] = 80.01828950117186;
+  
+        $row['sel_lati']= 7.2906;
+        $row['sel_longi']= 80.6337;
+       
+        
+        // convert object to array
+        
+        $this->view('map', $row);
     }
-
+    
 
     public function temp(){
         $this->view('404');
