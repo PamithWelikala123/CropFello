@@ -1,76 +1,50 @@
 <?php
 
-//Buyer class
+//Deliver class
 class Deliverysignup{
 
     use Controller;
-    private $model;
+    // private $model;
     public function index(){
 
-        // $model = new CountryCityModel();
-        // $countries = $model->getCountries();
-        $data = [];
+      $data = [];
 		
-		if($_SERVER['REQUEST_METHOD'] == "POST")
-		{
-			//$user = new User;
-      //field2
-     // echo "hi"	;		
-      // echo $_POST['fname'];
-      // echo $_POST['field2'];
-		}
-
-
-		$this->view('deliverysignup');
+      if($_SERVER['REQUEST_METHOD'] == "POST")
+      {
+        $user = new delivery_user;
+        if($user->validate($_POST))
+        {
+          $user->insert($_POST);
+          redirect('Deliverylogin');
+        }
+  
+        $data['errors'] = $user->errors;			
+      }
+  
+  
+      $this->view('deliverysignup',$data);
     }
      
-    public function displayListItems() {
-        $listItems = $this->model->getListItems();
-        // include 'deliverysignup';
-        $this->view('deliverysignup');
-    }
+}
+    
 
-    public function handleFormSubmission() {
-        $selectedItems = isset($_POST['items']) ? $_POST['items'] : [];
-        // include 'deliverysignup';
-        $this->view('deliverysignup');
-    }
-
-    // public function deliverysignup(){
+    
+    
+    
+    
+    
+    
+    
+    
+    // public function displayListItems() {
+    //     $listItems = $this->model->getListItems();
+    //     // include 'deliverysignup';
     //     $this->view('deliverysignup');
     // }
-    public function getCountryOptions($db) {
-         
-        // assume $db is a PDO object representing your database connection
-        $stmt = $db->prepare("SELECT vehicle_id, name FROM vehicle");
-        $stmt->execute();
-    
-        $options = array();
-        while ($row = $stmt->fetch()) {
-          $vehicle = new Vehicle($row['vehicle_id'], $row['vehicle_name']);
-          $options[] = $vehicle;
-        }
-    
-        return $options;
-      }
 
-
-
-
-
-
-
-
-
-    // public function getCitiesByCountry() {
-    //     $model = new CountryCityModel();
-    //     $cities = $model->getCitiesByCountry($_GET['country_id']);
-    //     echo json_encode($cities);
+    // public function handleFormSubmission() {
+    //     $selectedItems = isset($_POST['items']) ? $_POST['items'] : [];
+    //     // include 'deliverysignup';
+    //     $this->view('deliverysignup');
     // }
-
     
-
-}
-
-
-

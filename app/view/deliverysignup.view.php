@@ -71,21 +71,18 @@
 		</form> -->
 		<br> 
 
-                <div class="vehicle-info1">
-                    <!-- <label for="vehicleNo">Vehicle  Number</label> -->
+                <!-- <div class="vehicle-info1">
+                    <label for="vehicleNo">Vehicle  Number</label>
 				    <input type="text" id="vehicleNumber" name="vnumber" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 				    
-					  <select id="vehicle" name="vehicle">
-                      <?php foreach ($options as $vehicle): ?>
-                      <option value="<?php echo $vehicle->vehicle_id; ?>"><?php echo $vehicle->vehicle_name; ?></option>
-                      <?php endforeach; ?>
-</select>
-                </div>
 
-                <div class="vehicle-info2">
+
+                </div> -->
+
+                <!-- <div class="vehicle-info2">
                     <label for="vehicleCapacity">Vehicle Capacity</label>
-                    <input type="text" id="vehicleCapacity" name="vehicleCapacity">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" id="vehicleCapacity" name="vehicleCapacity">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
     
                     <label for="contactNo">Contact No:</label>
                     <input type="text" id="contactNo" name="cnum">
@@ -102,7 +99,7 @@
 				<input type="email" id="email" name="email"><br>
 
 				<label for="password">Password:</label>
-				<input type="password" id="password" name="password"><br>
+				<input type="password" id="password" name="password_hash"><br>
 
 				<label for="confirmPassword">Confirm Password:</label>
 				<input type="password" id="confirmPassword" name="confirmPassword"><br>
