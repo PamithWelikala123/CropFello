@@ -132,8 +132,8 @@ function initMap() {
                   <?php if ($data) : ?> 
                                     <div class="main-viewitems">
                                         <div class="user-viewitems">
-                                            <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image1']?>" alt="user" class="profile-picture">
-                                            <label for=""><sup><sup><?=$data['first_name']?><?=$data['last_name']?></sup></sup></label>
+                                            <img onclick="myFunction(document.getElementById('abc').value);" src="<?=ROOT?>/assets/images/Profile_pic/<?=$data['image1']?>" alt="user" class="profile-picture">
+                                            <label for=""><sup><sup><?=$data['first_name']?> <?=$data['last_name']?></sup></sup></label>
                                             <a href='../feed/feed'><img class="back-viewitems" src="<?=ROOT?>/assets/images/images/back_btn.png" alt="back button"></a>
                                         </div>
                                         <div class="image-viewitems">
@@ -150,8 +150,16 @@ function initMap() {
                                                 <p style="float: right;"><span style="font-size: smaller; color: #FB7A7A; float: right;"><strong> <?=$data['discount']?><?=$data['discount1']?> OFF</strong></span><br>
                                                     <span style="font-size:larger; color: #0EBC1F;"><strong><?=$data['size']?> <?=$data['stock_size1']?></strong></span><span  style="font-size: 50%; color: #B3B3B3; ">/<?=$data['stock_size']?> <?=$data['stock_size1']?> &emsp;</span><span ><strong>Rs. <?=$data['price']?></strong><br></span>
                                                     <span style="float: right; font-size: 85%; color: #0EBC1F;"><?=$data['city']?></span>
+                                                    <input type="hidden" value='<?=$data['post_id']?>' name='abc' id='abc'>
                                                 </p>
                                             </div>
+
+                                            <Script>
+                                                function myFunction(post_id) {
+			                                         window.location.href = "http://localhost/Cropfello/public/feed/strike?post_id="+post_id;
+		          }
+                                            </Script>
+
                                             <div class="delivery-viewitems">
                                                 <p>Delivery Method *</p>
 

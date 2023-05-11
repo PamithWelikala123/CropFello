@@ -245,10 +245,48 @@ class bidding{
         $finalbid = new finalbid;
         $bidding1=new bid;
         $createbid = new createbid;
+        $order = new Order;
+        $item = new Item;
+        $checkout = new Checkout;
+        $user = new User;
 
         $buyer_id=$_SESSION['USER']->user_id;
         $arrx['buyer_id']=$buyer_id;
+        $arr2['user_id']=$buyer_id;
         $rows2 = $finalbid->where($arrx);
+
+        if (isset($_POST['confirm'])) {
+            foreach($_POST['confirm'] as $key => $value){
+        
+              $ar['bidding_number'] = $key;
+              $data1 = $bidding1->first($ar);
+              $post_id = $data1->post_id;
+              $arr['post_id'] = $post_id;
+              $data2 = $createbid->first($arr);
+              $item_id = $data2->item_id;
+              $arr1['item_id'] = $item_id;
+              $data3 = $item->first($arr1);
+              $item_name = $data3->name;
+              $rand = md5(uniqid(rand(),true));
+              $data4 = $finalbid->first($ar);
+              $price = $data4->amount;
+              $qua = $data2->amount;
+              $unit = $data2->amount_type;
+              $image = $data2->image;
+              $exp = $data2->exp;
+              $placed_on = $placed_on = date('Y-m-d');
+
+              $data5 = $user->first($arr2);
+              $first_name = $data5->first_name;
+              $last_name = $data5->last_name;
+              $address = $data5->address;
+              $contact_number = $data5->contact_number;
+
+              $order->func3($buyer_id,$price,$qua,$post_id,0,$price,$unit,$item_name,$rand,'pickup',$exp,$placed_on,$image,0,1);
+              $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,0,0);
+              redirect('feed/checkout4?order_code=' . $rand);
+            }	
+          }
         
 
 
