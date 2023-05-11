@@ -9,7 +9,11 @@
 
 </head>
 <body>
+
+
 	<header>
+
+	
 		<div class="logo">
 			<img  src="<?=ROOT?>/assets/images/deliverysignup/logo.png" alt="Logo">
 		</div>
@@ -20,20 +24,30 @@
 	<main>
 		<div class="left-side">
 			<h2>Register to CropFello</h2>
-			<form method="post" >
 
+
+			<form method="post" action="Deliverysignup" >
+	
 
 				<label for="firstName">First Name:</label>
-				<input type="text" id="firstName" name="fname"><br>
+				<?php if(empty($errors['fname'])){?>
+				<input type="text" id="firstName" name="fname" placeholder=""><br>
+				<?php }else{?>
+				<input style="border: 1px solid #FB7A7A;" type="text" id="firstName" name="fname"><br>
+				<?php } ?>
+		
 
 				<label for="lastName">Last Name:</label>
+				<?php if(empty($errors['lname'])){ ?>
 				<input type="text" id="lastName" name="lname"><br>
-
+				<?php }else{?>
+					<input style="border: 1px solid #FB7A7A;" type="text" id="lastName" name="lname"><br>
+				<?php } ?>	
 				<!-- <label for="address">Address:</label>
 				<input type="text" id="address" name="address"><br> -->
 
-                <label>Available Area *</label>
-        <select name="field2" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" >
+         <label>Available Area *</label>
+          <select name="district[]" id="field2" multiple multiselect-search="true" multiselect-select-all="true" multiselect-max-items="3" >
           <option value="2">Ampara</option>
           <option value="3">Anuradhapura</option>
           <option value="4">Badulla</option>
@@ -72,23 +86,36 @@
 		<br> 
 
                 <div class="vehicle-info1">
-                    <!-- <label for="vehicleNo">Vehicle  Number</label> -->
+                    <label for="vehicleNo">Vehicle  Number</label>
+				<?php if(empty($errors['vnumber'])){ ?>
 				    <input type="text" id="vehicleNumber" name="vnumber" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-				    
-					  <select id="vehicle" name="vehicle">
+				<?php }else{ ?>
+				    <input style="border: 1px solid #FB7A7A;" type="text" id="vehicleNumber" name="vnumber" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<?php } ?>
+					  <!-- <select id="vehicle" name="vehicle">
                       <?php foreach ($options as $vehicle): ?>
                       <option value="<?php echo $vehicle->vehicle_id; ?>"><?php echo $vehicle->vehicle_name; ?></option>
-                      <?php endforeach; ?>
+                      <?php endforeach; ?> -->
 </select>
                 </div>
 
                 <div class="vehicle-info2">
-                    <label for="vehicleCapacity">Vehicle Capacity</label>
-                    <input type="text" id="vehicleCapacity" name="vehicleCapacity">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-                    <label for="contactNo">Contact No:</label>
+
+						<label for="contactNo">Contact No:</label>
+					<?php if(empty($errors['cnum'])){ ?>
                     <input type="text" id="contactNo" name="cnum">
+					<?php }else{ ?>
+						<input style="border: 1px solid #FB7A7A;" type="text" id="contactNo" name="cnum">
+					<?php } ?>
+					<?php if(!empty($errors['contact_number']) && empty($errors['cnum']) ) {?>
+						<br><p>Invalid contact number</p>
+						<?php } ?>
+					<!-- <label for="vehicleCapacity">Vehicle Capacity</label> -->
+					<?php if(empty($errors['vehicleCapacity'])){ ?>
+                    <input  style="display:none" type="text" id="vehicleCapacity" name="vehicleCapacity">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<?php }else{ ?>
+						<input style="border: 1px solid #FB7A7A;" type="text" id="vehicleCapacity" name="vehicleCapacity">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<?php } ?>
                 </div>
 
 
@@ -99,16 +126,37 @@
             <br><br>
 			
 				<label for="email">Email:</label>
-				<input type="email" id="email" name="email"><br>
+				<?php if(empty($errors['email'])){ ?>
+					<input type="email" id="email" name="email"><br>
+				<?php }else{ ?>
+					<input  style="border: 1px solid #FB7A7A;" type="email" id="email" name="email"><br>
+				<?php } ?>	
 
 				<label for="password">Password:</label>
-				<input type="password" id="password" name="password"><br>
+				<?php if(empty($errors['password_hash'])){ ?>
+					<input type="password" id="password" name="password_hash"><br>
+				<?php }else{ ?>
+					<input  style="border: 1px solid #FB7A7A;" type="password" id="password" name="password_hash"><br>
+				<?php } ?>
 
+				
 				<label for="confirmPassword">Confirm Password:</label>
-				<input type="password" id="confirmPassword" name="confirmPassword"><br>
+				<?php if(empty($errors['confirm_password'])){ ?>
+					<input type="password" id="confirmPassword" name="confirm_password"><br>
+				<?php }else{ ?>
+					<input style="border: 1px solid #FB7A7A;" type="password" id="confirmPassword" name="confirm_password"><br>
+				<?php } ?>
+
+				<?php if(!empty($errors['confirm_password1'])){ ?>
+
+					<p>Conformed password is not similar the password</p>
+				<?php } ?>
+				
+
 
 				<button type="submit">Register</button>
-                </form>
+                
+			</form>
 			
 		</div>
 	</main>
@@ -118,11 +166,6 @@
 	</footer>
 
 
-<script>
-    const selectElement = document.getElementById("field2");
-	const selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
-	console.log(selectedOptions);
-</script>
 
 
 </body>
