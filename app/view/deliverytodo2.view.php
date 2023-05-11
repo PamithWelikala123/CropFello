@@ -70,10 +70,10 @@
                           
                         <div class="post">
                                                       <div class="post-header">
-                                                        <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
+                                                        <!-- <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>" alt="Profile Picture" class="post-profile-pic"> -->
                                                                 <div class="post-header-info">
-                                                                          <div class="post-header-name">John Doe</div>
-                                                                          <div class="post-header-date">Posted on May 5, 2023</div>
+                                                                          <div class="post-header-name"><?=$row->first_name?> <?=$row->last_name?></div>
+                                                                          <div class="post-header-date">Posted on <?=$row->placed_on?></div>
                                                                 </div>
                                                       </div>
                                                       
@@ -91,34 +91,38 @@
                                                         <td><h3>Buyer Info</h3></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><span class="grey">Drop Address: </span> 53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
+                                                        <td><span class="grey">Drop Address: </span> <?=$row->address?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><span class="grey">Call: </span> 0119283746</td>
+                                                        <td><span class="grey">Call: </span> 0<?=$row->contact_number?></td>
                                                     </tr>
                                                     <tr>
                                                         <td><h3>Seller Info</h3></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><h4>Pineapple <span  class="green">5KG</span> </h4></td>
-                                                        <td> <span class="grey">Pick Address: </span> 53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
+                                                        <td><h4><?=$row->item_name?> <span  class="green"> <?=$row->qua?><?=$row->unit?></span> </h4></td>
+                                                        <td> <span class="grey">Pick Address: </span> <?=$row->address_seller?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><h3>RS. 450.00 <span  class="fee">Delivery Fee</span> </h3></td>
-                                                        <td><span class="grey">Call: </span> 0119283746</td>
+                                                        <td><h3>RS. <?=$row->del_price?>.00 <span  class="fee">Delivery Fee</span> </h3></td>
+                                                        <td><span class="grey">Call: </span> 0<?=$row->contact_number_seller?></td>
                                                     </tr>
                                                 </table>
                                                 
                                                                               
                                                                             </div>
-
+                                                                            <form method="post">
 
                                                                           <div class="post-buttons">
                                                                             <button class="post-button approved-button">Approved</button>
                                                                             <button class="post-button discard-button">Discard</button>
-                                                                            <button class="post-button map-button"  onclick="window.open('<?php echo ROOT; ?>/Home/map', '_blank')">View On Map&nbsp;
-                                                                              <i class='fa fa-map-marker'></i></button>
+                                                                            <button class="post-button map-button" name="view_on_map" onclick="window.open('<?php echo ROOT; ?>/Deliverytodo/map', '_blank')">
+                                                                                View On Map&nbsp;<i class='fa fa-map-marker'></i>
+                                                                                </button>
+
                                                                           </div>
+
+                                                                          </form>
 
 
                                                       </div>
