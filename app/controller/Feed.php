@@ -494,13 +494,15 @@ public function cart(){
 
 public function waiting(){
   //$order_code = $_GET['order_code'];
-  $user_id = $_SESSION['USER']->user_id;
+  $arr['buy_id'] = $_SESSION['USER']->user_id;
   $order = new Order;
-  $data['a'] = $order->func6($user_id);
-
-  $this->view('waiting',$data);
+  $data = $order->where($arr);
+// print_r($data);
+ $this->view('waiting',$data);
   
 }
+
+
 
 public function final(){
   $order_code = $_GET['order_code']; 
