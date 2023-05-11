@@ -39,10 +39,6 @@
 
 <body  onload="initMap()">
 
-<?php
-		$data['sel_lati'];
-?>
-
 
 <script>
     
@@ -52,8 +48,8 @@ let marker;
 function initMap() {
 
 
-                    var start = new google.maps.LatLng(<?php echo json_encode($data['sel_lati1']); ?>,<?php echo json_encode($data['sel_longi2']); ?>);
-                   var destination=new google.maps.LatLng(<?php echo json_encode($data['sel_lati']); ?>,<?php echo json_encode($data['sel_longi']); ?>);
+                    var start = new google.maps.LatLng(6.828959157721786,80.01828950117186);
+                   var destination=new google.maps.LatLng(7.306236392697545,80.59252746953125);
 
                     var map = new google.maps.Map(document.getElementById('map'), {
                     center: start,
@@ -114,8 +110,8 @@ function initMap() {
 
                             <!-- <script>var start = new google.maps.LatLng(6.828959157721786,80.01828950117186);</script> -->
 
-                            <input type="hidden" name="distance" id="distance" value="">
-                            <input type="hidden" name="duration" id="duration" value="">
+                            <!-- <input type="hidden" name="distance" id="distance" value="">
+                            <input type="hidden" name="duration" id="duration" value=""> -->
  <div id="map"></div>
 
 
