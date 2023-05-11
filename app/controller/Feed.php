@@ -618,7 +618,7 @@ public function strike(){
   }*/
   
   
-  $this->view('viewelseprofile',$data);
+  $this->view('viewseller',$data);
 }
 
 
