@@ -82,6 +82,11 @@ class Order{
         return $this->query($query);
     }
 
+    public function func14($para){
+        $query = "select * from postitem inner join orders on postitem.post_id=orders.post_id inner join checkout on orders.order_code=checkout.order_code where postitem.user_id=$para";
+        return $this->query($query);
+    }
+
     
 
    

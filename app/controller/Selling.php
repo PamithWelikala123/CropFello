@@ -82,10 +82,28 @@ class Selling{
     }
 
     public function mytransaction(){
+        $user = new User;
+        $postitem = new postitems;
+        $item = new item;
+        $order = new Order;
+        $checkout = new checkout;
+
+        $arry1['user_id']=$_SESSION['USER']->user_id;
+        $user_id = $_SESSION['USER']->user_id;
+
+        $data = $order->func14($user_id);
+
+        $this->view('seller_mytransaction',$data);
+    }
+
+    public function mytransaction_past(){
 
         
-        $this->view('seller_mytransaction');
+        $this->view('seller_mytransaction_past');
     }
+
+    
+
 
     public function delete(){
         $postitem = new postitems;
