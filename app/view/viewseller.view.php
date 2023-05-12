@@ -20,8 +20,10 @@
           </div>
           <div class="modal-body">
           <h2>Mention your reason to strike</h2><br>
-            <input type="text" placeholder="Enter a valid reason">
-            <button>Strike</button>
+          <form method="post">
+            <input type="text" name="reason" placeholder="Enter a valid reason">
+            <button name="strike">Strike</button>
+          </form>  
           </div>
         </div>
       </div>
