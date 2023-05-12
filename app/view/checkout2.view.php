@@ -31,7 +31,7 @@
                     <?php foreach($data['a'] as $dat){ ?>
 
                     <tr><td>Item</td><td>:</td><td> <?php echo($dat->item_name);  ?></td></tr>
-                    <tr><td>Quantity</td><td>:</td><td> <?php echo($dat->qua);  ?></td></tr>
+                    <tr><td>Quantity</td><td>:</td><td> <?php echo($dat->qua);  ?> <?php echo($dat->unit);  ?></td></tr>
                     <tr><td>Price</td><td>:</td><td> Rs. <?php echo($dat->price);  ?></td></tr>
                     <tr><td>Delivery</td><td>:</td><td> Rs. <?php echo($dat->del_price);  ?></td></tr>
                     <tr></tr><tr></tr><tr></tr>
@@ -58,7 +58,7 @@
             <!--?php foreach($data['b'] as $dat1){ ?-->            
 
                 <br><h3>Deliverer Info</h3><p>Rushin Sandeepane</p><p>7788</p><p>lorry</p><p>7788</p><br>
-                Delivery Status:<br>
+                
 
                 <form method="post">
                 <label class="radio-inline">
@@ -70,7 +70,7 @@
 
             <!--?php }
             ?-->
-                <b>Found</b>
+                
             <!--form method="post"-->
             <br><br>
             <button class="mainBtn" name="tranBtn" onclick="pg(document.getElementById('abc').value);"><strong>Confirm Transaction</strong></button>

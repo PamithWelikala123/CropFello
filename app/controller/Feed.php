@@ -447,13 +447,9 @@ public function checkout2(){
       }*/
 
       $this->view('checkout3',$data);
+    }else if($metho == "found"){
+      $this->view('checkout2',$data);
     }else{
-      /*if(isset($_POST['tranBtn'])){
-        $order->delete($order_code,'order_code');
-        $checkout1->delete($order_code,'order_code');
-        redirect("feed/feed");
-      }*/
-
       redirect('feed/waiting?order_code=' . $order_code);
     }
 
@@ -546,7 +542,7 @@ public function cart(){
 
 public function final(){
   $order_code = $_GET['order_code']; 
-  //$user1 = new User;
+  $transaction = new transaction;
   $checkout1 = new Checkout;
   $order = new Order;
   $post = new postitems;
@@ -561,17 +557,27 @@ public function final(){
     $arrx22['post_id']=$id;
     $data55 = $post->first($arrx22);
     $stock = $data55->stock_size;
+    $sell_id = $data55->user_id;
     $qua = $data44->qua;
+    $buy_id = $data44->buy_id;
+    $tot = $data44->tot;
+    $post_id = $data44->post_id;
+    $unit = $data44->unit;
+    $item_name = $data44->item_name;
+    $exp = $data44->exp;
+    $placed_on = $data44->placed_on;
+    $image = $data44->image;
+    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image);
 
-  if($stock > $qua){
-    $new_size = $stock-$qua;
-    $post->func1($new_size,$id);
-    $order->delete($order_code,'order_code');
-    $checkout1->delete($order_code,'order_code');
-    redirect("feed/feed");
-  }else{
-    print_r("not enough stock");
-  }
+    if($stock > $qua){
+      $new_size = $stock-$qua;
+      $post->func1($new_size,$id);
+      $order->delete($order_code,'order_code');
+      $checkout1->delete($order_code,'order_code');
+      redirect("feed/feed");
+    }else{
+      print_r("not enough stock");
+    }
   }else{
     $order->delete($order_code,'order_code');
     $checkout1->delete($order_code,'order_code');
@@ -655,7 +661,16 @@ public function strike(){
       $order = new Order;
       $data = $order->where($arr);
     // print_r($data);
-     $this->view('waiting',$data);
+
+      if (isset($_POST['procheck'])) {
+        foreach($_POST['procheck'] as $key => $value){
+          $order->func13('found',$key);
+          //$order->delete($key,'order_code');
+          redirect('feed/checkout2?order_code=' . $key);
+        }	
+      }
+
+      $this->view('waiting',$data);
       
     }
     

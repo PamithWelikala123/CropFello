@@ -101,7 +101,10 @@ require APPROOT."/view/searchbarbuyer2.php";
                               <button class="proceed-to-checkout" disabled>Proceed to checkout</button>
                             <?php } else {?>
                                     <button class="request-deliverer-x" id="openModalBtn"disabled>Request Deliverer</button>
-                                    <button class="proceed-to-checkout-x" >Proceed to checkout</button>
+                                    <!--button class="proceed-to-checkout-x" name="">Proceed to checkout</button-->
+                                    <form method="post">
+                                    <?php echo '<button class="proceed-to-checkout-x" name="procheck['.$dat->order_code.']/">Proceed to checkout</button>' ?>
+                                    </form>
                               <?php } ?>
                           </div>
                           
@@ -128,7 +131,7 @@ require APPROOT."/view/searchbarbuyer2.php";
                                                                     
                                                     <input type="text" placeholder="Enter your bid" name="delvalue"><label>&nbsp;.00</label>
                                                       <input type="hidden" value='<?=$dat->id?>' name='abc'>
-                                                      <button type="submit" name="submit" id='myButton'>Bid Now</button>
+                                                      <button type="submit" name="submit" id='myButton'>Request Now</button>
 
 
                                                   </form>
