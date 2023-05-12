@@ -603,10 +603,13 @@ public function strike(){
   $data1 = $post->first($ax);
   $sell_id = $data1->user_id;
   $data = $user->func1($sell_id);
+  $buy_id = $_SESSION['USER']->user_id;
 
-  /*if (isset($_POST['strike'])) {
-    $strike->func1($para);
-  }*/
+  if (isset($_POST['strike'])) {
+    $reason = $_POST['reason'];
+    $strike->func1($buy_id,$sell_id,$reason);
+    $this->view('viewseller',$data);
+  }
   
   
   $this->view('viewseller',$data);
