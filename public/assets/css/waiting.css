@@ -94,6 +94,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    border-right: 1px solid rgb(215, 215, 215);
+    padding-right: 2%;
   }
   
   .upper-left {
@@ -113,11 +115,17 @@
     height: 130px;
   }
   
-  .upper-right h2,p {
+  .upper-right h2{
     margin-top: 0;
     margin-bottom: 10px;
     text-align: right;
     
+  }
+
+  .para{
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: right; 
   }
   
   .lower {
@@ -129,7 +137,7 @@
     width: 60%;
     text-align: left;
     margin-left: 20px;
-    border-left: 1px solid rgb(215, 215, 215);
+   
     padding-left: 5%;
     left: 0;
   }

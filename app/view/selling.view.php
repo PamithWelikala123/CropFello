@@ -34,7 +34,8 @@
                                                                             <label class="selling-post-exp">EXP: <?php echo $row->exp  ?></label><br>
                                                                             <label class="selling-post-stock">Stock: <?php echo $row->stock_size?> <?php echo $row->stock_size1?></label>
                                                                             <hr>
-                                                                            <label>Edit</label><br>
+                                                                            
+                                                                            <label class="edit" id="<?=$row->post_id?>">Edit</label><br>
                                                                             <label id="<?=$row->post_id?>" class="Del" onmousedown="func1()">Delete</label>
                                                                         </div>
                                                                     </div>
@@ -73,6 +74,17 @@
                                             </div> 
 
 
+
+
+
+
+
+
+
+
+
+
+
                                             <div id="modal-selling-<?=$row->post_id?>" class="modal-selling" >
                                                   <div class="modal-content-selling">
                                                     <div class="modal-header-selling">
@@ -80,10 +92,13 @@
                                                       <h2>Delete Post</h2>
                                                       <p>Are you sure you want to delete this post?</p>
                                                     </div>
+                                                    <form method="post" autocomplete="off" action='delete'>
                                                     <div class="modal-body-selling">
-                                                      <button class="delete-selling">Delete</button>
-                                                      <button  class="cancel-selling">Cancel</button>  
+                                                      <input type="hidden" value='<?=$row->post_id?>' name='abc'>
+                                                      <button class="delete-selling" type="submit">Delete</button>
+
                                                     </div>
+                                                    </form> 
                                                   </div>
                                                 </div>
 
@@ -105,35 +120,16 @@
     </div>
  
 <script>
-  // Get the modal
+
+const images = document.querySelectorAll('.edit');
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      window.location.href = 'update?id='+id;
+    });
+  });
+
 var modal;
-
-// Get the button that opens the modal
-// var btn = document.getElementById("openModalBtn-selling");
-
-// // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("closeBtn-selling")[0];
-
-// // When the user clicks the button, open the modal 
-// btn.onclick = function() {
-// // modal.style.display = "block";
-// }
-
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-// modal.style.display = "none";
-// }
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-// if (event.target == modal) {
-//   modal.style.display = "none";
-// }
-// }
-
-
-
-
 
 
 
@@ -144,7 +140,7 @@ const images = document.querySelectorAll('.Del');
       console.log(image['id']);
       modal = document.getElementById("modal-selling-"+image['id']);
       modal.style.display = "block";
-    //  window.location.href = '../feed/viewitems?id='+id;
+     window.location.href = '../Selling/viewitems?id='+id;
     });
   });
 }
@@ -153,15 +149,17 @@ const images = document.querySelectorAll('.Del');
 window.onmousedown = function(event) {
               if (event.target == modal) {
                 modal.style.display = "none";
+          
               }
 }
-var closeBtns = document.querySelectorAll('.cancel-selling');
-              closeBtns.forEach(function(span) {
-                span.onclick = function() {
-                   modal = span.closest('.modal-selling');
-                  modal.style.display = 'none';
-                }
-              });
+
+// var closeBtns = document.querySelectorAll('.delete-selling');
+//               closeBtns.forEach(function(span) {
+//                 span.addEventListener('click', function() {
+//                   //  modal = span.closest("delete-selling-"+span['id']);
+//                   modal.style.display = 'none';
+//                 });
+//          });
 
 
 

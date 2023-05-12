@@ -5,7 +5,7 @@ class Deliveryuser1{
     use Model;
 
     protected $table = 'user';
-    protected $allowedColumns = ['fname','lname','cnum','email','password_hash','id','vnumber','district'];
+    protected $allowedColumns = ['fname','lname','cnum','email','password_hash','id','vnumber','district','token'];
     public $errors = [];
 
 
@@ -43,9 +43,6 @@ class Deliveryuser1{
             $this->errors['vnumber']="Vehicle number is Required";
          }
          if(empty($data['cnum'])){
-            $this->errors['cnum']="Contact number is Required";
-         }
-         if( !empty($data['cnum'])){
             $this->errors['cnum']="Contact number is Required";
          }
    //       if (empty($data['lname'])){

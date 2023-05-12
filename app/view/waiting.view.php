@@ -77,16 +77,18 @@ require APPROOT."/view/searchbarbuyer2.php";
                           
                           <div class="upper-right">
                             <h2><?php echo($dat->item_name);  ?><span class="green">&nbsp; <?php echo($dat->qua);  ?> <?php echo($dat->unit);  ?></span></h2>
-                            <p>Price : RS. <?php echo($dat->price);  ?></p>
-                            <p>Delivery Cost : RS. <?php echo($dat->del_price);  ?></p>
-                            <p>Full Amount : RS. <?php echo($dat->tot);  ?></p>
+                            <p class="para">Price : RS. <?php echo($dat->price);  ?></p>
+                            <p class="para">Delivery Cost : RS. <?php echo($dat->del_price);  ?></p>
+                            <p class="para">Full Amount : RS. <?php echo($dat->tot);  ?></p>
                           </div>
                           <div class="lower">
-                            <p>Placed On: <?php echo($dat->placed_on);  ?></p>
-                            <p class="exp">EXP: <?php echo($dat->exp);  ?></p>
+                            <p class="para">Placed On: <?php echo($dat->placed_on);  ?></p>
+                            <p class="para exp">EXP: <?php echo($dat->exp);  ?></p>
                           </div>
                           
                         </div>
+
+
                         <div class="right">
                         <?php if(($dat->approved)==0) {?>
                           <h2>Delivery status: <span class="green">Pending</span></h2>
@@ -95,11 +97,14 @@ require APPROOT."/view/searchbarbuyer2.php";
                           <?php } ?>
                           <div class="buttons">
                           <?php if(($dat->approved)==0) {?>
-                              <button class="request-deliverer" id="openModalBtn">Request Deliverer</button>
+                              <button class="request-deliverer" id="<?=$dat->id?>">Request Deliverer</button>
                               <button class="proceed-to-checkout" disabled>Proceed to checkout</button>
                             <?php } else {?>
                                     <button class="request-deliverer-x" id="openModalBtn"disabled>Request Deliverer</button>
-                                    <button class="proceed-to-checkout-x" >Proceed to checkout</button>
+                                    <!--button class="proceed-to-checkout-x" name="">Proceed to checkout</button-->
+                                    <form method="post">
+                                    <?php echo '<button class="proceed-to-checkout-x" name="procheck['.$dat->order_code.']/">Proceed to checkout</button>' ?>
+                                    </form>
                               <?php } ?>
                           </div>
                           
@@ -109,18 +114,31 @@ require APPROOT."/view/searchbarbuyer2.php";
 
                       <div id="modal-<?=$dat->id?>" class="modal">
                                   <div class="modal-content">
-                                    <div class="modal-header">
-                                      <span class="closeBtn">&times;</span>
-                                      <h2>Enter your Requesting Value</h2>
-                                      <p>Current Delivery Fee: RS <?php echo($dat->del_price);  ?>.00</p>
-                                    </div>
-                                    <div class="modal-body">
-                                        <label> RS: &nbsp;</label>
-                                      <input type="text" placeholder="Enter your bid"><label>&nbsp;.00</label>
-                                      <button>Bid Now</button>
-                                    </div>
-                                  </div>
-                                </div>
+
+                                        <div class="modal-header">
+                                          <span class="closeBtn">&times;</span>
+                                          <h2>Enter your Requesting Value</h2>
+                                          <p>Current Delivery Fee: RS <?php echo($dat->del_price);  ?>.00</p>
+                                          <div class="output" id="output"></div>
+                                          <div class="output2" id="output2"></div>
+                                        </div>  
+
+
+                                        <div class="modal-body" id='modal-body-<?=$dat->id?>'>
+                                                        
+                                                  <form method="post" autocomplete="off" action='newdelprice'>
+                                                    <label> RS: &nbsp;</label>
+                                                                    
+                                                    <input type="text" placeholder="Enter your bid" name="delvalue"><label>&nbsp;.00</label>
+                                                      <input type="hidden" value='<?=$dat->id?>' name='abc'>
+                                                      <button type="submit" name="submit" id='myButton'>Request Now</button>
+
+
+                                                  </form>
+                                        </div>
+
+                                   </div>
+                      </div>
 
 
                       <?php }
@@ -146,7 +164,7 @@ var modal;
 const images = document.querySelectorAll('.request-deliverer');
       images.forEach(function(image) {
         image.addEventListener('click', function() {
-          console.log(image['id']);      
+          // console.log(image['id']);      
           modal = document.getElementById('modal-' + image['id']);
           modal.style.display = "block";
           let id = image['id'];
@@ -158,9 +176,10 @@ const images = document.querySelectorAll('.request-deliverer');
                                 const outputDiv2 = document.getElementById("output2");
                                 
                               
-                                const currentBidText = modal.querySelector(".modal-header p:first-of-type").textContent;
+                                const currentBidText = modal.querySelector(".modal-header p").textContent;
                                 const currentBidValue = currentBidText.match(/\d+(\.\d+)?/)[0];
                                 let currentBidValueInt = parseInt(currentBidValue);
+                                console.log(currentBidValueInt);
 
                                 const currentBidRangeText = modal.querySelector(".modal-header p:nth-of-type(2)").textContent;
                                 const currentBidRangeValue = currentBidRangeText.match(/\d+(\.\d+)?/)[0];
@@ -171,6 +190,7 @@ const images = document.querySelectorAll('.request-deliverer');
 
                                 //const bidbutton = document.querySelector(".js-bid-now-btn");
                                 searchBar.focus();
+
                                   searchBar.addEventListener("keyup", () => {
                                     let searchTerm = searchBar.value;
 

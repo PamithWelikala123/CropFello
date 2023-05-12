@@ -86,11 +86,11 @@
 		<br> 
 
                 <div class="vehicle-info1">
-                    <label for="vehicleNo">Vehicle  Number</label>
+                    <label for="vehicleNo">ID  Number</label>
 				<?php if(empty($errors['vnumber'])){ ?>
-				    <input type="text" id="vehicleNumber" name="vnumber" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    <input type="text" id="vehicleNumber" name="vnumber" placeholder="ID Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<?php }else{ ?>
-				    <input style="border: 1px solid #FB7A7A;" type="text" id="vehicleNumber" name="vnumber" placeholder="Vehicle Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    <input style="border: 1px solid #FB7A7A;" type="text" id="vehicleNumber" name="vnumber" placeholder="ID Number">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<?php } ?>
 					  <!-- <select id="vehicle" name="vehicle">
                       <?php foreach ($options as $vehicle): ?>

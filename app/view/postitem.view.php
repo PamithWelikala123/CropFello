@@ -99,8 +99,8 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                                <label class="form-label" for="city">City *</label>
-                                                                <input type="text" id="city" class="basic-input-field" placeholder="" name="city">
+                                                                <label class="form-label" for="city">District *</label>
+                                                                <input type="text" id="city" class="basic-input-field" placeholder="" name="district">
                                                   </div>
                                         </div>
                                         <h3>Unit</h3>
@@ -222,7 +222,7 @@
                                                     <input class="basic-input-field" type="text" id="pickuplocation" name="location" placeholder="" value="">
                                                     <input type="hidden" name="platitude" id="p-latitude" value="">
                                                     <input type="hidden" name="plongitude" id="p-longitude" value="">
-                                                    <input type="hidden" id="city1" name="city1" value="">
+                                                    <input type="hidden" id="city1" name="city" value="">
 
 
 
