@@ -1,3 +1,28 @@
+.page-selector {
+  /* grid-area: page-selector; */
+  /* background-color: #8cfc90; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-selector button {
+  background-color: #F7FAF6;
+  border: 2px rgba(143, 154, 145, 0.6) solid;
+  padding: 1% 2%;
+  margin: 1%;
+  width: 15%;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.page-selector button.active {
+  background-color: rgb(77, 234, 37, 0.4);
+  border: 2px rgba(88, 92, 88, 0.6) solid;
+  color: rgba(46, 51, 45, 0.8);
+  font-weight: 600;
+}
+
 .post {
     display: flex;
     justify-content: space-between;

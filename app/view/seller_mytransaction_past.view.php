@@ -17,8 +17,8 @@
       ?>
             <div class="main">
                 <div class="page-selector">
-                    <button class="active" onclick="window.location.href = 'index.html';">On Going</button>
-                    <button onclick="window.location.href = 'index2.html';">Past Orders</button>
+                    <button  onclick="window.location.href = 'index.html';">On Going</button>
+                    <button class="active" onclick="window.location.href = 'index2.html';">Past Orders</button>
                 </div>
                 <div class="main-content">
 
@@ -45,7 +45,7 @@
                         <div class="right">
                             <p>Placed On: 01/01/2023</p>
                             <p class="exp">EXP: 01/31/2023</p>
-                          <h4>Delivery status: <span class="green">Pending</span></h4>
+                          <!-- <h4>Delivery status: <span class="green">Pending</span></h4> -->
                           <!-- <div class="buttons">
                             <button class="request-deliverer">Request Deliverer</button>
                             <button class="proceed-to-checkout" disabled>Proceed to checkout</button>

@@ -82,6 +82,8 @@ class Selling{
     }
 
     public function mytransaction(){
+
+        
         $this->view('seller_mytransaction');
     }
 
