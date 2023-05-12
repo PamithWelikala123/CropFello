@@ -541,15 +541,6 @@ public function cart(){
   
 }
 
-public function waiting(){
-  //$order_code = $_GET['order_code'];
-  $arr['buy_id'] = $_SESSION['USER']->user_id;
-  $order = new Order;
-  $data = $order->where($arr);
-// print_r($data);
- $this->view('waiting',$data);
-  
-}
 
 
 
@@ -650,5 +641,45 @@ public function strike(){
       
 
     }
+
+
+
+
+    public function waiting(){
+      //$order_code = $_GET['order_code'];
+      $arr['del_method']="delper";
+      $arr['buy_id'] = $_SESSION['USER']->user_id;
+      $order = new Order;
+      $data = $order->where($arr);
+    // print_r($data);
+     $this->view('waiting',$data);
+      
+    }
+    
+public function newdelprice(){
+
+  if ($_SERVER['REQUEST_METHOD'] == "POST") {
+   
+    $order = new Order;
+
+   $idpost=$_POST['abc'];
+   $arr['id']=$idpost;
+
+   $row = $order->first($arr);
+  
+   $delvalue = $_POST['delvalue'];
+   $arr['current_value']= $delvalue;
+   $buyer_id=$_SESSION['USER']->user_id;
+
+   $arr['buy_id']= $buyer_id;
+
+    // if($row->){
+
+    // }
+
+     
+  }   
+
 }
 
+}

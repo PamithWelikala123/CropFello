@@ -85,6 +85,37 @@ class Selling{
         $this->view('seller_mytransaction');
     }
 
+    public function delete(){
+        $postitem = new postitems;
+        $postitem->delete($_POST['abc'],'post_id');
+        redirect('selling/selling');;
+       
+
+    }
+
+
+
+    public function update(){
+        $postitem = new postitems;
+        $id=$_GET['id'];
+        $arr = [];
+        $arr['post_id']=$id;
+    
+        $rows=$postitem->first($arr);
+    
+        $item = new item;
+        $arr1['item_id']=$rows->item_id;
+    
+        $row1=$item->first($arr1);
+        $rows = (array) $rows;
+
+
+    
+       $this->view('updatepost',$rows);
+    }
+
+
+
 
 }
 

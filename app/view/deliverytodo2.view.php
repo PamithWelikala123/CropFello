@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deliverydoing</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/deliverydoing1.css">
@@ -19,7 +17,7 @@
 
 
     <div class="container">
-            <?php require APPROOT."/view/searchbarbuyer2.php"?>
+            <!-- <//?php require APPROOT."/view/searchbarbuyer2.php"?> -->
 
                     <div class="content">
                                 <div class="leftbar">
@@ -31,24 +29,6 @@
                                                 <button onclick="document.location='deliverydoing/index'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
                                                 <button onclick="document.location='deliverydone'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
                                                 <button onclick="document.location='deliveryfee'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
-                                            </div>
-
-                                            <div class="message">
-                                                <!-- <hr><label>Message</label> -->
-                                                <hr><p>Message</p><br>
-                                                <!-- <img class="message-bar" src="images/message-bar.png"> -->
-                                                    <div class="message-box">
-                                                        <?php require APPROOT."/controller/Chat.php";
-                                                        $userController = new Chat();
-                                                        $userController->viewperson();
-                                                        
-                                                        ?>
-                                                        
-                                                
-
-                                                
-
-                                                    </div>
                                             </div>
 
                                 </div>
@@ -70,7 +50,7 @@
                           
                         <div class="post">
                                                       <div class="post-header">
-                                                        <!-- <img src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>" alt="Profile Picture" class="post-profile-pic"> -->
+                                                        <!-- <img src="<//?=ROOT?>/assets/images/Post-images/<//?=$row->image?>" alt="Profile Picture" class="post-profile-pic"> -->
                                                                 <div class="post-header-info">
                                                                           <div class="post-header-name"><?=$row->first_name?> <?=$row->last_name?></div>
                                                                           <div class="post-header-date">Posted on <?=$row->placed_on?></div>
@@ -115,11 +95,12 @@
                                                                             <form method="post">
 
                                                                           <div class="post-buttons">
-                                                                            <button class="post-button approved-button">Approved</button>
+                                                                          <button class="approved-button" id="<?=$row->order_code?>"   onclick=" window.location.href='approved?id='+351;">Approved</button>
+
                                                                             <button class="post-button discard-button">Discard</button>
-                                                                            <button class="post-button map-button" name="view_on_map" onclick="window.open('map(<?=$row->longitude?>,<?=$row->latitude?>,<?=$row->longitude_seller?>,<?=$row->latitude_seller?>)', '_blank')">
+                                                                            <!-- <button class="post-button map-button" name="view_on_map" onclick="window.open('map(<?=$row->longitude?>,<?=$row->latitude?>,<?=$row->longitude_seller?>,<?=$row->latitude_seller?>)', '_blank')">
                                                                                 View On Map&nbsp;<i class='fa fa-map-marker'></i>
-                                                                                </button>
+                                                                                </button> -->
 
                                                                           </div>
 
@@ -163,5 +144,19 @@
 
 
 </body>
+<script>
+function update() {
+//   const images = document.querySelectorAll('.approved-button');
 
+//   images.forEach(function(image) {
+//     image.addEventListener('click', function() {
+//       const id = this.id;
+      //console.log(id);
+      window.location.href='approved?id='+351;
+//     });
+//   });
+}
+
+
+</script>
 </html>
