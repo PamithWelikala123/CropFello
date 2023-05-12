@@ -48,8 +48,8 @@ let marker;
 function initMap() {
 
 
-                    var start = new google.maps.LatLng(6.828959157721786,80.01828950117186);
-                   var destination=new google.maps.LatLng(7.306236392697545,80.59252746953125);
+                    var start = new google.maps.LatLng(<?php echo $data['latitude_seller'] ?>,<?php echo $data['longitude_seller'] ?>);
+                   var destination=new google.maps.LatLng(<?php echo $data['latitude'] ?>,<?php echo $data['longitude'] ?>);
 
                     var map = new google.maps.Map(document.getElementById('map'), {
                     center: start,

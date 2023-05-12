@@ -21,7 +21,7 @@ class deliverytodo{
 
 
      $rows=$order->where($arr);
-
+ 
      foreach($rows as $row){
     
       $arr1['order_code']=$row->order_code;
@@ -61,19 +61,38 @@ class deliverytodo{
     
 
 
-     public function map($buyer_longitude, $buyer_latitude, $seller_longitude, $seller_latitude)
+     public function map()
+
      {
-         echo "The map() function is being called."; 
-         
-         print_r($buyer_longitude);
-     
-        
-         $data = new stdClass();
-         $data->longitude = $buyer_longitude;
-         $data->latitude = $buyer_latitude;
-         $data->longitude_seller = $seller_longitude;
-         $data->latitude_seller = $seller_latitude;
-     
+        // echo "The map() function is being called."; 
+        $order = new Order;
+        $checkout = new Checkout;
+        $user = new User;
+        $postitem = new postitems;  
+
+        $id=$_GET['id'];
+        $arr['id']=$id;
+        $row=$order->first($arr);
+
+        $arr1['order_code']=$row->order_code;
+        $row1=$checkout->first($arr1);
+
+        $row->longitude=$row1->longitude;
+        $row->latitude=$row1->latitude;
+
+
+        $arr2['post_id']=$row->post_id;
+       $row2=$postitem->first($arr2);
+
+
+      $row->address_seller=$row2->Address;
+      $row->longitude_seller=$row2->plongitude;
+      $row->latitude_seller=$row2->platitude;
+      
+      $row=(array)$row;
+
+      $this->view('map',$row);
+
 
      }
      
@@ -82,8 +101,13 @@ public function approved(){
   
   $id=$_GET['id'];
   $order = new Order;
+ $arr['approved_id']= $_SESSION['USER']->id;
+ $arr['approved']=1;
 
-// $arr[]
+
+  $order->update($id,$arr,'id');
+
+  redirect('Deliverytodo/view2');
 
 }
 
