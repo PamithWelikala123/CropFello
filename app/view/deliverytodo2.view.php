@@ -95,12 +95,15 @@
                                                                             <form method="post">
 
                                                                           <div class="post-buttons">
-                                                                          <button class="approved-button" id="<?=$row->order_code?>"   onclick=" window.location.href='approved?id='+351;">Approved</button>
+                                                                          <button class="approved-button" type="button" id="<?=$row->id?>" onclick="update()">Approve</button>
+                                                                          <!-- <//?php echo '<button class="approved-button" type="button" name="approve['.$row->order_code.']/">Approve</button>' ?> -->
 
                                                                             <button class="post-button discard-button">Discard</button>
-                                                                            <!-- <button class="post-button map-button" name="view_on_map" onclick="window.open('map(<?=$row->longitude?>,<?=$row->latitude?>,<?=$row->longitude_seller?>,<?=$row->latitude_seller?>)', '_blank')">
+                                                                            <button class="map-button" name="view_on_map" type="button" id="<?=$row->id?>" onclick="window.open('../Deliverytodo/map?id='+id, '_blank')">
+
+                                                                            <!-- <button class="map-button" name="view_on_map" type="button" onclick="mapfunc()"> -->
                                                                                 View On Map&nbsp;<i class='fa fa-map-marker'></i>
-                                                                                </button> -->
+                                                                                </button>
 
                                                                           </div>
 
@@ -146,15 +149,28 @@
 </body>
 <script>
 function update() {
-//   const images = document.querySelectorAll('.approved-button');
+  const images = document.querySelectorAll('.approved-button');
 
-//   images.forEach(function(image) {
-//     image.addEventListener('click', function() {
-//       const id = this.id;
-      //console.log(id);
-      window.location.href='approved?id='+351;
-//     });
-//   });
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      console.log(id);
+      window.location.href='../Deliverytodo/approved?id='+id;
+    });
+  });
+}
+
+
+function mapfunc() {
+  const images = document.querySelectorAll('.map-button');
+
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      console.log(id);
+      window.location.href='../Deliverytodo/map?id='+id;
+    });
+  });
 }
 
 

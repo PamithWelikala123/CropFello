@@ -148,8 +148,21 @@
 
  .map-button{
   background-color: white;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 160px;
+  margin-right:10px ;
+  margin-left:10px ;
+  transition: 0.4s;
 
  }
+ 
  .map-button:hover{
   color: #4DEA25;
   

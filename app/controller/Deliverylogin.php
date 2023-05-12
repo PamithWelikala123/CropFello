@@ -20,7 +20,7 @@ class Deliverylogin
 			
 			if($row)
 			{
-				if($row->password_hash === $_POST['password_hash'])
+				if($row->password_hash ===md5( $_POST['password_hash']))
 				{
 					$_SESSION['USER'] = $row;
 					redirect('deliverytodo/view2');
