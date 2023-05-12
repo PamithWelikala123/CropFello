@@ -17,8 +17,8 @@
       ?>
             <div class="main">
                 <div class="page-selector">
-                    <button  onclick="window.location.href = 'index.html';">On Going</button>
-                    <button class="active" onclick="window.location.href = 'index2.html';">Past Orders</button>
+                    <button  onclick="window.location.href = '<?=ROOT?>/selling/mytransaction';">On Going</button>
+                    <button class="active">Past Orders</button>
                 </div>
                 <div class="main-content">
 
