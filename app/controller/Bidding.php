@@ -190,7 +190,7 @@ class bidding{
                                                              redirect('Bidding/sellerbidding');
     }
 
-    }
+    } 
 
 
 
