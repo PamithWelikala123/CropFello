@@ -77,6 +77,11 @@ class Order{
         return $this->query($query);
     }
 
+    public function func13($para1,$para2){
+        $query = "update $this->table set del_method='$para1' where order_code = '$para2'";
+        return $this->query($query);
+    }
+
     
 
    
