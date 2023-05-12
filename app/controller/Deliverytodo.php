@@ -61,7 +61,8 @@ class deliverytodo{
     
 
 
-     public function map()
+     
+public function map()
 
      {
         // echo "The map() function is being called."; 
@@ -94,8 +95,7 @@ class deliverytodo{
       $this->view('map',$row);
 
 
-     }
-     
+     }     
 public function approved(){
 
   

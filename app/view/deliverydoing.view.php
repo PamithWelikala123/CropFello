@@ -19,7 +19,7 @@
 
 
     <div class="container">
-            <?php require APPROOT."/view/searchbarbuyer2.php"?>
+            <!-- <//?php require APPROOT."/view/searchbarbuyer2.php"?> -->
 
                     <div class="content">
                                 <div class="leftbar">
@@ -33,23 +33,7 @@
                                                 <button onclick="document.location='deliveryfee'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
                                             </div>
 
-                                            <div class="message">
-                                                <!-- <hr><label>Message</label> -->
-                                                <hr><p>Message</p><br>
-                                                <!-- <img class="message-bar" src="images/message-bar.png"> -->
-                                                    <div class="message-box">
-                                                        <?php require APPROOT."/controller/Chat.php";
-                                                        $userController = new Chat();
-                                                        $userController->viewperson();
-                                                        
-                                                        ?>
-                                                        
-                                                
-
-                                                
-
-                                                    </div>
-                                            </div>
+                                            
 
                                 </div>
 
@@ -63,14 +47,16 @@
 
 
                         <div class="main-content">
-                          
+
+                        <?php if ($data) : ?>
+                        <?php foreach ($data as $row) : ?>
                                 <div class="post">
                                   
                                             <div class="post-header">
                                               <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
                                                   <div class="post-header-info">
-                                                    <div class="post-header-name">John Doe</div>
-                                                    <div class="post-header-date">Posted on May 5, 2023</div>
+                                                    <div class="post-header-name"><?=$row->first_name?> <?=$row->last_name?></div>
+                                                    <div class="post-header-date">Posted on <?=$row->placed_on?></div>
                                                   </div>
                                             </div>
 
@@ -81,234 +67,49 @@
                                                 <table class="info-table">
                                                   <tr>
                                                     <td class="left-column">Item:</td>
-                                                    <td class="right-column">Papaya</td>
+                                                    <td class="right-column"><?=$row->item_name?></td>
                                                   </tr>
                                                   <tr>
                                                     <td class="left-column">Amount:</td>
-                                                    <td class="right-column">2KG</td>
+                                                    <td class="right-column"><?=$row->qua?><?=$row->unit?></td>
                                                   </tr>
                                                   <tr>
                                                     <td class="left-column">From:</td>
-                                                    <td class="right-column">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td>
+                                                    <td class="right-column"><?=$row->address_seller?></td>
                                                   </tr>
                                                   <tr>
                                                     <td class="left-column">To:</td>
-                                                    <td class="right-column">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
+                                                    <td class="right-column"><?=$row->address?></td>
                                                   </tr>
                                                   <tr>
                                                     <td class="left-column">Fee:</td>
-                                                    <td class="right-column">RS. 350.00</td>
+                                                    <td class="right-column">RS. <?=$row->del_price?>.00</td>
                                                   </tr>
                                                 </table>
                                                 
                                               </div>
 
-
+                                            <form method="post">
                                               <div class="post-buttons">
                                                 <button class="post-button approved-button">Finish Delivery</button>
 
                                                 <button class="post-button map-button">View On Map&nbsp;
                                                   <i class='fa fa-map-marker'></i></button>
                                               </div>
-
-
-                                            </div>
-
-                                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="post">
-                                  
-                                            <div class="post-header">
-                                              <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
-                                                  <div class="post-header-info">
-                                                    <div class="post-header-name">John Doe</div>
-                                                    <div class="post-header-date">Posted on May 5, 2023</div>
-                                                  </div>
-                                            </div>
-
-
-                                            <div class="post-content">
-                                              <div class="post-description">
-                                                
-                                                <table class="info-table">
-                                                  <tr>
-                                                    <td class="left-column">Item:</td>
-                                                    <td class="right-column">Papaya</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="left-column">Amount:</td>
-                                                    <td class="right-column">2KG</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="left-column">From:</td>
-                                                    <td class="right-column">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="left-column">To:</td>
-                                                    <td class="right-column">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="left-column">Fee:</td>
-                                                    <td class="right-column">RS. 350.00</td>
-                                                  </tr>
-                                                </table>
-                                                
-                                              </div>
-
-
-                                              <div class="post-buttons">
-                                                <button class="post-button approved-button">Finish Delivery</button>
-
-                                                <button class="post-button map-button">View On Map&nbsp;
-                                                  <i class='fa fa-map-marker'></i></button>
-                                              </div>
-
+                                              </form>
 
                                             </div>
 
                                 </div>
 
-
-
-                                <div class="post">
-                                  
-                                  <div class="post-header">
-                                    <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
-                                        <div class="post-header-info">
-                                          <div class="post-header-name">John Doe</div>
-                                          <div class="post-header-date">Posted on May 5, 2023</div>
-                                        </div>
-                                  </div>
-
-
-                                  <div class="post-content">
-                                    <div class="post-description">
-                                      
-                                      <table class="info-table">
-                                        <tr>
-                                          <td class="left-column">Item:</td>
-                                          <td class="right-column">Papaya</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="left-column">Amount:</td>
-                                          <td class="right-column">2KG</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="left-column">From:</td>
-                                          <td class="right-column">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="left-column">To:</td>
-                                          <td class="right-column">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="left-column">Fee:</td>
-                                          <td class="right-column">RS. 350.00</td>
-                                        </tr>
-                                      </table>
-                                      
-                                    </div>
-
-
-                                    <div class="post-buttons">
-                                      <button class="post-button approved-button">Finish Delivery</button>
-
-                                      <button class="post-button map-button">View On Map&nbsp;
-                                        <i class='fa fa-map-marker'></i></button>
-                                    </div>
-
-
-                                  </div>
-
-                      </div>
-                      
-
-
-
-
-
-
-                      <div class="post">
-                                  
-                                  <div class="post-header">
-                                    <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
-                                        <div class="post-header-info">
-                                          <div class="post-header-name">John Doe</div>
-                                          <div class="post-header-date">Posted on May 5, 2023</div>
-                                        </div>
-                                  </div>
-
-
-                                  <div class="post-content">
-                                    <div class="post-description">
-                                      
-                                      <table class="info-table">
-                                        <tr>
-                                          <td class="left-column">Item:</td>
-                                          <td class="right-column">Papaya</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="left-column">Amount:</td>
-                                          <td class="right-column">2KG</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="left-column">From:</td>
-                                          <td class="right-column">101, 1st Lane, Rathmaldeniya, Godagama, Colombo</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="left-column">To:</td>
-                                          <td class="right-column">53/A, Samagi Mawatha, Thalawathugoda, Colombo</td>
-                                        </tr>
-                                        <tr>
-                                          <td class="left-column">Fee:</td>
-                                          <td class="right-column">RS. 350.00</td>
-                                        </tr>
-                                      </table>
-                                      
-                                    </div>
-
-
-                                    <div class="post-buttons">
-                                      <button class="post-button approved-button">Finish Delivery</button>
-
-                                      <button class="post-button map-button">View On Map&nbsp;
-                                        <i class='fa fa-map-marker'></i></button>
-                                    </div>
-
-
-                                  </div>
-
-                      </div>
-
-
+                                <?php endforeach; ?>
+                            <?php endif; ?>
 
 
 
 
                         </div>
                         
-        
-
-
-
-
-
-
-
  
         </div>
         
@@ -316,5 +117,33 @@
 
 
 </body>
+<script>
+function update() {
+  const images = document.querySelectorAll('.approved-button');
+
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      console.log(id);
+      window.location.href='../Deliverytodo/approved?id='+id;
+    });
+  });
+}
+
+
+function mapfunc() {
+  const images = document.querySelectorAll('.map-button');
+
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      console.log(id);
+      window.location.href='../Deliverydoing/map?id='+id;
+    });
+  });
+}
+
+
+</script>
 
 </html>
