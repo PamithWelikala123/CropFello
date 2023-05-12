@@ -57,8 +57,8 @@
 
             <div class="main">
                         <div class="page-selector">
-                            <button class="active" onclick="window.location.href = 'index.html';">General</button>
-                            <button onclick="window.location.href = 'deliveryrequest';">Requests</button>
+                            <button onclick="window.location.href = 'index.html';">General</button>
+                            <button class="active" onclick="window.location.href = 'index2.html';">Requests</button>
                         </div>
 
 

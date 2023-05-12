@@ -57,7 +57,7 @@ class Deliverylogin
                     $lname=$row->lname;
                     $full_name = $fname . " " . $lname; 
                     $row->lname ;
-                     $user->update($get_id, $arr);
+                     $user->update($get_id, $arr,'id');
                      $_SESSION['USER'] = $row;
             //    echo $full_name;
                     send_password_reset($full_name, $get_email, $token);
