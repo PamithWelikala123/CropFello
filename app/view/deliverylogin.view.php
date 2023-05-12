@@ -46,14 +46,14 @@
 
                         <input class="search1" type="textbox" id="email" placeholder="  Enter your email address" name="email">
                         <label class="tag1">Email</label>
-                        <input class="search2" type="password" placeholder="  Enter your password" name="password" required>
+                        <input class="search2" type="password" placeholder="  Enter your password" name="password_hash" required>
                         <label class="tag2">Password</label>
                         <i class="fas fa-eye" id="i"></i>
                         <input class="search3" type="checkbox">
                         <label class="tag3">Remember me</label>
                         <button onclick="document.location='deliverytodo'" class="button">Login</button>
 
-                        <a class="link" href="deliverylogin/forgetpassword1">Forgot password</a>
+                        <a class="link" href="deliverylogin/deliveryforgetpassword1">Forgot password</a>
 
                   </form>
                         

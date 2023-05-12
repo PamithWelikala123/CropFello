@@ -19,14 +19,16 @@ class deliverysignup3{
             $deliveryuser->validate($_POST);
            $data['arr']=$_POST;         
            $data['errors'] = $deliveryuser->errors;
+           print_r($data['errors']);
 
 
             if($deliveryuser->validate($_POST)){
                 $_POST['district'] = implode(', ', $_POST['district']);
                   $ran_id = rand(time(), 100000000);
                   $status = "Active now";
-                  $_POST['password'] = md5($_POST['password']);
-                $deliveryuser->insert($_POST);
+                  $_POST['password_hash'] = md5($_POST['password_hash']);
+                    $deliveryuser->insert($_POST);
+                    redirect('Deliverylogin');
                 
             }
 
@@ -35,7 +37,7 @@ class deliverysignup3{
             
         }
 
-        // $this->view('deliverysignup',$data);
+        $this->view('deliverysignup',$data);
         // Display the registration form with any error
     }
 
