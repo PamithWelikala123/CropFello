@@ -64,7 +64,7 @@
 
 
                          <div>
-                         <form class="" action="databasepost" method="post" enctype="multipart/form-data">
+                         <form class="" action="updatepost" method="post" enctype="multipart/form-data">
 
                                           <div class="form-split">
 
@@ -73,13 +73,13 @@
                                         <div class="form-split">
                                                     <div class="form-group">
                                                       <label class="form-label " for="address">Exp *</label>
-                                                      
+                                                      <input type="hidden" name="post_id" class="form-control basic-input-field disabled"  value="<?php echo $data['post_id'] ?>" > 
                                                       <input  id="address" class="form-control basic-input-field disabled" placeholder="<?php echo $data['exp'] ?>" value="<?php $data['exp'] ?>"> 
                                                     </div>
 
                                                     <div class="form-group">
                                                                 <label class="form-label" for="city">District *</label>
-                                                                <input type="text" id="city" class="basic-input-field" placeholder="<?php echo $data['district'] ?>">
+                                                                <input type="text" id="city" class="basic-input-field disabled" placeholder="<?php echo $data['district'] ?>">
                                                   </div>
                                         </div>
                                         <h3>Unit</h3>
@@ -193,7 +193,7 @@
 
                                           <div class="form-group">
 
-                                                    <label for="">Location</label>
+                                                    <!-- <label for="">Location</label>
 
                                                     <input class="basic-input-field disabled" type="text" id="pickuplocation" name="location" placeholder="" value="">
                                                     <input type="hidden" name="platitude" id="p-latitude" value="">
@@ -205,7 +205,7 @@
 
                                                     <div class="map-container">
                                                         <div id="map"></div>
-                                                    </div>
+                                                    </div> -->
 
                                           </div>
 
@@ -261,7 +261,7 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
 
 
     FilePond.create(document.getElementById('profilepic'), {
-      server: '<?php echo ROOT ?>/Selling/databasepost',
+      server: '<?php echo ROOT ?>/Selling/updatepost',
        // labelIdle: `<img src='<//?php// echo BASEURL?>/public/images/profilepic.png'/><br/><br/> <span>Upload Profile Picture</span>`,
         imagePreviewHeight: 300,
         imageCropAspectRatio: '1:1',
