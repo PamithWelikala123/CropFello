@@ -18,7 +18,7 @@ class Sellersignup{
 
       
       
-      $data['first_name']=$_POST['first_name'];
+      // $data['first_name']=$_POST['first_name'];
       $_POST['location']= $_POST['pickuplocation'];
       
       $data1=$user->validate($_POST);
@@ -47,6 +47,13 @@ class Sellersignup{
     }
 
       public function sellersignup3(){
+        if($_SERVER['REQUEST_METHOD']=="POST"){
+          $user  = new User;
+          if($user->validate2($_POST)){
+
+          }
+        }
+
         $this->view('sellersignup2');
       }
 
