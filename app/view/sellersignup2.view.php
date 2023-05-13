@@ -26,11 +26,11 @@
             
            
             
-            <label for="email">Email</label>
+            <label for="email">Email *</label>
             <input type="text" id="password" name="password" >
-            <label for="password">Password</label>
+            <label for="password">Password *</label>
             <input type="text" id="password" name="password" >
-            <label for="conformpassword">Conform Password</label>
+            <label for="conformpassword">Conform Password *</label>
             <input type="text" id="conformpassword" name="conformpassword" >
           
             <!-- <div class="row">
