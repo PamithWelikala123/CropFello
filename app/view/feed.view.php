@@ -63,7 +63,52 @@ $_SESSION['filename'] = 'feed';
             <div class="main">
                   <div class="main-content">
                               <?php if ($data) : ?>      
-                                            <?php foreach ($data as $row) : ?>   
+                                <!-- <label>Your District</label>
+                                <?php foreach ($data['a'] as $row) : ?>   
+                                                      <?php if ($row->user_id!=$_SESSION['USER']->user_id) : ?>       
+                                                                    <div class="posts">
+                                                                          <div class="post">
+                                                                                  <div class="post-preview">
+                                                                                  
+                                                                                  <img class="img"  id="<?=$row->post_id?>" src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>" width = 200px height= 200px; title="<//?php //echo $row['image']; ?>">
+                                                                                    
+                                                                                  </div>
+                                                                                  
+                                                                                  <div class="post-info">
+                                                                                            <div class="post-type">
+                                                                                
+                                                                                              <?php echo $row->item_name ?> 
+                                                                                              
+                                                                                            </div>
+                                                                                            <div class="post-price">
+                                                                                                  Rs.
+                                                                                                  <?php echo $row->price; ?>
+                                                                                            </div>
+
+                                                                                </div>
+                                                                                  <div class="post-info">
+                                                                                            <div class="post-size">
+                                                                                            <?php echo $row->size; ?>
+                                                                                                  <?php echo $row->unit; ?>
+
+                                                                                            </div>
+
+                                                                                            <div class="post-discount">
+
+                                                                                            <?php echo $row->discount; ?>
+                                                                                            <?php echo $row->discount1; ?>
+                                                                                            OFF
+                                                                                            </div>
+
+                                                                                  </div>
+
+                                                                          </div>
+
+                                                                    </div> 
+                                                        <?php endif; ?>
+                                              <?php endforeach; ?>
+                                              <label>All</label> -->
+                                            <?php foreach ($data['b'] as $row) : ?>   
                                                       <?php if ($row->user_id!=$_SESSION['USER']->user_id) : ?>       
                                                                     <div class="posts">
                                                                           <div class="post">

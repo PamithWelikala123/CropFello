@@ -148,11 +148,12 @@ function initMap() {
                                             </div>
                                             <div class="price-viewitems">
                                                 <p style="float: right;"><span style="font-size: smaller; color: #FB7A7A; float: right;"><strong> <?=$data['discount']?><?=$data['discount1']?> OFF</strong></span><br>
-                                                    <span style="font-size:larger; color: #0EBC1F;"><strong><?=$data['size']?> <?=$data['stock_size1']?></strong></span><span  style="font-size: 50%; color: #B3B3B3; ">/<?=$data['stock_size']?> <?=$data['stock_size1']?> &emsp;</span><span ><strong>Rs. <?=$data['price']?></strong><br></span>
+                                                    <span style="font-size:larger; color: #0EBC1F;"><strong><label class="count"><?=$data['size']?></label><label class="count1"> <?=$data['stock_size1']?></label></strong></span><span  style="font-size:80%; color: #B3B3B3; ">/<?=$data['stock_size']?> <label class="count1"> <?=$data['stock_size1']?></label> &emsp;</span><span ><strong>Rs. <?=$data['price']?></strong><br></span>
                                                     <span style="float: right; font-size: 85%; color: #0EBC1F;"><?=$data['city']?></span>
                                                     <input type="hidden" value='<?=$data['post_id']?>' name='abc' id='abc'>
                                                 </p>
                                             </div>
+
 
                                             <Script>
                                                 function myFunction(post_id) {
@@ -174,9 +175,11 @@ function initMap() {
                                                     <label class="radio-inline-viewitems">
                                                     <input type="radio" name="optradio" value="pickup" checked>&ensp;Pick up method&emsp;
                                                     </label>
-                                                    <label class="radio-inline-viewitems">
-                                                    <input type="radio" name="optradio" value="delper">&ensp;Delivery person</label>
-                                        
+                                                    <?php if((($data['stock_size1'])!='TRESS') && (($data['stock_size1'])!='ACRES')){ ?>
+                                                        <label class="radio-inline-viewitems">
+                                                        <input type="radio" name="optradio" value="delper">&ensp;Delivery person</label>
+                                                    <?php } ?>
+
                                                 
                                                 
                                             </div>
@@ -191,9 +194,50 @@ function initMap() {
                                                 
                                             <div class="quantity buttons_added">
 
-                                                    <!--input type="button" value="-" class="minus-viewitems"--><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text-viewitems" size="4" pattern="" inputmode="" id="mynum"><!--input type="button" value="+" class="plus-viewitems"-->
-
+                                    
+                                                   <input type="number" step="1" min="1" max="<?=$data['stock_size1']?>/<?=$data['size']?>" name="quantity" value="1" title="Qty" class="input-text qty text-viewitems" size="4" pattern="" inputmode="" id="mynum">
                                             </div>
+
+
+                                            <script>
+                                            
+                                                    const input = document.getElementById('mynum');
+                                                    const label = document.querySelector('.count');
+                                                    let stockSize = <?=$data['stock_size']?>; 
+                                                    let count1 = <?=$data['size']?>
+
+                                                    label.addEventListener('click', function() {
+                                                            input.style.display = 'inline-block';
+                                                            input.focus();
+                                                        });
+
+                                                        input.addEventListener('blur', function() {
+                                                            input.style.display = 'none';
+                                                        });
+
+                                                    
+                                                    input.addEventListener('change', function(event) {
+                                                        
+                                                        const newValue = parseInt(event.target.value);
+                                                        const multiplier = newValue / input.value;
+
+                                                        const  count=(input.value*count1);
+                                                        if (count >stockSize) {
+                                                            count = stockSize;
+                                                            input.value = stockSize /count1 ;
+                                                            }
+                                                        console.log(count);
+                                                        label.innerText = count;
+                                            });
+
+                                            </script>
+
+
+
+
+
+
+
                                             <div class="buy-now-viewitems">
                                                 <button name="buynow" id="button" type="submit">Buy Now</button>
                                             </div>
@@ -231,6 +275,12 @@ function initMap() {
 <!-- Modal Section -->
 
   </body>
+
+
+
+
+
+
 <script>
 function wishlist1(){
 const images = document.querySelectorAll('.wish-viewitems img');

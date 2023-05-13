@@ -7,12 +7,23 @@ class Feed{
     public function index(){}
     
     public function feed(){
+    $user=new User;
     $postitem = new postitems;
     $item = new item;
+    $arry1['user_id']=$_SESSION['USER']->user_id;
+    $rowx=$user->first($arry1);
+    $arry2['district']=$rowx->district;
 
-    $rows = $postitem->findAll();
+    $rows['a']=$postitem->where($arry2);
+    foreach ($rows['a'] as $row) {
+      $arr1['item_id'] = $row->item_id;
+      $row1 = $item->first($arr1);
+      $row->item_name = $row1->name;
+    }
+
+    $rows['b'] = $postitem->findAll();
     
-    foreach ($rows as $row) {
+    foreach ($rows['b'] as $row) {
         $arr1['item_id'] = $row->item_id;
         $row1 = $item->first($arr1);
         $row->item_name = $row1->name;
