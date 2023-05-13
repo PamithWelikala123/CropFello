@@ -36,10 +36,12 @@
     $item = new item;
     $rows3 = $item->findAll();
     foreach($rows3 as $result){
-      $crop_list .="<option value=\"{$result->item_id}\">{$result->name}</option>";
-
+      $crop_list .= "<option value=\"{$result->item_id}\" data-type=\"{$result->type}\" maxrental=\"{$result->maximum_rental_price}\">{$result->name}</option>";
     }
     ?>
+
+
+
   <div class="background">
     <div class="grid-row">
 
@@ -79,7 +81,7 @@
                                                 <div class="form-group">
                                                   <label class="form-label" for="firstname">Item *</label>
                                                   
-                                                  <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="basic-input-field" onchange="fetchemp()" placeholder="  Select Item Name">
+                                                  <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="basic-input-field" onchange="updateCropType(this)" placeholder="  Select Item Name">
                                                                                 <?php echo $crop_list?> 
                                                   </select>
                                                 </div>  
@@ -87,7 +89,7 @@
                                                 <div class="form-group">
                                                   <label class="form-label" for="lastname">  &nbsp;  </label>
                                                   
-                                                  <input type="text" class="basic-input-field"  type="text" id="crop_type" placeholder="  Select Item Type" name="item_type">
+                                                  <input type="text" class="basic-input-field disabled"  type="text" id="crop_type" placeholder="  Select Item Type" name="item_type">
                                                 </div>
 
                                         </div> 
@@ -100,7 +102,33 @@
 
                                                     <div class="form-group">
                                                                 <label class="form-label" for="city">District *</label>
-                                                                <input type="text" id="city" class="basic-input-field" placeholder="" name="district">
+                                                                <select type="text" id="city" class="basic-input-field" placeholder="" name="district">
+                                                                <option value="2">Ampara</option>
+                                                                <option value="3">Anuradhapura</option>
+                                                                <option value="4">Badulla</option>
+                                                                <option value="5">Batticaloa</option>
+                                                                <option value="6">Colombo</option>
+                                                                <option value="7">Galle</option>
+                                                                <option value="8">Gampaha</option>
+                                                                <option value="9">Hambantota</option>
+                                                                <option value="10">Jaffna</option>
+                                                                <option value="11">Kalutara</option>
+                                                                <option value="12">Kandy</option>
+                                                                <option value="13">Kegalle</option>
+                                                                <option value="14">Kilinochchi</option>
+                                                                <option value="15">Kurunegala</option>
+                                                                <option value="16">Mannar</option>
+                                                                <option value="17">Matale</option>
+                                                                <option value="18">Matara</option>
+                                                                <option value="19">Monaragala</option>
+                                                                <option value="20">Mullaitivu</option>
+                                                                <option value="21">Nuwara Eliya</option>
+                                                                <option value="22">Polonnaruwa</option>
+                                                                <option value="23">Puttalam</option>
+                                                                <option value="24">Ratnapura</option>
+                                                                <option value="25">Trincomalee</option>
+                                                                <option value="26">Vavuniya</option>
+                                                                </select>
                                                   </div>
                                         </div>
                                         <h3>Unit</h3>
@@ -126,13 +154,13 @@
 
 
                                             <div class="form-group">
-                                              <label class="form-label" for="city">Price *</label>
+                                              <label class="form-label" for="city">Unit-Price *  <label class="rental" id="rental"></label></label>
                                               <input  class="basic-input-field" placeholder="" type="text"  name="price">
                                             </div>
 
 
                                             <div class="form-group">
-                                                <label class="form-label" for="contact-number">Size *</label>
+                                                <label class="form-label" for="contact-number">Unit-Size *</label>
                                                 <input type="text" name="size" class="form-control basic-input-field"  placeholder="">
                                             </div>
 
@@ -269,6 +297,19 @@
   </div>
 
 
+  <script>
+function updateCropType(selectElement) {
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const maxRental = selectedOption.getAttribute('maxrental');
+    document.getElementById('rental').innerHTML = 'Max Retail price : RS.' + maxRental + '.00';
+    document.getElementById('crop_type').value = selectedOption.dataset.type;
+}
+</script>
+
+
+
+
+
   <script
   src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
@@ -310,22 +351,6 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
         var filepathWithoutQuotes = filepath.replace(/"/g, '');
         console.log(filepathWithoutQuotes);
 
-
-        // var obj = JSON.parse(filepathData);
-
-        // // Access the filepath property
-        // var filepath = obj.filepath;
-
-        // // Output the filepath value
-        // console.log(filepath);
-
-
-        //serverId = serverId.trim();
-        // parse the JSON object
-        //var jsonResponse = JSON.parse(serverId);
-        // access the filepath
-        //const filepath = jsonResponse.filepath;
-        //console.log(filepath);
         if (filepathWithoutQuotes != null) {
             document.getElementById('pplink').value = filepathWithoutQuotes;
         }
