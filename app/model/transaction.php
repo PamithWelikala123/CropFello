@@ -5,7 +5,7 @@ class transaction{
 use Model;
 
 protected $table = 'transactions';
-protected $allowedColumns = ['id','buy_id','order_code','price','del_price','qua','tot','buy_name','contact_number','post_id','postal_code','city','unit','del_method','cart','distance','sell_id'];
+protected $allowedColumns = ['id','buy_id','order_code','price','del_price','qua','tot','buy_name','contact_number','post_id','postal_code','city','unit','del_method','cart','distance','sell_id','delivery_done'];
 public $errors = [];
 
 public function func1($para1,$para2,$para3,$para4,$para5,$para6,$para7,$para8,$para9,$para10){

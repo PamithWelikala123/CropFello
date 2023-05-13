@@ -10,15 +10,14 @@ class deliverydoing{
     }
 
     public function view2(){
-        $order = new Order;
+        $transaction = new transaction;
         $checkout = new Checkout;
         $user = new User;
         $postitem = new postitems;
 
         $arr['approved_id']=$_SESSION['USER']->id;
-        $arr['approved']=1;
-
-        $rows=$order->where($arr);
+       
+        $rows=$transaction->where($arr);
         foreach($rows as $row){
             $arr1['order_code']=$row->order_code;
             $row1=$checkout->first($arr1);
@@ -51,14 +50,14 @@ class deliverydoing{
 
      {
         // echo "The map() function is being called."; 
-        $order = new Order;
+        $transaction = new transaction;
         $checkout = new Checkout;
         $user = new User;
         $postitem = new postitems;  
 
         $id=$_GET['id'];
         $arr['id']=$id;
-        $row=$order->first($arr);
+        $row=$transaction->first($arr);
 
         $arr1['order_code']=$row->order_code;
         $row1=$checkout->first($arr1);
