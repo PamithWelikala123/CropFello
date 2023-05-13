@@ -26,6 +26,10 @@ a {
 ul {
     list-style: none;
 }
+.rental{
+  font-size: 12px;
+  color: rgb(241, 121, 8);
+}
 
 .background {
     background-image: url(background.jpg);
