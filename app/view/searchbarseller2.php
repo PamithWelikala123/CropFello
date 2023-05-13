@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/profile.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+
 </head>
 <body>
 <?php
@@ -25,12 +26,6 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                     <img src="<?=ROOT?>/assets/images/Topnavbar/logo.png" altba="">
                 </div>
 
-                <?php require APPROOT."/controller/Notification.php";
-                              $userNotification = new Notification();
-                              $notifications = $userNotification->notifications();
-                              $jsonArray = json_encode($notifications);
-
-                   ?>
 
                 <div class="topnav-options">
                     <!-- <a class="active" href="#home">Home</a> -->
@@ -121,6 +116,11 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                           </div>
                 </div>
 </div>
+
+<script>
+  
+</script>
+
 
 
 <script src="<?=ROOT?>/assets/js/notification.js"></script> 
