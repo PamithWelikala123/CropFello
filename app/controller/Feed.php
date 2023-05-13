@@ -645,27 +645,44 @@ public function strike(){
 
 
     public function search(){
+
       $word=$_GET['search'];
+      if (!empty($word)) {
       $item = new item;
       $postitem = new postitems;
-      $rows1=$item->searchitem('item',$word);
-      $rowsx = array();
+      $rows1=$item->searchitem($word);
+ 
 
       if (!empty($rows1)) {
         foreach ($rows1 as $row1) {
-          // $row1->item_name = $row1->name;
-               $arrx1['item_id']=$row1->item_id;
-              $rowsx=$postitem->where($arrx1);
-             
-              foreach ($rowsx as $row) {
-                   $row->item_name = $row1->name;
-              }
-         }
-   
-         $this->view('feed',$rowsx);
-      } else {
+            $arrx1['item_id'] = $row1->item_id;
+            $arrx2['user_id'] = $_SESSION['USER']->user_id;
+            $rowsx = $postitem->where($arrx1, $arrx2);
+    
+            if (is_array($rowsx) && !empty($rowsx)) {
+                foreach ($rowsx as $rowx) {
+                    $arry['item_id'] = $rowx->item_id;
+                    $rowx2 = $item->first($arry);
+                    if ($rowx2) {
+                        $rowx->item_name = $rowx2->name;
+                    }
+                }
+            }
+        }
+    
+        if (!empty($rowsx) && is_array($rowsx)) {
+            $this->view('feed', $rowsx);
+        } else {
+            $this->view('feed');
+        }
+    } else {
         $this->view('feed');
-      }
+    }
+    
+    }
+    else{
+                 redirect('feed/feed');
+    }
 
       
 
