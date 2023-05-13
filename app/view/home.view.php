@@ -30,16 +30,16 @@
         <div class="stats">
             <div class="left">
                 <div class="buyer">
-                    <h6>Buyers</h6>
-                    <h4><?=$data['buyercount']?></h4>
+                    <h3>Buyers</h3>
+                    <h4><center><?=$data['buyercount']?></center></h4>
                 </div>
                 <div class="seller">
-                    <h6>Sellers</h6>
-                    <h4><?=$data['sellercount']?></h4>
+                    <h3>Sellers</h3>
+                    <h4><center><?=$data['sellercount']?></center></h4>
                 </div>
                 <div class="deliverer">
-                    <h6>Delivers</h6>
-                    <h4><?=$data['deliverycount']?></h4>
+                    <h3>Deliverers</h3>
+                    <h4><center><?=$data['deliverycount']?></center></h4>
                 </div>
                 <div class="this-month"></div>
             </div>
