@@ -561,6 +561,7 @@ public function final(){
   $checkout1 = new Checkout;
   $order = new Order;
   $post = new postitems;
+  $user = new User;
   $arrx11['order_code']=$order_code;
   //$user_id = $_SESSION['USER']->user_id;
   $data44 = $order->first($arrx11);
@@ -577,12 +578,15 @@ public function final(){
     $buy_id = $data44->buy_id;
     $tot = $data44->tot;
     $post_id = $data44->post_id;
+    $ar5['post_id'] = $post_id;
+    $data66 = $post->first($ar5);
+    $sell_id = $data66->user_id;
     $unit = $data44->unit;
     $item_name = $data44->item_name;
     $exp = $data44->exp;
     $placed_on = $data44->placed_on;
     $image = $data44->image;
-    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image);
+    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image,$sell_id);
 
     if($stock > $qua){
       $new_size = $stock-$qua;

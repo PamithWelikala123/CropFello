@@ -76,7 +76,7 @@
                 <?php }
                 ?>
             </div>
-                <button id="open-modal" class="ediBtn">Edit</button><br><br><br>
+                <!--button id="open-modal" class="ediBtn">Edit</button><br><br><br-->
                 <p><strong>Seller Info</strong></p>
                 
                 <?php foreach($data["c"] as $dat2){ ?>
