@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 08:38 PM
+-- Generation Time: May 13, 2023 at 08:42 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -587,17 +587,18 @@ CREATE TABLE `transactions` (
   `sell_id` int(11) NOT NULL,
   `approved_id` int(11) NOT NULL,
   `delivery_done` int(11) NOT NULL DEFAULT 0,
-  `del_price` int(11) NOT NULL
+  `del_price` int(11) NOT NULL,
+  `completed_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `transactions`
 --
 
-INSERT INTO `transactions` (`id`, `buy_id`, `order_code`, `qua`, `tot`, `post_id`, `unit`, `item_name`, `image`, `exp`, `placed_on`, `sell_id`, `approved_id`, `delivery_done`, `del_price`) VALUES
-(9, 12, '65413774a7196be434bcfe1d1a293afe', 2, 400, 65, 'KG', 'brinjol', '6459f59515928.jpg', '2023-05-31', '2023-05-13', 2, 0, 0, 0),
-(10, 2, '0d8d6eefc96c6bcd939910d89a6ea874', 10, 588, 71, 'KG', 'beans', '645fb5a7c151d.jpg', '2023-05-26', '2023-05-13', 12, 0, 0, 0),
-(11, 2, '5f5328ef737a77ba833307645511c7c2', 2, 475, 70, 'KG', 'brinjol', '645fb4809ac61.jpg', '2023-05-26', '2023-05-13', 12, 0, 0, 0);
+INSERT INTO `transactions` (`id`, `buy_id`, `order_code`, `qua`, `tot`, `post_id`, `unit`, `item_name`, `image`, `exp`, `placed_on`, `sell_id`, `approved_id`, `delivery_done`, `del_price`, `completed_date`) VALUES
+(9, 12, '65413774a7196be434bcfe1d1a293afe', 2, 400, 65, 'KG', 'brinjol', '6459f59515928.jpg', '2023-05-31', '2023-05-13', 2, 0, 0, 0, NULL),
+(10, 2, '0d8d6eefc96c6bcd939910d89a6ea874', 10, 588, 71, 'KG', 'beans', '645fb5a7c151d.jpg', '2023-05-26', '2023-05-13', 12, 0, 0, 0, NULL),
+(11, 2, '5f5328ef737a77ba833307645511c7c2', 2, 475, 70, 'KG', 'brinjol', '645fb4809ac61.jpg', '2023-05-26', '2023-05-13', 12, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
