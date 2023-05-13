@@ -3,6 +3,7 @@
 <head>
   
   <link rel="stylesheet" href="<?=ROOT?>/assets/css/postitem1.css">
+  <link rel="stylesheet" href="<?=ROOT?>/assets/css/popup.css">
   <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/vieweditprofile1.css">  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href='https://unpkg.com/filepond@^4/dist/filepond.css' rel='stylesheet' />
@@ -11,7 +12,8 @@
   <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
   <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap' rel='stylesheet'>
   <script type="text/javascript" src="<?php echo AUTO_MAP_URL ?>" defer></script>
-    <script src="<?=ROOT?>/assets/js/map.js"></script> 
+  <script src="<?=ROOT?>/assets/js/map.js"></script> 
+  <script src="<?=ROOT?>/assets/js/popup.js"></script> 
     <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
 
 <style>
@@ -30,6 +32,23 @@
 </head>
 
 <body onload="initMap()">  
+ 
+<div id="dark">
+
+<div id="popup">
+        <h1>Terms and Conditions</h1>
+        <ul>
+            <li>You will be only allowed to choose <strong>pickup</strong> as the delivery method. </li>
+            <li>when you are the higest bidder you can bid to it but other can't </li>
+            <li> other people willa loww to bid is after one day for their rank </li>
+        </ul>
+        <br>
+        <input type="checkbox" id="acceptCheckbox">
+        <label for="acceptCheckbox">Accept terms and conditions</label>
+        <button id="nextButton" disabled>Next</button>
+    </div>
+    </div>
+
 
 <?php
     $crop_list='';

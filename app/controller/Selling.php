@@ -115,6 +115,7 @@ class Selling{
 
         $arr['user_id']=$_SESSION['USER']->user_id;
         $rows = $postitem->where($arr);
+        if($rows) {
         foreach($rows as $row){
             $arr1['post_id']=$row->post_id;
             $arr1['approved']=1;
@@ -134,6 +135,8 @@ class Selling{
 
         $this->view('seller_mytransaction_past',$rows1);
     }
+    $this->view('seller_mytransaction_past'); 
+    }
 
     public function mytransaction()
     {
@@ -143,8 +146,10 @@ class Selling{
     
         $arr['user_id'] = $_SESSION['USER']->user_id;
         $rows = $postitem->where($arr);
+        if($rows) {
     
         foreach ($rows as $row) {
+
             
             $arr1['post_id'] = $row->post_id;
             $rows1 = $order->where($arr1);
@@ -163,8 +168,10 @@ class Selling{
                 }
             }
         }
-    
         $this->view('seller_mytransaction',$rows1);
+    }
+    
+    $this->view('seller_mytransaction'); 
     }
     
     

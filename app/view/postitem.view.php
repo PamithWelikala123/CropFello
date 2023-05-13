@@ -141,7 +141,7 @@
 
 
                                                             <label class="form-label" for="postalcode">Type *</label>
-                                                            <select class="basic-input-field" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" value="">
+                                                            <select class="basic-input-field" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" onchange="parameters()" value="">
                                                                                                         <option value="KG">KG</option>
                                                                                                         <option value="G">G</option>
                                                                                                         <option value="TREES">TREES</option>
@@ -182,19 +182,16 @@
 
 
                                                                       <label class="form-label" for="postalcode">  &nbsp;  </label>
-                                                                      <select class="basic-input-field" name="stock_size1" id="stock_size1" type="text" onkeyup="GetDetail(this.value)" value="">
-                                                                                                                  <option value="KG">KG</option>
-                                                                                                                  <option value="G">G</option>
-                                                                                                                  <option value="TREES">TREES</option>
-                                                                                                                  <option value="ACRES">ACRES</option>
-                                                                      </select> 
+                                                                      <input class="basic-input-field disabled" name="stock_size1" id="stock_size1" type="text" value="">
+
+                                                                        </input> 
 
 
                                                     </div>  
 
                                                     <div class="form-group">
                                                                 <label class="form-label" for="city">Discount *</label>
-                                                                <input type="text" id="city" class="basic-input-field" placeholder="" name="discount">
+                                                                <input type="text" id="city" class="basic-input-field " placeholder="" name="discount">
                                                   </div>
                                                    <div class="form-group">
 
@@ -303,6 +300,12 @@ function updateCropType(selectElement) {
     const maxRental = selectedOption.getAttribute('maxrental');
     document.getElementById('rental').innerHTML = 'Max Retail price : RS.' + maxRental + '.00';
     document.getElementById('crop_type').value = selectedOption.dataset.type;
+}
+
+function parameters(selectElement) {
+  var unitSelect = document.getElementById("unit");
+  var stockSizeInput = document.getElementById("stock_size1");
+  stockSizeInput.value = unitSelect.options[unitSelect.selectedIndex].value;
 }
 </script>
 
