@@ -5,7 +5,7 @@ class Order{
     use Model;
 
     protected $table = 'orders';
-    protected $allowedColumns = ['id','buy_id','order_code','price','del_price','qua','tot','buy_name','contact_number','post_id','postal_code','city','unit','del_method','cart','distance'];
+    protected $allowedColumns = ['id','buy_id','order_code','price','del_price','qua','tot','buy_name','contact_number','post_id','postal_code','city','unit','del_method','cart','distance','approved','approved_id'];
 
     /*public function email3($para2){
         $query = "select registerd_user.email from $this->table inner join registerd_user on $this->table.user_id = registerd_user.user_id where id = $para2";
@@ -79,6 +79,11 @@ class Order{
 
     public function func13($para1,$para2){
         $query = "update $this->table set del_method='$para1' where order_code = '$para2'";
+        return $this->query($query);
+    }
+
+    public function func14($para){
+        $query = "select * from postitem inner join orders on postitem.post_id=orders.post_id inner join checkout on orders.order_code=checkout.order_code where postitem.user_id=$para";
         return $this->query($query);
     }
 

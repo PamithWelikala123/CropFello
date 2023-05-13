@@ -501,6 +501,9 @@ public function checkout5(){
 
 public function cart(){
   //$order_code = $_GET['order_code'];
+  $user = new User;
+  $postitem = new postitems;
+  $item = new item;
   $checkout1 = new Checkout;
   $order = new Order;
   $user_id = $_SESSION['USER']->user_id;
@@ -518,6 +521,18 @@ public function cart(){
     foreach($_POST['btn'] as $key => $value){
 
       //$order->delete($key,'order_code');
+
+      /*$ar['order_code'] = $key;
+      $data1 = $order->first($ar);
+      $post_id = $data1->post_id;
+      $arr['post_id'] = $post_id;
+      $data2 = $postitem->first($arr);
+      $sel_lati = $data2->platitude;
+      $sel_longi = $data2->plongitude;
+      $data3 = $checkout1->first($ar);
+      $buy_lati = $data3->latitude;
+      $buy_longi = $data3->longitude;*/
+
       redirect('feed/checkout1?order_code=' . $key);
       
     }	

@@ -87,6 +87,24 @@ class Selling{
 
 
 
+    public function mytransactionpraneeth(){
+        $user = new User;
+        $postitem = new postitems;
+        $item = new item;
+        $order = new Order;
+        $checkout = new checkout;
+
+        $arry1['user_id']=$_SESSION['USER']->user_id;
+        $user_id = $_SESSION['USER']->user_id;
+
+        $data = $order->func14($user_id);
+
+        $this->view('seller_mytransaction',$data);
+    }
+
+    public function mytransaction_past(){       
+        $this->view('seller_mytransaction_past');
+    }
 
     public function mytransaction()
     {
@@ -118,6 +136,7 @@ class Selling{
     
         $this->view('seller_mytransaction',$rows1);
     }
+    }
     
 
 
@@ -133,6 +152,9 @@ class Selling{
 
 
 
+
+
+    
 
 
     public function delete(){

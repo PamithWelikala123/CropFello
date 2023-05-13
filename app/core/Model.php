@@ -20,6 +20,18 @@ trait Model{
         
         return  $this->query($query);
     }    
+
+
+
+
+
+
+
+
+
+
+
+
     
     public function where($data, $data_not = []){
        
@@ -42,6 +54,20 @@ trait Model{
         return  $this->query($query, $data);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     public function first($data, $data_not = []){
 
         $keys = array_keys($data);

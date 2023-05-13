@@ -20,7 +20,7 @@ class Deliverylogin
 			
 			if($row)
 			{
-				if($row->password_hash === $_POST['password_hash'])
+				if($row->password_hash ===md5($_POST['password_hash']))
 				{
 					$_SESSION['USER'] = $row;
 					redirect('deliverytodo/view2');
@@ -57,7 +57,7 @@ class Deliverylogin
                     $lname=$row->lname;
                     $full_name = $fname . " " . $lname; 
                     $row->lname ;
-                     $user->update($get_id, $arr);
+                     $user->update($get_id, $arr,'id');
                      $_SESSION['USER'] = $row;
             //    echo $full_name;
                     send_password_reset($full_name, $get_email, $token);
