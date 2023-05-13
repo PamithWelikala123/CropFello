@@ -102,8 +102,37 @@ class Selling{
         $this->view('seller_mytransaction',$data);
     }
 
-    public function mytransaction_past(){       
-        $this->view('seller_mytransaction_past');
+
+
+
+
+    public function mytransaction_past(){   
+        // $order = new Order();
+        $transaction = new transaction();
+        $user = new User();
+        $postitem = new Postitems();
+        $deliveryuser = new Deliveryuser1();
+
+        $arr['user_id']=$_SESSION['USER']->user_id;
+        $rows = $postitem->where($arr);
+        foreach($rows as $row){
+            $arr1['post_id']=$row->post_id;
+            $arr1['approved']=1;
+            $rows1= $transaction->where($arr1);
+            if($rows1){
+                foreach($rows1 as $row1){
+                    $arr2['user_id'] = $row1->buy_id;
+                    $row2 = $user->first($arr2);
+
+                    if ($row2) {
+                        $row1->city = $row2->city;
+                        $row1->first_name = $row2->first_name;
+                    }
+                }
+            }
+        }
+
+        $this->view('seller_mytransaction_past',$rows1);
     }
 
     public function mytransaction()
@@ -116,11 +145,12 @@ class Selling{
         $rows = $postitem->where($arr);
     
         foreach ($rows as $row) {
+            
             $arr1['post_id'] = $row->post_id;
             $rows1 = $order->where($arr1);
 
     
-            if ($rows1) {
+            if($rows1) {
                 foreach ($rows1 as $row1) {
 
                      $arr2['user_id'] = $row1->buy_id;
@@ -136,7 +166,7 @@ class Selling{
     
         $this->view('seller_mytransaction',$rows1);
     }
-    }
+    
     
 
 

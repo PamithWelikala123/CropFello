@@ -17,8 +17,8 @@
       ?>
             <div class="main">
                 <div class="page-selector">
-                    <button class="active" onclick="window.location.href = 'index.html';">On Going</button>
-                    <button onclick="window.location.href = 'index2.html';">Past Orders</button>
+                    <button class="active" onclick="window.location.href = '../Selling/mytransaction';">On Going</button>
+                    <button onclick="window.location.href = '../Selling/mytransaction_past';">Past Orders</button>
                 </div>
                 <div class="main-content">
                 <?php if($data) :    ?>
