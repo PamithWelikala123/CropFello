@@ -561,6 +561,7 @@ public function final(){
   $checkout1 = new Checkout;
   $order = new Order;
   $post = new postitems;
+  $user = new User;
   $arrx11['order_code']=$order_code;
   //$user_id = $_SESSION['USER']->user_id;
   $data44 = $order->first($arrx11);
@@ -576,13 +577,17 @@ public function final(){
     $qua = $data44->qua;
     $buy_id = $data44->buy_id;
     $tot = $data44->tot;
+    $del_price = $data44->del_price;
     $post_id = $data44->post_id;
+    $ar5['post_id'] = $post_id;
+    $data66 = $post->first($ar5);
+    $sell_id = $data66->user_id;
     $unit = $data44->unit;
     $item_name = $data44->item_name;
     $exp = $data44->exp;
     $placed_on = $data44->placed_on;
     $image = $data44->image;
-    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image);
+    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image,$sell_id,$del_price);
 
     if($stock > $qua){
       $new_size = $stock-$qua;
@@ -640,27 +645,44 @@ public function strike(){
 
 
     public function search(){
+
       $word=$_GET['search'];
+      if (!empty($word)) {
       $item = new item;
       $postitem = new postitems;
-      $rows1=$item->searchitem('item',$word);
-      $rowsx = array();
+      $rows1=$item->searchitem($word);
+ 
 
       if (!empty($rows1)) {
         foreach ($rows1 as $row1) {
-          // $row1->item_name = $row1->name;
-               $arrx1['item_id']=$row1->item_id;
-              $rowsx=$postitem->where($arrx1);
-             
-              foreach ($rowsx as $row) {
-                   $row->item_name = $row1->name;
-              }
-         }
-   
-         $this->view('feed',$rowsx);
-      } else {
+            $arrx1['item_id'] = $row1->item_id;
+            $arrx2['user_id'] = $_SESSION['USER']->user_id;
+            $rowsx = $postitem->where($arrx1, $arrx2);
+    
+            if (is_array($rowsx) && !empty($rowsx)) {
+                foreach ($rowsx as $rowx) {
+                    $arry['item_id'] = $rowx->item_id;
+                    $rowx2 = $item->first($arry);
+                    if ($rowx2) {
+                        $rowx->item_name = $rowx2->name;
+                    }
+                }
+            }
+        }
+    
+        if (!empty($rowsx) && is_array($rowsx)) {
+            $this->view('feed', $rowsx);
+        } else {
+            $this->view('feed');
+        }
+    } else {
         $this->view('feed');
-      }
+    }
+    
+    }
+    else{
+                 redirect('feed/feed');
+    }
 
       
 
