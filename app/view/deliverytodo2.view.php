@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>deliverydoing</title>
+    <title>deliverytodo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
@@ -25,10 +25,10 @@
                                             <div class="menu">
                                                 <!-- <hr><label >Menu</label><br> -->
                                                 <hr><p>Menu</p><br>
-                                                <button onclick="document.location='deliverytodo/view1'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/todo.png"><span> To Do</span></button><br>
-                                                <button onclick="document.location='deliverydoing/index'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
-                                                <button onclick="document.location='deliverydone'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
-                                                <button onclick="document.location='deliveryfee'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
+                                                <button onclick="document.location='../deliverytodo/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/todo.png"><span> To Do</span></button><br>
+                                                <button onclick="document.location='../deliverydoing/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
+                                                <button onclick="document.location='../deliverydone/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
+                                                <button onclick="document.location='../deliveryfee'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
                                             </div>
 
                                 </div>
@@ -37,7 +37,7 @@
 
             <div class="main">
                         <div class="page-selector">
-                            <button class="active" onclick="window.location.href = 'index.html';">General</button>
+                            <button class="active" onclick="window.location.href = '../deliverytodo/view2';">General</button>
                             <button onclick="window.location.href = 'deliveryrequest';">Requests</button>
                         </div>
 
