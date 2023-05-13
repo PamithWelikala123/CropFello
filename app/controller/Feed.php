@@ -577,6 +577,7 @@ public function final(){
     $qua = $data44->qua;
     $buy_id = $data44->buy_id;
     $tot = $data44->tot;
+    $del_price = $data44->del_price;
     $post_id = $data44->post_id;
     $ar5['post_id'] = $post_id;
     $data66 = $post->first($ar5);
@@ -586,7 +587,7 @@ public function final(){
     $exp = $data44->exp;
     $placed_on = $data44->placed_on;
     $image = $data44->image;
-    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image,$sell_id);
+    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image,$sell_id,$del_price);
 
     if($stock > $qua){
       $new_size = $stock-$qua;
