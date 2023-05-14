@@ -21,7 +21,77 @@
 
 
 
+<div id="bank-modal" class="bank-modal">
+        <div class="bank-modal-content">
+          <div class="bank-modal-header">
+            <span class="bankCloseBtn">&times;</span>
+            
+          </div>
+          <div class="bank-modal-body">
+            <h3>Enter Bank Details</h3><br>
+            
+              <form action="/action_page.php">
+                <label for="accountname">Name</label>
+                <input type="text" id="accountname" name="accountname" placeholder="Enter your name in account">
+            
+                <label for="lname">Account Number</label>
+                <input type="text" id="lname" name="lastname" >
+            
+                <label for="country">Bank</label>
+                <select id="country" name="country" placeholder="freferg">
+                  <option value="1">Bank of Ceylon (BOC)</option>
+                  <option value="2">People's Bank</option>
+                  <option value="3">Commercial Bank of Ceylon PLC</option>
+                  <option value="4">Hatton National Bank (HNB)</option>
+                  <option value="5">Sampath Bank PLC</option>
+                  <option value="6">National Savings Bank (NSB)</option>
+                  <option value="7">DFCC Bank</option>
+                  <option value="8">Nations Trust Bank</option>
+                  <option value="9">Union Bank of Colombo PLC</option>
+                  <option value="10">Pan Asia Banking Corporation PLC</option>
+                  <option value="11">Seylan Bank PLC</option>
+                  <option value="12">Cargills Bank Limited</option>
+                  <option value="13">Standard Chartered Bank</option>
+                  <option value="14">HSBC Sri Lanka</option>
+                  <option value="15">Citibank Sri Lanka</option>
+                </select>
 
+                <label for="country">Branch</label>
+                <select id="country" name="country">
+                  <option value="ampara">Ampara</option>
+                  <option value="anuradhapura">Anuradhapura</option>
+                  <option value="badulla">Badulla</option>
+                  <option value="batticaloa">Batticaloa</option>
+                  <option value="colombo">Colombo</option>
+                  <option value="galle">Galle</option>
+                  <option value="gampaha">Gampaha</option>
+                  <option value="hambantota">Hambantota</option>
+                  <option value="jaffna">Jaffna</option>
+                  <option value="kalutara">Kalutara</option>
+                  <option value="kegalle">Kegalle</option>
+                  <option value="kilinochchi">Kilinochchi</option>
+                  <option value="kurunegala">Kurunegala</option>
+                  <option value="mannar">Mannar</option>
+                  <option value="matale">Matale</option>
+                  <option value="matara">Matara</option>
+                  <option value="monaragala">Monaragala</option>
+                  <option value="mullaitivu">Mullaitivu</option>
+                  <option value="nuwaraeliya">Nuwara Eliya</option>
+                  <option value="polonnaruwa">Polonnaruwa</option>
+                  <option value="puttalam">Puttalam</option>
+                  <option value="ratnapura">Ratnapura</option>
+                  <option value="trincomalee">Trincomalee</option>
+                  <option value="vavuniya">Vavuniya</option>
+                </select>
+              
+                <input type="submit" value="Submit">
+              </form>
+            
+              
+            
+          </div>
+        </div>
+      </div>
 
 
 
@@ -29,8 +99,6 @@
 $filename = $_SESSION['filename'];
 echo "<script>console.log('Filename: ".$filename."');</script>";
 ?> 
-
-
         <div class="topnav">
 
                 <div class="logo">
@@ -41,8 +109,7 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                 <div class="topnav-options">
                     <!-- <a class="active" href="#home">Home</a> -->
                     
-                    <a href="">
-                      <button id="bankOpenModalBtn"><i class='fa fa-bank' id="bankOpenModalBtn"></i></button> </a>
+                    <a href=""><i class='fa fa-bank' id="bankOpenModalBtn"></i>
                     <a href="../Selling/mytransaction" id="my-orders">My Transactions</a>
                     <a class="notification-icon"><i class="fa fa-bell" style="font-size:18px"></i></a>
                     <span class="notification-count">7</span>
