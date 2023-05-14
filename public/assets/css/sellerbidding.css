@@ -137,6 +137,7 @@ height: 100%;
 
 .your-bid{
   grid-area: your-bid;
+  background-color: #8cfc90;
 }
 
 .leading{
@@ -146,8 +147,9 @@ height: 100%;
 }
 
 .your-bid span{
-  font-weight: 700;
+  font-weight: 400;
   color: black;
+
 }
 
 

@@ -42,6 +42,7 @@
 
               <?php foreach ($data as $row) : ?>
 
+                
                         <div class="bidding-post">
                 <div class="image">
                   <img  src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>">
@@ -54,24 +55,27 @@
                   <div class="price">
                     <h5 class="initial-price">RS <?=$row->initial_price?></h5>
                     <h3 class="current-price"><img src="images/green-circle.svg" alt=""> RS <?=$row->current_value?></h3>
+                    
                   </div>
                   <div class="exp"><p><span style="font-weight: 600;">EXP:</span>&nbsp;<?=$row->exp?></p></div>
                   <div class="days">
                     <p class="remain"><?=$row->remaning?> days remaining</p>
                     <p class="ends-on">Ends on <?=$row->bid_end_date?></p>
                     </div>
-                    <div class="your-bid">
-                        <p class="leading"> <span>Saman Kumara</span> &nbsp;is leading. </p>
-                        <p class="bid-no">8<sup>th</sup> bid</p>
-                    </div>
+                    <!-- <div class="your-bid"> -->
+                      
+                        <!-- <p class="leading"> <span>Saman Kumara</span> &nbsp;is leading. </p>
+                        <p class="bid-no">8<sup>th</sup> bid</p> -->
+                    <!-- </div> -->
                   <div class="bid-now">
-                    
-                    <button  class="update" id="openModalBtn">Delete</button>
+                    <input type="hidden" value='<?=$row->post_id?>' name='abc'>
+                    <p> <b>saman kumara</b>  is leading</p>
+                    <button type="button" class="update" id="<?=$row->post_id?>" onclick="window.location.href ='deleteBid?id='+id">Delete</button>
                     
                   </div>
                 </div>
               </div>
-                      
+
               <?php endforeach; ?>
 
 
