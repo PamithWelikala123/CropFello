@@ -10,7 +10,7 @@ class deliverytodo{
   }
   
   public function view2(){
-
+    $Delivery_discard =new Delivery_discard;
     $order = new Order;
     $checkout = new Checkout;
     $user = new User;
@@ -21,6 +21,7 @@ class deliverytodo{
 
 
      $rows=$order->where($arr);
+
      if($rows){
  
      foreach($rows as $row){
@@ -53,6 +54,18 @@ class deliverytodo{
       $row->contact_number_seller=$row3->contact_number;
 
 
+      $arrw['user_id']= $_SESSION['USER']->id;
+      $arrw['post_id']=$row->id;
+      $arrw=(array)$arrw;
+      $row_discard=$Delivery_discard->where($arrw);
+
+      if($row_discard){
+        $row->row_discard=1;
+       
+      }
+      else{
+        $row->row_discard=0;
+      }
       
       }
      
@@ -117,7 +130,22 @@ public function approved(){
 
 }
 
+public function discard(){
+  $id=$_GET['id'];
+  $Delivery_discard =new Delivery_discard;
 
+
+  $arrx['user_id'] = $_SESSION['USER']->id;
+  $arrx['post_id']=$id;
+  $arrx['disprove']=1;
+  $arrx=(array)$arrx;
+
+  $Delivery_discard->insert($arrx);
+  redirect('Deliverytodo/view2');
+
+
+
+}
 
 
 }

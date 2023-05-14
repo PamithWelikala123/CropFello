@@ -36,18 +36,13 @@
     
 
             <div class="main">
-                        <div class="page-selector">
-                            <button class="active" onclick="window.location.href = 'index.html';">General</button>
-                            <button onclick="window.location.href = 'deliveryrequest';">Requests</button>
-                        </div>
-
 
                         <div class="main-content">
 
 
                         <?php if ($data) : ?>      
                         <?php foreach ($data as $row) : ?>  
-                          
+                          <?php if($row->row_discard==0) : ?>     
                         <div class="post">
                                                       <div class="post-header">
                                                         <!-- <img src="<//?=ROOT?>/assets/images/Post-images/<//?=$row->image?>" alt="Profile Picture" class="post-profile-pic"> -->
@@ -98,7 +93,7 @@
                                                                           <button class="approved-button" type="button" id="<?=$row->id?>" onclick="update()">Approve</button>
                                                                           <!-- <//?php echo '<button class="approved-button" type="button" name="approve['.$row->order_code.']/">Approve</button>' ?> -->
 
-                                                                            <button class="post-button discard-button">Discard</button>
+                                                                            <button class="post-button discard-button" id="<?=$row->id?>" onclick="window.location.href='../Deliverytodo/discard?id='+id">Discard</button>
                                                                             <button class="map-button" name="view_on_map" type="button" id="<?=$row->id?>" onclick="window.open('../Deliverytodo/map?id='+id, '_blank')">
 
                                                                             <!-- <button class="map-button" name="view_on_map" type="button" onclick="mapfunc()"> -->
@@ -112,6 +107,7 @@
 
                                                       </div>
                                           </div> 
+                                          <?php endif; ?>
                                           <?php endforeach; ?>
                                   <?php endif; ?>
 

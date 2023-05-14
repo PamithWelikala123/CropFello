@@ -309,7 +309,7 @@ public function filter($district,$item_id,$min,$max,$id){
         $query .= "AND item_id >= $item_id ";
     }
     if (!empty($district)) {
-        $query .= "AND district >= $district ";
+        $query .= "AND district = $district ";
     }
     if (!empty($min)) {
         $query .= "AND price >= $min ";
