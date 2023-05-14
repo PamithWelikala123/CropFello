@@ -106,7 +106,7 @@ class Feed{
         $data3= $postitem->first($arr1);
         $quan = $_POST['quantity'];
         $qt = intval($quan);
-
+        $info = 'Deliver To';
         $item_id = $data3->item_id;
         $arr5['item_id'] = $item_id;
         $data6 = $item->first($arr5);
@@ -436,6 +436,7 @@ public function checkout2(){
     $order = new Order;
     $post = new postitems;
     $user = new User;
+    $del_user = new Deliveryuser1;
 
     $arrx11['order_code']=$order_code;
     //$user_id = $_SESSION['USER']->user_id;
@@ -443,6 +444,8 @@ public function checkout2(){
     $data44 = $order->first($arrx11);
     $metho = $data44->del_method;
     $id = $data44->post_id;
+    $del_id = $data44->approved_id;
+    $data['d'] = $del_user->func1($del_id);
     $arrx22['post_id']=$id;
     $data55 = $post->first($arrx22);
     $stock = $data55->stock_size;
