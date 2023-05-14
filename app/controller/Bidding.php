@@ -243,6 +243,17 @@ class bidding{
 
 
 
+    public function deleteBid(){
+        // print_r('post_id');
+        $bid = new createbid;
+        $id=$_GET['id'];
+        $bid->delete($id,'post_id');
+        redirect('bidding/sellerbidding');
+    }
+
+
+
+
 
     public function addBiddingItem(){
         $arr = array();
