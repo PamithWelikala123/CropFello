@@ -62,12 +62,25 @@ class Selling{
                                                                 // echo json_encode($response);
                                                             }
      }                                                       // Move this line inside the "if" statement
-     if (isset($_POST['submit'])) {                                                       
+     if (isset($_POST['submit'])) {   
+        
+
+
                                                             $postitem = new postitems;
                                                             $_POST['user_id']=$_SESSION['USER']->user_id;
                                                       
+                                            
+                                                            $postitem -> validate($_POST);
+                                                            $data['arr']=$_POST;         
+                                                            $data['errors'] = $postitem->errors;
+
+                                                            if($postitem -> validate($_POST)){
                                                             $row=$postitem->insert($_POST);
                                                              redirect('selling/selling');
+                                                            }
+
+                                                            // $this->view('postitem',$data);
+                                                            
     }
 
            
