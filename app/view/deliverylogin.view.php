@@ -17,7 +17,7 @@
 
         <div class="back">
                 <div class="mainletter">
-                          <p class="letters">Don't have an account? <a class="para" href="<?=ROOT?>/deliverysignup">Register as a Deliverer </a></p>
+                          <p class="letters">Don't have an account? <a class="para" href="<?=ROOT?>/deliverysignup3/register">Register as a Deliverer </a></p>
                           <!-- <a href="<?=ROOT?>/buyersignup">
                           <button class="button-buyer">Buyer</button> -->
                          

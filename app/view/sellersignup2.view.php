@@ -19,19 +19,29 @@
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/action_page.php">
+      <form action="sellersignup2" method="post" enctype="multipart/form-data" >
       
         <div class="row">
           <div class="col-50">
             
-           
-            
+          <input type="hidden" id="firstname"  placeholder="First Name" name="first_name" value="<?php echo $data['first_name']?>">
+          <input type="hidden" id="lastname" name="last_name" placeholder="Last Name" value="<?php echo $data['last_name']?>">
+          <input type="hidden" id="adress" name="address" value="<?php echo $data['address']?>">
+          <input type="hidden" id="district" name="district" value="<?php echo $data['district']?>">
+       
+          <input type="hidden" id="contact" name="contact_number" value="<?php echo $data['contact_number']?>">
+          <input type="hidden" id="pickuplocation" name="location" placeholder="Select and fetch your location" value="<?php echo $data['location']?>">
+          <input type="hidden" name="platitude" id="p-latitude" value="<?php echo $data['p-latitude']?>">
+          <input type="hidden" name="plongitude" id="p-longitude" value="<?php echo $data['p-longitude']?>">
+          <input type="hidden" id="city1" name="city" value="<?php echo $data['city']?>">
+
+
             <label for="email">Email *</label>
-            <input type="text" id="password" name="password" >
+            <input type="text" id="password" name="email" >
             <label for="password">Password *</label>
-            <input type="text" id="password" name="password" >
+            <input type="password" id="password" name="password" >
             <label for="conformpassword">Conform Password *</label>
-            <input type="text" id="conformpassword" name="conformpassword" >
+            <input type="password" id="confirm_password" name="confirm_password" >
           
             <!-- <div class="row">
                 <div class="col-25">
@@ -47,8 +57,8 @@
           <div class="col-50">
             
             <div class="profpic">
-            <input type="file" id="profilepic" credits='false' name="image" accept="image/png, image/jpeg" />
-              <input type="hidden" id="pplink" name="pplink">
+            <input type="file" id="profilepic" credits='false' name="image" accept="image/png, image/jpeg, image/gif" />
+            <input type="hidden" id="pplink" name="image">
               
             </div>
             
@@ -61,7 +71,8 @@
            
              <div class="row">
                 <div class="col-25">
-                    <input type="submit" value="Register" class="btn">
+                    <!-- <input type="submit" value="Register" class="btn"> -->
+                    <button class="btn" type="submit" name="submit" id="submit" >Register</button>
                   </div>
                 
             </div> 
@@ -99,7 +110,7 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
 
 
     FilePond.create(document.getElementById('profilepic'), {
-      //server:'http://localhost/Cropfello/public/Profile/editprofile',
+      server: '<?php echo ROOT ?>/sellersignup/sellersignup2',
         labelIdle: `<img class="userpic" src="<?=ROOT?>/assets/images/pics/account1.png"<br/><br/> <span>Upload Profile Picture</span>`,
         imagePreviewHeight: 50,
         imageCropAspectRatio: '1:1',
@@ -114,18 +125,20 @@ FilePond.registerPlugin(FilePondPluginFileValidateType, FilePondPluginImageExifO
     document.getElementById('profilepic').addEventListener('FilePond:processfile', function (e) {
       
       
-      const serverId = e.detail.file.serverId;
-        console.log(serverId);
-
-        // parse the JSON object
-        const jsonResponse = JSON.parse(serverId);
-        // access the filepath
-        const filepath = jsonResponse.filepath;
-        console.log(filepath);
-        if (filepath != null) {
-            document.getElementById('pplink').value = filepath;
-        }
-    });
+      var serverId = e.detail.file.serverId;
+         console.log(serverId);
+         var parts = serverId.split('{');
+         var filepathData = parts[0];
+         console.log(filepathData);
+        //  var filepath = filepathData.substring(filepathData.indexOf('"') + 1 + "filepath".length + 2, filepathData.lastIndexOf('"'))
+        //  console.log(filepath);
+        //  var filepathWithoutQuotes = filepath.replace(/"/g, '');
+        //  console.log(filepathWithoutQuotes);
+ 
+         if (filepathData != null) {
+             document.getElementById('pplink').value = filepathData;
+         }
+     });
 
 </script>
 

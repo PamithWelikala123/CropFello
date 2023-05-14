@@ -9,18 +9,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
         <link rel="Stylesheet" href="<?=ROOT?>/assets/css/forgetpassword1.css">
+        <link rel="icon" type="image/x-icon" href="<?=ROOT?>/assets/images/favicon.ico" />
     </head>
     <body>
   <div class="grid">
 
         <div class="back">
                 <div class="mainletter">
-                          <p class="letters">Don't have an account? <a class="para">Register as a</a></p>
-                          <a href="<?=ROOT?>/buyersignup">
-                          <button class="button-buyer">Buyer</button>
-                          </a>
-                          <button class="button-seller">Seller</button>
-                          <button class="button-deliverer">Deliverer</button>
+                    
+  
                           
                </div>
             

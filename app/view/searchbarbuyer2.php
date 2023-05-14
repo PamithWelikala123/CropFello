@@ -82,14 +82,14 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
               <span class="profclose">&times;</span>
               <div class="profmodal-upper">
                 <img class="profprofile-picture" src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>">
-                <div class="profname">Vimukthi Dulnath</div>
+                <div class="profname"><?=$_SESSION['USER']->first_name?> <?=$_SESSION['USER']->last_name?></div>
               </div>
               <div class="profmodal-lower">
                 <button id="sellBtn" onclick="document.location='../selling/selling'">Sell</button>
                 <div class="profvertical-line"></div>
                 <button id="profileBtn" onclick="document.location='../Profile'">Profile</button>
                 <div class="profvertical-line"></div>
-                <button id="logoutBtn"  onclick="document.location='../login'">Logout</button>
+                <button id="logoutBtn"  onclick="document.location='../logout'">Logout</button>
               </div>
             </div>
 
