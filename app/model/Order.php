@@ -18,8 +18,8 @@ class Order{
     }
 
     //  $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
-    public function func3($para1,$para2,$para3,$para4,$para5,$para6,$para7,$para8,$para9,$para10,$para11,$para12,$para13,$para14,$para15){
-        $query = "insert into $this->table(buy_id,price,qua,post_id,del_price,tot,unit,item_name,order_code,del_method,exp,placed_on,image,distance,bid) values($para1,$para2,$para3,$para4,$para5,$para6,'$para7','$para8','$para9','$para10','$para11','$para12','$para13',$para14,$para15)";
+    public function func3($para1,$para2,$para3,$para4,$para5,$para6,$para7,$para8,$para9,$para10,$para11,$para12,$para13,$para14,$para15,$para16){
+        $query = "insert into $this->table(buy_id,price,qua,post_id,del_price,tot,unit,item_name,order_code,del_method,exp,placed_on,image,distance,bid,stat) values($para1,$para2,$para3,$para4,$para5,$para6,'$para7','$para8','$para9','$para10','$para11','$para12','$para13',$para14,$para15,'$para16')";
         return $this->query($query);
     }
 
@@ -72,8 +72,8 @@ class Order{
         return $this->query($query);
     }
 
-    public function func12($para1,$para2,$para3,$para4,$para5,$para6,$para7,$para8,$para9,$para10,$para11,$para12,$para13,$para14){
-        $query = "insert into $this->table(buy_id,price,qua,post_id,del_price,tot,unit,item_name,order_code,del_method,exp,placed_on,image,distance,cart) values($para1,$para2,$para3,$para4,$para5,$para6,'$para7','$para8','$para9','$para10','$para11','$para12','$para13',$para14,1)";
+    public function func12($para1,$para2,$para3,$para4,$para5,$para6,$para7,$para8,$para9,$para10,$para11,$para12,$para13,$para14,$para15){
+        $query = "insert into $this->table(buy_id,price,qua,post_id,del_price,tot,unit,item_name,order_code,del_method,exp,placed_on,image,distance,cart,stat) values($para1,$para2,$para3,$para4,$para5,$para6,'$para7','$para8','$para9','$para10','$para11','$para12','$para13',$para14,1,'$para15')";
         return $this->query($query);
     }
 

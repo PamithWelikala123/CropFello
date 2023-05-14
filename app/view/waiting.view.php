@@ -60,10 +60,10 @@ require APPROOT."/view/searchbarbuyer2.php";
                 </div>
 </div>
             <div class="main">
-                <!-- <div class="page-selector">
-                    <button class="active" onclick="window.location.href = 'index.html';">All</button>
-                    <button onclick="window.location.href = 'index2.html';">My Bids</button>
-                </div> -->
+                <div class="page-selector">
+                    <button class="active">Waiting Orders</button>
+                    <button onclick="window.location.href = '<?=ROOT?>/feed/waiting1';">Ended Orders</button>
+                </div>
                 
                 <div class="main-content">
                 <?php if(isset($data) && !empty($data)) {?>

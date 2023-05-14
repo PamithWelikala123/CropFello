@@ -376,7 +376,7 @@ class bidding{
               $address = $data5->address;
               $contact_number = $data5->contact_number;
 
-              $order->func3($buyer_id,$price,$qua,$post_id,0,$price,$unit,$item_name,$rand,'pickup',$exp,$placed_on,$image,0,1);
+              $order->func3($buyer_id,$price,$qua,$post_id,0,$price,$unit,$item_name,$rand,'pickup',$exp,$placed_on,$image,0,1,'Buyer Info');
               $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,0,0);
               redirect('feed/checkout4?order_code=' . $rand);
             }	
