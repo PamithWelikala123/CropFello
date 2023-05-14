@@ -19,7 +19,7 @@
 
 
     <div class="container">
-            <?php require APPROOT."/view/searchbarbuyer2.php"?>
+            <!-- <//?php require APPROOT."/view/searchbarbuyer2.php"?> -->
 
                     <div class="content">
                                 <div class="leftbar">
@@ -33,23 +33,7 @@
                                                 <button onclick="document.location='deliveryfee'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
                                             </div>
 
-                                            <div class="message">
-                                                <!-- <hr><label>Message</label> -->
-                                                <hr><p>Message</p><br>
-                                                <!-- <img class="message-bar" src="images/message-bar.png"> -->
-                                                    <div class="message-box">
-                                                        <?php require APPROOT."/controller/Chat.php";
-                                                        $userController = new Chat();
-                                                        $userController->viewperson();
-                                                        
-                                                        ?>
-                                                        
-                                                
-
-                                                
-
-                                                    </div>
-                                            </div>
+                                            
 
                                 </div>
 

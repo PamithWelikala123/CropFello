@@ -38,7 +38,7 @@
             <div class="main">
                         <div class="page-selector">
                             <button class="active" onclick="window.location.href = '../deliverytodo/view2';">General</button>
-                            <button onclick="window.location.href = 'deliveryrequest';">Requests</button>
+                            <button onclick="window.location.href = '../deliveryrequest';">Requests</button>
                         </div>
 
 

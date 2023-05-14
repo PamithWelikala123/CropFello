@@ -34,7 +34,7 @@ class deliverytodo{
       $row->contact_number=$row1->contact_number;
       $row->longitude=$row1->longitude;
       $row->latitude=$row1->latitude;
-
+      // $row->first_name=$row2->first_name;
 
 
       $arr2['post_id']=$row->post_id;
