@@ -17,12 +17,7 @@ class Feed{
     $rowx=$user->first($arry1);
     $arry2['district']=$rowx->district;
 
-    $rows['a']=$postitem->where($arry2);
-    foreach ($rows['a'] as $row) {
-      $arr1['item_id'] = $row->item_id;
-      $row1 = $item->first($arr1);
-      $row->item_name = $row1->name;
-    }
+
 
     $rows['b'] = $postitem->findAll();
     
@@ -32,7 +27,7 @@ class Feed{
         $row->item_name = $row1->name;
       
       }
-
+      ($_SESSION['word']=0);
         $this->view('feed',$rows);
     }
 
@@ -572,7 +567,7 @@ public function cart(){
   }
 
   $data['a'] = $order->func10($user_id);
-  $data['b'] = $order->func9();
+  $data['b'] = $order->func9(); 
 
   if(empty($data)){
     $data = [];
@@ -675,16 +670,43 @@ public function strike(){
   $this->view('viewseller',$data);
 }
 
+public function filter(){
+  $item=new item;
+  $postitem = new postitems;
+  $max=$_POST['max'];
+  $min= $_POST['min']; 
+  $district=$_POST['district']; 
+  $id= $_SESSION['USER']->user_id;
+  $item_id =  $_SESSION['word'];
+ 
+  $rows['b']=$postitem->filter($district,$item_id,$min,$max,$id); 
+if($rows['b']){
+  foreach ($rows['b'] as $row) {
+    $arr1['item_id'] = $row->item_id;
+    $row1 = $item->first($arr1);
+    $row->item_name = $row1->name;
+  
+  }
+    $this->view('feed',$rows);
+
+}
+else{
+  $this->view('feed');
+}
+}
+ 
 
 
 
     public function search(){
 
       $word=$_GET['search'];
+
       if (!empty($word)) {
       $item = new item;
       $postitem = new postitems;
       $rows1=$item->searchitem($word);
+
  
 
       if (!empty($rows1)) {
@@ -698,7 +720,9 @@ public function strike(){
                     $arry['item_id'] = $rowx->item_id;
                     $rowx2 = $item->first($arry);
                     if ($rowx2) {
+                      $_SESSION['word']=$row1->item_id;
                         $rowx->item_name = $rowx2->name;
+
                     }
 
                 }
@@ -708,14 +732,17 @@ public function strike(){
         if (!empty($rowsx) && is_array($rowsx)) {
             $this->view('feed', $rowsx);
         } else {
+          ($_SESSION['word']=0);
             $this->view('feed');
         }
     } else {
+     ($_SESSION['word']=0);
         $this->view('feed');
     }
     
     }
     else{
+                ($_SESSION['word']=0);
                  redirect('feed/feed');
     }
 

@@ -303,7 +303,26 @@ public function chatfunction($outgoing_id,$searchTerm){
         return  $this->query($query);
     }
 
+public function filter($district,$item_id,$min,$max,$id){
+    $query = "SELECT * FROM $this->table WHERE 1=1 ";
+    if (!empty($item_id)) {
+        $query .= "AND item_id >= $item_id ";
+    }
+    if (!empty($district)) {
+        $query .= "AND district >= $district ";
+    }
+    if (!empty($min)) {
+        $query .= "AND price >= $min ";
+    }
+    if (!empty($max)) {
+        $query .= "AND price <= $max ";
+    }
+    if (!empty($id)) {
+        $query .= "AND user_id <> $id ";
+    }
+        return  $this->query($query);
 
+}
 
     public function Rank1($post_id){
         
