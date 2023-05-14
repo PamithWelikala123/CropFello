@@ -158,9 +158,10 @@ $_SESSION['filename'] = 'feed';
                                               <?php endforeach; ?>
                                               <label>All</label> -->
                                             <?php foreach ($data['b'] as $row) : ?>   
-                                                      <?php if ($row->user_id!=$_SESSION['USER']->user_id) : ?>       
+                                                      <?php if ($row->user_id!=$_SESSION['USER']->user_id) : ?>      
+                                                         
                                                                     <div class="posts">
-                                                                          <div class="post">
+                                                                          <div class="post" id="post">
                                                                                   <div class="post-preview">
                                                                                   
                                                                                   <img class="img"  id="<?=$row->post_id?>" src="<?=ROOT?>/assets/images/Post-images/<?=$row->image?>" width = 200px height= 200px; title="<//?php //echo $row['image']; ?>">
@@ -194,6 +195,18 @@ $_SESSION['filename'] = 'feed';
                                                                                             </div>
 
                                                                                   </div>
+                                                                                  <div class="post-info">
+                                                                                            <div style="color:red" class="post-discount">
+                                                                                                  <label>Exp : <?php echo $row->exp; ?></label>
+
+                                                                                            </div>
+
+                                                                                            <div style="color:gray" class="post-discount">
+
+                                                                                            <label><?php echo $row->city; ?></label>
+                                                                                            </div>
+
+                                                                                  </div>
 
                                                                           </div>
 
@@ -220,6 +233,7 @@ $_SESSION['filename'] = 'feed';
 <!-- Modal Section -->
 
   </body>
+  <script src="<?=ROOT?>/assets/js/filter.js"></script>
   <script>
 
 
