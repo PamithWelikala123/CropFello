@@ -7,6 +7,11 @@ const filterButton = document.getElementById("filter-button");
 // Get the filtered products container
 const filteredProductsContainer = document.querySelector(".filtered-products");
 
+
+// Add event listener to the filter button
+
+
+
 // Array of products/posts
 const products = [
   { id: 1, title: "Product 1", price: 100, district: "district1" },
@@ -61,5 +66,5 @@ function filterProducts() {
   });
 }
 
-// Add event listener to the filter button
+
 filterButton.addEventListener("click", filterProducts);

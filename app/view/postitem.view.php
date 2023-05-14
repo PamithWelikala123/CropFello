@@ -82,7 +82,8 @@
                                                   <label class="form-label" for="firstname">Item *</label>
                                                   
                                                   <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="basic-input-field" onchange="updateCropType(this)" placeholder="  Select Item Name">
-                                                                                <?php echo $crop_list?> 
+                                                  <option value="">Select Crop</option>    
+                                                  <?php echo $crop_list?> 
                                                   </select>
                                                 </div>  
                                                 
@@ -103,6 +104,7 @@
                                                     <div class="form-group">
                                                                 <label class="form-label" for="city">District *</label>
                                                                 <select type="text" id="city" class="basic-input-field" placeholder="" name="district">
+                                                                <option value="">Select District</option>    
                                                                 <option value="2">Ampara</option>
                                                                 <option value="3">Anuradhapura</option>
                                                                 <option value="4">Badulla</option>
@@ -142,6 +144,7 @@
 
                                                             <label class="form-label" for="postalcode">Type *</label>
                                                             <select class="basic-input-field" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" onchange="parameters()" value="">
+                                                                                                        <option value="">Type</option>    
                                                                                                         <option value="KG">KG</option>
                                                                                                         <option value="G">G</option>
                                                                                                         <option value="TREES">TREES</option>
@@ -200,7 +203,7 @@
                                                                       
                                                                       <select class="basic-input-field"  name="discount1" id="discount1" type="text" onkeyup="GetDetail(this.value)" value="">
                                                                                           <option value="%">%</option>
-                                                                                          <option value="Rs">Rs</option>
+                                                                                        
                                                                       </select> 
 
 
@@ -299,7 +302,9 @@ function updateCropType(selectElement) {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const maxRental = selectedOption.getAttribute('maxrental');
     document.getElementById('rental').innerHTML = 'Max Retail price : RS.' + maxRental + '.00';
+    if(selectedOption.dataset.type!="undefined"){
     document.getElementById('crop_type').value = selectedOption.dataset.type;
+    }
 }
 
 function parameters(selectElement) {

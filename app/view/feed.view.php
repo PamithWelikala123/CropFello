@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <link rel="Stylesheet" href="<?=ROOT?>/assets/css/filter.css">
     <style>
      
       </style>
@@ -61,6 +62,54 @@ $_SESSION['filename'] = 'feed';
                 </div>
 </div>
             <div class="main">
+
+            <div class="filter-container">
+                          <div class="filter-inputs">
+                                <label>Price: &nbsp;</label>
+                                <input type="number" id="min-price" placeholder="min">
+                                <input type="number" id="max-price" placeholder="max">
+                                <Label>Area:&nbsp;</Label>
+                                <select id="district">
+                                                                <option value="">All Districts</option>
+                                                                <option value="2">Ampara</option>
+                                                                <option value="3">Anuradhapura</option>
+                                                                <option value="4">Badulla</option>
+                                                                <option value="5">Batticaloa</option>
+                                                                <option value="6">Colombo</option>
+                                                                <option value="7">Galle</option>
+                                                                <option value="8">Gampaha</option>
+                                                                <option value="9">Hambantota</option>
+                                                                <option value="10">Jaffna</option>
+                                                                <option value="11">Kalutara</option>
+                                                                <option value="12">Kandy</option>
+                                                                <option value="13">Kegalle</option>
+                                                                <option value="14">Kilinochchi</option>
+                                                                <option value="15">Kurunegala</option>
+                                                                <option value="16">Mannar</option>
+                                                                <option value="17">Matale</option>
+                                                                <option value="18">Matara</option>
+                                                                <option value="19">Monaragala</option>
+                                                                <option value="20">Mullaitivu</option>
+                                                                <option value="21">Nuwara Eliya</option>
+                                                                <option value="22">Polonnaruwa</option>
+                                                                <option value="23">Puttalam</option>
+                                                                <option value="24">Ratnapura</option>
+                                                                <option value="25">Trincomalee</option>
+                                                                <option value="26">Vavuniya</option>
+                                </select>
+                                <button id="filter-button">Filter</button>
+                          </div>
+
+                          <div class="filtered-products"></div>
+             </div>
+
+
+
+
+
+
+
+
                   <div class="main-content">
                               <?php if ($data) : ?>      
                                 <!-- <label>Your District</label>

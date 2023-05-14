@@ -680,10 +680,10 @@ public function strike(){
         foreach ($rows1 as $row1) {
             $arrx1['item_id'] = $row1->item_id;
             $arrx2['user_id'] = $_SESSION['USER']->user_id;
-            $rowsx = $postitem->where($arrx1, $arrx2);
+            $rowsx['b'] = $postitem->where($arrx1, $arrx2);
     
-            if (is_array($rowsx) && !empty($rowsx)) {
-                foreach ($rowsx as $rowx) {
+            if (is_array($rowsx['b']) && !empty($rowsx['b'])) {
+                foreach ($rowsx['b'] as $rowx) {
                     $arry['item_id'] = $rowx->item_id;
                     $rowx2 = $item->first($arry);
                     if ($rowx2) {
