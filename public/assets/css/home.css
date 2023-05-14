@@ -6,11 +6,17 @@
   
 }
 
-h3{
+.right h3{
   opacity: 0.6;
   margin-left: 5%;
+  /* margin-top: 5%; */
 }
 
+.this-month h3{
+  opacity: 0.6;
+
+  margin-top: 5%;
+}
 .container {
   display: grid;
   /* grid-template-columns: 50% 50%; */
@@ -105,7 +111,9 @@ h3{
   /* border: 1px solid black; */
   
 } 
-
+.account a{
+  cursor: pointer;
+}
 /* .hedder .account img{
   
 } */
@@ -117,8 +125,8 @@ h3{
   grid-template-columns: 60% 40%; 
   grid-template-areas:
   "left right";
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 15%;
+  margin-right: 15%;
   padding-top: 2%;
 } 
 
@@ -135,33 +143,48 @@ h3{
   /* margin: 10%; */
 }
 
+.stats .left img{
+width: 50px;
+height: 50px;
+float: right;
+}
+
+
+
+
 .buyer{
   grid-area: buyer;
-  border-radius: 5%;
-  background-color: #E3F6DE;
+  border-radius: 10px;
+  /* background-color: #E3F6DE; */
+  background-image: linear-gradient(to right, rgba(89, 255, 0, 0.11), rgb(221, 255, 209));
   margin:5% 5% 0%;
   padding: 5%;
 }
 
 .seller{
   grid-area: seller;
-  border-radius: 5%;
-  background-color: #E3F6DE;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, rgba(89, 255, 0, 0.11), rgb(221, 255, 209));
   margin:5% 5% 0%;
   padding: 5%;
 }
 
 .deliverer{
   grid-area: deliverer;
-  border-radius: 5%;
-  background-color: #E3F6DE;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, rgba(89, 255, 0, 0.11), rgb(221, 255, 209));
   margin:5% 5% 0%;
   padding: 5%;
 }
 
 .this-month{
   grid-area: this-month;
+  margin-left: 5%;
   /* border: 1px solid black; */
+}
+.this-month span{
+ color: #4DEA25;
+ 
 }
 
 .stats .right{
@@ -174,7 +197,7 @@ h3{
   "season"
   "details";
   /* margin: 10%; */
-  border-radius: 5%;
+  border-radius: 10px;
 
   
 }

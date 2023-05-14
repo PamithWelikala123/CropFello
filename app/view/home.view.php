@@ -30,18 +30,21 @@
         <div class="stats">
             <div class="left">
                 <div class="buyer">
-                    <h3>Buyers</h3>
-                    <h4><center><?=$data['buyercount']?></center></h4>
+                    <h6>Buyers</h6>
+                    <h1><?=$data['buyercount']?> <img src="<?=ROOT?>/assets/images/home/buyer.png" alt="user"></h1>
                 </div>
                 <div class="seller">
-                    <h3>Sellers</h3>
-                    <h4><center><?=$data['sellercount']?></center></h4>
+                    <h6>Sellers</h6>
+                    <h1><?=$data['sellercount']?> <img src="<?=ROOT?>/assets/images/home/shop.png" alt="user"></h1>
                 </div>
                 <div class="deliverer">
-                    <h3>Deliverers</h3>
-                    <h4><center><?=$data['deliverycount']?></center></h4>
+                    <h6>Deliverers</h6>
+                    <h1><?=$data['deliverycount']?> <img src="<?=ROOT?>/assets/images/home/delivery.png" alt="user"></h1>
                 </div>
-                <div class="this-month"></div>
+                <div class="this-month">
+                    <h3>This Month</h3>
+                    <h5>Most Searched: <span class="green">Banana</span>  &emsp;&emsp;&emsp;&emsp; Most Selling: <span class="green">Beans</span> </h5>
+                </div>
             </div>
             <div class="right">
                 <div class="season">
