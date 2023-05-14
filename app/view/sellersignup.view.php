@@ -18,7 +18,7 @@
 <body onload="initMap()">
 
 <img src="http://localhost/Cropfello/vimukthi/register form/images/logo.png" alt="">
-<p class="login">Login</p>
+<p class="login" onclick="document.location='login'">Login</p>
 <div class="row">
   <div class="col-75">
     <div class="container">
@@ -60,9 +60,9 @@
                 
                 <label for="city">District</label>
                       <?php if(empty($errors['city'])):?>
-                      <input type="text" id="city" name="district">
+                      <input type="text" id="district" name="district">
                       <?php else:?>
-                        <input style="border: 1px solid #FB7A7A;" type="text" id="city" name="city">
+                        <input style="border: 1px solid #FB7A7A;" type="text" id="district" name="district">
                       <?php endif;?>
                 
                     </div>

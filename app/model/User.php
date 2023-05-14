@@ -30,6 +30,7 @@ class User{
          if (empty($data['password'])){
             $this->errors['password'] = "Password is Required";
          }
+         
           if (empty($data['confirm_password'])){
             $this->errors['confirm_password'] = "Confirm_password is Required";
          
@@ -38,36 +39,13 @@ class User{
          if(empty($this->errors)){
          return true;
            }
-
+           return false;
     }
 
 
     public function validate($data){
-        $this->errors = [];      
-
-
-      //    if (empty($data['email'])){
-      //       $this->errors['email'] = "Email is Required";
-
-      //    } 
-      //    else {
-      //    if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-      //       $this->errors['email'] = "Email is Not Valid";
-      //    }
-      //    if (validateemail($data['email'])) {
-      //       $this->errors['email'] = "Email is Already Exist";
-      //    }
-
-       // if (empty($data['password'])){
-         //    $this->errors['password'] = "Password is Required";
-         // }
-          // if (empty($data['confirm_password'])){
-         //    $this->errors['confirm_password'] = "Confirm_password is Required";
-         // }
+        $this->errors = [];     
       
-      // }
-      
-           
             $pattern = "/^(?:\+94|0)?(?:1\d{2}|2\d{2}|3\d{2}|4\d{2}|5\d{2}|6\d{2}|7\d{2}|8\d{2})\d{6}$/";
 
             if (preg_match($pattern,$data['contact_number'])) {

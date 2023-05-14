@@ -684,7 +684,6 @@ public function strike(){
       if (!empty($word)) {
       $item = new item;
       $postitem = new postitems;
-      $district=new district;
       $rows1=$item->searchitem($word);
  
 
@@ -723,6 +722,9 @@ public function strike(){
       
 
     }
+
+
+    
 
 
 

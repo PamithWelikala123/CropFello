@@ -8,43 +8,6 @@ const filterButton = document.getElementById("filter-button");
 
 
 // Get the filtered products container
-const filteredProductsContainer = document.querySelector(".posts");
-
-
-
-// Display the filtered products in the UI
-filteredProducts.forEach((product) => {
-console.log("Hi");
-  const post = document.createElement("div");
-  post.classList.add("post");
-  post.innerHTML = `
-    <div class="post-preview">
-      <img class="img" id="${product.id}" src="${ROOT}/assets/images/Post-images/${product.image}" width="200" height="200" title="${product.image}">
-    </div>
-    <div class="post-info">
-      <div class="post-type">
-        ${product.title}
-      </div>
-      <div class="post-price">
-        Rs. ${product.price}
-      </div>
-      <div class="post-size">
-        ${product.size} ${product.unit}
-      </div>
-      <div class="post-discount">
-        ${product.discount} ${product.discount1} OFF
-      </div>
-      <div style="color:red" class="post-discount">
-        <label>Exp : ${product.exp}</label>
-      </div>
-      <div style="color:gray" class="post-discount">
-        <label>${product.city}</label>
-      </div>
-    </div>
-  `;
-  filteredProductsContainer.appendChild(post);
-
-});
 
 
 
@@ -54,3 +17,76 @@ console.log("Hi");
 
 
 
+
+
+
+
+
+// // Select the input field and the table
+// const searchInput = document.getElementById("searchInput");
+// const table = document.getElementById("message-table");
+// const filterselect=document.getElementById("account-type");
+
+
+//     searchInput.addEventListener('input', () => {
+    
+//     const searchTerm = searchInput.value.toLowerCase();
+
+    
+//     for (let i = 1; i < table.rows.length; i++) {
+//         const row = table.rows[i];
+//         const cells = row.cells;
+//         let matchesSearch = false;
+
+        
+//         for (let j = 0; j < cells.length; j++) {
+//         const cell = cells[j];
+        
+//         if (cell.textContent.toLowerCase().includes(searchTerm)) {
+//             matchesSearch = true;
+//             break;
+//         }
+//         }
+
+        
+//         if (matchesSearch) {
+//         row.style.display = '';
+//         } else {
+//         row.style.display = 'none';
+//         }
+//     }
+//     });
+
+//     filterselect.addEventListener('change',()=>{
+//         const searchTerm = filterselect.value.toLowerCase();
+
+//         if (searchTerm=="all account") {
+//             for (let i = 1; i < table.rows.length; i++) {
+//                 const row = table.rows[i];
+//                 row.style.display = '';
+//             }
+//         }
+//         else{
+//             for (let i = 1; i < table.rows.length; i++) {
+//                 const row = table.rows[i];
+//                 const lastTwoCells = row.cells.length > 1 ? [row.cells[row.cells.length - 2], row.cells[row.cells.length - 1]] : [];
+//                 let matchesSearch = false;
+        
+                
+//                 Array.from(lastTwoCells).forEach(cell => {
+                
+//                 if (cell.textContent.toLowerCase().includes(searchTerm)) {
+//                     matchesSearch = true;
+//                 }
+//                 });
+        
+                
+//                 if (matchesSearch) {
+//                 row.style.display = '';
+//                 } else {
+//                 row.style.display = 'none';
+//                 }
+//             }
+//         }
+        
+//     });
