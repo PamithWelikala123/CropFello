@@ -136,8 +136,8 @@
                                       <div class="form-split">
 
                                             <div class="form-group">
-                                                              <label class="form-label" for="city">Amount *</label>
-                                                              <input  class="basic-input-field"  type="text"  name="amount" placeholder="  Rs." >
+                                                              <label class="form-label" for="city">Quntity *</label>
+                                                              <input  class="basic-input-field"  type="text"  name="amount"  >
                                             </div>
 
                                               <div class="form-group">

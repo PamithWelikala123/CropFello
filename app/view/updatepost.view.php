@@ -215,7 +215,7 @@
                       </div>
                      
                       <div class="form-group">
-                                                  <label class="form-label" for="about">About *</label>
+                                                  <label class="form-label" for="about">About</label>
                                                   <input type="text" id="about" class="discription" placeholder="  Change your Description..." name="description" >
                       </div>
 

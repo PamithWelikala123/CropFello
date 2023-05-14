@@ -180,6 +180,7 @@ function initMap() {
                                                 
                                                 
                                             </div>
+                                            
                                             <div class="wish-viewitems">
                                             <?php if ($data['flag'] == 0): ?>
                                                     <label for=""><sup>Wishlist &nbsp;</sup><img id=<?= $data['post_id']?> onclick="wishlist1()" src="<?=ROOT?>/assets/images/images/bookmark.svg" alt=""></label>
@@ -211,7 +212,8 @@ function initMap() {
                                             </div-->
                                         </div>
                                         <div class="description-viewitems">
-                                            <h4>description</h4><hr>
+                                            <h3>description</h3><hr>
+                                            <p><?= $data['description']?></p>
                                             
                                         </div>
 

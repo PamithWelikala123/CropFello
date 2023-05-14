@@ -107,6 +107,100 @@ class bidding{
     
     }
 
+    // public function search(){
+    //     $word1 =$_GET['search'];
+    //     $word['name']= $word1;
+        
+    //     if (!empty($word1) && isset($word1)) {
+
+    //     $item = new item;
+    //     $createbid = new createbid;
+    //     $rows1=$item->where($word);
+   
+  
+    //     if (!empty($rows1)) {
+    //       foreach ($rows1 as $row1) {
+    //         // $row1->item_name = $row1->name;
+    //              $arrx1['item_id']=$row1->item_id;
+    //              $arrx2['seller_id']=$_SESSION['USER']->user_id;
+                    
+  
+    //                  $rowsx=$createbid->where($arrx1,$arrx2);
+    //                  $rowsx=(array)$rowsx;
+    //                  if (!empty($rowsx)) {
+    //                   foreach ($rowsx as $rowx) {
+                        
+    //                     // $arry['item_id']=$rowx->item_id;
+    //                     //  $rowx2 = $item->first($arry);
+    //                       $rowx->item_name =$word1;
+    //                   }
+    //                 }
+                  
+    //        }
+  
+    //        $this->view('buyerbidding2',$rowsx);
+    //     }
+    //      else {
+    //       $this->view('buyerbidding2');
+    //     }
+    //   }
+    //   else{
+    //                redirect('Bidding/BuyerBidding');
+    //   }
+  
+        
+  
+    //   }
+  
+    public function search(){
+
+        $word=$_GET['search'];
+        if (!empty($word)) {
+        $item = new item;
+        $createbid = new createbid;
+        $rows1=$item->searchitem($word);
+   
+  
+        if (!empty($rows1)) {
+          foreach ($rows1 as $row1) {
+              $arrx1['item_id'] = $row1->item_id;
+              $arrx2['seller_id'] = $_SESSION['USER']->user_id;
+              $rowsx = $createbid->where($arrx1, $arrx2);
+      
+              if (is_array($rowsx) && !empty($rowsx)) {
+                  foreach ($rowsx as $rowx) {
+                      $arry['item_id'] = $rowx->item_id;
+                      $rowx2 = $item->first($arry);
+                      if ($rowx2) {
+                        $date1=date_create($rowx->bid_end_date);
+                        $date2=date_create(date("Y-m-d"));
+                        $diff=date_diff($date2,$date1);
+                        $rowx ->remaning=$diff->format("%R%a");
+                          $rowx->item_name = $rowx2->name;
+                      }
+                  }
+              }
+          }
+      
+          if (!empty($rowsx) && is_array($rowsx)) {
+            $this->view('buyerbidding2',$rowsx);
+          } else {
+            $this->view('buyerbidding2');
+          }
+      } else {
+        $this->view('buyerbidding2');
+      }
+      
+      }
+      else{
+        redirect('Bidding/BuyerBidding');
+      }
+
+    }
+
+
+
+
     public function sellerbidding(){
 
         $user = new user;

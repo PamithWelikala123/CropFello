@@ -20,20 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       {id: 5, message: 'Notification 5 message', link: 'notification5.html'},
       {id: 6, message: 'Notification 6 message', link: 'notification6.html'},
     ];
-
-
-    $(document).ready(function() {
-      $.ajax({
-          url: "http://localhost/Cropfello/public/",
-          type: "GET",
-          success: function(response) {
-              var myVar = JSON.parse(response);
-              console.log(myVar); // Output: Hello World
-              // Use the variable in your JavaScript code here
-          }
-      });
-  });
-  
+    
 
   
     // Add notifications to the notification list
@@ -49,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       notificationList.appendChild(notificationEl);
     });
+
+
   
     // Update notification count and show/hide notification icon badge
     function updateNotificationCount() {
@@ -60,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         notificationCount.style.display = 'none';
       }
     }
+
+
+
   
     // Open notification box when notification icon is clicked
     notificationIcon.addEventListener('click', () => {

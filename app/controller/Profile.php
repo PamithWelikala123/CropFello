@@ -143,6 +143,13 @@ class profile{
   }
 
 
+  public function recomenedprice(){
+    $item = new item;
+    
+
+
+  }
+
 
 
 

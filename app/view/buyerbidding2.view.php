@@ -22,7 +22,9 @@
 <body>
 
 
-
+<?php
+$_SESSION['filename'] = 'Bidding';
+?>
     <div class="container">
             <?php require APPROOT."/view/searchbarbuyer2.php"?>
 
@@ -155,7 +157,12 @@
                
                
             </div>
-            <?php endif; ?>
+            <?php else : ?>
+                                  <div class="no-search">
+                                    <p>No search Result <img src="<?=ROOT?>/assets/images/feed/no-search.svg" alt=""> </p>
+                                  </div>
+                                  
+          <?php endif; ?>
         </div>
         
     </div>

@@ -281,9 +281,9 @@ public function chatfunction($outgoing_id,$searchTerm){
     //     $query = "select * from $tablename WHERE NOT seller_id = {$id} AND (item_id  LIKE '%{$searchTerm}%' OR item_type LIKE '%{$searchTerm}%')";
     //     return  $this->query($query);
     // }
-     public function searchitem($tablename,$searchTerm){
+     public function searchitem($searchTerm){
 
-        $query = "select * from $tablename WHERE (name  LIKE '%{$searchTerm}%' OR type LIKE '%{$searchTerm}%')";
+        $query = "select * from $this->table WHERE (name  LIKE '%{$searchTerm}%')";
         return  $this->query($query);
     }
 
