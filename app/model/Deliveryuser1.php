@@ -19,13 +19,17 @@ class Deliveryuser1{
          if (empty($data['email'])){
             $this->errors['email'] = "Email is Required";
 
-         } else {
+         }
+         
+         else {
+
          if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
             $this->errors['email'] = "Email is Not Valid";
          }
-         if (validateemail($data['email'])) {
+         if (validateemail1($data['email'])) {
             $this->errors['email'] = "Email is Already Exist";
          }
+
              }
       
 
