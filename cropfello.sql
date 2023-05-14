@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2023 at 08:42 PM
+-- Generation Time: May 14, 2023 at 11:57 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -383,7 +383,8 @@ CREATE TABLE `orders` (
   `placed_on` date NOT NULL,
   `bid` int(11) NOT NULL,
   `approved` int(11) NOT NULL DEFAULT 0,
-  `approved_id` int(11) NOT NULL DEFAULT 0
+  `approved_id` int(11) NOT NULL DEFAULT 0,
+  `stat` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -421,10 +422,11 @@ CREATE TABLE `postitem` (
 --
 
 INSERT INTO `postitem` (`post_id`, `user_id`, `item_id`, `item_type`, `exp`, `unit`, `price`, `size`, `stock_size`, `stock_size1`, `discount`, `discount1`, `Address`, `district`, `city`, `location`, `platitude`, `plongitude`, `image`, `description`, `sold_on`) VALUES
-(68, 3, 14, 'fruit', '2023-05-19', 'KG', 400, 2, 0, 'KG', 10, '%', 'flower road, colombo', '', 'Colombo', '255c Baseline Rd, Colombo 00300, Sri Lanka', 6.927078600000012, 79.8777224921875, '645f59a3ac1d5.jpg', 'patta mango', '2023-05-13'),
-(69, 12, 15, 'fruit', '2023-05-25', 'KG', 1000, 2, 10, 'KG', 10, '%', 'yaka wanguwa, kanthale', '2', 'Kantale', '9233+H7 Kantale, Sri Lanka', 8.353980848460747, 81.00321624970702, '645fb3f27ed5d.jpg', 'imported fresh apples for affordable price', '2023-05-13'),
-(70, 12, 18, 'vegetable', '2023-05-26', 'KG', 500, 2, 18, 'KG', 5, '%', 'maligawatta road, maradana, colombo 10', '2', 'Colombo', 'WVPC+RH6, Colombo 01000, Sri Lanka', 6.937015992969404, 79.8709787238037, '645fb4809ac61.jpg', 'fresh brinjols, very cheap', '2023-05-13'),
-(71, 12, 17, 'vegetable', '2023-05-26', 'KG', 300, 5, 40, 'KG', 2, '%', 'flower road, rathnapura', '', 'Kuruwita', 'P9WH+GJ4, Kuruwita, Sri Lanka', 6.746489380911152, 80.37924133593751, '645fb5a7c151d.jpg', 'top beans for affordable price', '2023-05-13');
+(68, 3, 14, 'fruit', '2023-05-05', 'KG', 400, 2, 0, 'KG', 10, '%', 'flower road, colombo', '0', 'Colombo', '255c Baseline Rd, Colombo 00300, Sri Lanka', 6.927078600000012, 79.8777224921875, '645f59a3ac1d5.jpg', 'patta mango', '2023-05-13'),
+(69, 12, 15, 'fruit', '2023-05-25', 'KG', 1000, 2, 4, 'KG', 10, '%', 'yaka wanguwa, kanthale', '2', 'Kantale', '9233+H7 Kantale, Sri Lanka', 8.353980848460747, 81.00321624970702, '645fb3f27ed5d.jpg', 'imported fresh apples for affordable price', '2023-05-13'),
+(70, 12, 18, 'vegetable', '2023-05-26', 'KG', 500, 2, 14, 'KG', 5, '%', 'maligawatta road, maradana, colombo 10', '2', 'Colombo', 'WVPC+RH6, Colombo 01000, Sri Lanka', 6.937015992969404, 79.8709787238037, '645fb4809ac61.jpg', 'fresh brinjols, very cheap', '2023-05-13'),
+(71, 12, 17, 'vegetable', '2023-05-26', 'KG', 300, 5, 20, 'KG', 2, '%', 'flower road, rathnapura', '0', 'Kuruwita', 'P9WH+GJ4, Kuruwita, Sri Lanka', 6.746489380911152, 80.37924133593751, '645fb5a7c151d.jpg', 'top beans for affordable price', '2023-05-13'),
+(72, 12, 17, 'vegetable', '2023-05-25', 'KG', 160, 2, 10, 'KG', 2, '%', 'main street, ampara', '', 'Ampara', '8M5G+X9H, Bandaranayake Ave, Ampara, Sri Lanka', 7.309248086291076, 81.6767894365234, '6460a7ebb132a.jpg', 'fresh beans', '2023-05-14');
 
 -- --------------------------------------------------------
 
@@ -466,7 +468,6 @@ INSERT INTO `registerd_user` (`user_id`, `first_name`, `last_name`, `address`, `
 (6, 'rushin', 'sandeepa', '80/5 Galle Road Hambanthota', 703329164, 'Rushin@gmail.com', 'rushin123', 'Hambanthota', '', '', 0, 0, 0, 1, 1, '0', '63f8dac81529e.jpg', '', 'Not Online'),
 (7, 'saneru', 'akarawita', '60/1/C high level road homagama', 770338069, 'saneruakarawita@gmail.com', 'Saneru123', 'Homagama', '', '', 0, 0, 0, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
 (8, 'Dinuka', 'Ashan', '7/1/C highlevel Road Meegoda', 714872852, 'dinukaashan@gmail.com', 'Dinuka123', 'Godagama', '', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
-(9, 'pamith', 'Minthaka', '40/5/5 highlevel road rathnapura', 772776406, 'pamithrox@gmail.com', 'pamith', 'Colombo', '', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
 (10, 'menura', 'melaka', 'menura@gmail.com', 763714756, 'menura@gmail.com', '440952a1c7f1a17f1cf6c9e12563040f', 'homagama', '', '', 0, 0, 1, 0, 0, '', '63f8dac81529e.jpg', '', 'Not Online'),
 (11, 'ramith', 'welikala', 'flower road, rathnapura', 771674022, 'pamith@gmail.com', 'cadb142cf2ac4fe9aff072abd70f19da', 'colombo', '', '', 0, 0, 1, 0, 0, '', '63f9af41e8e6d.jpeg', '', 'Not Online'),
 (12, 'Saneru', ' Udana', 'yaka wanguwa, kanthale', 770338069, 'abc@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'kahatagasdigiliya', '', 'R2H9+H8 Homagama, Sri Lanka', 6.828959157721786, 80.01828950117186, 1, 0, 0, NULL, '63f8dac81529e.jpg 	', '', 'Not Online');
@@ -503,7 +504,6 @@ CREATE TABLE `reported_deliverers` (
 --
 
 INSERT INTO `reported_deliverers` (`id`, `buyer_id`, `deliverer_id`, `reason`) VALUES
-(1, 8, 9, 'very bad'),
 (2, 3, 6, 'very naughty');
 
 -- --------------------------------------------------------
@@ -524,12 +524,9 @@ CREATE TABLE `reported_sellers` (
 --
 
 INSERT INTO `reported_sellers` (`id`, `buyer_id`, `seller_id`, `reason`) VALUES
-(1, 4, 10, 'bad bad'),
-(2, 2, 5, 'poor goods'),
-(5, 2, 3, 'very naughty'),
-(6, 2, 3, 'very naughty'),
-(7, 2, 3, 'very naughty'),
-(8, 2, 3, 'very naughty');
+(19, 2, 12, 'bad quality'),
+(21, 2, 12, 'bad quality'),
+(22, 2, 12, 'bad quality');
 
 -- --------------------------------------------------------
 
@@ -581,11 +578,11 @@ CREATE TABLE `transactions` (
   `post_id` bigint(20) NOT NULL,
   `unit` varchar(10) NOT NULL,
   `item_name` varchar(100) NOT NULL,
-  `image` varchar(100) NOT NULL,
+  `image1` varchar(100) NOT NULL,
   `exp` date NOT NULL,
   `placed_on` date NOT NULL,
   `sell_id` int(11) NOT NULL,
-  `approved_id` int(11) NOT NULL,
+  `approved_id` bigint(20) NOT NULL,
   `delivery_done` int(11) NOT NULL DEFAULT 0,
   `del_price` int(11) NOT NULL,
   `completed_date` date DEFAULT NULL
@@ -595,10 +592,18 @@ CREATE TABLE `transactions` (
 -- Dumping data for table `transactions`
 --
 
-INSERT INTO `transactions` (`id`, `buy_id`, `order_code`, `qua`, `tot`, `post_id`, `unit`, `item_name`, `image`, `exp`, `placed_on`, `sell_id`, `approved_id`, `delivery_done`, `del_price`, `completed_date`) VALUES
+INSERT INTO `transactions` (`id`, `buy_id`, `order_code`, `qua`, `tot`, `post_id`, `unit`, `item_name`, `image1`, `exp`, `placed_on`, `sell_id`, `approved_id`, `delivery_done`, `del_price`, `completed_date`) VALUES
 (9, 12, '65413774a7196be434bcfe1d1a293afe', 2, 400, 65, 'KG', 'brinjol', '6459f59515928.jpg', '2023-05-31', '2023-05-13', 2, 0, 0, 0, NULL),
 (10, 2, '0d8d6eefc96c6bcd939910d89a6ea874', 10, 588, 71, 'KG', 'beans', '645fb5a7c151d.jpg', '2023-05-26', '2023-05-13', 12, 0, 0, 0, NULL),
-(11, 2, '5f5328ef737a77ba833307645511c7c2', 2, 475, 70, 'KG', 'brinjol', '645fb4809ac61.jpg', '2023-05-26', '2023-05-13', 12, 0, 0, 0, NULL);
+(11, 2, '5f5328ef737a77ba833307645511c7c2', 2, 475, 70, 'KG', 'brinjol', '645fb4809ac61.jpg', '2023-05-26', '2023-05-13', 12, 0, 0, 0, NULL),
+(12, 2, '4eb81f9cec7ea1fb47f22d2077890d10', 5, 28044, 71, 'KG', 'beans', '645fb5a7c151d.jpg', '2023-05-26', '2023-05-14', 12, 1, 0, 27750, NULL),
+(13, 2, '36221a76007739abbcbdfcfd049369b2', 2, 107475, 70, 'KG', 'brinjol', '645fb4809ac61.jpg', '2023-05-26', '2023-05-14', 12, 1, 0, 107000, NULL),
+(14, 2, 'dc7ba730ba035fcbd445351d8ae9b1e9', 5, 28044, 71, 'KG', 'beans', '645fb5a7c151d.jpg', '2023-05-26', '2023-05-14', 12, 1, 0, 27750, NULL),
+(15, 2, '14fbf4aafc272846e641b02bc8c35576', 5, 28044, 71, 'KG', 'beans', '645fb5a7c151d.jpg', '2023-05-26', '2023-05-14', 12, 1, 0, 27750, NULL),
+(16, 2, '3947cede89dc0125844a1a245a1f03b1', 2, 900, 69, 'KG', 'apple', '645fb3f27ed5d.jpg', '2023-05-25', '2023-05-14', 12, 0, 0, 0, NULL),
+(17, 2, 'ef326d2d80597e10b6ff61b35c2c5d88', 5, 28044, 71, 'KG', 'beans', '645fb5a7c151d.jpg', '2023-05-26', '2023-05-14', 12, 1, 0, 27750, NULL),
+(18, 2, 'a90b4d6d023a868ab3ccdfc33e8eb106', 2, 107475, 70, 'KG', 'brinjol', '645fb4809ac61.jpg', '2023-05-26', '2023-05-14', 12, 5, 0, 107000, NULL),
+(19, 2, '4d35d6fe2fc26bdbeb8990d6dc49ca86', 4, 49200, 69, 'KG', 'apple', '645fb3f27ed5d.jpg', '2023-05-25', '2023-05-14', 12, 2, 1, 47400, NULL);
 
 -- --------------------------------------------------------
 
@@ -618,8 +623,17 @@ CREATE TABLE `user` (
   `bank` varchar(255) NOT NULL,
   `branch` varchar(255) NOT NULL,
   `acc_number` int(11) NOT NULL,
-  `acc_name` varchar(255) NOT NULL
+  `acc_name` varchar(255) NOT NULL,
+  `contact_number` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `fname`, `lname`, `vnumber`, `email`, `password_hash`, `cnum`, `district`, `bank`, `branch`, `acc_number`, `acc_name`, `contact_number`) VALUES
+(1, 'roshan', 'sandeepana', '300008698449', 'praneeth495@gmail.com', 'tftft', '', 'Colombo', '', '', 0, '', 990056),
+(2, 'rushin', 'sandeepana', '200008003041', 'hello@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '0713456306', '4', '', '', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -803,7 +817,8 @@ ALTER TABLE `request_item`
 --
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `sell_id` (`sell_id`);
+  ADD KEY `sell_id` (`sell_id`),
+  ADD KEY `con20` (`buy_id`);
 
 --
 -- Indexes for table `user`
@@ -834,7 +849,7 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=277;
 
 --
 -- AUTO_INCREMENT for table `createbid`
@@ -870,13 +885,13 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=425;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=448;
 
 --
 -- AUTO_INCREMENT for table `postitem`
 --
 ALTER TABLE `postitem`
-  MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `post_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `registerd_user`
@@ -894,7 +909,7 @@ ALTER TABLE `reported_deliverers`
 -- AUTO_INCREMENT for table `reported_sellers`
 --
 ALTER TABLE `reported_sellers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `request_item`
@@ -906,13 +921,13 @@ ALTER TABLE `request_item`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -924,12 +939,6 @@ ALTER TABLE `user`
 ALTER TABLE `dis_user`
   ADD CONSTRAINT `con4` FOREIGN KEY (`id`) REFERENCES `district` (`id`),
   ADD CONSTRAINT `con5` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
-
---
--- Constraints for table `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `cony` FOREIGN KEY (`post_id`) REFERENCES `postitem` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `postitem`
@@ -958,6 +967,12 @@ ALTER TABLE `reported_deliverers`
 ALTER TABLE `reported_sellers`
   ADD CONSTRAINT `con10` FOREIGN KEY (`buyer_id`) REFERENCES `registerd_user` (`user_id`),
   ADD CONSTRAINT `con11` FOREIGN KEY (`seller_id`) REFERENCES `registerd_user` (`user_id`);
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `con20` FOREIGN KEY (`buy_id`) REFERENCES `registerd_user` (`user_id`);
 
 --
 -- Constraints for table `user_requestitem`

@@ -17,7 +17,8 @@
         </div>
         <div class="heading">
             <h1>Transaction Info</h1>
-            <a href="http://localhost/Cropfello/public/feed/checkout1"><img class="back" src="<?=ROOT?>/assets/images/checkout/back_btn.png" alt="back button"></a>
+            <!--a href="http://localhost/Cropfello/public/feed/checkout1"><img class="back" src="<?=ROOT?>/assets/images/checkout/back_btn.png" alt="back button"></a-->
+            
         </div>
         <div class="sidebar"> 
             <div class="inner_sidebar">
@@ -37,28 +38,26 @@
                     <tr></tr><tr></tr><tr></tr>
                     <tr><td><h3>Total</h3></td><td></td><td><h3> Rs. <?php echo($dat->tot);  ?></h3></td></tr>
                     <input type="hidden" value='<?=$dat->order_code?>' name='abc' id='abc'>
-                    <?php }
-                    ?>
                 </table>
                 
             </div>
         </div>
         
         <div class="main-content">
-            <h3>Deliver To</h3>
+            <h3><?php echo($dat->stat);  ?></h3>
+            <?php } ?>
             <?php foreach($data['b'] as $dat1){ ?>
             <div class="inner_main">
                <p><?php echo($dat1->first_name);  ?> <?php echo($dat1->last_name);  ?></p>
                 <p><?php echo($dat1->address);  ?></p><br>
                 <p><?php echo($dat1->contact_number);  ?></p><br>
             </div>
-            <?php }
-            ?>
+            <?php } ?>
             
             <!--?php foreach($data['b'] as $dat1){ ?-->            
-
-                <br><h3>Deliverer Info</h3><p>Rushin Sandeepane</p><p>7788</p><p>lorry</p><p>7788</p><br>
-                
+                <?php foreach($data['d'] as $dat3){ ?>
+                <br><h3>Deliverer Info</h3><p><?php echo($dat3->fname);  ?> <?php echo($dat3->lname);  ?></p><p><?php echo($dat3->contact_number);  ?></p><!--p>lorry</p><p>7788</p><br-->
+                <?php } ?><br>
 
                 <form method="post">
                 <label class="radio-inline">

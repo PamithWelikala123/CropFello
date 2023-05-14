@@ -33,9 +33,9 @@ function pg(order_code){
                                     var payment = {
                                         "sandbox": true,
                                         "merchant_id": "1222939",    // Replace your Merchant ID
-                                        "return_url": "http://localhost/cropfello/public/feed/checkout2",     // Important
-                                        "cancel_url": "http://localhost/cropfello/public/feed/checkout2",     // Important
-                                        "notify_url": "",
+                                        "return_url": "http://localhost/cropfello/public/feed/feed",     // Important
+                                        "cancel_url": "http://localhost/cropfello/public/feed/feed",     // Important
+                                        "notify_url": "http://localhost/cropfello/public/feed/feed",
                                         "order_id": obj["order_id"],
                                         "items": obj["items"],
                                         "amount": obj["amount"],

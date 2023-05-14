@@ -87,7 +87,7 @@ class Selling{
 
 
 
-    public function mytransactionpraneeth(){
+    public function mytransaction(){
         $user = new User;
         $postitem = new postitems;
         $item = new item;
@@ -106,7 +106,7 @@ class Selling{
 
 
 
-    public function mytransaction_past(){   
+    public function mytransaction_past1(){   
         // $order = new Order();
         $transaction = new transaction();
         $user = new User();
@@ -138,7 +138,7 @@ class Selling{
     $this->view('seller_mytransaction_past'); 
     }
 
-    public function mytransaction()
+    public function mytransaction1()
     {
         $order = new Order();
         $postitem = new Postitems();
@@ -171,7 +171,17 @@ class Selling{
         $this->view('seller_mytransaction',$rows1);
     }
     
-    $this->view('seller_mytransaction'); 
+    //$this->view('seller_mytransaction'); 
+    }
+
+    public function mytransaction_past(){
+        $tran = new transaction;
+        $order = new Order;
+        $arr['user_id'] = $_SESSION['USER']->user_id;
+        $user_id = $_SESSION['USER']->user_id;
+
+        $data['a'] = $tran->func2($user_id);
+        $this->view('seller_mytransaction_past',$data);
     }
     
     

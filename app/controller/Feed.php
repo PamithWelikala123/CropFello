@@ -110,7 +110,7 @@ class Feed{
         $data3= $postitem->first($arr1);
         $quan = $_POST['quantity'];
         $qt = intval($quan);
-
+        $stat = 'Deliver To';
         $item_id = $data3->item_id;
         $arr5['item_id'] = $item_id;
         $data6 = $item->first($arr5);
@@ -133,7 +133,7 @@ class Feed{
         $rand = md5(uniqid(rand(),true));
 
         if($full_stock > $qua){
-          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,0);
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,0,$stat);
         }else{
           print_r("not enough stock");
         }
@@ -166,6 +166,7 @@ class Feed{
         $arr5['item_id'] = $item_id;
         $data6 = $item->first($arr5);
         $item_name = $data6->name;
+        $stat = 'Buyer Info';
         $unit = $data3->unit;
         $qua = $data3->size*$qt;
         $discount = $data3->discount;
@@ -184,7 +185,7 @@ class Feed{
         $rand = md5(uniqid(rand(),true));
 
         if($full_stock > $qua){
-          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,0);
+          $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,0,$stat);
         }else{
           print_r("not enough stock");
         }
@@ -226,8 +227,9 @@ class Feed{
        $arr5['item_id'] = $item_id;
        $data6 = $item->first($arr5);
        $item_name = $data6->name;
-       $unit = $data3->unit;//this
-       $qua = $data3->size*$qt;//this
+       $stat = 'Deliver To';
+       $unit = $data3->unit;
+       $qua = $data3->size*$qt;
        $discount = $data3->discount;
        $price1 = $data3->price*$qt;
        $price2 = $data3->price*$qt*$discount/100;
@@ -244,7 +246,7 @@ class Feed{
        $rand = md5(uniqid(rand(),true));
 
        if($full_stock > $qua){
-        $order->func12($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
+        $order->func12($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,$stat);
        }else{
         print_r("not enough stock");
        }
@@ -280,6 +282,7 @@ class Feed{
        $arr5['item_id'] = $item_id;
        $data6 = $item->first($arr5);
        $item_name = $data6->name;
+       $stat = 'Buyer Info';
        $unit = $data3->unit;
        $qua = $data3->size*$qt;
        $discount = $data3->discount;
@@ -298,7 +301,7 @@ class Feed{
        $rand = md5(uniqid(rand(),true));
 
        if($full_stock > $qua){
-        $order->func12($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance);
+        $order->func12($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,$stat);
        }else{
         print_r("not enough stock");
        }
@@ -440,6 +443,7 @@ public function checkout2(){
     $order = new Order;
     $post = new postitems;
     $user = new User;
+    $del_user = new Deliveryuser1;
 
     $arrx11['order_code']=$order_code;
     //$user_id = $_SESSION['USER']->user_id;
@@ -447,6 +451,8 @@ public function checkout2(){
     $data44 = $order->first($arrx11);
     $metho = $data44->del_method;
     $id = $data44->post_id;
+    $del_id = $data44->approved_id;
+    $data['d'] = $del_user->func1($del_id);
     $arrx22['post_id']=$id;
     $data55 = $post->first($arrx22);
     $stock = $data55->stock_size;
@@ -614,7 +620,8 @@ public function final(){
     $exp = $data44->exp;
     $placed_on = $data44->placed_on;
     $image = $data44->image;
-    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image,$sell_id,$del_price);
+    $del_id = $data44->approved_id;
+    $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image,$sell_id,$del_price,$del_id);
 
     if($stock > $qua){
       $new_size = $stock-$qua;
@@ -764,6 +771,17 @@ public function newdelprice(){
      
   }   
 
+}
+
+public function waiting1(){
+  $tran = new transaction;
+  $order = new Order;
+  $arr['user_id'] = $_SESSION['USER']->user_id;
+  $user_id = $_SESSION['USER']->user_id;
+
+  $data = $tran->func3($user_id);
+  $this->view('waiting1',$data);
+  
 }
 
 function calculate_delivery_fee($size, $distance,$unit) {

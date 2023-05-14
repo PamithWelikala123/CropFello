@@ -9,17 +9,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/notification.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/profile.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/bank.css">
 
 </head>
 <body>
+
+
+
+
+
+
+
 <?php
 $filename = $_SESSION['filename'];
 echo "<script>console.log('Filename: ".$filename."');</script>";
 ?> 
+
+
         <div class="topnav">
 
                 <div class="logo">
@@ -29,6 +40,9 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
 
                 <div class="topnav-options">
                     <!-- <a class="active" href="#home">Home</a> -->
+                    
+                    <a href="">
+                      <button id="bankOpenModalBtn"><i class='fa fa-bank' id="bankOpenModalBtn"></i></button> </a>
                     <a href="../Selling/mytransaction" id="my-orders">My Transactions</a>
                     <a class="notification-icon"><i class="fa fa-bell" style="font-size:18px"></i></a>
                     <span class="notification-count">7</span>
@@ -125,7 +139,12 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
 
 <script src="<?=ROOT?>/assets/js/notification.js"></script> 
 <script src="<?=ROOT?>/assets/js/profile.js"></script> 
+<script src="<?=ROOT?>/assets/js/bank.js"></script> 
 <script type="text/javascript" src="<?=ROOT?>/assets/js/search.js"></script> 
+
+
+
+
 
 </body>
 </html>

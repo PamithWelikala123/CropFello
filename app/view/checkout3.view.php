@@ -44,16 +44,15 @@
                     <tr></tr><tr></tr><tr></tr>
                     <tr><td><h3>Total</h3></td><td></td><td><h3> Rs. <?php echo($dat->tot);  ?></h3></td></tr>
                     <input type="hidden" value='<?=$dat->order_code?>' name='abc' id='abc'>
-                    <?php }
-                    ?>
+                    
                 </table>
                 
             </div>
         </div>
         
         <div class="main-content">
-            <h3>Deliver To</h3>
-            
+            <h3><?php echo($dat->stat);  ?></h3>
+            <?php } ?>
             <div class="inner_main">
             <?php foreach($data['b'] as $dat1){ ?>
                <p><?php echo($dat1->first_name);  ?> <?php echo($dat1->last_name);  ?></p>
