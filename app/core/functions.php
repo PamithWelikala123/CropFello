@@ -73,3 +73,15 @@ function validateemail($data){
     }
 }
 
+
+function validateemail1($data){
+    $user = new Deliveryuser1;
+    $arr['email'] =$data;
+    $row = $user->first($arr);
+    if($row){
+        return true;
+    }
+    else{
+        return false;
+    }
+}

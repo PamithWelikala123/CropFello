@@ -14,21 +14,22 @@ class deliverydoing{
         $checkout = new Checkout;
         $user = new User;
         $postitem = new postitems;
+        $transaction =new transaction;
 
         $arr['approved_id']=$_SESSION['USER']->id;
-        $arr['approved']=1;
-
-        $rows=$order->where($arr);
+        $arr['delivery_done']=0;
+        $rows=$transaction->where($arr);
+        if($rows){
         foreach($rows as $row){
-            $arr1['order_code']=$row->order_code;
-            $row1=$checkout->first($arr1);
-
+            $arr1['user_id']=$row->buy_id;
+            $row1=$user->first($arr1);
+            
             $row->first_name=$row1->first_name;
             $row->last_name=$row1->last_name;
             $row->address=$row1->address;
             $row->contact_number=$row1->contact_number;
-            $row->longitude=$row1->longitude;
-            $row->latitude=$row1->latitude;
+            $row->longitude=$row1->plongitude;
+            $row->latitude=$row1->platitude;
 
 
             $arr2['post_id']=$row->post_id;
@@ -46,6 +47,11 @@ class deliverydoing{
         }
             $this->view('deliverydoing',$rows);
     }
+    else{
+        $this->view('deliverydoing');
+    }
+
+    }
 
     public function map()
 
@@ -54,17 +60,18 @@ class deliverydoing{
         $order = new Order;
         $checkout = new Checkout;
         $user = new User;
-        $postitem = new postitems;  
+        $postitem = new postitems;
+        $transaction =new transaction;  
 
         $id=$_GET['id'];
         $arr['id']=$id;
-        $row=$order->first($arr);
+        $row=$transaction->first($arr);
 
-        $arr1['order_code']=$row->order_code;
-        $row1=$checkout->first($arr1);
+        $arr1['user_id']=$row->buy_id;
+        $row1=$user->first($arr1);
 
-        $row->longitude=$row1->longitude;
-        $row->latitude=$row1->latitude;
+        $row->longitude=$row1->plongitude;
+        $row->latitude=$row1->platitude;
 
 
         $arr2['post_id']=$row->post_id;

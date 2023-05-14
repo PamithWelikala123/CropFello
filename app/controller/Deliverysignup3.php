@@ -4,11 +4,6 @@
 class deliverysignup3{
     use Controller;
 
-    // function __construct($db){
-    //     $this->db = $db;
-    //      $this->view('deliverysignup');
-    // }
-
     function Deliverysignup() {
 
 
@@ -38,7 +33,6 @@ class deliverysignup3{
         }
 
         $this->view('deliverysignup',$data);
-        // Display the registration form with any error
     }
 
 

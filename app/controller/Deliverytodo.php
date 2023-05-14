@@ -21,6 +21,7 @@ class deliverytodo{
 
 
      $rows=$order->where($arr);
+     if($rows){
  
      foreach($rows as $row){
     
@@ -57,6 +58,11 @@ class deliverytodo{
      
             $this->view('deliverytodo2',$rows);
      }
+     else{
+      $this->view('deliverytodo2');
+     }
+     
+    }
     
     
 
