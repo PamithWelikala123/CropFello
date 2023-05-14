@@ -23,23 +23,23 @@
                 <div class="main-content">
 
 
-                    <?php if($data):?>
-                    <?php foreach($data as $row):?>
+                    <?php if($data['a']):?>
+                    <?php foreach($data['a'] as $row):?>
 
 
                     <div class="post">
                         <div class="left">
                           <div class="upper-left">
-                            <img src="<?=ROOT?>/assets/images/Post-images/<?php echo $row->image;?>" alt="Square Image">
+                            <img src="<?=ROOT?>/assets/images/Post-images/<?php echo $row->image1;?>" alt="Square Image">
                           </div>
                           <div class="upper-right">
                             <div class="details">
                               <h2><?php echo $row->item_name;?></h2>
-                              <p>RS. <?php echo $row->price;?>.00<span class="green">&nbsp; <?php echo $row->qua;?><?php echo $row->unit;?></span></p>
+                              <p>RS. <?php echo $row->tot;?>.00<span class="green">&nbsp; <?php echo $row->qua;?><?php echo $row->unit;?></span></p>
 
                               <div class="lower">
                                 <label for=""><img src="<?=ROOT?>/assets/images/box.svg" alt=""> <?php echo $row->first_name;?>,<span class="buyer-location">&nbsp;<?php echo $row->city;?></span> </label><br>
-                                <label for=""><img src="<?=ROOT?>/assets/images/truck.svg" alt=""> <?php echo $row->fname;?>,<span class="buyer-location">&nbsp;<?php echo $row->cnum;?></span> </label>
+                                <!--label for=""><img src="<?=ROOT?>/assets/images/truck.svg" alt=""> kamal,<span class="buyer-location">&nbsp;ratnapura</span> </label-->
                               </div>
                               
                             </div>
