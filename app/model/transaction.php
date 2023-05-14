@@ -9,7 +9,7 @@ protected $allowedColumns = ['id','buy_id','order_code','price','del_price','qua
 public $errors = [];
 
 public function func1($para1,$para2,$para3,$para4,$para5,$para6,$para7,$para8,$para9,$para10,$para11,$para12,$para13){
-    $query = "insert into $this->table(buy_id,qua,post_id,tot,unit,item_name,order_code,exp,placed_on,image,sell_id,del_price,approved_id) values($para1,$para2,$para3,$para4,'$para5','$para6','$para7','$para8','$para9','$para10',$para11,$para12,$para13)";
+    $query = "insert into $this->table(buy_id,qua,post_id,tot,unit,item_name,order_code,exp,placed_on,image1,sell_id,del_price,approved_id) values($para1,$para2,$para3,$para4,'$para5','$para6','$para7','$para8','$para9','$para10',$para11,$para12,$para13)";
     return $this->query($query);
 }
 
