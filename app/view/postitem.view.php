@@ -81,10 +81,17 @@
                                                 <div class="form-group">
                                                   <label class="form-label" for="firstname">Item *</label>
                                                   
+                                                  <?php if(empty($errors['item_id'])){ ?>
                                                   <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="basic-input-field" onchange="updateCropType(this)" placeholder="  Select Item Name">
                                                   <option value="">Select Crop</option>    
                                                   <?php echo $crop_list?> 
                                                   </select>
+                                                  <?php }else{ ?>
+                                                    <select style="border: 1px solid #FB7A7A;" name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="basic-input-field" onchange="updateCropType(this)" placeholder="  Item name is required">
+                                                  <option value="">Select Crop</option>    
+                                                  <?php echo $crop_list?> 
+                                                  </select>
+                                                  <?php }?>
                                                 </div>  
                                                 
                                                 <div class="form-group">
@@ -96,13 +103,22 @@
                                         </div> 
                                         <div class="form-split">
                                                     <div class="form-group">
-                                                      <label class="form-label" for="address">Exp *</label>
                                                       
+                                                      
+
+                                                      <?php if(empty($errors['exp'])){ ?>
+                                                      <label class="form-label" for="address">Exp *</label>
                                                       <input type="date" id="address" class="form-control basic-input-field" placeholder="  dd / mm / yyyy" name="exp">
+                                                      <?php }else{ ?>
+                                                        <label class="form-label" for="address">Exp *<span style="color:#FB7A7A;font-size:10px"><?php echo $errors['exp'] ?></span></label>
+                                                      <input style="border: 1px solid #FB7A7A;" type="date" id="address" class="form-control basic-input-field" placeholder="  dd / mm / yyyy" name="exp">
+                                                      <?php }?>
                                                     </div>
 
+                                                    
                                                     <div class="form-group">
                                                                 <label class="form-label" for="city">District *</label>
+                                                                <?php if(empty($errors['district'])){ ?>
                                                                 <select type="text" id="city" class="basic-input-field" placeholder="" name="district">
                                                                 <option value="">Select District</option>    
                                                                 <option value="2">Ampara</option>
@@ -131,7 +147,39 @@
                                                                 <option value="25">Trincomalee</option>
                                                                 <option value="26">Vavuniya</option>
                                                                 </select>
+                                                                <?php }else{ ?>
+                                                                  <select style="border: 1px solid #FB7A7A;" type="text" id="city" class="basic-input-field" placeholder="" name="district">
+                                                                <option value="">Select District</option>    
+                                                                <option value="2">Ampara</option>
+                                                                <option value="3">Anuradhapura</option>
+                                                                <option value="4">Badulla</option>
+                                                                <option value="5">Batticaloa</option>
+                                                                <option value="6">Colombo</option>
+                                                                <option value="7">Galle</option>
+                                                                <option value="8">Gampaha</option>
+                                                                <option value="9">Hambantota</option>
+                                                                <option value="10">Jaffna</option>
+                                                                <option value="11">Kalutara</option>
+                                                                <option value="12">Kandy</option>
+                                                                <option value="13">Kegalle</option>
+                                                                <option value="14">Kilinochchi</option>
+                                                                <option value="15">Kurunegala</option>
+                                                                <option value="16">Mannar</option>
+                                                                <option value="17">Matale</option>
+                                                                <option value="18">Matara</option>
+                                                                <option value="19">Monaragala</option>
+                                                                <option value="20">Mullaitivu</option>
+                                                                <option value="21">Nuwara Eliya</option>
+                                                                <option value="22">Polonnaruwa</option>
+                                                                <option value="23">Puttalam</option>
+                                                                <option value="24">Ratnapura</option>
+                                                                <option value="25">Trincomalee</option>
+                                                                <option value="26">Vavuniya</option>
+                                                                </select>
+                                                                <?php } ?>
                                                   </div>
+                                                  
+                                                    
                                         </div>
                                         <h3>Unit</h3>
 
@@ -143,6 +191,7 @@
 
 
                                                             <label class="form-label" for="postalcode">Type *</label>
+                                                            <?php if(empty($errors['unit'])){ ?>
                                                             <select class="basic-input-field" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" onchange="parameters()" value="">
                                                                                                         <option value="">Type</option>    
                                                                                                         <option value="KG">KG</option>
@@ -150,6 +199,15 @@
                                                                                                         <option value="TREES">TREES</option>
                                                                                                         <option value="ACRES">ACRES</option>
                                                             </select> 
+                                                            <?php }else{ ?>
+                                                              <select style="border: 1px solid #FB7A7A;" class="basic-input-field" name="unit" id="unit" type="text" onkeyup="GetDetail(this.value)" onchange="parameters()" value="">
+                                                                                                        <option value="">Type</option>    
+                                                                                                        <option value="KG">KG</option>
+                                                                                                        <option value="G">G</option>
+                                                                                                        <option value="TREES">TREES</option>
+                                                                                                        <option value="ACRES">ACRES</option>
+                                                            </select>
+                                                            <?php } ?>
                                               
                                   
                                             </div>  
@@ -158,13 +216,24 @@
 
                                             <div class="form-group">
                                               <label class="form-label" for="city">Unit-Price *  <label class="rental" id="rental"></label></label>
+                                              <?php if(empty($errors['price'])){ ?>
                                               <input  class="basic-input-field" placeholder="" type="text"  name="price">
+                                              <?php }else{ ?>
+                                                <input style="border: 1px solid #FB7A7A;"  class="basic-input-field" placeholder="" type="text"  name="price">
+                                                <?php } ?>
                                             </div>
 
 
                                             <div class="form-group">
-                                                <label class="form-label" for="contact-number">Unit-Size *</label>
+                                                
+                                                <?php if(empty($errors['size'])){ ?>
+                                                  <label class="form-label" for="contact-number">Unit-Size *</label>
                                                 <input type="text" name="size" class="form-control basic-input-field"  placeholder="">
+                                                <?php }else{ ?>
+                                                  <label class="form-label" for="contact-number">Unit-Size * <span style="color:#FB7A7A;font-size:10px"><?php echo $errors['size'] ?></span></label>
+                                                  
+                                                  <input style="border: 1px solid #FB7A7A;"  type="text" name="size" class="form-control basic-input-field"  placeholder="">
+                                                  <?php } ?>
                                             </div>
 
 
@@ -178,7 +247,11 @@
 
                                                   <div class="form-group">
                                                                 <label class="form-label" for="city">Stock size *</label>
+                                                                <?php if(empty($errors['stock_size'])){ ?>
                                                                 <input type="text" id="stock_size" class="basic-input-field" placeholder="" name="stock_size">
+                                                                <?php }else{ ?>
+                                                                <input style="border: 1px solid #FB7A7A;"  type="text" id="stock_size" class="basic-input-field" placeholder="" name="stock_size">
+                                                                <?php } ?>
                                                   </div>
                 
                                                     <div class="form-group">
@@ -194,7 +267,12 @@
 
                                                     <div class="form-group">
                                                                 <label class="form-label" for="city">Discount *</label>
+                                                                <?php if(empty($errors['discount'])){ ?>
                                                                 <input type="text" id="city" class="basic-input-field " placeholder="" name="discount">
+                                                                <?php }else{ ?>
+                                                                  <input style="border: 1px solid #FB7A7A;"  type="text" id="city" class="basic-input-field " placeholder="Less than 100%" name="discount">
+                                                                  <?php } ?>
+
                                                   </div>
                                                    <div class="form-group">
 
@@ -215,7 +293,11 @@
                                                                   
                                                                   
                                                                   <label class="form-label" for="address">Address *</label>
+                                                                  <?php if(empty($errors['address'])){ ?>
                                                                   <input type="text" id="address" class="basic-input-field" placeholder="address" name="Address">
+                                                                  <?php }else{ ?>
+                                                                    <input type="text" style="border: 1px solid #FB7A7A;"  id="address" class="basic-input-field" placeholder="address" name="Address">
+                                                                    <?php } ?>  
                                                                           
                                       </div>
                                      
@@ -245,14 +327,18 @@
 
                                           <div class="form-group">
 
-                                                    <label for="">Location</label>
-
+                                                    <label for="">Location *</label>
+                                                    <?php if(empty($errors['location'])){ ?>
                                                     <input class="basic-input-field" type="text" id="pickuplocation" name="location" placeholder="" value="">
                                                     <input type="hidden" name="platitude" id="p-latitude" value="">
                                                     <input type="hidden" name="plongitude" id="p-longitude" value="">
                                                     <input type="hidden" id="city1" name="city" value="">
-
-
+                                                    <?php }else{ ?>
+                                                    <input style="border: 1px solid #FB7A7A;"  class="basic-input-field" type="text" id="pickuplocation" name="location" placeholder="" value="">
+                                                    <input type="hidden" name="platitude" id="p-latitude" value="">
+                                                    <input type="hidden" name="plongitude" id="p-longitude" value="">
+                                                    <input type="hidden" id="city1" name="city" value="">
+                                                    <?php } ?>
 
 
                                                     <div class="map-container">
@@ -267,7 +353,7 @@
                       </div>
                      
                       <div class="form-group">
-                                                  <label class="form-label" for="about">About *</label>
+                                                  <label class="form-label" for="about">About</label>
                                                   <input type="text" id="about" class="discription" placeholder="  Change your Description..." name="description" >
                       </div>
 
