@@ -50,8 +50,8 @@
     
 
     #filter-button{
-      background-color: rgb(77, 234, 37, 0.2);
-      color: rgb(52, 149, 27, 0.6);
+      background-color: rgba(54, 235, 9, 0.2);
+      color: rgba(52, 238, 5, 0.6);
       border-radius: 10%;
       padding: 2%;
       font-weight: 400;
@@ -64,7 +64,7 @@
     }
     
     #filter-button:hover {
-      background-color:rgb(52, 149, 27, 0.6);
+      background-color:rgba(0, 0, 0, 0.6);
       /* color: rgb(77, 234, 37, 0.2); */
       color: white;
     
@@ -76,5 +76,5 @@
       padding-bottom: 5%;
     }
     .filter-heading h5{
-      color: rgba(101, 101, 101, 0.6);
+      color: rgba(0, 0, 0, 0.6);
     }

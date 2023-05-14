@@ -164,7 +164,6 @@
                                                         
                                                         <select class="basic-input-field" name="amount_type" id="amount_type" type="text" onkeyup="GetDetail(this.value)" value="">
                                                                                                                           <option value="KG">KG</option>
-                                                                                                                          <option value="G">G</option>
                                                                                                                           <option value="TREES">TREES</option>
                                                                                                                           <option value="ACRES">ACRES</option>
                                                         </select> 

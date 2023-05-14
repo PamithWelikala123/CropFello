@@ -10,6 +10,9 @@ class Feed{
     $user=new User;
     $postitem = new postitems;
     $item = new item;
+    $district=new district;
+
+
     $arry1['user_id']=$_SESSION['USER']->user_id;
     $rowx=$user->first($arry1);
     $arry2['district']=$rowx->district;
@@ -27,6 +30,7 @@ class Feed{
         $arr1['item_id'] = $row->item_id;
         $row1 = $item->first($arr1);
         $row->item_name = $row1->name;
+      
       }
 
         $this->view('feed',$rows);
@@ -124,7 +128,7 @@ class Feed{
         $sel_longi = $data3->plongitude;
         $placed_on = date('Y-m-d');
         $distance= intval($_POST['distance']);
-        $del_price = $distance*$fee*$qua;
+        $del_price = $this->calculate_delivery_fee($qua,$distance,$unit);
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
@@ -236,8 +240,8 @@ class Feed{
        $sel_longi = $data3->plongitude;
        $full_stock = $data3->stock_size;
        $placed_on = date('Y-m-d');
-       $distance= intval($_POST['distance']);
-       $del_price = $fee*$distance*$qua;
+       $distance= intval($_POST['distance']);//this
+       $del_price =$this->calculate_delivery_fee($qua,$distance,$unit);
        $tot = $del_price + $price;
        $rand = md5(uniqid(rand(),true));
 
@@ -680,6 +684,7 @@ public function strike(){
       if (!empty($word)) {
       $item = new item;
       $postitem = new postitems;
+      $district=new district;
       $rows1=$item->searchitem($word);
  
 
@@ -696,6 +701,7 @@ public function strike(){
                     if ($rowx2) {
                         $rowx->item_name = $rowx2->name;
                     }
+
                 }
             }
         }
@@ -777,5 +783,49 @@ public function waiting1(){
   $this->view('waiting1',$data);
   
 }
+
+function calculate_delivery_fee($size, $distance,$unit) {
+
+  $base_fee = 100;
+  $fee_per_km = 40;
+  
+
+  $distance_fee = $fee_per_km * ($distance-1);
+
+  if($unit="KG"){
+
+    if ($size<=10) {
+
+      $size_fee = 100;
+    } elseif ($size<= 50) {
+        $size_fee = 500;
+    } 
+   elseif ($size<= 100) {
+    $size_fee = 600;
+   }
+   elseif ($size<= 200) {
+    $size_fee = 700;
+   }
+   elseif ($size<= 600) {
+    $size_fee = 1000;
+   }
+   elseif ($size<= 1000) {
+    $size_fee = 2000;
+   }
+    else {
+            $size_fee = 8000;
+        }
+
+  }
+ 
+
+  
+  // Calculate the total delivery fee by adding the base fee, distance fee, and size fee
+  $total_fee = $base_fee + $distance_fee + $size_fee;
+  
+  return $total_fee;
+}
+
+
 
 }
