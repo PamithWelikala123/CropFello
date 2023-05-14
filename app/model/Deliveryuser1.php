@@ -77,6 +77,13 @@ class Deliveryuser1{
       return false;
     }
 
+    public function func1($para){
+        
+      $query = "select * from user where id ='$para'";
+      
+      return $this->query($query);
+  }
+
 //     public function getListItems() {
 //       $sql = "SELECT * FROM cities ORDER BY id ASC";
 //       $result = mysqli_query(getConnection(), $sql);

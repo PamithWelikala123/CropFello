@@ -17,7 +17,8 @@
         </div>
         <div class="heading">
             <h1>Transaction Info</h1>
-            <a href="http://localhost/Cropfello/public/feed/checkout1"><img class="back" src="<?=ROOT?>/assets/images/checkout/back_btn.png" alt="back button"></a>
+            <!--a href="http://localhost/Cropfello/public/feed/checkout1"><img class="back" src="<?=ROOT?>/assets/images/checkout/back_btn.png" alt="back button"></a-->
+            
         </div>
         <div class="sidebar"> 
             <div class="inner_sidebar">
@@ -52,13 +53,12 @@
                 <p><?php echo($dat1->address);  ?></p><br>
                 <p><?php echo($dat1->contact_number);  ?></p><br>
             </div>
-            <?php }
-            ?>
+            <?php } ?>
             
             <!--?php foreach($data['b'] as $dat1){ ?-->            
-
-                <br><h3>Deliverer Info</h3><p>Rushin Sandeepane</p><p>7788</p><p>lorry</p><p>7788</p><br>
-                
+                <?php foreach($data['d'] as $dat3){ ?>
+                <br><h3>Deliverer Info</h3><p><?php echo($dat3->fname);  ?> <?php echo($dat3->lname);  ?></p><p><?php echo($dat3->contact_number);  ?></p><!--p>lorry</p><p>7788</p><br-->
+                <?php } ?><br>
 
                 <form method="post">
                 <label class="radio-inline">
