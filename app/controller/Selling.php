@@ -79,19 +79,31 @@ class Selling{
                                                              redirect('selling/selling');
                                                             }
 
-                                                            // $this->view('postitem',$data);
+                                                             $this->view('postitem',$data);
                                                             
     }
 
            
-
+    //redirect('selling/selling');
         }
-        //redirect('selling/selling');
+
         
    
 
     public function Postitem(){
+        $id=$_SESSION['USER']->user_id;
+        $arr['user_id']=$id;
+       $bank = new Bank;
+       $bank->order_column='user_id';
+       $row=$bank->where($arr);
+    //    $row=(array)$row;
+       if($row){
         $this->view('postitem');
+       }
+       else{
+        redirect('selling/selling');
+       }
+
     }
 
 

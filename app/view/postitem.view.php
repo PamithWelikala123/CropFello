@@ -387,7 +387,7 @@
 function updateCropType(selectElement) {
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const maxRental = selectedOption.getAttribute('maxrental');
-    document.getElementById('rental').innerHTML = 'Max Retail price : RS.' + maxRental + '.00';
+    document.getElementById('rental').innerHTML = 'Max Retail price : RS.' + maxRental + '.00 per 1Kg';
     if(selectedOption.dataset.type!="undefined"){
     document.getElementById('crop_type').value = selectedOption.dataset.type;
     }
