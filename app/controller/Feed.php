@@ -786,17 +786,15 @@ public function newdelprice(){
    $arr['id']=$idpost;
 
    $row = $order->first($arr);
-  
+  $price=$row->price;
    $delvalue = $_POST['delvalue'];
-   $arr['current_value']= $delvalue;
+   $arr['tot']=$delvalue+$price;
+   $arr['del_price']= $delvalue;
    $buyer_id=$_SESSION['USER']->user_id;
 
-   $arr['buy_id']= $buyer_id;
+   $order->update($idpost,$arr,'id');
 
-    // if($row->){
-
-    // }
-
+  redirect('feed/waiting');
      
   }   
 

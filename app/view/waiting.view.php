@@ -129,7 +129,7 @@ require APPROOT."/view/searchbarbuyer2.php";
                                                   <form method="post" autocomplete="off" action='newdelprice'>
                                                     <label> RS: &nbsp;</label>
                                                                     
-                                                    <input type="text" placeholder="Enter your bid" name="delvalue"><label>&nbsp;.00</label>
+                                                    <input type="text" placeholder="Enter your request value" name="delvalue"><label>&nbsp;.00</label>
                                                       <input type="hidden" value='<?=$dat->id?>' name='abc'>
                                                       <button type="submit" name="submit" id='myButton'>Request Now</button>
 
