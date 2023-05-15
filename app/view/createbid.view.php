@@ -50,13 +50,12 @@
     </div>
 
 
-<?php
+    <?php
     $crop_list='';
     $item = new item;
     $rows3 = $item->findAll();
     foreach($rows3 as $result){
-      $crop_list .="<option value=\"{$result->item_id}\">{$result->name}</option>";
-
+      $crop_list .= "<option value=\"{$result->item_id}\" data-type=\"{$result->type}\" maxrental=\"{$result->maximum_rental_price}\">{$result->name}</option>";
     }
     ?>
   <div class="background">
@@ -98,7 +97,7 @@
                                                 <div class="form-group">
                                                   <label class="form-label" for="firstname">Item *</label>
                                                   
-                                                  <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="basic-input-field" onchange="fetchemp()" placeholder="  Select Item Name">
+                                                  <select  name="item_id" id="item_id" type="text" onkeyup="GetDetail(this.value)" value="" class="basic-input-field" onchange="updateCropType(this)" placeholder="  Select Item Name">
                                                                                 <?php echo $crop_list?> 
                                                   </select>
                                                 </div>  
@@ -260,6 +259,23 @@
      
   </div>
 
+
+  <script>
+function updateCropType(selectElement) {
+    const selectedOption = selectElement.options[selectElement.selectedIndex];
+    const maxRental = selectedOption.getAttribute('maxrental');
+    document.getElementById('rental').innerHTML = 'Max Retail price : RS.' + maxRental + '.00';
+    if(selectedOption.dataset.type!="undefined"){
+    document.getElementById('item_type').value = selectedOption.dataset.type;
+    }
+}
+
+function parameters(selectElement) {
+  var unitSelect = document.getElementById("unit");
+  var stockSizeInput = document.getElementById("stock_size1");
+  stockSizeInput.value = unitSelect.options[unitSelect.selectedIndex].value;
+}
+</script>
 
   <script
   src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
