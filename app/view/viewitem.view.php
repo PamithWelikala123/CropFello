@@ -173,11 +173,11 @@ function initMap() {
 
 
                                                     <label class="radio-inline-viewitems">
-                                                    <input type="radio" name="optradio" value="pickup" checked>&ensp;Pick up method&emsp;
+                                                    <input type="radio" name="optradio" value="pickup" checked>&ensp;Pickup&emsp;
                                                     </label>
                                                     <?php if((($data['stock_size1'])!='TRESS') && (($data['stock_size1'])!='ACRES')){ ?>
                                                         <label class="radio-inline-viewitems">
-                                                        <input type="radio" name="optradio" value="delper">&ensp;Delivery person</label>
+                                                        <input type="radio" name="optradio" value="delper">&ensp;Delivery</label>
                                                     <?php } ?>
 
                                                 

@@ -127,7 +127,7 @@ class Feed{
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
-        if($full_stock > $qua){
+        if($full_stock >= $qua){
           $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,0,$stat);
         }else{
           print_r("not enough stock");
@@ -145,7 +145,7 @@ class Feed{
         $contact_number = $data4->contact_number;
         //$order_id = $data5->id;
 
-        if($full_stock > $qua){
+        if($full_stock >= $qua){
           $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
           redirect('feed/checkout1?order_code=' . $rand);
         }
@@ -179,7 +179,7 @@ class Feed{
         $tot = $del_price + $price;
         $rand = md5(uniqid(rand(),true));
 
-        if($full_stock > $qua){
+        if($full_stock >= $qua){
           $order->func3($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,0,$stat);
         }else{
           print_r("not enough stock");
@@ -200,7 +200,7 @@ class Feed{
         $contact_number = $data4->contact_number;
         //$order_id = $data5->id;
         
-        if($full_stock > $qua){
+        if($full_stock >= $qua){
           $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
           redirect('feed/checkout1?order_code=' . $rand);
         }
@@ -240,7 +240,7 @@ class Feed{
        $tot = $del_price + $price;
        $rand = md5(uniqid(rand(),true));
 
-       if($full_stock > $qua){
+       if($full_stock >= $qua){
         $order->func12($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,$stat);
        }else{
         print_r("not enough stock");
@@ -261,7 +261,7 @@ class Feed{
        $contact_number = $data4->contact_number;
        //$order_id = $data5->id;
 
-       if($full_stock > $qua){
+       if($full_stock >= $qua){
         $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
         redirect('feed/feed');
        }
@@ -295,7 +295,7 @@ class Feed{
        $tot = $del_price + $price;
        $rand = md5(uniqid(rand(),true));
 
-       if($full_stock > $qua){
+       if($full_stock >= $qua){
         $order->func12($user_id,$price,$qua,$id,$del_price,$tot,$unit,$item_name,$rand,$metho,$exp,$placed_on,$image,$distance,$stat);
        }else{
         print_r("not enough stock");
@@ -316,7 +316,7 @@ class Feed{
        $contact_number = $data4->contact_number;
        //$order_id = $data5->id;
 
-       if($full_stock > $qua){
+       if($full_stock >= $qua){
         $checkout->func3($rand,$first_name,$last_name,$address,$contact_number,$buy_lati,$buy_longi);
         redirect('feed/feed');
        }
@@ -618,7 +618,7 @@ public function final(){
     $del_id = $data44->approved_id;
     $transaction->func1($buy_id,$qua,$post_id,$tot,$unit,$item_name,$order_code,$exp,$placed_on,$image,$sell_id,$del_price,$del_id);
 
-    if($stock > $qua){
+    if($stock >= $qua){
       $new_size = $stock-$qua;
       $post->func1($new_size,$id);
       $order->delete($order_code,'order_code');
