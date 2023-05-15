@@ -72,7 +72,7 @@
             <?php while ($data['count'] > 0) :?>
             <div class="responsive<?php $data['count']?>">
                 <div class="gallery">
-                  <a target="_blank" href="img_5terre.jpg">
+                  <a target="_blank" href="login">
                     <img src="<?=ROOT?>/assets/images/Post-images/<?=$data['image'.$data['count']]?>" alt="img1" width="600" height="400">
                   </a>
                   <div class="desc">
