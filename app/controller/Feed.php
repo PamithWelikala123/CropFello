@@ -802,6 +802,8 @@ public function newdelprice(){
 
 }
 
+
+
 public function waiting1(){
   $tran = new transaction;
   $order = new Order;
@@ -812,6 +814,9 @@ public function waiting1(){
   $this->view('waiting1',$data);
   
 }
+
+
+
 
 function calculate_delivery_fee($size, $distance,$unit) {
 

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View profile</title>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/viewseller.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 </head>
@@ -30,43 +32,49 @@
     
     
     
-    <div class="container">
-        <!-- <div class="topnav"></div>
-        <div class="sidenav">
-            <img class="logo"  src="images/logo.png">
-            <hr><label class="Menu1">Menu</label>
-        </div>
-        <div class="main"></div> -->
+      <div class="container">
 
 
+              <?php
+        
+            require APPROOT."/view/searchbarbuyer2.php";
+          
+          ?>
 
-        <div class="topnav">
-            <input class="Search" type="textbox" placeholder="Search">
-            <img class="Search1"  src="images/search.png">
-            <img class="bell" src="images/bell.png">
-            <img class="active" src="images/active.png"> 
-            <img class="profile" src="images/profilepic.png"> 
-        </div>
-        <div class="logo">
-            <img class="logo1"  src="images/logo.png">
-        </div>
-        <div class="menu">
-            <hr><label class="Menu1">Menu</label>
-            <div> 
-                <button class="Feed" onclick="document.location='feed.php'">Feed</button>
-                <img class="Feed1"  src="images/feed1.png">
-                <button class="Bidding" onclick="document.location='bidding.php'">Bidding</button>
-                <img class="Bidding1"  src="images/Bidding1.png">
-                <button class="Wishlist" >Wishlist</button>
-                <img class="Wishlist1"  src="images/heart1.png">
-                <button class="Requests" id="Requests" onclick="document.location='Wishlist.php'">Requests</button>
-                <img class="Requests1"  src="images/flag.png">
-              </div>
-        </div>
-        <div class="message">
-            <hr><label class="Message1">Message</label>
-            <img class="message-bar" src="images/message-bar.png">
-        </div>
+
+        <div class="content">
+            <div class="leftbar">
+                <!-- <a href="#home"><i class="fa fa-rss"></i> Feed</a>
+                <a href="#services"><i class="fa fa-dollar"></i> Bidding</a>
+                <a href="#clients"><i class="fa fa-bookmark-o"></i> Wishlist</a>
+                <a href="#contact"><i class="fa fa-flag-o"></i> Requests</a> -->
+
+                <div class="menu">
+                  
+                  <hr><p>Menu</p><br>
+                  <button onclick="document.location='../feed/feed'"><img class="Feed1"  src="<?=ROOT?>/assets/images/feed/feed1.png"><span> Feed</span></button><br>
+                  <button onclick="document.location='../bidding/BuyerBidding'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/Bidding1.png"><span> Bidding</span></button><br>
+                  <button onclick="document.location='../wishlists/buyerwishlist'"><img class="Bidding1"  src="<?=ROOT?>/assets/images/feed/heart1.png"><span> Wishlist</span></button><br>
+                  <button onclick="document.location='../requests/view1'"><img class="Requests1"  src="<?=ROOT?>/assets/images/feed/flag.png"><span> Requests</span></button><br>
+                </div>
+                <div class="message">
+                    
+                          <hr><p>Message</p><br>
+                          <!-- <img class="message-bar" src="images/message-bar.png"> -->
+                          <div class="message-box">
+                              <?php require APPROOT."/controller/Chat.php";
+                              $userController = new Chat();
+                              $userController->viewperson();
+                              ?>
+                                  
+                          
+
+                          
+
+                          </div>
+                </div>
+</div>
+         
         
         <div class="main">
            <div class="dp">
@@ -77,9 +85,9 @@
             <div class="name">
               <h2><?php echo($dat->first_name);  ?> <?php echo($dat->last_name);  ?></h2>
             </div>
-            <div class="likes">
+            <!-- <div class="likes">
              <label><sup><strong>837</strong></sup> <img src="<?=ROOT?>/assets/images/viewprofile/heart.svg" alt=""></span></label>
-            </div>
+            </div> -->
             <div class="empty"></div>
             <div class="strike">
               <button id="openModalBtn"><sup>Strike</sup>&nbsp;&nbsp;<img src="<?=ROOT?>/assets/images/viewprofile/strike.svg" alt=""></button>
@@ -88,7 +96,7 @@
               <label for=""><img src="<?=ROOT?>/assets/images/viewprofile/call.svg" alt="">&nbsp;<?php echo($dat->contact_number);  ?> &emsp;&emsp;</label><label for=""><img src="<?=ROOT?>/assets/images/viewprofile/mail.svg" alt="">&nbsp;<?php echo($dat->email);  ?></label>
             </div>
             <div class="messages">
-              <button>Message</button>
+              <button class="btn" type="button" id=<?=$dat->user_id?> >Message</button>
             </div>
            </div>
            <div class="about">
@@ -102,7 +110,16 @@
         </div>
     </div>
      
+<script>
 
+const images = document.querySelectorAll('.btn');
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      window.location.href = '../chat/chat1?user_id='+id;
+    });
+  });
+</script>
     <script>
           // Get the modal
       var modal = document.getElementById("modal");

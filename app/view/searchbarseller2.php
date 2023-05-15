@@ -111,8 +111,8 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                     
                     <a href=""><i class='fa fa-bank' id="bankOpenModalBtn"></i>
                     <a href="../Selling/mytransaction" id="my-orders">My Transactions</a>
-                    <a class="notification-icon"><i class="fa fa-bell" style="font-size:18px"></i></a>
-                    <span class="notification-count">7</span>
+                    <!-- <a class="notification-icon"><i class="fa fa-bell" style="font-size:18px"></i></a>
+                    <span class="notification-count">7</span> -->
                     <a id="profmyBtn"><img src="<?=ROOT?>/assets/images/Profile_pic/<?=$_SESSION['USER']->image?>" alt=""> </a>
                     <!-- </a> -->
                 </div>
@@ -124,14 +124,14 @@ echo "<script>console.log('Filename: ".$filename."');</script>";
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                   </form> -->
-                  <div class="search-bar">
+                  <!-- <div class="search-bar">
 
                   <form action="../<?=$filename?>/search">
                     <input type="text" placeholder="Search.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
                   </form>
 
-                  </div>
+                  </div> -->
                 <!-- </div> -->
         </div>
 
