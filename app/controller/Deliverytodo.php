@@ -37,6 +37,9 @@ class deliverytodo{
       $row->longitude=$row1->longitude;
       $row->latitude=$row1->latitude;
 
+ 
+    
+
 
 
       $arr2['post_id']=$row->post_id;
@@ -52,6 +55,7 @@ class deliverytodo{
       $row3=$user->first($arr3);
 
       $row->contact_number_seller=$row3->contact_number;
+      $row->profile=$row3->image;
 
 
       $arrw['user_id']= $_SESSION['USER']->id;

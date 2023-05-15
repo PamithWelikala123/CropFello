@@ -28,7 +28,7 @@
                                                 <button onclick="document.location='../deliverytodo/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/todo.png"><span> To Do</span></button><br>
                                                 <button onclick="document.location='../deliverydoing/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
                                                 <button onclick="document.location='../deliverydone/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
-                                                <button onclick="document.location=',,/deliveryfee/viwe2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
+                                                <!-- <button onclick="document.location=',,/deliveryfee/viwe2'"><img class="todo"  src="<//?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br> -->
                                             </div>
 
                                 </div>
@@ -45,7 +45,7 @@
                           <?php if($row->row_discard==0) : ?>     
                         <div class="post">
                                                       <div class="post-header">
-                                                        <!-- <img src="<//?=ROOT?>/assets/images/Post-images/<//?=$row->image?>" alt="Profile Picture" class="post-profile-pic"> -->
+                                                        <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$row->profile?>" alt="Profile Picture" class="post-profile-pic">
                                                                 <div class="post-header-info">
                                                                           <div class="post-header-name"><?=$row->first_name?> <?=$row->last_name?></div>
                                                                           <div class="post-header-date">Posted on <?=$row->placed_on?></div>
@@ -93,7 +93,7 @@
                                                                           <button class="approved-button" type="button" id="<?=$row->id?>" onclick="update()">Approve</button>
                                                                           <!-- <//?php echo '<button class="approved-button" type="button" name="approve['.$row->order_code.']/">Approve</button>' ?> -->
 
-                                                                            <button class="post-button discard-button" id="<?=$row->id?>" onclick="window.location.href='../Deliverytodo/discard?id='+id">Discard</button>
+                                                                            <button type="button" class="discard-button" id="<?=$row->id?>" onclick="discard()">Discard</button>
                                                                             <button class="map-button" name="view_on_map" type="button" id="<?=$row->id?>" onclick="window.open('../Deliverytodo/map?id='+id, '_blank')">
 
                                                                             <!-- <button class="map-button" name="view_on_map" type="button" onclick="mapfunc()"> -->
@@ -156,6 +156,18 @@ function update() {
   });
 }
 
+
+function discard() {
+  const images = document.querySelectorAll('.discard-button');
+
+  images.forEach(function(image) {
+    image.addEventListener('click', function() {
+      const id = this.id;
+      console.log(id);
+      window.location.href='../Deliverytodo/discard?id='+id;
+    });
+  });
+}
 
 function mapfunc() {
   const images = document.querySelectorAll('.map-button');
