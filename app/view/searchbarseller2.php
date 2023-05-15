@@ -30,34 +30,34 @@
           <div class="bank-modal-body">
             <h3>Enter Bank Details</h3><br>
             
-              <form action="/action_page.php">
+              <form action="bank" method="post">
                 <label for="accountname">Name</label>
-                <input type="text" id="accountname" name="accountname" placeholder="Enter your name in account">
+                <input type="text" id="accountname" name="acc_name" placeholder="Enter your name in account">
             
                 <label for="lname">Account Number</label>
-                <input type="text" id="lname" name="lastname" >
+                <input type="text" id="lname" name="acc_no" >
             
                 <label for="country">Bank</label>
-                <select id="country" name="country" placeholder="freferg">
-                  <option value="1">Bank of Ceylon (BOC)</option>
-                  <option value="2">People's Bank</option>
-                  <option value="3">Commercial Bank of Ceylon PLC</option>
-                  <option value="4">Hatton National Bank (HNB)</option>
-                  <option value="5">Sampath Bank PLC</option>
-                  <option value="6">National Savings Bank (NSB)</option>
-                  <option value="7">DFCC Bank</option>
-                  <option value="8">Nations Trust Bank</option>
-                  <option value="9">Union Bank of Colombo PLC</option>
-                  <option value="10">Pan Asia Banking Corporation PLC</option>
-                  <option value="11">Seylan Bank PLC</option>
-                  <option value="12">Cargills Bank Limited</option>
-                  <option value="13">Standard Chartered Bank</option>
-                  <option value="14">HSBC Sri Lanka</option>
-                  <option value="15">Citibank Sri Lanka</option>
+                <select id="country" name="bank" >
+                  <option value="Bank of Ceylon (BOC)">Bank of Ceylon (BOC)</option>
+                  <option value="People's Bank">People's Bank</option>
+                  <option value="Commercial Bank of Ceylon PLC">Commercial Bank of Ceylon PLC</option>
+                  <option value="Hatton National Bank (HNB)">Hatton National Bank (HNB)</option>
+                  <option value="Sampath Bank PLC">Sampath Bank PLC</option>
+                  <option value="National Savings Bank (NSB)">National Savings Bank (NSB)</option>
+                  <option value="DFCC Bank">DFCC Bank</option>
+                  <option value="Nations Trust Bank">Nations Trust Bank</option>
+                  <option value="Union Bank of Colombo PLC">Union Bank of Colombo PLC</option>
+                  <option value="Pan Asia Banking Corporation PLC">Pan Asia Banking Corporation PLC</option>
+                  <option value="Seylan Bank PLC">Seylan Bank PLC</option>
+                  <option value="Cargills Bank Limited">Cargills Bank Limited</option>
+                  <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+                  <option value="HSBC Sri Lanka">HSBC Sri Lanka</option>
+                  <option value="Citibank Sri Lanka">Citibank Sri Lanka</option>
                 </select>
 
                 <label for="country">Branch</label>
-                <select id="country" name="country">
+                <select id="country" name="branch">
                   <option value="ampara">Ampara</option>
                   <option value="anuradhapura">Anuradhapura</option>
                   <option value="badulla">Badulla</option>
@@ -84,7 +84,7 @@
                   <option value="vavuniya">Vavuniya</option>
                 </select>
               
-                <input type="submit" value="Submit">
+                <input  name="submit" type="submit" value="Submit">
               </form>
             
               
