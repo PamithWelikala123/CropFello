@@ -1,9 +1,10 @@
 <html>
     <head><title>Feed</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyerwishlist.css">
+
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
+    <link rel="Stylesheet" href="<?=ROOT?>/assets/css/buyerwishlist.css">
     </head>
     <body>
 

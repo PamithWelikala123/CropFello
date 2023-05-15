@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyerleftbar.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/buyertopnav.css">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/waiting.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/waiting1.css">
 </head>
 <body>
 
@@ -88,7 +88,7 @@ require APPROOT."/view/searchbarbuyer2.php";
                           </div>
                           
                         </div>
-
+                        </div>
                         <?php }
                         ?>
 
