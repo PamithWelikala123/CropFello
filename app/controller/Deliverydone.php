@@ -44,6 +44,7 @@ class deliverydone{
             $row3=$user->first($arr3);
 
             $row->contact_number_seller=$row3->contact_number;
+            $row->profile=$row3->image;
         }
             $this->view('deliverydone2',$rows);
     }

@@ -28,7 +28,7 @@
                                                 <button onclick="document.location='../deliverytodo/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/todo.png"><span> To Do</span></button><br>
                                                 <button onclick="document.location='../deliverydoing/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/doing.png"><span> Doing</span></button><br>
                                                 <button onclick="document.location='../deliverydone/view2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/done.png"><span> Done</span></button><br>
-                                                <button onclick="document.location=',,/deliveryfee/viwe2'"><img class="todo"  src="<?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br>
+                                                <!-- <button onclick="document.location=',,/deliveryfee/viwe2'"><img class="todo"  src="<//?=ROOT?>/assets/images/delivery/fee.png"><span> Fee</span></button><br> -->
                                             </div>
 
                                             
@@ -38,10 +38,10 @@
     
 
             <div class="main">
-                        <div class="page-selector">
+                        <!-- <div class="page-selector">
                             <button class="active" onclick="window.location.href = 'index.html';">General</button>
                             <button onclick="window.location.href = 'index2.html';">Requests</button>
-                        </div>
+                        </div> -->
 
 
                         <div class="main-content">
@@ -51,7 +51,7 @@
                                 <div class="post">
                                   
                                             <div class="post-header">
-                                              <img src="images/vimukthi.jpg" alt="Profile Picture" class="post-profile-pic">
+                                              <img src="<?=ROOT?>/assets/images/Profile_pic/<?=$row->profile?>" alt="Profile Picture" class="post-profile-pic">
                                                   <div class="post-header-info">
                                                     <div class="post-header-name"><?=$row->first_name?> <?=$row->last_name?></div>
                                                     <div class="post-header-date">Posted on <?=$row->placed_on?></div>
@@ -97,7 +97,7 @@
 
                                             <form method="post">
                                               <div class="post-buttons">
-                                                <button class="approved-button" type="button" id="<?=$row->id?>" onclick="update()">Approve</button>
+                                                <button class="approved-button" type="button" id="<?=$row->id?>" onclick="update()">Delivery Finished</button>
 
                                                 <button class="map-button" name="view_on_map" type="button" id="<?=$row->id?>" onclick="window.open('../Deliverydoing/map?id='+id, '_blank')">
 

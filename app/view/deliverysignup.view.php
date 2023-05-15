@@ -18,7 +18,7 @@
 			<img  src="<?=ROOT?>/assets/images/deliverysignup/logo.png" alt="Logo">
 		</div>
 		<div class="back-btn">
-			<button onclick="document.location='deliverylogin'"><img src="<?=ROOT?>/assets/images/deliverysignup/arrow-left-circle.svg" alt="Back"></button>
+			<button onclick="document.location='../deliverylogin'"><img src="<?=ROOT?>/assets/images/deliverysignup/arrow-left-circle.svg" alt="Back"></button>
 		</div>
 	</header>
 	<main>
@@ -31,7 +31,7 @@
 
 				<label for="firstName">First Name:</label>
 				<?php if(empty($errors['fname'])){?>
-				<input type="text" id="firstName" name="fname" placeholder=""><br>
+				<input type="text" id="firstName" name="fname" placeholder="First Name"><br>
 				<?php }else{?>
 				<input style="border: 1px solid #FB7A7A;" type="text" id="firstName" name="fname"><br>
 				<?php } ?>
@@ -39,7 +39,7 @@
 
 				<label for="lastName">Last Name:</label>
 				<?php if(empty($errors['lname'])){ ?>
-				<input type="text" id="lastName" name="lname"><br>
+				<input type="text" id="lastName" name="lname" placeholder="Last Name"><br>
 				<?php }else{?>
 					<input style="border: 1px solid #FB7A7A;" type="text" id="lastName" name="lname"><br>
 				<?php } ?>	
@@ -103,7 +103,7 @@
 
 						<label for="contactNo">Contact No:</label>
 					<?php if(empty($errors['cnum'])){ ?>
-                    <input type="text" id="contactNo" name="cnum">
+                    <input type="text" id="contactNo" name="cnum" placeholder="Contact Number">
 					<?php }else{ ?>
 						<input style="border: 1px solid #FB7A7A;" type="text" id="contactNo" name="cnum">
 					<?php } ?>
@@ -127,14 +127,14 @@
 			
 				<label for="email">Email:</label>
 				<?php if(empty($errors['email'])){ ?>
-					<input type="email" id="email" name="email"><br>
+					<input type="email" id="email" name="email" placeholder="Your Email Address"><br>
 				<?php }else{ ?>
 					<input  style="border: 1px solid #FB7A7A;" type="email" id="email" name="email"><br>
 				<?php } ?>	
 
 				<label for="password">Password:</label>
 				<?php if(empty($errors['password_hash'])){ ?>
-					<input type="password" id="password" name="password_hash"><br>
+					<input type="password" id="password" name="password_hash" placeholder="Enter Your Password"><br>
 				<?php }else{ ?>
 					<input  style="border: 1px solid #FB7A7A;" type="password" id="password" name="password_hash"><br>
 				<?php } ?>
@@ -142,7 +142,7 @@
 				
 				<label for="confirmPassword">Confirm Password:</label>
 				<?php if(empty($errors['confirm_password'])){ ?>
-					<input type="password" id="confirmPassword" name="confirm_password"><br>
+					<input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password"><br>
 				<?php }else{ ?>
 					<input style="border: 1px solid #FB7A7A;" type="password" id="confirmPassword" name="confirm_password"><br>
 				<?php } ?>
