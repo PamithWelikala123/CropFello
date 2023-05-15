@@ -200,7 +200,42 @@ class Selling{
     
 
 
+  public function bank(){
+    $bank = new Bank;
+    $arr['user_id'] = $_SESSION['USER']->user_id;
+    $bank->order_column ='user_id';
+    $row=$bank->where($arr);
 
+     if (isset($_POST['submit'])) {                                
+                                                
+                                                            $arr['acc_no']=$_POST['acc_no'];
+                                                            $arr['acc_name']=$_POST['acc_name'];
+                                                            $arr['bank']=$_POST['bank'];
+                                                            $arr['branch']=$_POST['branch'];
+
+                                                          $bank -> validate($arr);
+                                                             
+                                                            $data['errors'] = $bank->errors;
+
+                                                            if($bank -> validate($arr)){
+
+                                                            if($row){
+                                                                $bank->update($_SESSION['USER']->user_id,$arr,$id_column = 'user_id');
+                                                            }
+                                                            else{
+                                                                $bank->insert($arr);
+                                                            }
+
+
+                                                            }
+                                                            redirect('selling/selling');
+
+                                                            // $bank->insert($arr);
+                                                            //  redirect('Bidding/sellerbidding');
+    }
+
+
+  }
 
 
 
