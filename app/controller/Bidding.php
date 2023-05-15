@@ -238,7 +238,18 @@ class bidding{
 
 
     public function createbid(){
-    $this->view('createbid');
+        $id=$_SESSION['USER']->user_id;
+        $arr['user_id']=$id;
+       $bank = new Bank;
+       $bank->order_column='user_id';
+       $row=$bank->where($arr);
+       if($row){
+        $this->view('createbid');
+       }
+       else{
+        redirect('bidding/sellerbidding');
+       }
+
     }
 
 
@@ -249,6 +260,8 @@ class bidding{
         $id=$_GET['id'];
         $bid->delete($id,'post_id');
         redirect('bidding/sellerbidding');
+
+
     }
 
 

@@ -5,7 +5,7 @@ class postitems{
 use Model;
 
 protected $table = 'postitem';
-protected $allowedColumns = ['user_id','item_id','item_type','exp','unit','price','size','stock_size','stock_size1','discount','discount1','Address','location','platitude','plongitude','city','image','description','post_id'];
+protected $allowedColumns = ['user_id','item_id','item_type','exp','unit','price','size','stock_size','stock_size1','discount','discount1','Address','location','platitude','plongitude','city','image','description','post_id','district'];
 public $errors = [];
 
 public function func1($para1,$para2){
@@ -52,8 +52,8 @@ public function validate($data){
     if(empty($data['stock_size'])){
         $this->errors['stock_size']=" Unit price is required";
     }
-    if(empty($data['address'])){
-        $this->errors['address']=" Address is required";
+    if(empty($data['Address'])){
+        $this->errors['Address']=" Address is required";
     }
     if(empty($data['location'])){
         $this->errors['location']=" Location is required";
