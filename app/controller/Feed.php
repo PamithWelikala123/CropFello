@@ -623,14 +623,14 @@ public function final(){
       $post->func1($new_size,$id);
       $order->delete($order_code,'order_code');
       $checkout1->delete($order_code,'order_code');
-      redirect("feed/feed");
+      redirect("feed/waiting1");
     }else{
       print_r("not enough stock");
     }
   }else{
     $order->delete($order_code,'order_code');
     $checkout1->delete($order_code,'order_code');
-    redirect("feed/feed");
+    redirect("feed/waiting1");
   }
 
   
