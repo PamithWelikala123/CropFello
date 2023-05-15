@@ -64,12 +64,13 @@ $_SESSION['filename'] = 'feed';
             <div class="main">
 
             <div class="filter-container">
+              <form method="post" action="filter">
                           <div class="filter-inputs">
                                 <label>Price: &nbsp;</label>
-                                <input type="number" id="min-price" placeholder="min">
-                                <input type="number" id="max-price" placeholder="max">
+                                <input type="number" id="min-price" placeholder="min" name="min">
+                                <input type="number" id="max-price" placeholder="max" name="max">
                                 <Label>Area:&nbsp;</Label>
-                                <select id="district">
+                                <select id="district" name="district">
                                                                 <option value="">All Districts</option>
                                                                 <option value="2">Ampara</option>
                                                                 <option value="3">Anuradhapura</option>
@@ -97,9 +98,9 @@ $_SESSION['filename'] = 'feed';
                                                                 <option value="25">Trincomalee</option>
                                                                 <option value="26">Vavuniya</option>
                                 </select>
-                                <button id="filter-button">Filter</button>
+                                <button id="filter-button" type="sumbit">Filter</button>
                           </div>
-
+                </form>
                           <div class="filtered-products"></div>
              </div>
 
